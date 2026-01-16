@@ -7,12 +7,18 @@ import org.slf4j.LoggerFactory;
 
 import java.io.FileOutputStream;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Упрощенный сервис для работы с cookies через Selenium
  */
 public class CookieService {
     private static final Logger logger = LoggerFactory.getLogger(CookieService.class);
+
+    // Кэш cookies для доменов
+    private static final Map<String, Map<String, String>> cookieCache = new ConcurrentHashMap<>();
+    private static final Map<String, Long> cacheTimestamp = new ConcurrentHashMap<>();
+    private static final long CACHE_TTL = 30 * 60 * 1000; // 30 минут
 
     // Время последнего обновления cookies
     private static long lastRefreshTime = 0;
@@ -22,27 +28,45 @@ public class CookieService {
      * Получение свежих cookies для домена
      */
     public static Map<String, String> getFreshCookies(String domain) {
-        // Проверяем, не пора ли обновить cookies
-        long currentTime = System.currentTimeMillis();
-        boolean needRefresh = (currentTime - lastRefreshTime) > REFRESH_INTERVAL;
-
-        // Если включены динамические cookies и пора обновить
-        if (Config.isDynamicCookiesEnabled() && needRefresh) {
-            logger.info("🔄 Получение свежих cookies через Selenium...");
-            Map<String, String> freshCookies = SeleniumCookieFetcher.getFreshCookies();
-
-            if (SeleniumCookieFetcher.validateCookies(freshCookies)) {
-                // Сохраняем в конфиг
-                updateCookieConfig(domain, freshCookies);
-                lastRefreshTime = currentTime;
-                return freshCookies;
-            } else {
-                logger.warn("⚠️ Не удалось получить валидные cookies, используем старые");
+        // Проверяем кэш
+        if (cookieCache.containsKey(domain) && cacheTimestamp.containsKey(domain)) {
+            long cacheAge = System.currentTimeMillis() - cacheTimestamp.get(domain);
+            if (cacheAge < CACHE_TTL) {
+                logger.debug("🍪 Используем cookies из кэша для {} (возраст: {} мин)",
+                        domain, cacheAge / (60 * 1000));
+                return new HashMap<>(cookieCache.get(domain));
             }
         }
 
-        // Возвращаем cookies из конфига
-        return getCookiesFromConfig(domain);
+        // Если кэш устарел или отсутствует
+        logger.info("🍪 Получение свежих cookies для {}", domain);
+
+        // Пробуем получить из конфига
+        Map<String, String> cookies = getCookiesFromConfig(domain);
+        if (!cookies.isEmpty()) {
+            // Сохраняем в кэш
+            cookieCache.put(domain, new HashMap<>(cookies));
+            cacheTimestamp.put(domain, System.currentTimeMillis());
+            return cookies;
+        }
+
+        // Если в конфиге нет, пробуем через Selenium (только если включены динамические cookies)
+        if (Config.isDynamicCookiesEnabled()) {
+            try {
+                Map<String, String> freshCookies = SeleniumCookieFetcher.getFreshCookies();
+                if (SeleniumCookieFetcher.validateCookies(freshCookies)) {
+                    // Сохраняем в конфиг и кэш
+                    updateCookieConfig(domain, freshCookies);
+                    cookieCache.put(domain, new HashMap<>(freshCookies));
+                    cacheTimestamp.put(domain, System.currentTimeMillis());
+                    return freshCookies;
+                }
+            } catch (Exception e) {
+                logger.warn("⚠️ Не удалось получить свежие cookies через Selenium: {}", e.getMessage());
+            }
+        }
+
+        return new HashMap<>();
     }
 
     /**

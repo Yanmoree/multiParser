@@ -210,16 +210,19 @@ public class ThreadManager {
         UserSession session = new UserSession(userId, queries, settings);
         userSessions.put(userId, session);
 
-        // Обновляем куки перед запуском, если включены динамические куки
-        if (Config.isDynamicCookiesEnabled()) {
-            try {
-                logger.info("Refreshing cookies before starting parser for user {}", userId);
-                CookieService.refreshCookies("h5api.m.goofish.com");
-            } catch (Exception e) {
-                logger.warn("Failed to refresh cookies before starting parser for user {}: {}",
-                        userId, e.getMessage());
-                // Не прерываем запуск, используем существующие куки
+        // Проверяем наличие cookies перед запуском
+        try {
+            Map<String, String> cookies = CookieService.getCookiesForDomain("h5api.m.goofish.com");
+            if (cookies.isEmpty()) {
+                logger.warn("⚠️ No cookies found for user {} before starting parser", userId);
+                TelegramNotificationService.sendMessage(userId,
+                        "⚠️ Предупреждение: cookies не найдены. Парсер может не работать корректно.");
+            } else {
+                logger.info("✅ Found {} cookies for user {} before starting parser",
+                        cookies.size(), userId);
             }
+        } catch (Exception e) {
+            logger.warn("⚠️ Error checking cookies for user {}: {}", userId, e.getMessage());
         }
 
         // Создание директорий для пользователя если не существуют

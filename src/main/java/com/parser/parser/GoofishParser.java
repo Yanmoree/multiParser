@@ -92,17 +92,45 @@ public class GoofishParser extends BaseParser {
 
             JSONObject json = new JSONObject(response);
 
-            // Исправленная проверка статуса
+            // ИСПРАВЛЕНИЕ 1: Правильная проверка статуса
             String ret = json.optString("ret", "");
             String status = json.optString("status", "");
 
             logger.debug("API response - ret: '{}', status: '{}'", ret, status);
 
-            // Проверяем разные варианты ошибок
-            if (!status.equals("SUCCESS") && !ret.isEmpty()) {
-                // Если статус не SUCCESS и ret не пустой - это ошибка
-                String retMsg = json.optString("msg", "");
+            // Проверяем разные варианты успешного ответа
+            boolean isSuccess = false;
 
+            // Вариант 1: status содержит SUCCESS
+            if ("SUCCESS".equals(status)) {
+                isSuccess = true;
+            }
+
+            // Вариант 2: ret содержит SUCCESS (может быть массивом или строкой)
+            if (!isSuccess && ret != null && !ret.isEmpty()) {
+                if (ret.startsWith("[") && ret.endsWith("]")) {
+                    // ret это JSON массив
+                    try {
+                        JSONArray retArray = new JSONArray(ret);
+                        if (retArray.length() > 0) {
+                            String firstRet = retArray.getString(0);
+                            if (firstRet != null && firstRet.contains("SUCCESS")) {
+                                isSuccess = true;
+                                logger.debug("Success detected in ret array: {}", firstRet);
+                            }
+                        }
+                    } catch (Exception e) {
+                        logger.warn("Failed to parse ret as JSON array: {}", ret);
+                    }
+                } else if (ret.contains("SUCCESS")) {
+                    // ret это строка с SUCCESS
+                    isSuccess = true;
+                    logger.debug("Success detected in ret string: {}", ret);
+                }
+            }
+
+            if (!isSuccess) {
+                String retMsg = json.optString("msg", "");
                 logger.error("API returned error: {}, msg: {}", ret, retMsg);
 
                 // Проверка на ошибки авторизации
@@ -118,12 +146,6 @@ public class GoofishParser extends BaseParser {
 
                 // Если это не ошибка авторизации, просто возвращаем пустой список
                 return products;
-            }
-
-            // Если ret содержит SUCCESS, но в странном формате ["SUCCESS::调用成功"]
-            // Это может быть валидный ответ
-            if (ret.contains("SUCCESS")) {
-                logger.debug("Response contains 'SUCCESS' in ret field, continuing parsing...");
             }
 
             // Получение данных
@@ -169,12 +191,52 @@ public class GoofishParser extends BaseParser {
 
             logger.debug("Found {} items in response", resultList.length());
 
-            // Парсинг каждого товара
+// === ДОБАВЬТЕ ЭТОТ ОТЛАДОЧНЫЙ КОД ===
+            logger.info("=== DEBUG: ANALYZING FIRST ITEM STRUCTURE ===");
+            if (resultList.length() > 0) {
+                try {
+                    JSONObject firstItem = resultList.getJSONObject(0);
+                    logger.info("First item keys: {}", firstItem.keySet());
+                    logger.info("First item structure: {}", firstItem.toString(2).substring(0, Math.min(500, firstItem.toString().length())));
+
+                    // Проверим наличие данных
+                    if (firstItem.has("data")) {
+                        Object dataObj = firstItem.get("data");
+                        if (dataObj instanceof JSONObject) {
+                            JSONObject itemData = (JSONObject) dataObj;
+                            logger.info("Item 'data' keys: {}", itemData.keySet());
+
+                            if (itemData.has("item")) {
+                                Object itemObj = itemData.get("item");
+                                logger.info("Item 'data.item' type: {}", itemObj.getClass().getSimpleName());
+                                if (itemObj instanceof JSONObject) {
+                                    JSONObject item = (JSONObject) itemObj;
+                                    logger.info("Item 'data.item' keys: {}", item.keySet());
+                                }
+                            }
+
+                            if (itemData.has("template")) {
+                                JSONObject template = itemData.getJSONObject("template");
+                                logger.info("Template keys: {}", template.keySet());
+                                logger.info("Template URL: {}", template.optString("url", "NO_URL"));
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    logger.error("Error analyzing item structure: {}", e.getMessage());
+                }
+            }
+            logger.info("=== END DEBUG ===");
+// === КОНЕЦ ОТЛАДОЧНОГО КОДА ===
+
+            logger.debug("Found {} items in response", resultList.length());
+
+            // ИСПРАВЛЕНИЕ 2: Парсинг новой структуры товаров
             int parsedCount = 0;
             for (int i = 0; i < resultList.length(); i++) {
                 try {
                     JSONObject item = resultList.getJSONObject(i);
-                    Product product = parseProductItem(item, query);
+                    Product product = parseProductItemNewStructure(item, query);
 
                     if (product != null && isValidProduct(product)) {
                         products.add(product);
@@ -202,6 +264,360 @@ public class GoofishParser extends BaseParser {
     }
 
     /**
+     * Парсинг товара из структуры (адаптировано из Python кода)
+     */
+    private Product parseProductItemNewStructure(JSONObject item, String query) {
+        try {
+            // === ПУТЬ К ДАННЫМ КАК В PYTHON КОДЕ ===
+            // item.get('data', {}).get('item', {}).get('main', {}).get('clickParam', {}).get('args', {})
+
+            JSONObject data = item.optJSONObject("data");
+            if (data == null) {
+                logger.trace("No data object in item");
+                return null;
+            }
+
+            JSONObject itemObj = data.optJSONObject("item");
+            if (itemObj == null) {
+                logger.trace("No item object in data");
+                return null;
+            }
+
+            JSONObject main = itemObj.optJSONObject("main");
+            if (main == null) {
+                logger.trace("No main object in item");
+                return null;
+            }
+
+            JSONObject clickParam = main.optJSONObject("clickParam");
+            if (clickParam == null) {
+                // Пробуем альтернативный путь через exContent (как в Python)
+                JSONObject exContent = main.optJSONObject("exContent");
+                if (exContent != null) {
+                    String itemId = exContent.optString("itemId", "");
+                    if (itemId != null && !itemId.isEmpty() && !itemId.equals("None")) {
+                        // Создаем product из exContent
+                        Product product = parseFromExContent(exContent, itemId, query);
+                        if (product != null) {
+                            // ПРОВЕРКА ФИЛЬТРА ПОСЛЕ ПАРСИНГА
+                            return filterProductByQuery(product, query);
+                        }
+                        return null;
+                    }
+                }
+                logger.trace("No clickParam object in main");
+                return null;
+            }
+
+            JSONObject args = clickParam.optJSONObject("args");
+            if (args == null) {
+                logger.trace("No args object in clickParam");
+                return null;
+            }
+
+            // Получение ID товара (как в Python)
+            String itemId = args.optString("id", "");
+            if (itemId == null || itemId.isEmpty() || itemId.equals("None")) {
+                logger.trace("No item ID found in args");
+                return null;
+            }
+
+            // === СОЗДАНИЕ ОБЪЕКТА ТОВАРА ===
+            Product product = new Product();
+            product.setId(itemId);
+            product.setSite("goofish");
+            product.setQuery(query);
+
+            // === ИЗВЛЕЧЕНИЕ НАЗВАНИЯ (как в Python) ===
+            String title = "";
+            JSONObject detailParams = args.optJSONObject("detailParams");
+            if (detailParams != null) {
+                title = detailParams.optString("title", "");
+            }
+
+            // Альтернативный путь для названия (через exContent)
+            if (title == null || title.isEmpty()) {
+                JSONObject exContent = main.optJSONObject("exContent");
+                if (exContent != null) {
+                    JSONObject exDetailParams = exContent.optJSONObject("detailParams");
+                    if (exDetailParams != null) {
+                        title = exDetailParams.optString("title", "");
+                    }
+                }
+            }
+
+            if (title == null || title.isEmpty()) {
+                title = args.optString("title", "");
+            }
+
+            product.setTitle(title != null ? title : "Без названия");
+
+            // === ПРОВЕРКА СОДЕРЖАНИЯ ПОИСКОВОГО ЗАПРОСА В НАЗВАНИИ (как в Python) ===
+            if (query != null && !query.trim().isEmpty()) {
+                String queryLower = query.toLowerCase();
+                String titleLower = title != null ? title.toLowerCase() : "";
+                if (!titleLower.contains(queryLower)) {
+                    logger.trace("Product filtered - query '{}' not in title: '{}'",
+                            query, title);
+                    return null;
+                }
+            }
+
+            // === ИЗВЛЕЧЕНИЕ ЦЕНЫ (как в Python) ===
+            String priceStr = args.optString("price", "0");
+            double price = 0.0;
+            try {
+                price = Double.parseDouble(priceStr) / 100.0; // Делим на 100 как в Python
+            } catch (NumberFormatException e) {
+                logger.warn("Failed to parse price: {}", priceStr);
+            }
+            product.setPrice(price);
+
+            // === ИЗВЛЕЧЕНИЕ ВРЕМЕНИ ПУБЛИКАЦИИ ===
+            String publishTimeStr = args.optString("publishTime", "0");
+            long publishTimestamp = 0;
+            try {
+                publishTimestamp = Long.parseLong(publishTimeStr);
+            } catch (NumberFormatException e) {
+                logger.warn("Failed to parse publishTime: {}", publishTimeStr);
+            }
+
+            // Вычисление возраста в минутах (как в Python)
+            int ageMinutes = 99999;
+            if (publishTimestamp > 0) {
+                long currentTimeMs = System.currentTimeMillis();
+                ageMinutes = (int) ((currentTimeMs - publishTimestamp) / (1000 * 60));
+            }
+            product.setAgeMinutes(ageMinutes);
+
+            // === ИЗВЛЕЧЕНИЕ ЛОКАЦИИ ===
+            String location = args.optString("area", "");
+            if (location == null || location.isEmpty()) {
+                JSONObject exContent = main.optJSONObject("exContent");
+                if (exContent != null) {
+                    location = exContent.optString("area", "");
+                }
+            }
+            product.setLocation(location != null ? location : "Не указано");
+
+            // === URL ТОВАРА ===
+            product.setUrl("https://www.goofish.com/item?id=" + itemId);
+
+            // === ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ ===
+            String seller = args.optString("nick", "");
+            if (seller != null && !seller.isEmpty()) {
+                product.setSeller(seller);
+            }
+
+            String category = args.optString("category", "");
+            if (category != null && !category.isEmpty()) {
+                product.setCategory(category);
+            }
+
+            // === ИЗОБРАЖЕНИЯ ===
+            List<String> images = new ArrayList<>();
+            JSONObject mainImages = main.optJSONObject("images");
+            if (mainImages != null) {
+                // TODO: Извлечь URL изображений из images объекта
+            }
+            product.setImages(images);
+
+            logger.debug("Parsed product: {} ({}¥, {} min)",
+                    product.getShortTitle(), price, ageMinutes);
+            return product;
+
+        } catch (Exception e) {
+            logger.error("Error parsing product item: {}", e.getMessage(), e);
+            return null;
+        }
+    }
+
+    /**
+     * Фильтрация товара по поисковому запросу
+     */
+    private Product filterProductByQuery(Product product, String query) {
+        if (product == null || query == null || query.trim().isEmpty()) {
+            return product;
+        }
+
+        String queryLower = query.toLowerCase();
+        String title = product.getTitle();
+
+        if (title != null && !title.toLowerCase().contains(queryLower)) {
+            logger.trace("Product filtered - query '{}' not in title: '{}'",
+                    query, title);
+            return null;
+        }
+
+        return product;
+    }
+
+    /**
+     * Парсинг из exContent (альтернативный путь)
+     */
+    /**
+     * Парсинг из exContent (альтернативный путь)
+     */
+    private Product parseFromExContent(JSONObject exContent, String itemId, String query) {
+        try {
+            Product product = new Product();
+            product.setId(itemId);
+            product.setSite("goofish");
+            product.setQuery(query);
+
+            // Название
+            JSONObject detailParams = exContent.optJSONObject("detailParams");
+            String title = "";
+            if (detailParams != null) {
+                title = detailParams.optString("title", "");
+            }
+            product.setTitle(title != null ? title : "Без названия");
+
+            // === ПРОВЕРКА ФИЛЬТРА ПО ЗАПРОСУ ===
+            if (query != null && !query.trim().isEmpty()) {
+                String queryLower = query.toLowerCase();
+                String titleLower = title != null ? title.toLowerCase() : "";
+                if (!titleLower.contains(queryLower)) {
+                    logger.trace("Product filtered (exContent) - query '{}' not in title: '{}'",
+                            query, title);
+                    return null;
+                }
+            }
+
+            // Цена
+            String priceStr = exContent.optString("price", "0");
+            double price = 0.0;
+            try {
+                price = Double.parseDouble(priceStr) / 100.0;
+            } catch (NumberFormatException e) {
+                logger.warn("Failed to parse price from exContent: {}", priceStr);
+            }
+            product.setPrice(price);
+
+            // Локация
+            String location = exContent.optString("area", "");
+            product.setLocation(location != null ? location : "Не указано");
+
+            // URL
+            product.setUrl("https://www.goofish.com/item?id=" + itemId);
+
+            // Возраст
+            String publishTimeStr = exContent.optString("publishTime", "0");
+            int ageMinutes = 99999;
+            try {
+                long publishTimestamp = Long.parseLong(publishTimeStr);
+                if (publishTimestamp > 0) {
+                    long currentTimeMs = System.currentTimeMillis();
+                    ageMinutes = (int) ((currentTimeMs - publishTimestamp) / (1000 * 60));
+                }
+            } catch (NumberFormatException e) {
+                logger.warn("Failed to parse publishTime from exContent: {}", publishTimeStr);
+            }
+            product.setAgeMinutes(ageMinutes);
+
+            return product;
+
+        } catch (Exception e) {
+            logger.error("Error parsing from exContent: {}", e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Извлечение ID товара из новой структуры
+     */
+    private String extractItemIdNewStructure(JSONObject itemData, JSONObject data) {
+        // Попытка получить ID из разных мест
+
+        // Из itemData
+        JSONObject main = itemData.optJSONObject("main");
+        if (main != null) {
+            JSONObject clickParam = main.optJSONObject("clickParam");
+            if (clickParam != null) {
+                JSONObject args = clickParam.optJSONObject("args");
+                if (args != null) {
+                    String id = args.optString("id");
+                    if (id != null && !id.isEmpty()) {
+                        return id;
+                    }
+                }
+            }
+        }
+
+        // Из extra
+        JSONObject extra = itemData.optJSONObject("extra");
+        if (extra != null) {
+            String id = extra.optString("itemId");
+            if (id != null && !id.isEmpty()) {
+                return id;
+            }
+        }
+
+        // Из data
+        if (data != null) {
+            JSONObject template = data.optJSONObject("template");
+            if (template != null) {
+                String url = template.optString("url");
+                if (url != null && url.contains("id=")) {
+                    // Извлечь ID из URL
+                    String[] parts = url.split("id=");
+                    if (parts.length > 1) {
+                        String idPart = parts[1];
+                        if (idPart.contains("&")) {
+                            idPart = idPart.split("&")[0];
+                        }
+                        return idPart;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Извлечение изображений из новой структуры
+     */
+    private List<String> extractImagesNewStructure(JSONObject main, JSONObject extra, JSONObject data) {
+        List<String> images = new ArrayList<>();
+
+        // Попытка получить из main
+        if (main != null) {
+            JSONArray imageArray = main.optJSONArray("images");
+            if (imageArray != null) {
+                for (int i = 0; i < imageArray.length(); i++) {
+                    String imageUrl = imageArray.optString(i);
+                    if (imageUrl != null && !imageUrl.isEmpty()) {
+                        images.add(imageUrl);
+                        if (images.size() >= 5) break; // Ограничение на количество
+                    }
+                }
+            }
+        }
+
+        // Попытка получить из extra
+        if (extra != null && images.isEmpty()) {
+            String imageUrl = extra.optString("picUrl");
+            if (imageUrl != null && !imageUrl.isEmpty()) {
+                images.add(imageUrl);
+            }
+        }
+
+        // Попытка получить из data (новая структура)
+        if (data != null && images.isEmpty()) {
+            JSONObject template = data.optJSONObject("template");
+            if (template != null) {
+                // Могут быть ссылки на изображения в template
+                // Нужно исследовать структуру template
+            }
+        }
+
+        return images;
+    }
+
+    // Остальные методы остаются без изменений...
+
+    /**
      * Основной метод поиска товаров с динамическими куками
      */
     @Override
@@ -219,10 +635,10 @@ public class GoofishParser extends BaseParser {
 
             while (shouldRetry && retryCount <= maxRetries) {
                 try {
-                    // Обновляем куки перед первым запросом или если давно не обновляли
-                    if (page == 1 || shouldRefreshCookies()) {
-                        refreshCookiesIfNeeded();
-                    }
+                    // УБРАЛИ ОБНОВЛЕНИЕ COOKIES ПЕРЕД КАЖДЫМ ЗАПРОСОМ
+                    // if (page == 1 || shouldRefreshCookies()) {
+                    //     refreshCookiesIfNeeded();
+                    // }
 
                     // Построение URL с актуальной подписью
                     String url = buildSearchUrlWithSignature(query, page, rowsPerPage);
@@ -298,13 +714,11 @@ public class GoofishParser extends BaseParser {
                         logger.warn("🔑 Token error on page {}: {}", page, e.getMessage());
 
                         if (retryCount <= maxRetries) {
-                            logger.info("🔄 Attempting to refresh cookies and retry (attempt {}/{})",
+                            logger.info("🔄 Token error detected, retrying with current cookies (attempt {}/{})",
                                     retryCount, maxRetries);
-                            // Принудительно обновляем куки
-                            forceRefreshCookies();
-                            // Задержка перед повторной попыткой
+                            // НЕ обновляем cookies принудительно, просто ждем и пробуем снова
                             try {
-                                Thread.sleep(Config.getHttpRetryDelay());
+                                Thread.sleep(Config.getHttpRetryDelay() * retryCount); // Увеличиваем задержку
                             } catch (InterruptedException ie) {
                                 Thread.currentThread().interrupt();
                                 throw new RuntimeException(ie);
@@ -313,7 +727,7 @@ public class GoofishParser extends BaseParser {
                         } else {
                             logger.error("❌ Max retries exceeded for token refresh on page {}", page);
                             try {
-                                throw e;
+                                throw e; // Пробрасываем ошибку дальше
                             } catch (Exception ex) {
                                 throw new RuntimeException(ex);
                             }
@@ -475,8 +889,8 @@ public class GoofishParser extends BaseParser {
     private boolean shouldRefreshCookies() {
         long currentTime = System.currentTimeMillis();
         long timeSinceLastRefresh = currentTime - lastCookieRefreshTime;
-        // Обновляем куки каждые 30 минут или если давно не обновляли
-        return timeSinceLastRefresh > (30 * 60 * 1000);
+        // Увеличиваем до 6 часов (было 30 минут)
+        return timeSinceLastRefresh > (6 * 60 * 60 * 1000);
     }
 
     /**
@@ -485,17 +899,23 @@ public class GoofishParser extends BaseParser {
     private void refreshCookiesIfNeeded() {
         if (shouldRefreshCookies()) {
             try {
-                logger.info("🔄 Обновление cookies...");
+                logger.info("🔄 Обновление cookies (последнее было {} минут назад)...",
+                        (System.currentTimeMillis() - lastCookieRefreshTime) / (60 * 1000));
                 boolean success = CookieService.refreshCookies("h5api.m.goofish.com");
                 if (success) {
                     cookieRefreshAttempts++;
                     lastCookieRefreshTime = System.currentTimeMillis();
+                    logger.info("✅ Cookies успешно обновлены");
                 } else {
-                    logger.warn("⚠️ Не удалось обновить cookies");
+                    logger.warn("⚠️ Не удалось обновить cookies, используем старые");
                 }
             } catch (Exception e) {
                 logger.warn("⚠️ Ошибка при обновлении cookies: {}", e.getMessage());
+                // Продолжаем со старыми cookies
             }
+        } else {
+            logger.debug("🕒 Cookies еще свежие (обновлены {} минут назад), пропускаем обновление",
+                    (System.currentTimeMillis() - lastCookieRefreshTime) / (60 * 1000));
         }
     }
 
@@ -523,7 +943,7 @@ public class GoofishParser extends BaseParser {
     }
 
     /**
-     * Парсинг отдельного товара
+     * Парсинг отдельного товара (старая структура - для обратной совместимости)
      */
     private Product parseProductItem(JSONObject item, String query) {
         try {

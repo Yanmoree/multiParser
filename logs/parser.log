@@ -421,3 +421,846 @@
 2026-01-16 22:31:26.735 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
 2026-01-16 22:31:26.735 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'adidas': found 0 products in 3051ms (3 requests, 1 cookie refreshes)
 2026-01-16 22:31:28.741 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:38:13.520 [main] INFO  com.parser.test.GoofishApiTester - === Тестирование API Goofish ===
+2026-01-16 22:38:13.522 [main] INFO  com.parser.test.GoofishApiTester - 
+=== Тест 1: Проверка API с текущими cookies ===
+2026-01-16 22:38:13.537 [main] INFO  com.parser.test.GoofishApiTester - URL запроса: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768592293522&sign=b9593ea24e5d4f88a44d088f0cd371fb&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0&data=%7B%22pageNumber%22%3A1%2C%22propValueStr%22%3A%7B%7D%2C%22gps%22%3A%22%22%2C%22extraFilterValue%22%3A%22%7B%7D%22%2C%22rowsPerPage%22%3A10%2C%22fromFilter%22%3Afalse%2C%22sortValue%22%3A%22new%22%2C%22customGps%22%3A%22%22%2C%22sortField%22%3A%22%22%2C%22customDistance%22%3A%22%22%2C%22keyword%22%3A%22stone+island%22%2C%22searchReqFromPage%22%3A%22pcSearch%22%2C%22userPositionJson%22%3A%22%7B%7D%22%7D
+2026-01-16 22:38:14.941 [main] INFO  com.parser.test.GoofishApiTester - Длина ответа: 108583 символов
+2026-01-16 22:38:14.943 [main] INFO  com.parser.test.GoofishApiTester - Первые 500 символов ответа:
+{"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],"hidden":false,"showFilterBarWithCpv":false,"showWantBuy":false},"needDecryptKeys":[],"resultInfo":{"forceUseTppRepair":false,"hasNextPage":true,"loadingTextList":["宝贝正在来...","呼哧呼哧...","还有很多页...","总有你想要...","睁大眼瞅瞅...","聪明人上闲鱼...","谢谢你让旧物发光...","喝口水...","等我一下..."],"maxPrice":"","minPrice":"","scrollParams":{"androidSpeed":"middle","androidUseNew":"false","iOSUseNew":"false","iOSSpeed":"middle","iOS
+2026-01-16 22:38:14.983 [main] INFO  com.parser.test.GoofishApiTester - Анализ ответа:
+2026-01-16 22:38:14.983 [main] INFO  com.parser.test.GoofishApiTester -   ret: ["SUCCESS::调用成功"]
+2026-01-16 22:38:14.983 [main] INFO  com.parser.test.GoofishApiTester -   status: NOT_FOUND
+2026-01-16 22:38:14.983 [main] INFO  com.parser.test.GoofishApiTester -   msg: NOT_FOUND
+2026-01-16 22:38:14.983 [main] INFO  com.parser.test.GoofishApiTester -   Текущая логика считает это ошибкой: true
+2026-01-16 22:38:14.983 [main] INFO  com.parser.test.GoofishApiTester -   data присутствует, ключи: [needDecryptKeys, tabList, resultPrefixBar, appBar, topList, filterBar, resultList, resultInfo]
+2026-01-16 22:38:14.983 [main] INFO  com.parser.test.GoofishApiTester - 
+=== Тест 2: Детальный анализ структуры ответа ===
+2026-01-16 22:38:15.410 [main] INFO  com.parser.test.GoofishApiTester - Ключи в JSON ответе:
+2026-01-16 22:38:15.411 [main] INFO  com.parser.test.GoofishApiTester -   'ret': JSONArray (17 chars)
+2026-01-16 22:38:15.411 [main] INFO  com.parser.test.GoofishApiTester -     Значение: ["SUCCESS::调用成功"]
+2026-01-16 22:38:15.411 [main] INFO  com.parser.test.GoofishApiTester -     === АНАЛИЗ ПОЛЯ ret ===
+2026-01-16 22:38:15.411 [main] INFO  com.parser.test.GoofishApiTester -     Полное значение: ["SUCCESS::调用成功"]
+2026-01-16 22:38:15.411 [main] INFO  com.parser.test.GoofishApiTester -     Это JSON массив с 1 элементами:
+2026-01-16 22:38:15.412 [main] INFO  com.parser.test.GoofishApiTester -       [0]: SUCCESS::调用成功
+2026-01-16 22:38:15.418 [main] INFO  com.parser.test.GoofishApiTester -   'data': JSONObject (76853 chars)
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -     Ключи в 'data': [needDecryptKeys, tabList, resultPrefixBar, appBar, topList, filterBar, resultList, resultInfo]
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -     'needDecryptKeys' - JSONArray с 0 элементами
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -     'tabList' - JSONArray с 0 элементами
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -     'resultPrefixBar' - JSONArray с 0 элементами
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -     'topList' - JSONArray с 0 элементами
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -     'resultList' - JSONArray с 5 элементами
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -   'v': String (3 chars)
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -     Значение: 1.0
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -   'api': String (36 chars)
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester -     Значение: mtop.taobao.idlemtopsearch.pc.search
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester - 
+=== Тест 3: Проверка разных запросов ===
+2026-01-16 22:38:15.419 [main] INFO  com.parser.test.GoofishApiTester - 
+--- Запрос: 'stone island' ---
+2026-01-16 22:38:15.897 [main] INFO  com.parser.test.GoofishApiTester -   ret: '["SUCCESS::调用成功"]'
+2026-01-16 22:38:15.897 [main] INFO  com.parser.test.GoofishApiTester -   status: ''
+2026-01-16 22:38:15.897 [main] INFO  com.parser.test.GoofishApiTester -   msg: ''
+2026-01-16 22:38:15.897 [main] INFO  com.parser.test.GoofishApiTester -   data keys: [needDecryptKeys, tabList, resultPrefixBar, appBar, topList, filterBar, resultList, resultInfo]
+2026-01-16 22:38:15.897 [main] INFO  com.parser.test.GoofishApiTester -   Нашли товары в ключе 'resultList': 3 элементов
+2026-01-16 22:38:15.897 [main] INFO  com.parser.test.GoofishApiTester -   Примеры товаров:
+2026-01-16 22:38:15.898 [main] INFO  com.parser.test.GoofishApiTester -     [0]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:15.899 [main] INFO  com.parser.test.GoofishApiTester -     [1]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:15.899 [main] INFO  com.parser.test.GoofishApiTester -     [2]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:17.900 [main] INFO  com.parser.test.GoofishApiTester - 
+--- Запрос: 'adidas' ---
+2026-01-16 22:38:18.466 [main] INFO  com.parser.test.GoofishApiTester -   ret: '["SUCCESS::调用成功"]'
+2026-01-16 22:38:18.466 [main] INFO  com.parser.test.GoofishApiTester -   status: ''
+2026-01-16 22:38:18.466 [main] INFO  com.parser.test.GoofishApiTester -   msg: ''
+2026-01-16 22:38:18.466 [main] INFO  com.parser.test.GoofishApiTester -   data keys: [needDecryptKeys, tabList, resultPrefixBar, appBar, topList, filterBar, resultList, resultInfo]
+2026-01-16 22:38:18.466 [main] INFO  com.parser.test.GoofishApiTester -   Нашли товары в ключе 'resultList': 3 элементов
+2026-01-16 22:38:18.466 [main] INFO  com.parser.test.GoofishApiTester -   Примеры товаров:
+2026-01-16 22:38:18.466 [main] INFO  com.parser.test.GoofishApiTester -     [0]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:18.467 [main] INFO  com.parser.test.GoofishApiTester -     [1]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:18.467 [main] INFO  com.parser.test.GoofishApiTester -     [2]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:20.471 [main] INFO  com.parser.test.GoofishApiTester - 
+--- Запрос: '手机' ---
+2026-01-16 22:38:20.906 [main] INFO  com.parser.test.GoofishApiTester -   ret: '["SUCCESS::调用成功"]'
+2026-01-16 22:38:20.906 [main] INFO  com.parser.test.GoofishApiTester -   status: ''
+2026-01-16 22:38:20.906 [main] INFO  com.parser.test.GoofishApiTester -   msg: ''
+2026-01-16 22:38:20.906 [main] INFO  com.parser.test.GoofishApiTester -   data keys: [needDecryptKeys, tabList, resultPrefixBar, appBar, topList, filterBar, resultList, resultInfo]
+2026-01-16 22:38:20.906 [main] INFO  com.parser.test.GoofishApiTester -   Нашли товары в ключе 'resultList': 3 элементов
+2026-01-16 22:38:20.906 [main] INFO  com.parser.test.GoofishApiTester -   Примеры товаров:
+2026-01-16 22:38:20.907 [main] INFO  com.parser.test.GoofishApiTester -     [0]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:20.908 [main] INFO  com.parser.test.GoofishApiTester -     [1]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:20.910 [main] INFO  com.parser.test.GoofishApiTester -     [2]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:22.915 [main] INFO  com.parser.test.GoofishApiTester - 
+--- Запрос: 'nike' ---
+2026-01-16 22:38:23.367 [main] INFO  com.parser.test.GoofishApiTester -   ret: '["SUCCESS::调用成功"]'
+2026-01-16 22:38:23.368 [main] INFO  com.parser.test.GoofishApiTester -   status: ''
+2026-01-16 22:38:23.368 [main] INFO  com.parser.test.GoofishApiTester -   msg: ''
+2026-01-16 22:38:23.368 [main] INFO  com.parser.test.GoofishApiTester -   data keys: [needDecryptKeys, tabList, resultPrefixBar, appBar, topList, filterBar, resultList, resultInfo]
+2026-01-16 22:38:23.368 [main] INFO  com.parser.test.GoofishApiTester -   Нашли товары в ключе 'resultList': 3 элементов
+2026-01-16 22:38:23.368 [main] INFO  com.parser.test.GoofishApiTester -   Примеры товаров:
+2026-01-16 22:38:23.371 [main] INFO  com.parser.test.GoofishApiTester -     [0]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:23.373 [main] INFO  com.parser.test.GoofishApiTester -     [1]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:38:23.374 [main] INFO  com.parser.test.GoofishApiTester -     [2]: {"data":{"template":{"name":"idlefish_search_item_new_tags","version":"1764903084232","url":"https:/...
+2026-01-16 22:44:20.668 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-16 22:44:20.668 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-16 22:44:20.669 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-16 22:44:20.669 [main] INFO  com.parser.Main - Bot token: 8404858867...
+2026-01-16 22:44:20.669 [main] INFO  com.parser.Main - Bot username: @goofishparse_bot
+2026-01-16 22:44:20.669 [main] INFO  com.parser.Main - Admin ID: 1080595280
+2026-01-16 22:44:20.670 [main] INFO  com.parser.Main - Data directories created
+2026-01-16 22:44:20.672 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-16 22:44:20.672 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-16 22:44:20.672 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-16 22:44:20.672 [main] INFO  com.parser.Main - ThreadManager initialized
+2026-01-16 22:44:20.672 [main] INFO  com.parser.Main - 🔄 Step 1: Initializing Telegram bot...
+2026-01-16 22:44:20.672 [main] INFO  com.parser.Main - 🤖 Creating TelegramBotService instance...
+2026-01-16 22:44:21.178 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-16 22:44:21.178 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-16 22:44:21.178 [main] INFO  com.parser.Main - ✅ TelegramBotService instance created
+2026-01-16 22:44:21.178 [main] INFO  com.parser.Main - ✅ Bot username retrieved: @goofishparse_bot
+2026-01-16 22:44:21.178 [main] INFO  com.parser.Main - 🤖 Registering bot with Telegram API...
+2026-01-16 22:44:21.179 [main] INFO  com.parser.Main - ✅ TelegramBotsApi created
+2026-01-16 22:44:21.273 [main] INFO  com.parser.Main - 🎉 Telegram bot registered successfully!
+2026-01-16 22:44:21.273 [main] INFO  com.parser.Main - ✅ Bot is now listening for messages...
+2026-01-16 22:44:21.273 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-16 22:44:21.273 [main] INFO  com.parser.Main - ✅ TelegramNotificationService initialized with bot instance
+2026-01-16 22:44:21.273 [main] INFO  com.parser.Main - 🔄 Step 2: Validating cookies...
+2026-01-16 22:44:21.273 [main] INFO  com.parser.Main - 🍪 Checking cookies...
+2026-01-16 22:44:21.273 [main] INFO  com.parser.Main - 🔄 Fetching fresh cookies via Selenium...
+2026-01-16 22:44:21.273 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:44:21.274 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:44:22.101 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:44:22.105 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:44:24.257 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:44:24.260 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:44:28.378 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:44:33.469 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 0a56399176f03873f37a52d37d72f32c
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : GoPxITeEb2YCAbJFkxRZK06s
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 664783448819e5d6cf97a4a30d35365f
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 5e337b178513a
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : c5671ff99c7cc3835023efc697c3cfeb_1768603105559
+2026-01-16 22:44:33.489 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1b332820a1dbebfa2946a1b6aee46e09
+2026-01-16 22:44:33.490 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:44:33.490 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: c5671ff99c7cc3835023...
+2026-01-16 22:44:33.490 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768603105559
+2026-01-16 22:44:33.603 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:44:33.603 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:44:33.604 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-16 22:44:33.605 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:44:33.605 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:44:33.605 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=0a56399176f03873f37a52d37d72f32c; cna=GoPxITeEb2YCAbJFkxRZK06s; _m_h5_tk_enc=664783448819e5d6cf97a...
+2026-01-16 22:44:33.605 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - ✅ Fresh cookies fetched successfully
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - ✅ Application startup sequence completed!
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - 🤖 Telegram bot: @goofishparse_bot - READY
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: ENABLED
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - 📱 Send /start to @goofishparse_bot in Telegram
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:44:33.605 [main] INFO  com.parser.Main - ⏳ Entering main loop...
+2026-01-16 22:44:36.690 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /start_parser
+2026-01-16 22:44:36.691 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Attempting to start parser for user 1080595280
+2026-01-16 22:44:36.692 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist
+2026-01-16 22:44:36.697 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Refreshing cookies before starting parser for user 1080595280
+2026-01-16 22:44:36.698 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:44:36.698 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:44:36.717 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:44:36.717 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:44:37.605 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:44:37.609 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:44:38.937 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:44:44.012 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:44:44.021 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:44:44.021 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:44:44.021 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:44:44.021 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:44:44.021 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    t                   : f4f5da655c13e3a37752519a28a64272
+2026-01-16 22:44:44.021 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : J4PxIXPk7GsCAbJFkxS1hXhK
+2026-01-16 22:44:44.021 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 9e54ee158dfb20c4133458b4ba6f4a57
+2026-01-16 22:44:44.021 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : e6eb53b56333
+2026-01-16 22:44:44.022 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 4cfcdfcd0acb82607cbe54cba7441a33_1768601319324
+2026-01-16 22:44:44.022 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 11429dc109576674d9c9a0d93b8e7081
+2026-01-16 22:44:44.022 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:44:44.022 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 4cfcdfcd0acb82607cbe...
+2026-01-16 22:44:44.022 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768601319324
+2026-01-16 22:44:44.121 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:44:44.121 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:44:44.121 [goofishparse_bot Telegram Executor] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:44:44.121 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:44:44.121 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 🍪 Строка cookies (235 символов): t=f4f5da655c13e3a37752519a28a64272; cna=J4PxIXPk7GsCAbJFkxS1hXhK; _m_h5_tk_enc=9e54ee158dfb20c413345...
+2026-01-16 22:44:44.122 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:44:44.126 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280
+2026-01-16 22:44:44.126 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-16 22:44:44.130 [pool-1-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for site: goofish
+2026-01-16 22:44:44.131 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:44:44.131 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Обновление cookies...
+2026-01-16 22:44:44.131 [pool-1-thread-1] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:44:44.131 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:44:44.151 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:44:44.151 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:44:45.049 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:44:45.051 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:45:13.005 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:45:18.062 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:45:18.085 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:45:18.085 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 0
+2026-01-16 22:45:18.085 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 0
+2026-01-16 22:45:18.179 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:45:18.180 [pool-1-thread-1] ERROR com.parser.service.CookieService - ❌ Полученные cookies не прошли валидацию
+2026-01-16 22:45:18.180 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ Не удалось обновить cookies
+2026-01-16 22:45:22.994 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:45:22.994 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'stone island'
+2026-01-16 22:45:22.994 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:45:22.994 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'stone island': found 0 products in 38863ms (1 requests, 0 cookie refreshes)
+2026-01-16 22:45:25.001 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:45:25.013 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Обновление cookies...
+2026-01-16 22:45:25.014 [pool-1-thread-1] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:45:25.014 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:45:25.084 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:45:25.086 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:45:26.459 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:45:26.461 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:45:28.514 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:45:33.548 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    t                   : f5338fde5ab770a156fee4d2d1346f52
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : WYPxITOe3XICAbJFkxTgCTcN
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 6f8821424f8967197bc28859cf421066
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 7d7353e1ee7ab
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 00ab262ad01b05840a250112dd71a36d_1768601368814
+2026-01-16 22:45:33.570 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 13626dfb879adda39390170090b32775
+2026-01-16 22:45:33.571 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:45:33.571 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 00ab262ad01b05840a25...
+2026-01-16 22:45:33.571 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768601368814
+2026-01-16 22:45:33.671 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:45:33.671 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:45:33.672 [pool-1-thread-1] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:45:33.672 [pool-1-thread-1] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:45:33.672 [pool-1-thread-1] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=f5338fde5ab770a156fee4d2d1346f52; cna=WYPxITOe3XICAbJFkxTgCTcN; _m_h5_tk_enc=6f8821424f8967197bc28...
+2026-01-16 22:45:33.672 [pool-1-thread-1] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:45:35.814 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:45:35.815 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'cav empt'
+2026-01-16 22:45:35.815 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:45:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'cav empt': found 0 products in 10815ms (2 requests, 1 cookie refreshes)
+2026-01-16 22:45:37.820 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:45:40.671 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:45:40.672 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'adidas'
+2026-01-16 22:45:40.672 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:45:40.672 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'adidas': found 0 products in 2852ms (3 requests, 1 cookie refreshes)
+2026-01-16 22:45:42.673 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:45:45.688 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:45:45.690 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'iphone'
+2026-01-16 22:45:45.690 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:45:45.690 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'iphone': found 0 products in 3017ms (4 requests, 1 cookie refreshes)
+2026-01-16 22:45:47.694 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'macbook' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:45:49.890 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 499 items in response
+2026-01-16 22:45:49.891 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'macbook'
+2026-01-16 22:45:49.891 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:45:49.891 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'macbook': found 0 products in 2197ms (5 requests, 1 cookie refreshes)
+2026-01-16 22:45:51.896 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'samsung' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:45:53.875 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:45:53.876 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'samsung'
+2026-01-16 22:45:53.876 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:45:53.876 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'samsung': found 0 products in 1980ms (6 requests, 1 cookie refreshes)
+2026-01-16 22:46:15.938 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:46:18.416 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:46:18.416 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'stone island'
+2026-01-16 22:46:18.416 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:46:18.416 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'stone island': found 0 products in 2478ms (7 requests, 1 cookie refreshes)
+2026-01-16 22:46:20.421 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:46:22.693 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:46:22.694 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'cav empt'
+2026-01-16 22:46:22.694 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:46:22.694 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'cav empt': found 0 products in 2273ms (8 requests, 1 cookie refreshes)
+2026-01-16 22:46:24.699 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:46:27.054 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:46:27.054 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'adidas'
+2026-01-16 22:46:27.054 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:46:27.054 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'adidas': found 0 products in 2355ms (9 requests, 1 cookie refreshes)
+2026-01-16 22:46:29.058 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:46:31.543 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:46:31.544 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'iphone'
+2026-01-16 22:46:31.544 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:46:31.544 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'iphone': found 0 products in 2486ms (10 requests, 1 cookie refreshes)
+2026-01-16 22:46:33.549 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'macbook' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:55:14.794 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-16 22:55:14.794 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-16 22:55:14.795 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-16 22:55:14.795 [main] INFO  com.parser.Main - Bot token: 8404858867...
+2026-01-16 22:55:14.795 [main] INFO  com.parser.Main - Bot username: @goofishparse_bot
+2026-01-16 22:55:14.795 [main] INFO  com.parser.Main - Admin ID: 1080595280
+2026-01-16 22:55:14.795 [main] INFO  com.parser.Main - Data directories created
+2026-01-16 22:55:14.798 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-16 22:55:14.798 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-16 22:55:14.798 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-16 22:55:14.798 [main] INFO  com.parser.Main - ThreadManager initialized
+2026-01-16 22:55:14.798 [main] INFO  com.parser.Main - 🔄 Step 1: Initializing Telegram bot...
+2026-01-16 22:55:14.798 [main] INFO  com.parser.Main - 🤖 Creating TelegramBotService instance...
+2026-01-16 22:55:15.287 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-16 22:55:15.287 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-16 22:55:15.287 [main] INFO  com.parser.Main - ✅ TelegramBotService instance created
+2026-01-16 22:55:15.287 [main] INFO  com.parser.Main - ✅ Bot username retrieved: @goofishparse_bot
+2026-01-16 22:55:15.287 [main] INFO  com.parser.Main - 🤖 Registering bot with Telegram API...
+2026-01-16 22:55:15.287 [main] INFO  com.parser.Main - ✅ TelegramBotsApi created
+2026-01-16 22:55:15.351 [main] INFO  com.parser.Main - 🎉 Telegram bot registered successfully!
+2026-01-16 22:55:15.351 [main] INFO  com.parser.Main - ✅ Bot is now listening for messages...
+2026-01-16 22:55:15.351 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-16 22:55:15.351 [main] INFO  com.parser.Main - ✅ TelegramNotificationService initialized with bot instance
+2026-01-16 22:55:15.351 [main] INFO  com.parser.Main - 🔄 Step 2: Validating cookies...
+2026-01-16 22:55:15.351 [main] INFO  com.parser.Main - 🍪 Checking cookies...
+2026-01-16 22:55:15.351 [main] INFO  com.parser.Main - 🔄 Fetching fresh cookies via Selenium...
+2026-01-16 22:55:15.352 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:55:15.352 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:55:15.483 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:55:15.484 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:55:17.683 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:55:17.686 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:55:19.583 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:55:24.630 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:55:24.653 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:55:24.654 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:55:24.654 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:55:24.655 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:55:24.655 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 3e0efe715a6d1198c4b21f67c3e57073
+2026-01-16 22:55:24.655 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : qIXxIc5oBQ0CAbJFkxQ03Ks9
+2026-01-16 22:55:24.655 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 0d9e914ae72ce89bce9fcdbb71a3a2b7
+2026-01-16 22:55:24.655 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 57614fd3e75e7
+2026-01-16 22:55:24.656 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : a317452c309264cc2563b206b6b8a8c6_1768601599993
+2026-01-16 22:55:24.656 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 11c50f1e86a537f2693ca85aa456ce17
+2026-01-16 22:55:24.656 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:55:24.658 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: a317452c309264cc2563...
+2026-01-16 22:55:24.658 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768601599993
+2026-01-16 22:55:24.770 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:55:24.770 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:55:24.771 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-16 22:55:24.775 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:55:24.775 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:55:24.775 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=3e0efe715a6d1198c4b21f67c3e57073; cna=qIXxIc5oBQ0CAbJFkxQ03Ks9; _m_h5_tk_enc=0d9e914ae72ce89bce9fc...
+2026-01-16 22:55:24.775 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:55:24.775 [main] INFO  com.parser.Main - ✅ Fresh cookies fetched successfully
+2026-01-16 22:55:24.775 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:55:24.775 [main] INFO  com.parser.Main - ✅ Application startup sequence completed!
+2026-01-16 22:55:24.775 [main] INFO  com.parser.Main - 🤖 Telegram bot: @goofishparse_bot - READY
+2026-01-16 22:55:24.775 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-16 22:55:24.776 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: ENABLED
+2026-01-16 22:55:24.776 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:55:24.776 [main] INFO  com.parser.Main - 📱 Send /start to @goofishparse_bot in Telegram
+2026-01-16 22:55:24.776 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:55:24.776 [main] INFO  com.parser.Main - ⏳ Entering main loop...
+2026-01-16 22:55:31.341 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /start_parser
+2026-01-16 22:55:31.341 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Attempting to start parser for user 1080595280
+2026-01-16 22:55:31.342 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist
+2026-01-16 22:55:31.348 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 🍪 Получение свежих cookies для h5api.m.goofish.com
+2026-01-16 22:55:31.348 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - ✅ Found 6 cookies for user 1080595280 before starting parser
+2026-01-16 22:55:31.348 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280
+2026-01-16 22:55:31.348 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-16 22:55:31.349 [pool-1-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for site: goofish
+2026-01-16 22:55:31.350 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:55:34.418 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:55:34.419 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'stone island'
+2026-01-16 22:55:34.419 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:55:34.419 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'stone island': found 0 products in 3069ms (1 requests, 0 cookie refreshes)
+2026-01-16 22:55:36.425 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:55:38.368 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:55:38.368 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'cav empt'
+2026-01-16 22:55:38.368 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:55:38.368 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'cav empt': found 0 products in 1943ms (2 requests, 0 cookie refreshes)
+2026-01-16 22:55:40.374 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:55:42.756 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:55:42.756 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'adidas'
+2026-01-16 22:55:42.756 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:55:42.756 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'adidas': found 0 products in 2382ms (3 requests, 0 cookie refreshes)
+2026-01-16 22:55:44.783 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:55:46.988 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:55:46.989 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'iphone'
+2026-01-16 22:55:46.989 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:55:46.989 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'iphone': found 0 products in 2208ms (4 requests, 0 cookie refreshes)
+2026-01-16 22:55:48.995 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'macbook' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:55:52.699 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 499 items in response
+2026-01-16 22:55:52.700 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'macbook'
+2026-01-16 22:55:52.700 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:55:52.700 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'macbook': found 0 products in 3705ms (5 requests, 0 cookie refreshes)
+2026-01-16 22:55:54.705 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'samsung' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:55:56.786 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 0 products from 500 items in response
+2026-01-16 22:55:56.786 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'samsung'
+2026-01-16 22:55:56.786 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:55:56.786 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'samsung': found 0 products in 2081ms (6 requests, 0 cookie refreshes)
+2026-01-16 22:58:28.789 [main] INFO  com.parser.test.StructureAnalyzer - === Анализ структуры ответа API ===
+2026-01-16 22:58:28.793 [main] INFO  com.parser.test.StructureAnalyzer - URL: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768593508790&sign=test_sign_1768593508790&v=1.0&type=originaljson&data=%7B%22sortValue%22%3A%22new%22%2C%22pageNumber%22%3A1%2C%22keyword%22%3A%22stone+island%22%2C%22rowsPerPage%22%3A10%7D
+2026-01-16 22:58:29.653 [main] INFO  com.parser.test.StructureAnalyzer - Ответ сохранен в: /Users/yanmore/IdeaProjects/multiParser/api_response.json
+2026-01-16 22:58:29.654 [main] INFO  com.parser.test.StructureAnalyzer - 
+=== ОСНОВНЫЕ КЛЮЧИ ===
+2026-01-16 22:58:29.654 [main] INFO  com.parser.test.StructureAnalyzer - ret: JSONArray
+2026-01-16 22:58:29.654 [main] INFO  com.parser.test.StructureAnalyzer - data: JSONObject
+2026-01-16 22:58:29.655 [main] INFO  com.parser.test.StructureAnalyzer - v: String
+2026-01-16 22:58:29.655 [main] INFO  com.parser.test.StructureAnalyzer - dialogSize: JSONObject
+2026-01-16 22:58:29.655 [main] INFO  com.parser.test.StructureAnalyzer - api: String
+2026-01-16 22:58:29.655 [main] INFO  com.parser.test.StructureAnalyzer - 
+=== КЛЮЧИ В DATA ===
+2026-01-16 22:58:29.655 [main] INFO  com.parser.test.StructureAnalyzer - h5url: String (single)
+2026-01-16 22:58:29.655 [main] INFO  com.parser.test.StructureAnalyzer - dialogSize: JSONObject (single)
+2026-01-16 22:58:29.655 [main] INFO  com.parser.test.StructureAnalyzer - url: String (single)
+2026-01-16 23:06:10.077 [main] INFO  com.parser.test.StructureAnalyzer - === Анализ структуры ответа API ===
+2026-01-16 23:06:10.080 [main] INFO  com.parser.test.StructureAnalyzer - URL: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768593970078&sign=test_sign_1768593970078&v=1.0&type=originaljson&data=%7B%22sortValue%22%3A%22new%22%2C%22pageNumber%22%3A1%2C%22keyword%22%3A%22stone+island%22%2C%22rowsPerPage%22%3A10%7D
+2026-01-16 23:06:11.352 [main] INFO  com.parser.test.StructureAnalyzer - Ответ сохранен в: /Users/yanmore/IdeaProjects/multiParser/api_response.json
+2026-01-16 23:06:11.354 [main] INFO  com.parser.test.StructureAnalyzer - 
+=== ОСНОВНЫЕ КЛЮЧИ ===
+2026-01-16 23:06:11.354 [main] INFO  com.parser.test.StructureAnalyzer - ret: JSONArray
+2026-01-16 23:06:11.354 [main] INFO  com.parser.test.StructureAnalyzer - data: JSONObject
+2026-01-16 23:06:11.354 [main] INFO  com.parser.test.StructureAnalyzer - v: String
+2026-01-16 23:06:11.354 [main] INFO  com.parser.test.StructureAnalyzer - dialogSize: JSONObject
+2026-01-16 23:06:11.354 [main] INFO  com.parser.test.StructureAnalyzer - api: String
+2026-01-16 23:06:11.354 [main] INFO  com.parser.test.StructureAnalyzer - 
+=== КЛЮЧИ В DATA ===
+2026-01-16 23:06:11.354 [main] INFO  com.parser.test.StructureAnalyzer - h5url: String (single)
+2026-01-16 23:06:11.355 [main] INFO  com.parser.test.StructureAnalyzer - dialogSize: JSONObject (single)
+2026-01-16 23:06:11.355 [main] INFO  com.parser.test.StructureAnalyzer - url: String (single)
+2026-01-16 23:07:04.683 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-16 23:07:04.684 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-16 23:07:04.684 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-16 23:07:04.684 [main] INFO  com.parser.Main - Bot token: 8404858867...
+2026-01-16 23:07:04.685 [main] INFO  com.parser.Main - Bot username: @goofishparse_bot
+2026-01-16 23:07:04.685 [main] INFO  com.parser.Main - Admin ID: 1080595280
+2026-01-16 23:07:04.685 [main] INFO  com.parser.Main - Data directories created
+2026-01-16 23:07:04.688 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-16 23:07:04.689 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-16 23:07:04.689 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-16 23:07:04.689 [main] INFO  com.parser.Main - ThreadManager initialized
+2026-01-16 23:07:04.689 [main] INFO  com.parser.Main - 🔄 Step 1: Initializing Telegram bot...
+2026-01-16 23:07:04.689 [main] INFO  com.parser.Main - 🤖 Creating TelegramBotService instance...
+2026-01-16 23:07:05.253 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-16 23:07:05.253 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-16 23:07:05.253 [main] INFO  com.parser.Main - ✅ TelegramBotService instance created
+2026-01-16 23:07:05.253 [main] INFO  com.parser.Main - ✅ Bot username retrieved: @goofishparse_bot
+2026-01-16 23:07:05.253 [main] INFO  com.parser.Main - 🤖 Registering bot with Telegram API...
+2026-01-16 23:07:05.253 [main] INFO  com.parser.Main - ✅ TelegramBotsApi created
+2026-01-16 23:07:05.315 [main] INFO  com.parser.Main - 🎉 Telegram bot registered successfully!
+2026-01-16 23:07:05.315 [main] INFO  com.parser.Main - ✅ Bot is now listening for messages...
+2026-01-16 23:07:05.316 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-16 23:07:05.316 [main] INFO  com.parser.Main - ✅ TelegramNotificationService initialized with bot instance
+2026-01-16 23:07:05.316 [main] INFO  com.parser.Main - 🔄 Step 2: Validating cookies...
+2026-01-16 23:07:05.316 [main] INFO  com.parser.Main - 🍪 Checking cookies...
+2026-01-16 23:07:05.316 [main] INFO  com.parser.Main - 🔄 Fetching fresh cookies via Selenium...
+2026-01-16 23:07:05.316 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 23:07:05.317 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 23:07:05.450 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 23:07:05.452 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 23:07:08.329 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 23:07:08.332 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 23:07:09.684 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 23:07:14.723 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 56c0c6c154f0ece6c44f66457fc9a607
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : cIjxIfmHAj8CAbJFkxTZPSO7
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : fc6d07d25da7be0f165ce8910b48d6a8
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : bcf353f730adaad7bdb9900e1e470e20_1768603390076
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : e0e53e5e19e48
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 164dcf1ce5344bd8447d2b68eeff47eb
+2026-01-16 23:07:14.749 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 23:07:14.750 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: bcf353f730adaad7bdb9...
+2026-01-16 23:07:14.750 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768603390076
+2026-01-16 23:07:14.860 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 23:07:14.860 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 23:07:14.861 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-16 23:07:14.864 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 23:07:14.864 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 23:07:14.864 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=56c0c6c154f0ece6c44f66457fc9a607; cna=cIjxIfmHAj8CAbJFkxTZPSO7; _m_h5_tk_enc=fc6d07d25da7be0f165ce...
+2026-01-16 23:07:14.864 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 23:07:14.864 [main] INFO  com.parser.Main - ✅ Fresh cookies fetched successfully
+2026-01-16 23:07:14.864 [main] INFO  com.parser.Main - ================================================
+2026-01-16 23:07:14.864 [main] INFO  com.parser.Main - ✅ Application startup sequence completed!
+2026-01-16 23:07:14.864 [main] INFO  com.parser.Main - 🤖 Telegram bot: @goofishparse_bot - READY
+2026-01-16 23:07:14.864 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-16 23:07:14.865 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: ENABLED
+2026-01-16 23:07:14.865 [main] INFO  com.parser.Main - ================================================
+2026-01-16 23:07:14.865 [main] INFO  com.parser.Main - 📱 Send /start to @goofishparse_bot in Telegram
+2026-01-16 23:07:14.865 [main] INFO  com.parser.Main - ================================================
+2026-01-16 23:07:14.865 [main] INFO  com.parser.Main - ⏳ Entering main loop...
+2026-01-16 23:07:17.045 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /start_parser
+2026-01-16 23:07:17.045 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Attempting to start parser for user 1080595280
+2026-01-16 23:07:17.046 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist
+2026-01-16 23:07:17.052 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 🍪 Получение свежих cookies для h5api.m.goofish.com
+2026-01-16 23:07:17.052 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - ✅ Found 6 cookies for user 1080595280 before starting parser
+2026-01-16 23:07:17.052 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280
+2026-01-16 23:07:17.052 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-16 23:07:17.053 [pool-1-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for site: goofish
+2026-01-16 23:07:17.054 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:07:21.532 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:07:21.533 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:07:21.534 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "bi
+2026-01-16 23:07:21.534 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:07:21.534 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:07:21.534 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:07:21.534 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:07:21.534 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:07:21.534 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:07:21.541 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 348 products from 500 items in response
+2026-01-16 23:07:21.541 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 348 products (24 after age filter)
+2026-01-16 23:07:21.541 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:07:21.541 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'stone island': found 24 products in 4487ms (1 requests, 0 cookie refreshes)
+2026-01-16 23:07:21.541 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 24 products for query 'stone island' (user 1080595280)
+2026-01-16 23:07:23.746 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_item_new_tags",
+      "version": "1764903084232",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_item_new_tags/1764903084232/idlefish_search_item_new_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "biz_sort": "mv:flashBuyTag:0",
+    
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_item_new_tags/1764903084232/idlefish_search_item_new_tags.zip
+2026-01-16 23:07:26.750 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:07:26.753 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 465 products from 500 items in response
+2026-01-16 23:07:26.753 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 465 products (5 after age filter)
+2026-01-16 23:07:26.753 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:07:26.753 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'cav empt': found 5 products in 3007ms (2 requests, 0 cookie refreshes)
+2026-01-16 23:07:26.753 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 5 products for query 'cav empt' (user 1080595280)
+2026-01-16 23:07:27.251 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230727.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230727.backup
+2026-01-16 23:07:27.251 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230727.backup: ./data/backups/user_products_1080595280.json_20260116_230727.backup (No such file or directory)
+2026-01-16 23:07:29.258 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:07:31.609 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:07:31.610 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:07:31.610 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {
+      "similar": {
+        "clickParam": {
+          "args": {
+            "item_type": "goods",
+            "disableHierarchicalSort": "0",
+            "pageSize": "500",
+            "biz_sort": 
+2026-01-16 23:07:31.610 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:07:31.610 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:07:31.610 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [similar, main]
+2026-01-16 23:07:31.610 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:07:31.610 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:07:31.610 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:07:31.612 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 212 products from 500 items in response
+2026-01-16 23:07:31.613 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 212 products (12 after age filter)
+2026-01-16 23:07:31.613 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:07:31.613 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'adidas': found 12 products in 2355ms (3 requests, 0 cookie refreshes)
+2026-01-16 23:07:31.613 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 12 products for query 'adidas' (user 1080595280)
+2026-01-16 23:07:31.782 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230731.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230731.backup
+2026-01-16 23:07:31.783 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230731.backup: ./data/backups/user_products_1080595280.json_20260116_230731.backup (No such file or directory)
+2026-01-16 23:07:33.789 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:07:35.814 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:07:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:07:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "bi
+2026-01-16 23:07:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:07:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:07:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:07:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:07:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:07:35.815 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:07:35.817 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 252 products from 500 items in response
+2026-01-16 23:07:35.817 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 252 products (1 after age filter)
+2026-01-16 23:07:35.817 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:07:35.817 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'iphone': found 1 products in 2028ms (4 requests, 0 cookie refreshes)
+2026-01-16 23:07:35.817 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 1 products for query 'iphone' (user 1080595280)
+2026-01-16 23:07:35.956 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230735.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230735.backup
+2026-01-16 23:07:35.957 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230735.backup: ./data/backups/user_products_1080595280.json_20260116_230735.backup (No such file or directory)
+2026-01-16 23:07:37.963 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'macbook' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:07:40.504 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:07:40.504 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:07:40.505 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_item_new_tags",
+      "version": "1764903084232",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_item_new_tags/1764903084232/idlefish_search_item_new_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "biz_sort": "mv:flashBuyTag:0",
+    
+2026-01-16 23:07:40.505 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:07:40.505 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:07:40.505 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:07:40.505 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:07:40.505 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_item_new_tags/1764903084232/idlefish_search_item_new_tags.zip
+2026-01-16 23:07:40.505 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:07:40.506 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 461 products from 499 items in response
+2026-01-16 23:07:40.507 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 461 products (119 after age filter)
+2026-01-16 23:07:40.507 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:07:40.507 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'macbook': found 119 products in 2544ms (5 requests, 0 cookie refreshes)
+2026-01-16 23:07:40.507 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 119 products for query 'macbook' (user 1080595280)
+2026-01-16 23:07:40.622 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230740.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230740.backup
+2026-01-16 23:07:40.623 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230740.backup: ./data/backups/user_products_1080595280.json_20260116_230740.backup (No such file or directory)
+2026-01-16 23:07:42.631 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'samsung' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:07:45.435 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:07:45.439 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:07:45.440 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "bi
+2026-01-16 23:07:45.440 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:07:45.440 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:07:45.440 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:07:45.440 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:07:45.440 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:07:45.440 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:07:45.442 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 15 products from 500 items in response
+2026-01-16 23:07:45.442 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 15 products (0 after age filter)
+2026-01-16 23:07:45.442 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:07:45.442 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'samsung': found 0 products in 2811ms (6 requests, 0 cookie refreshes)
+2026-01-16 23:07:47.448 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Iteration completed for user 1080595280: found 161 products
+2026-01-16 23:08:07.527 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:08:09.304 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:08:09.304 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:08:09.305 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "bi
+2026-01-16 23:08:09.305 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:08:09.305 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:08:09.305 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:08:09.305 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:08:09.305 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:08:09.305 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:08:09.307 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 348 products from 500 items in response
+2026-01-16 23:08:09.307 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 348 products (24 after age filter)
+2026-01-16 23:08:09.307 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:08:09.307 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'stone island': found 24 products in 1780ms (7 requests, 0 cookie refreshes)
+2026-01-16 23:08:09.307 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 24 products for query 'stone island' (user 1080595280)
+2026-01-16 23:08:09.406 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230809.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230809.backup
+2026-01-16 23:08:09.406 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230809.backup: ./data/backups/user_products_1080595280.json_20260116_230809.backup (No such file or directory)
+2026-01-16 23:08:11.407 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:08:13.154 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:08:13.155 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:08:13.155 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "bi
+2026-01-16 23:08:13.155 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:08:13.156 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:08:13.156 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:08:13.156 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:08:13.156 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:08:13.156 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:08:13.160 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 465 products from 500 items in response
+2026-01-16 23:08:13.161 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 465 products (5 after age filter)
+2026-01-16 23:08:13.161 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:08:13.161 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'cav empt': found 5 products in 1754ms (8 requests, 0 cookie refreshes)
+2026-01-16 23:08:13.161 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 5 products for query 'cav empt' (user 1080595280)
+2026-01-16 23:08:13.264 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230813.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230813.backup
+2026-01-16 23:08:13.265 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230813.backup: ./data/backups/user_products_1080595280.json_20260116_230813.backup (No such file or directory)
+2026-01-16 23:08:15.270 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "bi
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:08:17.041 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:08:17.042 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 199 products from 500 items in response
+2026-01-16 23:08:17.043 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 199 products (10 after age filter)
+2026-01-16 23:08:17.043 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:08:17.043 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'adidas': found 10 products in 1773ms (9 requests, 0 cookie refreshes)
+2026-01-16 23:08:17.043 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 10 products for query 'adidas' (user 1080595280)
+2026-01-16 23:08:17.304 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230817.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230817.backup
+2026-01-16 23:08:17.304 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230817.backup: ./data/backups/user_products_1080595280.json_20260116_230817.backup (No such file or directory)
+2026-01-16 23:08:19.311 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:08:21.083 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:08:21.083 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:08:21.084 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "bi
+2026-01-16 23:08:21.084 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:08:21.084 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:08:21.084 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:08:21.084 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:08:21.084 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:08:21.084 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:08:21.086 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 275 products from 500 items in response
+2026-01-16 23:08:21.086 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 275 products (1 after age filter)
+2026-01-16 23:08:21.086 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:08:21.086 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'iphone': found 1 products in 1775ms (10 requests, 0 cookie refreshes)
+2026-01-16 23:08:21.086 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 1 products for query 'iphone' (user 1080595280)
+2026-01-16 23:08:21.183 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230821.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230821.backup
+2026-01-16 23:08:21.183 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230821.backup: ./data/backups/user_products_1080595280.json_20260116_230821.backup (No such file or directory)
+2026-01-16 23:08:23.187 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'macbook' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:08:25.763 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:08:25.765 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:08:25.765 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_item_new_tags",
+      "version": "1764903084232",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_item_new_tags/1764903084232/idlefish_search_item_new_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "biz_sort": "mv:flashBuyTag:0",
+    
+2026-01-16 23:08:25.765 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:08:25.765 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:08:25.765 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:08:25.765 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:08:25.765 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_item_new_tags/1764903084232/idlefish_search_item_new_tags.zip
+2026-01-16 23:08:25.765 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:08:25.768 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 459 products from 499 items in response
+2026-01-16 23:08:25.768 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 459 products (104 after age filter)
+2026-01-16 23:08:25.768 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:08:25.768 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'macbook': found 104 products in 2581ms (11 requests, 0 cookie refreshes)
+2026-01-16 23:08:25.768 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Found 104 products for query 'macbook' (user 1080595280)
+2026-01-16 23:08:25.972 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260116_230825.backup: ./data/./data/backups/user_products_1080595280.json_20260116_230825.backup
+2026-01-16 23:08:25.973 [pool-1-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260116_230825.backup: ./data/backups/user_products_1080595280.json_20260116_230825.backup (No such file or directory)
+2026-01-16 23:08:27.980 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'samsung' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 23:08:29.810 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === DEBUG: ANALYZING FIRST ITEM STRUCTURE ===
+2026-01-16 23:08:29.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item keys: [data, style, type]
+2026-01-16 23:08:29.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - First item structure: {
+  "data": {
+    "template": {
+      "name": "idlefish_search_card_item_waterfall_tags",
+      "version": "1681365201581",
+      "url": "https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip"
+    },
+    "item": {"main": {
+      "clickParam": {
+        "args": {
+          "picWidth": "164.0",
+          "item_type": "goods",
+          "disableHierarchicalSort": "0",
+          "pageSize": "500",
+          "bi
+2026-01-16 23:08:29.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data' keys: [template, item, templateSingle]
+2026-01-16 23:08:29.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' type: JSONObject
+2026-01-16 23:08:29.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Item 'data.item' keys: [main]
+2026-01-16 23:08:29.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template keys: [name, version, url]
+2026-01-16 23:08:29.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Template URL: https://dinamicx.alibabausercontent.com/pub/idlefish_search_card_item_waterfall_tags/1681365201581/idlefish_search_card_item_waterfall_tags.zip
+2026-01-16 23:08:29.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - === END DEBUG ===
+2026-01-16 23:08:29.813 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 16 products from 500 items in response
+2026-01-16 23:08:29.813 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 📊 Page 1: found 16 products (0 after age filter)
+2026-01-16 23:08:29.813 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 23:08:29.813 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'samsung': found 0 products in 1834ms (12 requests, 0 cookie refreshes)

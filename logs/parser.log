@@ -1,0 +1,423 @@
+2026-01-16 22:18:43.402 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-16 22:18:43.402 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-16 22:18:43.403 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-16 22:18:43.403 [main] INFO  com.parser.Main - Data directories created
+2026-01-16 22:18:43.405 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-16 22:18:43.406 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-16 22:18:43.406 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-16 22:18:43.406 [main] INFO  com.parser.Main - ThreadManager initialized
+2026-01-16 22:18:43.406 [main] INFO  com.parser.Main - Initializing Telegram bot...
+2026-01-16 22:18:43.873 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-16 22:18:43.873 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-16 22:18:43.873 [main] INFO  com.parser.Main - Telegram bot initialized successfully
+2026-01-16 22:18:43.873 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-16 22:18:43.873 [main] INFO  com.parser.Main - TelegramNotificationService initialized with bot instance
+2026-01-16 22:18:43.873 [main] INFO  com.parser.Main - Validating cookies on startup...
+2026-01-16 22:18:43.873 [main] INFO  com.parser.Main - Fetching fresh cookies on startup...
+2026-01-16 22:18:43.874 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:18:43.874 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:18:44.004 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:18:44.005 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:18:46.593 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:18:46.597 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:18:48.165 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:18:53.283 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher -    {:<20}: t
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher -    {:<20}: cna
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher -    {:<20}: _m_h5_tk_enc
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher -    {:<20}: _tb_token_
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher -    {:<20}: _m_h5_tk
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher -    {:<20}: cookie2
+2026-01-16 22:18:53.354 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:18:53.355 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 7ee1ed1849f4204dc938...
+2026-01-16 22:18:53.356 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768598690551
+2026-01-16 22:18:53.467 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:18:53.467 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:18:53.468 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-16 22:18:53.473 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:18:53.473 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:18:53.473 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=297daf0e7d13ebbcf287e257e3071587; cna=Gn3xIUHaojECAbJFkxQtmTK0; _m_h5_tk_enc=15e4155fe2a4626f834ef...
+2026-01-16 22:18:53.473 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:18:53.473 [main] INFO  com.parser.Main - ✅ Fresh cookies fetched successfully
+2026-01-16 22:18:53.473 [main] INFO  com.parser.Main - Application started successfully!
+2026-01-16 22:18:53.473 [main] INFO  com.parser.Main - Dynamic cookies enabled: true
+2026-01-16 22:18:53.473 [main] INFO  com.parser.Main - Bot username: @goofishparse_bot
+2026-01-16 22:18:53.473 [main] INFO  com.parser.Main - Admin ID: 1080595280
+2026-01-16 22:23:31.660 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-16 22:23:31.661 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-16 22:23:31.662 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-16 22:23:31.663 [main] INFO  com.parser.Main - Bot token: 8404858867...
+2026-01-16 22:23:31.663 [main] INFO  com.parser.Main - Bot username: @goofishparse_bot
+2026-01-16 22:23:31.663 [main] INFO  com.parser.Main - Data directories created
+2026-01-16 22:23:31.666 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-16 22:23:31.666 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-16 22:23:31.666 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-16 22:23:31.666 [main] INFO  com.parser.Main - ThreadManager initialized
+2026-01-16 22:23:31.666 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-01-16 22:23:32.205 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-16 22:23:32.206 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-16 22:23:32.268 [main] INFO  com.parser.Main - ✅ Telegram bot registered successfully!
+2026-01-16 22:23:32.268 [main] INFO  com.parser.Main - ✅ Bot username: @goofishparse_bot
+2026-01-16 22:23:32.268 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-16 22:23:32.268 [main] INFO  com.parser.Main - TelegramNotificationService initialized with bot instance
+2026-01-16 22:23:32.268 [main] INFO  com.parser.Main - 🍪 Validating cookies on startup...
+2026-01-16 22:23:32.268 [main] INFO  com.parser.Main - 🔄 Fetching fresh cookies on startup...
+2026-01-16 22:23:32.269 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:23:32.269 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:23:32.411 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:23:32.413 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:23:32.495 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /settings
+2026-01-16 22:23:32.704 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /settings
+2026-01-16 22:23:32.945 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /start
+2026-01-16 22:23:32.946 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist
+2026-01-16 22:23:35.545 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:23:35.552 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:23:37.877 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:23:42.933 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 663064548a9c58a5143dd71aabecf09b
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : On7xIZirhkMCAbJFkxQARrNh
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 3e6e893d6fd44510525f3dbf2b586a42
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 5bebe5e6b5edb
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : a967f65d272e2d453ed8af2af4a72644_1768601138267
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1363f7ca4bd4151ab7192f2d4bffbb48
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: a967f65d272e2d453ed8...
+2026-01-16 22:23:42.972 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768601138267
+2026-01-16 22:23:43.080 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:23:43.080 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:23:43.082 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-16 22:23:43.085 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:23:43.085 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:23:43.085 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=663064548a9c58a5143dd71aabecf09b; cna=On7xIZirhkMCAbJFkxQARrNh; _m_h5_tk_enc=3e6e893d6fd44510525f3...
+2026-01-16 22:23:43.085 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - ✅ Fresh cookies fetched successfully
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - 🤖 Telegram bot: @goofishparse_bot
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: ENABLED
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - Bot is ready! Send /start to @goofishparse_bot in Telegram
+2026-01-16 22:23:43.086 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:23:55.318 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: 1440
+2026-01-16 22:23:55.350 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error copying file user_settings/1080595280.json to ./data/backups/user_settings_1080595280.json_20260116_222355.backup: ./data/./data/backups/user_settings_1080595280.json_20260116_222355.backup
+2026-01-16 22:23:55.350 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_settings_1080595280.json_20260116_222355.backup: ./data/backups/user_settings_1080595280.json_20260116_222355.backup (No such file or directory)
+2026-01-16 22:23:59.960 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /start_parser
+2026-01-16 22:23:59.961 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Attempting to start parser for user 1080595280
+2026-01-16 22:23:59.966 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Refreshing cookies before starting parser for user 1080595280
+2026-01-16 22:23:59.966 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:23:59.966 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:24:00.011 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:24:00.013 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:24:01.538 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:24:01.540 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:24:02.314 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:24:07.364 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:24:07.376 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 84a41b771cad4e042dfb161ede6be788
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : U37xIYRIDxMCAbJFkxSNtKdM
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : af08b77273e0c2732c00b52b226fc5f1
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : ffe3fb63a917b
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : c9a46dd8bd01c7e82a9177c3c4a5baa5_1768600082724
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1d3b79e7c241cabaf9fb4c70a1348ab1
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:24:07.377 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    Токен: c9a46dd8bd01c7e82a91...
+2026-01-16 22:24:07.378 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768600082724
+2026-01-16 22:24:07.485 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:24:07.485 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:24:07.485 [goofishparse_bot Telegram Executor] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:24:07.486 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:24:07.486 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=84a41b771cad4e042dfb161ede6be788; cna=U37xIYRIDxMCAbJFkxSNtKdM; _m_h5_tk_enc=af08b77273e0c2732c00b...
+2026-01-16 22:24:07.486 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:24:07.487 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280
+2026-01-16 22:24:07.488 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-16 22:24:07.490 [pool-1-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for site: goofish
+2026-01-16 22:24:07.492 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:24:07.492 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Обновление cookies...
+2026-01-16 22:24:07.492 [pool-1-thread-1] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:24:07.492 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:24:07.511 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:24:07.511 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:24:08.285 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:24:08.287 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:24:09.074 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:24:14.528 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:24:14.558 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:24:14.558 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:24:14.558 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:24:14.558 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:24:14.558 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    t                   : acba5d2ff2b66439e3864bd2b04a6da5
+2026-01-16 22:24:14.558 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : Wn7xIUwNcxcCAbJFkxRAPv/w
+2026-01-16 22:24:14.558 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 267bd98aac0affb0a8e0786c03a9f69b
+2026-01-16 22:24:14.558 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : e93013b733657
+2026-01-16 22:24:14.559 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 085f21afb5e422837b55a660d5e72630_1768600449485
+2026-01-16 22:24:14.559 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 11dd01f2f8ca7d2dd53d1cfbb7a758d3
+2026-01-16 22:24:14.559 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:24:14.559 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 085f21afb5e422837b55...
+2026-01-16 22:24:14.559 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768600449485
+2026-01-16 22:24:14.662 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:24:14.662 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:24:14.663 [pool-1-thread-1] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:24:14.663 [pool-1-thread-1] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:24:14.663 [pool-1-thread-1] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=acba5d2ff2b66439e3864bd2b04a6da5; cna=Wn7xIUwNcxcCAbJFkxRAPv/w; _m_h5_tk_enc=267bd98aac0affb0a8e07...
+2026-01-16 22:24:14.663 [pool-1-thread-1] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:24:17.629 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:24:17.629 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:24:17.629 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'stone island': found 0 products in 10137ms (1 requests, 1 cookie refreshes)
+2026-01-16 22:24:19.634 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:24:21.730 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:24:21.730 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:24:21.730 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'cav empt': found 0 products in 2096ms (2 requests, 1 cookie refreshes)
+2026-01-16 22:24:23.735 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:24:25.850 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:24:25.850 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:24:25.850 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'adidas': found 0 products in 2115ms (3 requests, 1 cookie refreshes)
+2026-01-16 22:24:27.855 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:24:32.943 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:24:32.944 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:24:32.944 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'iphone': found 0 products in 5089ms (4 requests, 1 cookie refreshes)
+2026-01-16 22:24:34.950 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'macbook' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:24:37.064 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:24:37.064 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:24:37.064 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'macbook': found 0 products in 2114ms (5 requests, 1 cookie refreshes)
+2026-01-16 22:24:39.067 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'samsung' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:24:43.192 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:24:43.193 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:24:43.193 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'samsung': found 0 products in 4126ms (6 requests, 1 cookie refreshes)
+2026-01-16 22:25:05.259 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:07.332 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:07.332 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:07.332 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'stone island': found 0 products in 2073ms (7 requests, 1 cookie refreshes)
+2026-01-16 22:25:09.336 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:10.874 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:10.874 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:10.874 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'cav empt': found 0 products in 1538ms (8 requests, 1 cookie refreshes)
+2026-01-16 22:25:12.880 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:15.051 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:15.051 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:15.051 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'adidas': found 0 products in 2172ms (9 requests, 1 cookie refreshes)
+2026-01-16 22:25:17.056 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:18.981 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:18.981 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:18.981 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'iphone': found 0 products in 1925ms (10 requests, 1 cookie refreshes)
+2026-01-16 22:25:20.987 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'macbook' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:22.660 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:22.660 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:22.660 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'macbook': found 0 products in 1673ms (11 requests, 1 cookie refreshes)
+2026-01-16 22:25:24.661 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'samsung' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:26.729 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:26.729 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:26.729 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'samsung': found 0 products in 2068ms (12 requests, 1 cookie refreshes)
+2026-01-16 22:25:48.811 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:50.791 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:50.791 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:50.791 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'stone island': found 0 products in 1980ms (13 requests, 1 cookie refreshes)
+2026-01-16 22:25:52.794 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:54.215 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:54.215 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:54.215 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'cav empt': found 0 products in 1421ms (14 requests, 1 cookie refreshes)
+2026-01-16 22:25:56.218 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:25:58.229 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:25:58.230 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:25:58.230 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'adidas': found 0 products in 2012ms (15 requests, 1 cookie refreshes)
+2026-01-16 22:26:00.235 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:26:01.565 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:26:01.566 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:26:01.566 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'iphone': found 0 products in 1331ms (16 requests, 1 cookie refreshes)
+2026-01-16 22:26:03.571 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'macbook' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:26:05.489 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:26:05.491 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:26:05.491 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'macbook': found 0 products in 1920ms (17 requests, 1 cookie refreshes)
+2026-01-16 22:26:07.496 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Starting search for 'samsung' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:26:09.478 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:26:09.479 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - Failed to fetch page 1 after 0 retries
+2026-01-16 22:26:09.479 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - Search completed for 'samsung': found 0 products in 1983ms (18 requests, 1 cookie refreshes)
+2026-01-16 22:29:11.426 [com.parser.test.TestApi.main()] INFO  com.parser.test.TestApi - === Testing Goofish API ===
+2026-01-16 22:29:11.427 [com.parser.test.TestApi.main()] INFO  com.parser.test.TestApi - 1. Getting cookies...
+2026-01-16 22:29:11.428 [com.parser.test.TestApi.main()] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-16 22:29:11.428 [com.parser.test.TestApi.main()] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies через Selenium...
+2026-01-16 22:29:11.430 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:29:11.559 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:29:11.561 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:29:14.548 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:29:14.551 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:29:15.674 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:29:20.881 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:29:20.924 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:29:20.924 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:29:20.925 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:29:20.925 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:29:20.926 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 280f98d0ac6236c3c94071ebbba64b06
+2026-01-16 22:29:20.926 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : jH/xIX3ViQYCAbJFkxS4TARM
+2026-01-16 22:29:20.926 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 7b48afcf65a3e43bf783ca286fdc94cd
+2026-01-16 22:29:20.926 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : ee15ee56801e1
+2026-01-16 22:29:20.926 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 5e7237e89d7d261ad2a2f9aaf05ca31a_1768601476017
+2026-01-16 22:29:20.926 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1ca817f8f5a3172bda68f3cf4d41603b
+2026-01-16 22:29:20.926 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:29:20.926 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 5e7237e89d7d261ad2a2...
+2026-01-16 22:29:20.927 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768601476017
+2026-01-16 22:29:21.050 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:29:21.051 [com.parser.test.TestApi.main()] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:29:21.052 [com.parser.test.TestApi.main()] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-16 22:29:21.052 [com.parser.test.TestApi.main()] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:29:21.052 [com.parser.test.TestApi.main()] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:29:21.052 [com.parser.test.TestApi.main()] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=280f98d0ac6236c3c94071ebbba64b06; cna=jH/xIX3ViQYCAbJFkxS4TARM; _m_h5_tk_enc=7b48afcf65a3e43bf783c...
+2026-01-16 22:29:21.053 [com.parser.test.TestApi.main()] INFO  com.parser.test.TestApi - Cookies: [t, cna, _m_h5_tk_enc, _tb_token_, _m_h5_tk, cookie2]
+2026-01-16 22:29:21.053 [com.parser.test.TestApi.main()] INFO  com.parser.test.TestApi - 2. Making test request...
+2026-01-16 22:29:21.792 [com.parser.test.TestApi.main()] INFO  com.parser.test.TestApi - Response length: 3004 chars
+2026-01-16 22:29:21.792 [com.parser.test.TestApi.main()] INFO  com.parser.test.TestApi - Response preview: {"api":"mtop.taobao.idlemtopsearch.pc.search","v":"1.0", "ret": ["RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试!"],"data": { "url": "https://passport.goofish.com/mini_login.htm?lang=zh_cn&appName=xianyu&appEntrance=baxia&redirectType=iframeRedirect&styleType=vertical&bizParams=&notLoadSsoView=true&notKeepLogin=f...
+2026-01-16 22:29:21.792 [com.parser.test.TestApi.main()] WARN  com.parser.test.TestApi - ⚠️ API did not return SUCCESS
+2026-01-16 22:29:21.792 [com.parser.test.TestApi.main()] WARN  com.parser.test.TestApi - ⚠️ Response does not contain resultList
+2026-01-16 22:30:37.117 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-16 22:30:37.118 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-16 22:30:37.119 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-16 22:30:37.119 [main] INFO  com.parser.Main - Bot token: 8404858867...
+2026-01-16 22:30:37.119 [main] INFO  com.parser.Main - Bot username: @goofishparse_bot
+2026-01-16 22:30:37.119 [main] INFO  com.parser.Main - Admin ID: 1080595280
+2026-01-16 22:30:37.119 [main] INFO  com.parser.Main - Data directories created
+2026-01-16 22:30:37.122 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-16 22:30:37.122 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-16 22:30:37.122 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-16 22:30:37.122 [main] INFO  com.parser.Main - ThreadManager initialized
+2026-01-16 22:30:37.123 [main] INFO  com.parser.Main - 🔄 Step 1: Initializing Telegram bot...
+2026-01-16 22:30:37.123 [main] INFO  com.parser.Main - 🤖 Creating TelegramBotService instance...
+2026-01-16 22:30:38.019 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-16 22:30:38.019 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-16 22:30:38.019 [main] INFO  com.parser.Main - ✅ TelegramBotService instance created
+2026-01-16 22:30:38.019 [main] INFO  com.parser.Main - ✅ Bot username retrieved: @goofishparse_bot
+2026-01-16 22:30:38.019 [main] INFO  com.parser.Main - 🤖 Registering bot with Telegram API...
+2026-01-16 22:30:38.021 [main] INFO  com.parser.Main - ✅ TelegramBotsApi created
+2026-01-16 22:30:38.087 [main] INFO  com.parser.Main - 🎉 Telegram bot registered successfully!
+2026-01-16 22:30:38.088 [main] INFO  com.parser.Main - ✅ Bot is now listening for messages...
+2026-01-16 22:30:38.089 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-16 22:30:38.089 [main] INFO  com.parser.Main - ✅ TelegramNotificationService initialized with bot instance
+2026-01-16 22:30:38.089 [main] INFO  com.parser.Main - 🔄 Step 2: Validating cookies...
+2026-01-16 22:30:38.090 [main] INFO  com.parser.Main - 🍪 Checking cookies...
+2026-01-16 22:30:38.090 [main] INFO  com.parser.Main - 🔄 Fetching fresh cookies via Selenium...
+2026-01-16 22:30:38.090 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:30:38.093 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:30:38.232 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:30:38.234 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:30:41.277 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:30:41.284 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:30:48.120 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:30:53.263 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:30:53.297 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:30:53.297 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:30:53.297 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:30:53.297 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:30:53.298 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 1d047c521c94830521f74481550c02f5
+2026-01-16 22:30:53.298 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : 43/xIU7qUHQCAbJFkxTcUdab
+2026-01-16 22:30:53.298 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 8c2302447072894e6bdb5ee11e94abcf
+2026-01-16 22:30:53.298 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 531e053eb7eed
+2026-01-16 22:30:53.298 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 8aa0b8e22f54ac4c1981ec45767ece6f_1768599402831
+2026-01-16 22:30:53.298 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 11e05d056c5c1012998b1ef8aabc40cc
+2026-01-16 22:30:53.298 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:30:53.299 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 8aa0b8e22f54ac4c1981...
+2026-01-16 22:30:53.300 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768599402831
+2026-01-16 22:30:53.996 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:30:53.996 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:30:53.999 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-16 22:30:54.003 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:30:54.004 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:30:54.004 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=1d047c521c94830521f74481550c02f5; cna=43/xIU7qUHQCAbJFkxTcUdab; _m_h5_tk_enc=8c2302447072894e6bdb5...
+2026-01-16 22:30:54.004 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:30:54.004 [main] INFO  com.parser.Main - ✅ Fresh cookies fetched successfully
+2026-01-16 22:30:54.004 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:30:54.004 [main] INFO  com.parser.Main - ✅ Application startup sequence completed!
+2026-01-16 22:30:54.004 [main] INFO  com.parser.Main - 🤖 Telegram bot: @goofishparse_bot - READY
+2026-01-16 22:30:54.004 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-16 22:30:54.004 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: ENABLED
+2026-01-16 22:30:54.004 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:30:54.005 [main] INFO  com.parser.Main - 📱 Send /start to @goofishparse_bot in Telegram
+2026-01-16 22:30:54.005 [main] INFO  com.parser.Main - ================================================
+2026-01-16 22:30:54.005 [main] INFO  com.parser.Main - ⏳ Entering main loop...
+2026-01-16 22:31:00.394 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /start_parser
+2026-01-16 22:31:00.395 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Attempting to start parser for user 1080595280
+2026-01-16 22:31:00.396 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist
+2026-01-16 22:31:00.410 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Refreshing cookies before starting parser for user 1080595280
+2026-01-16 22:31:00.410 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:31:00.410 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:31:00.442 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:31:00.442 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:31:01.758 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:31:01.759 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:31:02.996 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:31:08.054 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:31:08.066 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:31:08.066 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-16 22:31:08.066 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:31:08.066 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 677e67146e0c6660a7c1e77506e3d323
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : 93/xIZy9PSgCAbJFkxRPS6Cb
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 783459806d0a7459c58a122b7a18024a
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : e38e398b153be
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : fe675d2256bb84ce4374ad21aa448528_1768600143703
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 18a21f74bd76ef0ed55249c3d330052c
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    Токен: fe675d2256bb84ce4374...
+2026-01-16 22:31:08.067 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768600143703
+2026-01-16 22:31:08.165 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:31:08.165 [goofishparse_bot Telegram Executor] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:31:08.165 [goofishparse_bot Telegram Executor] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:31:08.166 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:31:08.166 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=677e67146e0c6660a7c1e77506e3d323; cna=93/xIZy9PSgCAbJFkxRPS6Cb; _m_h5_tk_enc=783459806d0a7459c58a1...
+2026-01-16 22:31:08.166 [goofishparse_bot Telegram Executor] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:31:08.167 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280
+2026-01-16 22:31:08.167 [pool-1-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-16 22:31:08.171 [pool-1-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for site: goofish
+2026-01-16 22:31:08.173 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'stone island' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:31:08.173 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Обновление cookies...
+2026-01-16 22:31:08.173 [pool-1-thread-1] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-16 22:31:08.173 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-16 22:31:08.191 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-16 22:31:08.192 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-16 22:31:09.057 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-16 22:31:09.059 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-16 22:31:09.969 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-16 22:31:15.051 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-16 22:31:15.099 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-16 22:31:15.099 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 9
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 9b5bc20853edf1135c962865b5abd953
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : /n/xISWRjHMCAbJFkxQ5tuX3
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 826611c91d1b74de9be1895797b07a4c
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 55934eba57e13
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : e1c5649386e939a9bd30466a94213c01_1768599430381
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1ea3755cad27c7a58bdbd4681e5c93c6
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    Токен: e1c5649386e939a9bd30...
+2026-01-16 22:31:15.100 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768599430381
+2026-01-16 22:31:15.206 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-16 22:31:15.206 [pool-1-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-16 22:31:15.207 [pool-1-thread-1] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-16 22:31:15.207 [pool-1-thread-1] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-16 22:31:15.207 [pool-1-thread-1] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=9b5bc20853edf1135c962865b5abd953; cna=/n/xISWRjHMCAbJFkxQ5tuX3; _m_h5_tk_enc=826611c91d1b74de9be18...
+2026-01-16 22:31:15.207 [pool-1-thread-1] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-16 22:31:18.549 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:31:18.549 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'stone island'
+2026-01-16 22:31:18.549 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:31:18.549 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'stone island': found 0 products in 10376ms (1 requests, 1 cookie refreshes)
+2026-01-16 22:31:20.550 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'cav empt' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:31:21.681 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:31:21.682 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'cav empt'
+2026-01-16 22:31:21.682 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:31:21.682 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'cav empt': found 0 products in 1133ms (2 requests, 1 cookie refreshes)
+2026-01-16 22:31:23.684 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'adidas' on goofish, pages: 3, rows: 500, max age: 1440min
+2026-01-16 22:31:26.734 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - API returned error: ["SUCCESS::调用成功"], msg: 
+2026-01-16 22:31:26.735 [pool-1-thread-1] WARN  com.parser.parser.GoofishParser - ⚠️ No products found on first page for query: 'adidas'
+2026-01-16 22:31:26.735 [pool-1-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Failed to fetch page 1 after 0 retries
+2026-01-16 22:31:26.735 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Search completed for 'adidas': found 0 products in 3051ms (3 requests, 1 cookie refreshes)
+2026-01-16 22:31:28.741 [pool-1-thread-1] INFO  com.parser.parser.GoofishParser - 🔍 Starting search for 'iphone' on goofish, pages: 3, rows: 500, max age: 1440min

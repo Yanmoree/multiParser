@@ -6,12 +6,14 @@ import com.parser.model.Product;
 import com.parser.model.UserSettings;
 import com.parser.parser.ParserFactory;
 import com.parser.parser.SiteParser;
+import com.parser.service.CookieService;
 import com.parser.storage.UserDataManager;
 import com.parser.storage.WhitelistManager;
 import com.parser.telegram.TelegramNotificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -56,8 +58,112 @@ public class ThreadManager {
         // Запуск задачи для логирования статистики
         scheduler.scheduleAtFixedRate(this::logStatistics, 5, 5, TimeUnit.MINUTES);
 
+        // Запуск задачи для автообновления кук
+        if (Config.getBoolean("cookie.auto.update", true)) {
+            int intervalMinutes = Config.getInt("cookie.update.interval.minutes", 60);
+            scheduler.scheduleAtFixedRate(
+                    this::updateCookiesTask,
+                    intervalMinutes,
+                    intervalMinutes,
+                    TimeUnit.MINUTES
+            );
+            logger.info("Cookie auto-update scheduled every {} minutes", intervalMinutes);
+        }
+
+        // Запуск задачи для очистки устаревших кук
+        scheduler.scheduleAtFixedRate(
+                this::cleanupExpiredCookiesTask,
+                10, // Каждые 10 минут
+                10,
+                TimeUnit.MINUTES
+        );
+
         logger.info("ThreadManager initialized. Pool: {}-{} threads, queue: {}",
                 corePoolSize, maxPoolSize, queueCapacity);
+        logger.info("Dynamic cookies enabled: {}", Config.isDynamicCookiesEnabled());
+    }
+
+    /**
+     * Задача для автоматического обновления кук
+     */
+    private void updateCookiesTask() {
+        if (!Config.isDynamicCookiesEnabled()) {
+            logger.debug("Dynamic cookies disabled, skipping auto-update");
+            return;
+        }
+
+        logger.info("Starting automatic cookie update...");
+
+        try {
+            // Обновляем куки для основных доменов
+            String[] domains = {
+                    "h5api.m.goofish.com",
+                    "www.goofish.com",
+                    "passport.goofish.com"
+            };
+
+            int updatedCount = 0;
+            for (String domain : domains) {
+                try {
+                    if (CookieService.refreshCookies(domain)) {
+                        updatedCount++;
+                        logger.info("Cookies updated for domain: {}", domain);
+                    }
+                } catch (Exception e) {
+                    logger.error("Failed to update cookies for {}: {}", domain, e.getMessage());
+                }
+            }
+
+            if (updatedCount > 0) {
+                logger.info("Automatic cookie update completed: {} domains updated", updatedCount);
+
+                // Отправляем уведомление админу
+                if (Config.getInt("telegram.admin.id", 0) > 0) {
+                    TelegramNotificationService.sendMessage(
+                            Config.getInt("telegram.admin.id", 0),
+                            String.format(
+                                    "🍪 **Автообновление кук**\n\n" +
+                                            "Куки успешно обновлены для %d доменов:\n" +
+                                            "• h5api.m.goofish.com\n" +
+                                            "• www.goofish.com\n" +
+                                            "• passport.goofish.com\n\n" +
+                                            "Время: %s",
+                                    updatedCount,
+                                    new Date()
+                            )
+                    );
+                }
+            } else {
+                logger.warn("No cookies were updated in automatic update");
+            }
+
+        } catch (Exception e) {
+            logger.error("Error in cookie update task: {}", e.getMessage(), e);
+
+            // Отправляем уведомление об ошибке админу
+            if (Config.getInt("telegram.admin.id", 0) > 0) {
+                TelegramNotificationService.sendMessage(
+                        Config.getInt("telegram.admin.id", 0),
+                        String.format(
+                                "❌ **Ошибка автообновления кук**\n\n" +
+                                        "Произошла ошибка при автообновлении кук:\n" +
+                                        "`%s`\n\n" +
+                                        "Время: %s",
+                                e.getMessage(),
+                                new Date()
+                        )
+                );
+            }
+        }
+    }
+
+    /**
+     * Задача для очистки устаревших кук
+     */
+    private void cleanupExpiredCookiesTask() {
+        logger.debug("Cleaning up expired cookies from cache...");
+        // CookieService автоматически очищает устаревшие куки при доступе
+        // Этот метод можно использовать для принудительной очистки
     }
 
     /**
@@ -104,6 +210,27 @@ public class ThreadManager {
         UserSession session = new UserSession(userId, queries, settings);
         userSessions.put(userId, session);
 
+        // Обновляем куки перед запуском, если включены динамические куки
+        if (Config.isDynamicCookiesEnabled()) {
+            try {
+                logger.info("Refreshing cookies before starting parser for user {}", userId);
+                CookieService.refreshCookies("h5api.m.goofish.com");
+            } catch (Exception e) {
+                logger.warn("Failed to refresh cookies before starting parser for user {}: {}",
+                        userId, e.getMessage());
+                // Не прерываем запуск, используем существующие куки
+            }
+        }
+
+        // Создание директорий для пользователя если не существуют
+        try {
+            String dataDir = Config.getString("storage.data.dir", "./data");
+            new File(dataDir + "/user_settings").mkdirs();
+            new File(dataDir + "/user_products").mkdirs();
+        } catch (Exception e) {
+            logger.error("Failed to create user directories: {}", e.getMessage());
+        }
+
         // Запуск парсера в отдельном потоке
         threadPool.submit(() -> {
             try {
@@ -116,11 +243,13 @@ public class ThreadManager {
             }
         });
 
+
+
         logger.info("Parser started for user {}", userId);
         TelegramNotificationService.sendMessage(userId,
-                "✅ Парсер успешно запущен!\n" +
+                "✅ Парсер успешно запущен!\n\n" +
                         "Запросов: " + queries.size() + "\n" +
-                        "Интервал проверки: " + settings.getCheckInterval() + " сек\n" +
+                        "Интервал проверки: " + settings.getCheckInterval() + " сек\n\n" +
                         "Для остановки используйте /stop_parser");
 
         return true;
@@ -186,6 +315,18 @@ public class ThreadManager {
                                 query, userId, e.getMessage(), e);
                         session.incrementErrors();
 
+                        // Проверяем, связана ли ошибка с куками
+                        if (isCookieRelatedError(e)) {
+                            logger.warn("Cookie-related error detected for user {}, refreshing cookies...", userId);
+                            try {
+                                CookieService.refreshCookies("h5api.m.goofish.com");
+                                logger.info("Cookies refreshed for user {}", userId);
+                            } catch (Exception cookieError) {
+                                logger.error("Failed to refresh cookies for user {}: {}",
+                                        userId, cookieError.getMessage());
+                            }
+                        }
+
                         // Задержка при ошибке
                         Thread.sleep(5000);
                     }
@@ -226,6 +367,27 @@ public class ThreadManager {
                     "🛑 Парсер остановлен\n" +
                             "Всего найдено товаров: " + session.getTotalProductsFound());
         }
+    }
+
+    /**
+     * Проверка, связана ли ошибка с куками
+     */
+    private boolean isCookieRelatedError(Exception e) {
+        if (e == null || e.getMessage() == null) {
+            return false;
+        }
+
+        String message = e.getMessage().toLowerCase();
+        return message.contains("cookie") ||
+                message.contains("session") ||
+                message.contains("auth") ||
+                message.contains("401") ||
+                message.contains("403") ||
+                message.contains("unauthorized") ||
+                message.contains("forbidden") ||
+                message.contains("未登录") ||
+                message.contains("未授权") ||
+                message.contains("登录");
     }
 
     /**
@@ -397,6 +559,12 @@ public class ThreadManager {
         stats.put("queueSize", threadPool.getQueue().size());
         stats.put("startTime", startTime);
 
+        // Добавляем информацию о куках
+        Map<String, Object> cookieStats = CookieService.getCacheStats();
+        stats.put("cookieCacheDomains", cookieStats.get("totalDomains"));
+        stats.put("cookieCacheSize", cookieStats.get("totalCookies"));
+        stats.put("dynamicCookiesEnabled", Config.isDynamicCookiesEnabled());
+
         return stats;
     }
 
@@ -406,9 +574,9 @@ public class ThreadManager {
     private void logStatistics() {
         if (logger.isInfoEnabled()) {
             Map<String, Object> stats = getGlobalStatistics();
-            logger.info("Statistics: {} active users, {} total products found, {} active threads",
+            logger.info("Statistics: {} active users, {} total products found, {} active threads, {} cookie cache domains",
                     stats.get("totalUsers"), stats.get("totalProductsFound"),
-                    stats.get("activeThreads"));
+                    stats.get("activeThreads"), stats.get("cookieCacheDomains"));
         }
     }
 
@@ -461,5 +629,32 @@ public class ThreadManager {
      */
     public List<Integer> getActiveUsers() {
         return new ArrayList<>(userSessions.keySet());
+    }
+
+    /**
+     * Принудительное обновление кук для всех активных парсеров
+     */
+    public void refreshCookiesForAll() {
+        if (!Config.isDynamicCookiesEnabled()) {
+            logger.info("Dynamic cookies disabled, skipping refresh for all");
+            return;
+        }
+
+        logger.info("Refreshing cookies for all active parsers...");
+
+        try {
+            CookieService.refreshCookies("h5api.m.goofish.com");
+            logger.info("Cookies refreshed for all active parsers");
+
+            // Уведомляем админа
+            if (Config.getInt("telegram.admin.id", 0) > 0) {
+                TelegramNotificationService.sendMessage(
+                        Config.getInt("telegram.admin.id", 0),
+                        "🔄 Куки обновлены для всех активных парсеров"
+                );
+            }
+        } catch (Exception e) {
+            logger.error("Failed to refresh cookies for all parsers: {}", e.getMessage());
+        }
     }
 }

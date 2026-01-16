@@ -5,15 +5,14 @@
   <artifactId>product-parser</artifactId>
   <version>1.0.0</version>
   <build>
-    <finalName>${project.artifactId}-${project.version}</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.11.0</version>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <release>${java.version}</release>
+          <source>17</source>
+          <target>17</target>
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
       <plugin>
@@ -31,6 +30,21 @@
                   <mainClass>com.parser.Main</mainClass>
                 </transformer>
               </transformers>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                    <exclude>META-INF/*.EC</exclude>
+                    <exclude>META-INF/NOTICE*</exclude>
+                    <exclude>META-INF/LICENSE*</exclude>
+                    <exclude>META-INF/versions/*</exclude>
+                    <exclude>META-INF/maven/**</exclude>
+                  </excludes>
+                </filter>
+              </filters>
             </configuration>
           </execution>
         </executions>
@@ -40,7 +54,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>17</maven.compiler.target>
-    <java.version>17</java.version>
+    <selenium.version>4.20.0</selenium.version>
     <maven.compiler.source>17</maven.compiler.source>
   </properties>
 </project>

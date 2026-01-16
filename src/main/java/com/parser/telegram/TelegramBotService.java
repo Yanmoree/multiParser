@@ -1,11 +1,12 @@
 package com.parser.telegram;
 
 import com.parser.config.Config;
+import com.parser.config.CookieConfig;
 import com.parser.core.ThreadManager;
 import com.parser.model.UserSettings;
+import com.parser.service.CookieService;
 import com.parser.storage.WhitelistManager;
 import com.parser.storage.UserDataManager;
-import com.parser.util.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -25,6 +26,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMar
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 import java.util.*;
 
 /**
@@ -151,6 +153,10 @@ public class TelegramBotService extends TelegramLongPollingBot {
                     handleAdmin(chatId, userId, args);
                     break;
 
+                case "/cookies":
+                    handleCookiesCommand(chatId, userId, args);
+                    break;
+
                 default:
                     sendMessage(chatId, "❓ Неизвестная команда. Используйте /help для списка команд.");
             }
@@ -235,23 +241,35 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /start
      */
-// В методе handleStart (строка ~244)
     private void handleStart(Long chatId, int userId) {
         if (WhitelistManager.addUser(userId)) {
-            String welcomeMessage = "🎉 Добро пожаловать в Парсер товаров!\n\n" +
-                    "Я помогу вам отслеживать товары на маркетплейсах и уведомлять о новых предложениях.\n\n" +
-                    "📋 **Основные команды:**\n" +
-                    "/addquery [текст] - добавить поисковый запрос\n" +
-                    "/listqueries - список ваших запросов\n" +
-                    "/settings - настройки парсера\n" +
-                    "/start_parser - запустить парсер\n" +
-                    "/status - статус работы\n" +
-                    "/help - подробная справка\n\n" +
-                    "⚙️ **Сначала настройте парсер:**\n" +
-                    "1. Добавьте поисковые запросы\n" +
-                    "2. Настройте параметры в /settings\n" +
-                    "3. Запустите парсер\n\n" +
-                    "Удачи в поисках выгодных предложений! 🛍️";
+            String welcomeMessage = """
+                🎉 Добро пожаловать в Парсер товаров с динамическими куками!
+                
+                🆕 **Новые возможности:**
+                • Автоматическое обновление кук через Selenium
+                • Динамическое получение свежих кук с сайта Goofish
+                • Автоматическое восстановление при ошибках авторизации
+                
+                📋 **Основные команды:**
+                /addquery [текст] - добавить поисковый запрос
+                /listqueries - список ваших запросов
+                /settings - настройки парсера
+                /start_parser - запустить парсер
+                /status - статус работы
+                /help - подробная справка
+                
+                👑 **Админские команды:**
+                /cookies - управление динамическими куками
+                
+                ⚡ **Быстрый старт:**
+                1. Добавьте запросы командой /addquery
+                2. Настройте параметры в /settings
+                3. Запустите парсер /start_parser
+                4. Получайте уведомления о новых товарах!
+                
+                Удачи в поисках выгодных предложений! 🛍️
+                """;
 
             sendMessage(chatId, welcomeMessage);
         } else {
@@ -265,34 +283,36 @@ public class TelegramBotService extends TelegramLongPollingBot {
     private void sendHelpMessage(Long chatId) {
         String helpMessage = """
             📚 **Справка по командам**
-
+            
             🎯 **Управление запросами:**
             /addquery [текст] - добавить поисковый запрос
             /listqueries - показать все запросы
             /removequery [номер] - удалить запрос
             /clear queries - очистить все запросы
-
+            
             ⚙️ **Настройки парсера:**
             /settings - меню настроек
             /stats - статистика работы
-
+            
             ▶️ **Управление парсером:**
             /start_parser - запустить парсер
             /stop_parser - остановить парсер
             /pause_parser - приостановить
             /resume_parser - возобновить
             /status - статус работы
-
+            
+            🍪 **Управление куками (админ):**
+            /cookies - меню управления динамическими куками
+            
             🛠️ **Другие команды:**
             /help - эта справка
             /clear history - очистить историю товаров
-
-            ⚡ **Быстрый старт:**
-            1. Добавьте запросы
-            2. Настройте параметры
-            3. Запустите парсер
-            4. Получайте уведомления!
-
+            
+            🔄 **Новые возможности:**
+            • Автоматическое обновление кук через Selenium
+            • Динамические куки с сайта Goofish
+            • Самовосстановление при ошибках
+            
             💡 **Совет:** Используйте точные запросы для лучших результатов.
             """;
 
@@ -308,9 +328,9 @@ public class TelegramBotService extends TelegramLongPollingBot {
         if (status == null) {
             String message = """
                 📊 **Статус парсера**
-
+                
                 🔴 Парсер не запущен
-
+                
                 Чтобы начать работу:
                 1. Добавьте запросы: /addquery [текст]
                 2. Настройте параметры: /settings
@@ -526,7 +546,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
         String messageText = """
             ⚙️ **Настройки парсера**
-
+            
             Текущие параметры:
             • Интервал проверки: %d сек
             • Макс. возраст товара: %d мин
@@ -534,7 +554,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
             • Товаров на странице: %d
             • Валюта отображения: %s
             • Уведомления: %s
-
+            
             Выберите параметр для изменения:
             """.formatted(
                 settings.getCheckInterval(),
@@ -608,10 +628,10 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
         String message = String.format("""
             ✏️ **%s**
-
+            
             Введите новое значение:
             Допустимый диапазон: %s
-
+            
             Например: 300
             """, settingName, range);
 
@@ -736,13 +756,13 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
         String messageText = """
             ⚙️ **Расширенные настройки**
-
+            
             Текущие параметры:
             • Минимальная цена: %s
             • Максимальная цена: %s
             • Задержка между запросами: %d мс
             • Макс. количество повторов: %d
-
+            
             Выберите параметр для изменения:
             """.formatted(
                 minPrice,
@@ -802,14 +822,14 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
         String message = """
             ✅ **Настройки сохранены!**
-
+            
             Текущие параметры:
             • Интервал проверки: %d сек
             • Макс. возраст товара: %d мин (%d ч)
             • Страниц для парсинга: %d
             • Товаров на странице: %d
             • Валюта: %s
-
+            
             Для запуска парсера используйте /start_parser
             """.formatted(
                 settings.getCheckInterval(),
@@ -902,6 +922,12 @@ public class TelegramBotService extends TelegramLongPollingBot {
         message.append("Активных потоков: ").append(globalStats.get("activeThreads")).append("\n");
         message.append("Размер пула: ").append(globalStats.get("poolSize")).append("\n");
 
+        // Добавляем статистику кук
+        Map<String, Object> cookieStats = CookieService.getCacheStats();
+        message.append("\n🍪 **Статистика кук:**\n");
+        message.append("Динамические куки: ").append(Config.isDynamicCookiesEnabled() ? "Включено" : "Выключено").append("\n");
+        message.append("Последнее обновление: ").append(cookieStats.get("lastRefreshTime")).append("\n");
+
         sendMessage(chatId, message.toString());
     }
 
@@ -912,7 +938,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
         if (arg == null || arg.trim().isEmpty()) {
             sendMessage(chatId, """
                 🗑️ **Очистка данных**
-
+                
                 Доступные опции:
                 /clear queries - очистить все поисковые запросы
                 /clear history - очистить историю найденных товаров
@@ -999,7 +1025,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     private void showAdminMenu(Long chatId) {
         String menu = """
             👑 **Панель администратора**
-
+            
             Доступные команды:
             /admin stats - подробная статистика
             /admin users - список пользователей
@@ -1007,7 +1033,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
             /admin removeuser [id] - удалить пользователя
             /admin broadcast [текст] - рассылка всем
             /admin restart - перезапуск парсеров
-
+            
             Пользователей в системе: %d
             """.formatted(WhitelistManager.getAllUsers().size());
 
@@ -1015,8 +1041,190 @@ public class TelegramBotService extends TelegramLongPollingBot {
     }
 
     /**
-     * Вспомогательные методы
+     * Команда /cookies (только для админа)
      */
+    private void handleCookiesCommand(Long chatId, int userId, String arg) {
+        if (userId != adminId) {
+            sendMessage(chatId, "⛔ У вас нет прав администратора");
+            return;
+        }
+
+        if (arg == null || arg.trim().isEmpty()) {
+            showCookiesMenu(chatId);
+            return;
+        }
+
+        String[] parts = arg.split(" ", 2);
+        String command = parts[0].toLowerCase();
+        String param = parts.length > 1 ? parts[1] : "";
+
+        switch (command) {
+            case "refresh":
+                refreshCookies(chatId, param);
+                break;
+            case "refresh_gui":
+                refreshCookiesWithGUI(chatId, param);
+                break;
+            case "clear":
+                clearCookies(chatId, param);
+                break;
+            case "status":
+                showCookiesStats(chatId);
+                break;
+            case "dynamic":
+                toggleDynamicCookies(chatId);
+                break;
+            default:
+                sendMessage(chatId, "❌ Неизвестная команда для куки");
+        }
+    }
+
+    /**
+     * Меню управления куки
+     */
+    private void showCookiesMenu(Long chatId) {
+        String menu = """
+            🍪 **Управление cookies через Selenium**
+            
+            🆕 *Новые команды:*
+            /cookies refresh - получить свежие cookies через Selenium (headless)
+            /cookies refresh_gui - получить cookies с открытием браузера (для отладки)
+            /cookies status - статус cookies
+            
+            🛠️ *Управление:*
+            /cookies clear [домен] - очистить cookies
+            /cookies dynamic - включить/выключить динамические cookies
+            
+            ⚙️ *Настройки:*
+            • Автоматическое обновление: %s
+            • Динамические cookies: %s
+            • Интервал обновления: %d мин
+            """.formatted(
+                Config.getBoolean("cookie.auto.update", true) ? "Включено" : "Выключено",
+                Config.isDynamicCookiesEnabled() ? "Включено" : "Выключено",
+                Config.getInt("cookie.update.interval.minutes", 60)
+        );
+
+        sendMessage(chatId, menu);
+    }
+
+    /**
+     * Обновление cookies
+     */
+    private void refreshCookies(Long chatId, String domain) {
+        String targetDomain = domain.trim();
+        if (targetDomain.isEmpty()) {
+            targetDomain = "h5api.m.goofish.com";
+        }
+
+        sendMessage(chatId, "🔄 Получаю свежие cookies через Selenium (headless) для " + targetDomain + "...");
+
+        try {
+            boolean success = CookieService.refreshCookies(targetDomain);
+            if (success) {
+                sendMessage(chatId, String.format(
+                        "✅ Cookies успешно обновлены через Selenium\n" +
+                                "Время: %s",
+                        new Date()
+                ));
+            } else {
+                sendMessage(chatId, "❌ Не удалось получить свежие cookies");
+            }
+        } catch (Exception e) {
+            logger.error("Error refreshing cookies: {}", e.getMessage());
+            sendMessage(chatId, "❌ Ошибка при обновлении cookies: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Обновление cookies через GUI
+     */
+    private void refreshCookiesWithGUI(Long chatId, String domain) {
+        String targetDomain = domain.trim();
+        if (targetDomain.isEmpty()) {
+            targetDomain = "h5api.m.goofish.com";
+        }
+
+        sendMessage(chatId, "🔄 Получаю свежие cookies через Selenium с GUI для " + targetDomain + "...");
+
+        try {
+            boolean success = CookieService.refreshCookiesWithGUI(targetDomain);
+            if (success) {
+                sendMessage(chatId, String.format(
+                        "✅ Cookies успешно обновлены через GUI\n" +
+                                "Время: %s",
+                        new Date()
+                ));
+            } else {
+                sendMessage(chatId, "❌ Не удалось получить свежие cookies через GUI");
+            }
+        } catch (Exception e) {
+            logger.error("Error refreshing cookies with GUI: {}", e.getMessage());
+            sendMessage(chatId, "❌ Ошибка при обновлении cookies через GUI: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Очистка cookies
+     */
+    private void clearCookies(Long chatId, String domain) {
+        if (domain == null || domain.trim().isEmpty()) {
+            sendMessage(chatId, "⚠️ Укажите домен для очистки\n" +
+                    "Пример: /cookies clear h5api.m.goofish.com");
+            return;
+        }
+
+        CookieConfig.clearCookiesForDomain(domain.trim());
+        CookieService.clearCache(); // Также очищаем кэш динамических cookies
+        sendMessage(chatId, "✅ Cookies очищены для домена: " + domain);
+    }
+
+    /**
+     * Статистика cookies
+     */
+    private void showCookiesStats(Long chatId) {
+        Map<String, Object> cookieStats = CookieService.getCacheStats();
+
+        StringBuilder message = new StringBuilder();
+        message.append("📊 **Статистика cookies**\n\n");
+
+        message.append("⚙️ *Настройки:*\n");
+        message.append("Динамические cookies: ").append(Config.isDynamicCookiesEnabled() ? "🟢 Включено" : "🔴 Выключено").append("\n");
+        message.append("Автообновление: ").append(Config.getBoolean("cookie.auto.update", true) ? "🟢 Включено" : "🔴 Выключено").append("\n");
+        message.append("Интервал обновления: ").append(Config.getInt("cookie.update.interval.minutes", 60)).append(" мин\n");
+
+        message.append("\n📅 *Состояние:*\n");
+        message.append("Последнее обновление: ").append(cookieStats.get("lastRefreshTime")).append("\n");
+
+        String[] domains = CookieConfig.getCookieDomains();
+        message.append("\n🌐 *Домены с cookies:*\n");
+        message.append("Всего доменов: ").append(domains.length).append("\n");
+
+        for (String domain : domains) {
+            String cookies = CookieConfig.getCookiesForDomain(domain);
+            int cookieCount = cookies.split("; ").length;
+            message.append("• ").append(domain).append(": ").append(cookieCount).append(" cookies\n");
+        }
+
+        sendMessage(chatId, message.toString());
+    }
+
+    /**
+     * Переключение динамических cookies
+     */
+    private void toggleDynamicCookies(Long chatId) {
+        boolean current = Config.isDynamicCookiesEnabled();
+        Config.setProperty("cookie.dynamic.enabled", String.valueOf(!current));
+        Config.saveConfig();
+
+        if (!current) {
+            sendMessage(chatId, "✅ Динамические cookies включены");
+        } else {
+            sendMessage(chatId, "✅ Динамические cookies выключены");
+        }
+    }
+
+    // Вспомогательные методы
 
     private void sendMessage(Long chatId, String text) {
         SendMessage message = new SendMessage();
@@ -1087,6 +1295,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
             commands.add(new BotCommand("start_parser", "Запустить парсер"));
             commands.add(new BotCommand("stop_parser", "Остановить парсер"));
             commands.add(new BotCommand("stats", "Статистика"));
+            commands.add(new BotCommand("cookies", "Управление куками (админ)"));
 
             this.execute(new org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands(
                     commands, new BotCommandScopeDefault(), null
@@ -1099,35 +1308,177 @@ public class TelegramBotService extends TelegramLongPollingBot {
     }
 
     private void showAdminStats(Long chatId) {
-        // Реализация отображения административной статистики
-        // В реальном проекте здесь будет детальная статистика
-        sendMessage(chatId, "📊 Админская статистика (заглушка)");
+        Map<String, Object> stats = threadManager.getGlobalStatistics();
+        Map<String, Object> cookieStats = CookieService.getCacheStats();
+
+        StringBuilder message = new StringBuilder();
+        message.append("📊 **Админская статистика**\n\n");
+
+        message.append("👥 **Пользователи:**\n");
+        message.append("Всего пользователей: ").append(WhitelistManager.getUserCount()).append("\n");
+        message.append("Активных сессий: ").append(stats.get("totalUsers")).append("\n");
+
+        message.append("\n⚙️ **Система:**\n");
+        message.append("Всего товаров найдено: ").append(stats.get("totalProductsFound")).append("\n");
+        message.append("Всего запросов: ").append(stats.get("totalRequestsMade")).append("\n");
+        message.append("Активных потоков: ").append(stats.get("activeThreads")).append("/").append(stats.get("poolSize")).append("\n");
+
+        long uptime = (Long) stats.get("uptime");
+        long days = uptime / (1000 * 60 * 60 * 24);
+        long hours = (uptime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
+        long minutes = (uptime % (1000 * 60 * 60)) / (1000 * 60);
+        message.append("Время работы: ").append(days).append("д ").append(hours).append("ч ").append(minutes).append("м\n");
+
+        message.append("\n🍪 **Cookies:**\n");
+        message.append("Динамические cookies: ").append(Config.isDynamicCookiesEnabled() ? "Включено" : "Выключено").append("\n");
+        message.append("Последнее обновление: ").append(cookieStats.get("lastRefreshTime")).append("\n");
+
+        sendMessage(chatId, message.toString());
     }
 
     private void showAdminUsers(Long chatId) {
-        // Реализация отображения списка пользователей
-        // В реальном проекте здесь будет список всех пользователей
-        sendMessage(chatId, "👥 Список пользователей (заглушка)");
+        List<Integer> users = WhitelistManager.getAllUsers();
+
+        if (users.isEmpty()) {
+            sendMessage(chatId, "📭 Нет пользователей в системе");
+            return;
+        }
+
+        StringBuilder message = new StringBuilder();
+        message.append("👥 **Список пользователей**\n\n");
+        message.append("Всего пользователей: ").append(users.size()).append("\n\n");
+
+        // Показываем первые 20 пользователей
+        int count = Math.min(20, users.size());
+        for (int i = 0; i < count; i++) {
+            int userId = users.get(i);
+            boolean isActive = threadManager.isUserParserRunning(userId);
+            message.append(i + 1).append(". ID: ").append(userId);
+            message.append(isActive ? " 🟢" : " 🔴").append("\n");
+        }
+
+        if (users.size() > 20) {
+            message.append("\n... и еще ").append(users.size() - 20).append(" пользователей");
+        }
+
+        message.append("\n\n**Команды управления:**\n");
+        message.append("/admin adduser [id] - добавить пользователя\n");
+        message.append("/admin removeuser [id] - удалить пользователя");
+
+        sendMessage(chatId, message.toString());
     }
 
     private void handleAdminAddUser(Long chatId, String param) {
-        // Реализация добавления пользователя администратором
-        sendMessage(chatId, "✅ Пользователь добавлен (заглушка)");
+        if (param == null || param.trim().isEmpty()) {
+            sendMessage(chatId, "⚠️ Используйте: /admin adduser [id]\nПример: /admin adduser 123456789");
+            return;
+        }
+
+        try {
+            int userId = Integer.parseInt(param.trim());
+            if (WhitelistManager.addUser(userId)) {
+                sendMessage(chatId, "✅ Пользователь " + userId + " добавлен в белый список");
+            } else {
+                sendMessage(chatId, "ℹ️ Пользователь " + userId + " уже в белом списке");
+            }
+        } catch (NumberFormatException e) {
+            sendMessage(chatId, "❌ Неверный формат ID пользователя");
+        }
     }
 
     private void handleAdminRemoveUser(Long chatId, String param) {
-        // Реализация удаления пользователя администратором
-        sendMessage(chatId, "✅ Пользователь удален (заглушка)");
+        if (param == null || param.trim().isEmpty()) {
+            sendMessage(chatId, "⚠️ Используйте: /admin removeuser [id]\nПример: /admin removeuser 123456789");
+            return;
+        }
+
+        try {
+            int userId = Integer.parseInt(param.trim());
+            if (WhitelistManager.removeUser(userId)) {
+                sendMessage(chatId, "✅ Пользователь " + userId + " удален из белого списка");
+
+                // Останавливаем парсер пользователя, если он запущен
+                threadManager.stopUserParser(userId);
+            } else {
+                sendMessage(chatId, "ℹ️ Пользователь " + userId + " не найден в белом списке");
+            }
+        } catch (NumberFormatException e) {
+            sendMessage(chatId, "❌ Неверный формат ID пользователя");
+        }
     }
 
     private void handleAdminBroadcast(Long chatId, String param) {
-        // Реализация рассылки сообщений всем пользователям
-        sendMessage(chatId, "📢 Рассылка отправлена (заглушка)");
+        if (param == null || param.trim().isEmpty()) {
+            sendMessage(chatId, "⚠️ Используйте: /admin broadcast [текст]\nПример: /admin broadcast Обновление системы");
+            return;
+        }
+
+        String message = param.trim();
+        List<Integer> users = WhitelistManager.getAllUsers();
+        int sent = 0;
+        int failed = 0;
+
+        sendMessage(chatId, "📢 Начинаю рассылку для " + users.size() + " пользователей...");
+
+        for (int userId : users) {
+            try {
+                com.parser.telegram.TelegramNotificationService.sendMessage(userId,
+                        "📢 **Административное сообщение**\n\n" + message + "\n\n_Это автоматическое сообщение от администратора_");
+                sent++;
+                Thread.sleep(100); // Небольшая задержка чтобы не спамить
+            } catch (Exception e) {
+                logger.error("Failed to send broadcast to user {}: {}", userId, e.getMessage());
+                failed++;
+            }
+        }
+
+        sendMessage(chatId, String.format(
+                "✅ Рассылка завершена\n" +
+                        "Отправлено: %d\n" +
+                        "Не отправлено: %d",
+                sent, failed
+        ));
     }
 
     private void handleAdminRestart(Long chatId) {
-        // Реализация перезапуска парсеров
-        sendMessage(chatId, "🔄 Парсеры перезапущены (заглушка)");
+        sendMessage(chatId, "🔄 Перезапускаю все парсеры...");
+
+        try {
+            // Получаем список активных пользователей
+            List<Integer> activeUsers = threadManager.getActiveUsers();
+            int stopped = 0;
+            int started = 0;
+
+            // Останавливаем все парсеры
+            for (int userId : activeUsers) {
+                if (threadManager.stopUserParser(userId)) {
+                    stopped++;
+                }
+            }
+
+            // Небольшая пауза
+            Thread.sleep(2000);
+
+            // Запускаем парсеры для пользователей с запросами
+            for (int userId : WhitelistManager.getAllUsers()) {
+                if (!UserDataManager.getUserQueries(userId).isEmpty()) {
+                    if (threadManager.startUserParser(userId)) {
+                        started++;
+                    }
+                }
+            }
+
+            sendMessage(chatId, String.format(
+                    "✅ Перезапуск завершен\n" +
+                            "Остановлено парсеров: %d\n" +
+                            "Запущено парсеров: %d",
+                    stopped, started
+            ));
+
+        } catch (Exception e) {
+            logger.error("Error restarting parsers: {}", e.getMessage());
+            sendMessage(chatId, "❌ Ошибка при перезапуске: " + e.getMessage());
+        }
     }
 
     @Override

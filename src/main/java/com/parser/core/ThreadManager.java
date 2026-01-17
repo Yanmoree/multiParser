@@ -23,7 +23,7 @@ import java.util.concurrent.*;
 public class ThreadManager {
     private static final Logger logger = LoggerFactory.getLogger(ThreadManager.class);
 
-    private final Map<Integer, UserSession> userSessions = new ConcurrentHashMap<>();
+    private final Map<Long, UserSession> userSessions = new ConcurrentHashMap<>();
     private final ThreadPoolExecutor threadPool;
     private final ScheduledExecutorService scheduler;
 
@@ -82,73 +82,17 @@ public class ThreadManager {
     }
 
     /**
-     * Задача для автоматического обновления кук
+     * Задача для автообновления кук
      */
     private void updateCookiesTask() {
-        if (!Config.isDynamicCookiesEnabled()) {
-            logger.debug("Dynamic cookies disabled, skipping auto-update");
-            return;
-        }
-
-        logger.info("Starting automatic cookie update...");
-
         try {
-            String[] domains = {
-                    "h5api.m.goofish.com",
-                    "www.goofish.com",
-                    "passport.goofish.com"
-            };
-
-            int updatedCount = 0;
-            for (String domain : domains) {
-                try {
-                    if (CookieService.refreshCookies(domain)) {
-                        updatedCount++;
-                        logger.info("Cookies updated for domain: {}", domain);
-                    }
-                } catch (Exception e) {
-                    logger.error("Failed to update cookies for {}: {}", domain, e.getMessage());
-                }
+            if (Config.isDynamicCookiesEnabled()) {
+                logger.info("🔄 Auto-updating cookies...");
+                CookieService.refreshCookies("h5api.m.goofish.com");
+                logger.info("✅ Cookies auto-updated successfully");
             }
-
-            if (updatedCount > 0) {
-                logger.info("Automatic cookie update completed: {} domains updated", updatedCount);
-
-                if (Config.getInt("telegram.admin.id", 0) > 0) {
-                    TelegramNotificationService.sendMessage(
-                            Config.getInt("telegram.admin.id", 0),
-                            String.format(
-                                    "🍪 **Автообновление кук**\n\n" +
-                                            "Куки успешно обновлены для %d доменов:\n" +
-                                            "• h5api.m.goofish.com\n" +
-                                            "• www.goofish.com\n" +
-                                            "• passport.goofish.com\n\n" +
-                                            "Время: %s",
-                                    updatedCount,
-                                    new Date()
-                            )
-                    );
-                }
-            } else {
-                logger.warn("No cookies were updated in automatic update");
-            }
-
         } catch (Exception e) {
-            logger.error("Error in cookie update task: {}", e.getMessage(), e);
-
-            if (Config.getInt("telegram.admin.id", 0) > 0) {
-                TelegramNotificationService.sendMessage(
-                        Config.getInt("telegram.admin.id", 0),
-                        String.format(
-                                "❌ **Ошибка автообновления кук**\n\n" +
-                                        "Произошла ошибка при автообновлении кук:\n" +
-                                        "`%s`\n\n" +
-                                        "Время: %s",
-                                e.getMessage(),
-                                new Date()
-                        )
-                );
-            }
+            logger.error("❌ Error in cookies auto-update task: {}", e.getMessage());
         }
     }
 
@@ -156,14 +100,38 @@ public class ThreadManager {
      * Задача для очистки устаревших кук
      */
     private void cleanupExpiredCookiesTask() {
-        logger.debug("Cleaning up expired cookies from cache...");
+        try {
+            logger.debug("🔄 Running expired cookies cleanup task");
+            // Здесь можно добавить логику очистки устаревших кук
+        } catch (Exception e) {
+            logger.error("❌ Error in expired cookies cleanup task: {}", e.getMessage());
+        }
     }
 
     /**
      * Запуск парсера для пользователя
      */
-    public boolean startUserParser(int userId) {
+    public boolean startUserParser(long userId) {
         logger.info("Attempting to start parser for user {}", userId);
+
+        // Детальная информация о пользователе
+        boolean isInWhitelist = WhitelistManager.isUserAllowed(userId);
+        logger.info("User {} whitelist status: {}", userId, isInWhitelist);
+
+        if (!isInWhitelist) {
+            logger.warn("User {} NOT in whitelist. Cannot start parser.", userId);
+            List<Long> allUsers = WhitelistManager.getAllUsers();
+            logger.info("Current whitelist contains {} users: {}", allUsers.size(), allUsers);
+
+            TelegramNotificationService.sendMessage(userId,
+                    "⛔ Вы не авторизованы для использования парсера.\n" +
+                            "Используйте команду /start для регистрации\n\n" +
+                            "ℹ️ Отладочная информация:\n" +
+                            "• Ваш ID: " + userId + "\n" +
+                            "• Пользователей в системе: " + allUsers.size() + "\n" +
+                            "• Используйте /checkwhitelist для проверки статуса");
+            return false;
+        }
 
         if (userSessions.containsKey(userId)) {
             UserSession session = userSessions.get(userId);
@@ -176,14 +144,6 @@ public class ThreadManager {
             stopUserParser(userId);
         }
 
-        if (!WhitelistManager.isUserAllowed(userId)) {
-            logger.warn("User {} not in whitelist", userId);
-            TelegramNotificationService.sendMessage(userId,
-                    "⛔ Вы не авторизованы для использования парсера.\n" +
-                            "Используйте команду /start для регистрации");
-            return false;
-        }
-
         List<String> queries = UserDataManager.getUserQueries(userId);
         if (queries.isEmpty()) {
             logger.warn("User {} has no queries", userId);
@@ -192,6 +152,8 @@ public class ThreadManager {
                             "Добавьте запросы командой /addquery [текст]");
             return false;
         }
+
+        logger.info("User {} has {} queries: {}", userId, queries.size(), queries);
 
         UserSettings settings = UserDataManager.getUserSettings(userId);
 
@@ -212,6 +174,7 @@ public class ThreadManager {
             String dataDir = Config.getString("storage.data.dir", "./data");
             new File(dataDir + "/user_settings").mkdirs();
             new File(dataDir + "/user_products").mkdirs();
+            logger.debug("Created user directories in {}", dataDir);
         } catch (Exception e) {
             logger.error("Failed to create user directories: {}", e.getMessage());
         }
@@ -230,9 +193,12 @@ public class ThreadManager {
         logger.info("Parser started for user {}", userId);
         TelegramNotificationService.sendMessage(userId,
                 "✅ Парсер успешно запущен!\n\n" +
-                        "Запросов: " + queries.size() + "\n" +
-                        "Интервал проверки: " + settings.getCheckInterval() + " сек\n\n" +
-                        "Для остановки используйте /stop_parser");
+                        "📊 **Детали:**\n" +
+                        "• Запросов: " + queries.size() + "\n" +
+                        "• Интервал проверки: " + settings.getCheckInterval() + " сек\n" +
+                        "• Макс. возраст товара: " + settings.getMaxAgeMinutes() + " мин\n" +
+                        "• Страниц для парсинга: " + settings.getMaxPages() + "\n\n" +
+                        "🛑 Для остановки используйте /stop_parser");
 
         return true;
     }
@@ -241,7 +207,7 @@ public class ThreadManager {
      * Основной цикл работы парсера для пользователя
      */
     private void runUserParser(UserSession session) {
-        final int userId = session.getUserId();
+        final long userId = session.getUserId();
         session.setRunning(true);
         session.setStartTime(new Date());
 
@@ -360,7 +326,8 @@ public class ThreadManager {
                 message.contains("forbidden") ||
                 message.contains("未登录") ||
                 message.contains("未授权") ||
-                message.contains("登录");
+                message.contains("令牌") ||
+                message.contains("非法请求");
     }
 
     /**
@@ -385,7 +352,7 @@ public class ThreadManager {
     /**
      * Отправка уведомлений о товарах в Telegram с HTML форматированием и изображениями
      */
-    private void sendProductNotifications(int userId, List<Product> products,
+    private void sendProductNotifications(long userId, List<Product> products,
                                           String query, UserSettings settings) {
         if (products.isEmpty()) return;
 
@@ -553,7 +520,7 @@ public class ThreadManager {
     /**
      * Остановка парсера для пользователя
      */
-    public boolean stopUserParser(int userId) {
+    public boolean stopUserParser(long userId) {
         logger.info("Attempting to stop parser for user {}", userId);
 
         UserSession session = userSessions.get(userId);
@@ -576,7 +543,7 @@ public class ThreadManager {
     /**
      * Приостановка парсера для пользователя
      */
-    public boolean pauseUserParser(int userId) {
+    public boolean pauseUserParser(long userId) {
         UserSession session = userSessions.get(userId);
         if (session != null && session.isRunning()) {
             session.setPaused(true);
@@ -591,7 +558,7 @@ public class ThreadManager {
     /**
      * Возобновление парсера для пользователя
      */
-    public boolean resumeUserParser(int userId) {
+    public boolean resumeUserParser(long userId) {
         UserSession session = userSessions.get(userId);
         if (session != null && session.isPaused()) {
             session.setPaused(false);
@@ -606,10 +573,10 @@ public class ThreadManager {
     /**
      * Получение статусов всех активных парсеров
      */
-    public Map<Integer, Map<String, Object>> getAllStatuses() {
-        Map<Integer, Map<String, Object>> statuses = new HashMap<>();
+    public Map<Long, Map<String, Object>> getAllStatuses() {
+        Map<Long, Map<String, Object>> statuses = new HashMap<>();
 
-        for (Map.Entry<Integer, UserSession> entry : userSessions.entrySet()) {
+        for (Map.Entry<Long, UserSession> entry : userSessions.entrySet()) {
             statuses.put(entry.getKey(), entry.getValue().getDetailedStatus());
         }
 
@@ -619,7 +586,7 @@ public class ThreadManager {
     /**
      * Получение статуса конкретного пользователя
      */
-    public Map<String, Object> getUserStatus(int userId) {
+    public Map<String, Object> getUserStatus(long userId) {
         UserSession session = userSessions.get(userId);
         if (session != null) {
             return session.getDetailedStatus();
@@ -668,8 +635,8 @@ public class ThreadManager {
     public void shutdown() {
         logger.info("Shutting down ThreadManager...");
 
-        List<Integer> userIds = new ArrayList<>(userSessions.keySet());
-        for (Integer userId : userIds) {
+        List<Long> userIds = new ArrayList<>(userSessions.keySet());
+        for (Long userId : userIds) {
             stopUserParser(userId);
         }
 
@@ -698,7 +665,7 @@ public class ThreadManager {
     /**
      * Проверка активности парсера пользователя
      */
-    public boolean isUserParserRunning(int userId) {
+    public boolean isUserParserRunning(long userId) {
         UserSession session = userSessions.get(userId);
         return session != null && session.isRunning();
     }
@@ -706,7 +673,7 @@ public class ThreadManager {
     /**
      * Получение списка активных пользователей
      */
-    public List<Integer> getActiveUsers() {
+    public List<Long> getActiveUsers() {
         return new ArrayList<>(userSessions.keySet());
     }
 
@@ -725,9 +692,10 @@ public class ThreadManager {
             CookieService.refreshCookies("h5api.m.goofish.com");
             logger.info("Cookies refreshed for all active parsers");
 
-            if (Config.getInt("telegram.admin.id", 0) > 0) {
-                TelegramNotificationService.sendMessage(
-                        Config.getInt("telegram.admin.id", 0),
+            // Исправляем эту строку - добавляем явное приведение типа
+            long adminId = Config.getInt("telegram.admin.id", 0);
+            if (adminId > 0) {
+                TelegramNotificationService.sendMessage(adminId,
                         "🔄 Куки обновлены для всех активных парсеров"
                 );
             }
@@ -735,4 +703,6 @@ public class ThreadManager {
             logger.error("Failed to refresh cookies for all parsers: {}", e.getMessage());
         }
     }
+
+
 }

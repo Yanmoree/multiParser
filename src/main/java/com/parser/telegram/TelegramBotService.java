@@ -72,9 +72,9 @@ public class TelegramBotService extends TelegramLongPollingBot {
     private void handleMessage(org.telegram.telegrambots.meta.api.objects.Message message) {
         Long chatId = message.getChatId();
         String text = message.getText();
-        int userId = chatId.intValue();
+        long userId = chatId; // Используем long напрямую
 
-        logger.info("Message from {}: {}", chatId, text);
+        logger.info("Message from {} (user {}): {}", chatId, userId, text);
 
         // Обработка команд
         if (text.startsWith("/")) {
@@ -88,7 +88,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Обработка команд
      */
-    private void handleCommand(Long chatId, int userId, String command, Integer messageId) {
+    private void handleCommand(Long chatId, long userId, String command, Integer messageId) {
         try {
             String[] parts = command.split(" ", 2);
             String cmd = parts[0].toLowerCase();
@@ -157,6 +157,18 @@ public class TelegramBotService extends TelegramLongPollingBot {
                     handleCookiesCommand(chatId, userId, args);
                     break;
 
+                case "/checkwhitelist":
+                    handleCheckWhitelist(chatId, userId);
+                    break;
+
+                case "/debug":
+                    handleDebug(chatId, userId);
+                    break;
+
+                case "/getid":
+                    handleGetIdCommand(chatId, userId);
+                    break;
+
                 default:
                     sendMessage(chatId, "❓ Неизвестная команда. Используйте /help для списка команд.");
             }
@@ -170,9 +182,9 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Обработка текстовых ответов
      */
-    private void handleTextResponse(Long chatId, int userId, String text, Integer messageId) {
+    private void handleTextResponse(Long chatId, long userId, String text, Integer messageId) {
         // Проверка состояния пользователя
-        String state = stateManager.getUserState(userId);
+        String state = stateManager.getUserState((int) userId); // Приводим к int для stateManager
 
         if (state == null) {
             sendMessage(chatId, "Для работы с ботом используйте команды. /help - список команд");
@@ -184,7 +196,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 // Добавление нового запроса
                 if (UserDataManager.addUserQuery(userId, text)) {
                     sendMessage(chatId, "✅ Запрос добавлен: " + text);
-                    stateManager.clearUserState(userId);
+                    stateManager.clearUserState((int) userId);
                 } else {
                     sendMessage(chatId, "⚠️ Этот запрос уже существует");
                 }
@@ -212,7 +224,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     private void handleCallbackQuery(CallbackQuery callbackQuery) {
         String callbackData = callbackQuery.getData();
         Long chatId = callbackQuery.getMessage().getChatId();
-        int userId = chatId.intValue();
+        long userId = chatId; // Используем chatId как userId
         Integer messageId = callbackQuery.getMessage().getMessageId();
 
         logger.debug("Callback from {}: {}", chatId, callbackData);
@@ -241,10 +253,26 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /start
      */
-    private void handleStart(Long chatId, int userId) {
-        if (WhitelistManager.addUser(userId)) {
-            String welcomeMessage = """
+    private void handleStart(Long chatId, long userId) {
+        logger.info("Processing /start for user {} (chat {})", userId, chatId);
+
+        // Проверяем текущий статус пользователя
+        boolean isInWhitelistBefore = WhitelistManager.isUserAllowed(userId);
+        logger.info("User {} in whitelist before /start: {}", userId, isInWhitelistBefore);
+
+        boolean isNewUser = WhitelistManager.addUser(userId);
+
+        // Получаем обновленный статус
+        boolean isInWhitelistAfter = WhitelistManager.isUserAllowed(userId);
+        logger.info("User {} in whitelist after /start: {} (isNewUser: {})",
+                userId, isInWhitelistAfter, isNewUser);
+
+        String welcomeMessage;
+        if (isNewUser) {
+            welcomeMessage = String.format("""
                 🎉 Добро пожаловать в Парсер товаров с динамическими куками!
+                
+                🆔 **Ваш ID:** `%d`
                 
                 🆕 **Новые возможности:**
                 • Автоматическое обновление кук через Selenium
@@ -269,12 +297,121 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 4. Получайте уведомления о новых товарах!
                 
                 Удачи в поисках выгодных предложений! 🛍️
-                """;
-
-            sendMessage(chatId, welcomeMessage);
+                """, userId);
         } else {
-            sendMessage(chatId, "👋 С возвращением! Используйте /help для списка команд.");
+            welcomeMessage = String.format("""
+                👋 С возвращением!
+                
+                🆔 **Ваш ID:** `%d`
+                ✅ **В whitelist:** ДА
+                
+                Используйте /help для списка команд.
+                """, userId);
         }
+
+        sendMessage(chatId, welcomeMessage);
+
+        // Дополнительная отладочная информация для новых пользователей
+        if (isNewUser) {
+            String debugInfo = String.format(
+                    "\n\n📊 **Отладочная информация:**\n" +
+                            "Ваш ID: %d\n" +
+                            "Добавлен в whitelist: ✅ ДА\n" +
+                            "Всего пользователей: %d",
+                    userId, WhitelistManager.getUserCount()
+            );
+            sendMessage(chatId, debugInfo);
+        }
+    }
+
+    /**
+     * Команда /getid - для получения ID
+     */
+    private void handleGetIdCommand(Long chatId, long userId) {
+        String message = String.format("""
+            🆔 **Ваши идентификаторы:**
+            
+            • **Chat ID:** `%d`
+            • **User ID для системы:** `%d`
+            
+            **Важно:** Используйте второй ID (`%d`) для регистрации.
+            
+            **Если ID отрицательный:** Это нормально для Telegram.
+            Система автоматически преобразует его.
+            """, chatId, userId, userId);
+
+        sendMessage(chatId, message);
+    }
+
+    /**
+     * Команда /checkwhitelist - для отладки
+     */
+    private void handleCheckWhitelist(Long chatId, long userId) {
+        boolean isInWhitelist = WhitelistManager.isUserAllowed(userId);
+        List<Long> allUsers = WhitelistManager.getAllUsers();
+
+        String message = String.format(
+                "📋 **Whitelist Status**\n\n" +
+                        "Ваш ID: `%d`\n" +
+                        "В whitelist: %s\n\n" +
+                        "Все пользователи в whitelist (%d):\n%s\n\n" +
+                        "**Отладочная информация:**\n" +
+                        "Путь к файлу: %s\n" +
+                        "Admin ID: %d\n" +
+                        "Ваш Chat ID: %d",
+                userId,
+                isInWhitelist ? "✅ YES" : "❌ NO",
+                allUsers.size(),
+                allUsers.isEmpty() ? "Пользователей пока нет" :
+                        allUsers.stream()
+                                .map(id -> "• " + id + (id == userId ? " (вы)" : ""))
+                                .collect(java.util.stream.Collectors.joining("\n")),
+                com.parser.storage.FileStorage.getFilePath("whitelist.txt"),
+                adminId,
+                chatId
+        );
+
+        sendMessage(chatId, message);
+    }
+
+    /**
+     * Команда /debug - дополнительная отладка
+     */
+    private void handleDebug(Long chatId, long userId) {
+        boolean isInWhitelist = WhitelistManager.isUserAllowed(userId);
+        List<Long> allUsers = WhitelistManager.getAllUsers();
+        boolean isParserRunning = threadManager.isUserParserRunning(userId);
+
+        String message = String.format(
+                "🔧 **Отладочная информация**\n\n" +
+                        "👤 **Пользователь:**\n" +
+                        "• User ID: %d\n" +
+                        "• Chat ID: %d\n" +
+                        "• В whitelist: %s\n\n" +
+                        "🤖 **Бот:**\n" +
+                        "• Admin ID: %d\n" +
+                        "• Вы админ: %s\n\n" +
+                        "🔄 **Парсер:**\n" +
+                        "• Парсер запущен: %s\n" +
+                        "• Активных пользователей: %d\n\n" +
+                        "📋 **Whitelist:**\n" +
+                        "• Всего пользователей: %d\n" +
+                        "• Пользователи: %s",
+                userId,
+                chatId,
+                isInWhitelist ? "✅ ДА" : "❌ НЕТ",
+                adminId,
+                (userId == adminId) ? "✅ ДА" : "❌ НЕТ",
+                isParserRunning ? "✅ ДА" : "❌ НЕТ",
+                threadManager.getActiveUsers().size(),
+                allUsers.size(),
+                allUsers.isEmpty() ? "Нет пользователей" :
+                        allUsers.stream()
+                                .map(String::valueOf)
+                                .collect(java.util.stream.Collectors.joining(", "))
+        );
+
+        sendMessage(chatId, message);
     }
 
     /**
@@ -283,6 +420,10 @@ public class TelegramBotService extends TelegramLongPollingBot {
     private void sendHelpMessage(Long chatId) {
         String helpMessage = """
             📚 **Справка по командам**
+            
+            🔑 **Получение ID:**
+            /getid - показать ваш Telegram ID
+            /checkwhitelist - проверить статус в белом списке
             
             🎯 **Управление запросами:**
             /addquery [текст] - добавить поисковый запрос
@@ -307,6 +448,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
             🛠️ **Другие команды:**
             /help - эта справка
             /clear history - очистить историю товаров
+            /debug - отладочная информация
             
             🔄 **Новые возможности:**
             • Автоматическое обновление кук через Selenium
@@ -322,7 +464,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /status
      */
-    private void handleStatus(Long chatId, int userId) {
+    private void handleStatus(Long chatId, long userId) {
         Map<String, Object> status = threadManager.getUserStatus(userId);
 
         if (status == null) {
@@ -418,10 +560,10 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /addquery
      */
-    private void handleAddQuery(Long chatId, int userId, String query) {
+    private void handleAddQuery(Long chatId, long userId, String query) {
         if (query == null || query.trim().isEmpty()) {
             // Запрашиваем запрос у пользователя
-            stateManager.setUserState(userId, "AWAITING_QUERY");
+            stateManager.setUserState((int) userId, "AWAITING_QUERY");
             sendMessage(chatId, "Введите поисковый запрос:");
             return;
         }
@@ -436,7 +578,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /listqueries
      */
-    private void handleListQueries(Long chatId, int userId) {
+    private void handleListQueries(Long chatId, long userId) {
         List<String> queries = UserDataManager.getUserQueries(userId);
 
         if (queries.isEmpty()) {
@@ -463,7 +605,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /removequery
      */
-    private void handleRemoveQuery(Long chatId, int userId, String arg) {
+    private void handleRemoveQuery(Long chatId, long userId, String arg) {
         try {
             if (arg == null || arg.trim().isEmpty()) {
                 sendMessage(chatId, "Используйте: /removequery [номер]\n" +
@@ -492,7 +634,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Меню настроек
      */
-    private void showSettingsMenu(Long chatId, int userId) {
+    private void showSettingsMenu(Long chatId, long userId) {
         UserSettings settings = UserDataManager.getUserSettings(userId);
 
         InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
@@ -580,7 +722,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Обработка callback настроек
      */
-    private void handleSettingCallback(Long chatId, int userId, String callbackData, Integer messageId) {
+    private void handleSettingCallback(Long chatId, long userId, String callbackData, Integer messageId) {
         String setting = callbackData.substring(8); // Убираем "setting_"
 
         switch (setting) {
@@ -621,10 +763,10 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Запрос значения настройки у пользователя
      */
-    private void requestSettingValue(Long chatId, int userId, String settingName,
+    private void requestSettingValue(Long chatId, long userId, String settingName,
                                      String range, String settingKey) {
-        stateManager.setUserState(userId, "AWAITING_SETTING_VALUE");
-        stateManager.setUserData(userId, "setting_key", settingKey);
+        stateManager.setUserState((int) userId, "AWAITING_SETTING_VALUE");
+        stateManager.setUserData((int) userId, "setting_key", settingKey);
 
         String message = String.format("""
             ✏️ **%s**
@@ -641,12 +783,12 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Обработка введенного значения настройки
      */
-    private void handleSettingValue(Long chatId, int userId, String value) {
-        String settingKey = stateManager.getUserData(userId, "setting_key");
+    private void handleSettingValue(Long chatId, long userId, String value) {
+        String settingKey = stateManager.getUserData((int) userId, "setting_key");
 
         if (settingKey == null) {
             sendMessage(chatId, "❌ Ошибка: не указана настройка");
-            stateManager.clearUserState(userId);
+            stateManager.clearUserState((int) userId);
             return;
         }
 
@@ -675,14 +817,14 @@ public class TelegramBotService extends TelegramLongPollingBot {
         } catch (NumberFormatException e) {
             sendMessage(chatId, "❌ Неверный формат числа");
         } finally {
-            stateManager.clearUserState(userId);
+            stateManager.clearUserState((int) userId);
         }
     }
 
     /**
      * Переключение валюты
      */
-    private void togglePriceCurrency(Long chatId, int userId, Integer messageId) {
+    private void togglePriceCurrency(Long chatId, long userId, Integer messageId) {
         UserSettings settings = UserDataManager.getUserSettings(userId);
 
         if ("rubles".equals(settings.getPriceCurrency())) {
@@ -705,7 +847,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Переключение режима уведомлений
      */
-    private void toggleNotifyNewOnly(Long chatId, int userId, Integer messageId) {
+    private void toggleNotifyNewOnly(Long chatId, long userId, Integer messageId) {
         UserSettings settings = UserDataManager.getUserSettings(userId);
         settings.setNotifyNewOnly(!settings.isNotifyNewOnly());
         UserDataManager.saveUserSettings(userId, settings);
@@ -720,7 +862,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Показать расширенные настройки
      */
-    private void showAdvancedSettings(Long chatId, int userId) {
+    private void showAdvancedSettings(Long chatId, long userId) {
         UserSettings settings = UserDataManager.getUserSettings(userId);
 
         InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup();
@@ -786,7 +928,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Обработка ценового фильтра
      */
-    private void handlePriceFilter(Long chatId, int userId, String state, String value) {
+    private void handlePriceFilter(Long chatId, long userId, String state, String value) {
         try {
             double price = Double.parseDouble(value.trim());
             UserSettings settings = UserDataManager.getUserSettings(userId);
@@ -800,7 +942,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
             }
 
             UserDataManager.saveUserSettings(userId, settings);
-            stateManager.clearUserState(userId);
+            stateManager.clearUserState((int) userId);
 
         } catch (NumberFormatException e) {
             sendMessage(chatId, "❌ Неверный формат цены");
@@ -810,7 +952,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Сохранение настроек
      */
-    private void handleSaveSettings(Long chatId, int userId, Integer messageId) {
+    private void handleSaveSettings(Long chatId, long userId, Integer messageId) {
         UserSettings settings = UserDataManager.getUserSettings(userId);
 
         if (!settings.isValid()) {
@@ -850,25 +992,39 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /start_parser
      */
-    private void handleStartParser(Long chatId, int userId) {
+    private void handleStartParser(Long chatId, long userId) {
+        logger.info("User {} requested to start parser", userId);
+
+        // Проверяем whitelist перед запуском
+        if (!WhitelistManager.isUserAllowed(userId)) {
+            logger.warn("User {} not in whitelist, cannot start parser", userId);
+            sendMessage(chatId, "⛔ Вы не авторизованы для использования парсера.\n" +
+                    "Используйте команду /start для регистрации");
+            return;
+        }
+
         if (threadManager.startUserParser(userId)) {
             sendMessage(chatId, "✅ Парсер успешно запущен!");
+        } else {
+            sendMessage(chatId, "❌ Не удалось запустить парсер. Проверьте логи.");
         }
     }
 
     /**
      * Команда /stop_parser
      */
-    private void handleStopParser(Long chatId, int userId) {
+    private void handleStopParser(Long chatId, long userId) {
         if (threadManager.stopUserParser(userId)) {
             sendMessage(chatId, "🛑 Парсер остановлен");
+        } else {
+            sendMessage(chatId, "ℹ️ Парсер не был запущен");
         }
     }
 
     /**
      * Команда /pause_parser
      */
-    private void handlePauseParser(Long chatId, int userId) {
+    private void handlePauseParser(Long chatId, long userId) {
         if (threadManager.pauseUserParser(userId)) {
             sendMessage(chatId, "⏸ Парсер приостановлен");
         } else {
@@ -879,7 +1035,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /resume_parser
      */
-    private void handleResumeParser(Long chatId, int userId) {
+    private void handleResumeParser(Long chatId, long userId) {
         if (threadManager.resumeUserParser(userId)) {
             sendMessage(chatId, "▶️ Парсер возобновлен");
         } else {
@@ -890,7 +1046,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /stats
      */
-    private void handleStats(Long chatId, int userId) {
+    private void handleStats(Long chatId, long userId) {
         Map<String, Object> userStats = threadManager.getUserStatus(userId);
         Map<String, Object> globalStats = threadManager.getGlobalStatistics();
 
@@ -934,7 +1090,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /clear
      */
-    private void handleClear(Long chatId, int userId, String arg) {
+    private void handleClear(Long chatId, long userId, String arg) {
         if (arg == null || arg.trim().isEmpty()) {
             sendMessage(chatId, """
                 🗑️ **Очистка данных**
@@ -974,7 +1130,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Админские команды
      */
-    private void handleAdmin(Long chatId, int userId, String arg) {
+    private void handleAdmin(Long chatId, long userId, String arg) {
         if (userId != adminId) {
             sendMessage(chatId, "⛔ У вас нет прав администратора");
             return;
@@ -1043,7 +1199,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     /**
      * Команда /cookies (только для админа)
      */
-    private void handleCookiesCommand(Long chatId, int userId, String arg) {
+    private void handleCookiesCommand(Long chatId, long userId, String arg) {
         if (userId != adminId) {
             sendMessage(chatId, "⛔ У вас нет прав администратора");
             return;
@@ -1269,8 +1425,8 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 .build();
     }
 
-    private void handleCancel(Long chatId, int userId, Integer messageId) {
-        stateManager.clearUserState(userId);
+    private void handleCancel(Long chatId, long userId, Integer messageId) {
+        stateManager.clearUserState((int) userId);
         sendMessage(chatId, "❌ Действие отменено");
 
         if (messageId != null) {
@@ -1278,7 +1434,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
         }
     }
 
-    private void handlePageCallback(Long chatId, int userId, String callbackData, Integer messageId) {
+    private void handlePageCallback(Long chatId, long userId, String callbackData, Integer messageId) {
         // Реализация пагинации
         // В реальном проекте здесь будет обработка переключения страниц
     }
@@ -1296,6 +1452,9 @@ public class TelegramBotService extends TelegramLongPollingBot {
             commands.add(new BotCommand("stop_parser", "Остановить парсер"));
             commands.add(new BotCommand("stats", "Статистика"));
             commands.add(new BotCommand("cookies", "Управление куками (админ)"));
+            commands.add(new BotCommand("checkwhitelist", "Проверить whitelist"));
+            commands.add(new BotCommand("debug", "Отладочная информация"));
+            commands.add(new BotCommand("getid", "Получить свой ID"));
 
             this.execute(new org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands(
                     commands, new BotCommandScopeDefault(), null
@@ -1337,7 +1496,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
     }
 
     private void showAdminUsers(Long chatId) {
-        List<Integer> users = WhitelistManager.getAllUsers();
+        List<Long> users = WhitelistManager.getAllUsers();
 
         if (users.isEmpty()) {
             sendMessage(chatId, "📭 Нет пользователей в системе");
@@ -1348,10 +1507,10 @@ public class TelegramBotService extends TelegramLongPollingBot {
         message.append("👥 **Список пользователей**\n\n");
         message.append("Всего пользователей: ").append(users.size()).append("\n\n");
 
-        // Показываем первые 20 пользователей
+        // Показываем первых 20 пользователей
         int count = Math.min(20, users.size());
         for (int i = 0; i < count; i++) {
-            int userId = users.get(i);
+            long userId = users.get(i);
             boolean isActive = threadManager.isUserParserRunning(userId);
             message.append(i + 1).append(". ID: ").append(userId);
             message.append(isActive ? " 🟢" : " 🔴").append("\n");
@@ -1375,7 +1534,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
         }
 
         try {
-            int userId = Integer.parseInt(param.trim());
+            long userId = Long.parseLong(param.trim());
             if (WhitelistManager.addUser(userId)) {
                 sendMessage(chatId, "✅ Пользователь " + userId + " добавлен в белый список");
             } else {
@@ -1393,7 +1552,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
         }
 
         try {
-            int userId = Integer.parseInt(param.trim());
+            long userId = Long.parseLong(param.trim());
             if (WhitelistManager.removeUser(userId)) {
                 sendMessage(chatId, "✅ Пользователь " + userId + " удален из белого списка");
 
@@ -1414,15 +1573,15 @@ public class TelegramBotService extends TelegramLongPollingBot {
         }
 
         String message = param.trim();
-        List<Integer> users = WhitelistManager.getAllUsers();
+        List<Long> users = WhitelistManager.getAllUsers();
         int sent = 0;
         int failed = 0;
 
         sendMessage(chatId, "📢 Начинаю рассылку для " + users.size() + " пользователей...");
 
-        for (int userId : users) {
+        for (long userId : users) {
             try {
-                com.parser.telegram.TelegramNotificationService.sendMessage(userId,
+                TelegramNotificationService.sendMessage(userId,
                         "📢 **Административное сообщение**\n\n" + message + "\n\n_Это автоматическое сообщение от администратора_");
                 sent++;
                 Thread.sleep(100); // Небольшая задержка чтобы не спамить
@@ -1445,12 +1604,12 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
         try {
             // Получаем список активных пользователей
-            List<Integer> activeUsers = threadManager.getActiveUsers();
+            List<Long> activeUsers = threadManager.getActiveUsers();
             int stopped = 0;
             int started = 0;
 
             // Останавливаем все парсеры
-            for (int userId : activeUsers) {
+            for (long userId : activeUsers) {
                 if (threadManager.stopUserParser(userId)) {
                     stopped++;
                 }
@@ -1460,7 +1619,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
             Thread.sleep(2000);
 
             // Запускаем парсеры для пользователей с запросами
-            for (int userId : WhitelistManager.getAllUsers()) {
+            for (long userId : WhitelistManager.getAllUsers()) {
                 if (!UserDataManager.getUserQueries(userId).isEmpty()) {
                     if (threadManager.startUserParser(userId)) {
                         started++;

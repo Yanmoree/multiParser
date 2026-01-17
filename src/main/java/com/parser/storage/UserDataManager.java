@@ -17,7 +17,7 @@ public class UserDataManager {
     /**
      * Получение поисковых запросов пользователя
      */
-    public static List<String> getUserQueries(int userId) {
+    public static List<String> getUserQueries(long userId) {
         String filename = "user_" + userId + "_queries.txt";
         return FileStorage.readLines(filename);
     }
@@ -25,7 +25,7 @@ public class UserDataManager {
     /**
      * Сохранение поисковых запросов пользователя
      */
-    public static void saveUserQueries(int userId, List<String> queries) {
+    public static void saveUserQueries(long userId, List<String> queries) {
         String filename = "user_" + userId + "_queries.txt";
         FileStorage.writeLines(filename, queries);
         logger.debug("Saved {} queries for user {}", queries.size(), userId);
@@ -34,7 +34,7 @@ public class UserDataManager {
     /**
      * Добавление поискового запроса
      */
-    public static boolean addUserQuery(int userId, String query) {
+    public static boolean addUserQuery(long userId, String query) {
         if (query == null || query.trim().isEmpty()) {
             logger.warn("Attempted to add empty query for user {}", userId);
             return false;
@@ -66,7 +66,7 @@ public class UserDataManager {
     /**
      * Удаление поискового запроса
      */
-    public static boolean removeUserQuery(int userId, String query) {
+    public static boolean removeUserQuery(long userId, String query) {
         List<String> queries = getUserQueries(userId);
         boolean removed = queries.remove(query);
 
@@ -83,7 +83,7 @@ public class UserDataManager {
     /**
      * Очистка всех поисковых запросов пользователя
      */
-    public static void clearUserQueries(int userId) {
+    public static void clearUserQueries(long userId) {
         saveUserQueries(userId, new ArrayList<>());
         logger.info("All queries cleared for user {}", userId);
     }
@@ -91,7 +91,7 @@ public class UserDataManager {
     /**
      * Получение настроек пользователя
      */
-    public static UserSettings getUserSettings(int userId) {
+    public static UserSettings getUserSettings(long userId) {
         String filename = "user_settings/" + userId + ".json";
         String json = FileStorage.readJson(filename);
 
@@ -114,7 +114,7 @@ public class UserDataManager {
     /**
      * Сохранение настроек пользователя
      */
-    public static void saveUserSettings(int userId, UserSettings settings) {
+    public static void saveUserSettings(long userId, UserSettings settings) {
         String filename = "user_settings/" + userId + ".json";
 
         try {
@@ -130,7 +130,7 @@ public class UserDataManager {
     /**
      * Получение сохраненных товаров пользователя
      */
-    public static List<Product> getUserProducts(int userId) {
+    public static List<Product> getUserProducts(long userId) {
         String filename = "user_products/" + userId + ".json";
         String json = FileStorage.readJson(filename);
 
@@ -151,7 +151,7 @@ public class UserDataManager {
     /**
      * Сохранение товаров пользователя
      */
-    public static void saveUserProducts(int userId, List<Product> products) {
+    public static void saveUserProducts(long userId, List<Product> products) {
         String filename = "user_products/" + userId + ".json";
 
         try {
@@ -167,7 +167,7 @@ public class UserDataManager {
     /**
      * Добавление товаров к существующим
      */
-    public static void addUserProducts(int userId, List<Product> newProducts) {
+    public static void addUserProducts(long userId, List<Product> newProducts) {
         if (newProducts == null || newProducts.isEmpty()) {
             return;
         }
@@ -200,7 +200,7 @@ public class UserDataManager {
     /**
      * Очистка товаров пользователя
      */
-    public static void clearUserProducts(int userId) {
+    public static void clearUserProducts(long userId) {
         String filename = "user_products/" + userId + ".json";
         FileStorage.writeJson(filename, "[]");
         logger.info("Products cleared for user {}", userId);
@@ -209,7 +209,7 @@ public class UserDataManager {
     /**
      * Фильтрация новых товаров
      */
-    public static List<Product> filterNewProducts(int userId, List<Product> products) {
+    public static List<Product> filterNewProducts(long userId, List<Product> products) {
         if (products == null || products.isEmpty()) {
             return new ArrayList<>();
         }
@@ -231,10 +231,11 @@ public class UserDataManager {
         return newProducts;
     }
 
+
     /**
      * Получение статистики пользователя
      */
-    public static Map<String, Object> getUserStats(int userId) {
+    public static Map<String, Object> getUserStats(long userId) {
         Map<String, Object> stats = new HashMap<>();
 
         // Количество запросов
@@ -264,7 +265,7 @@ public class UserDataManager {
     /**
      * Удаление всех данных пользователя
      */
-    public static boolean deleteUserData(int userId) {
+    public static boolean deleteUserData(long userId) {
         try {
             String queriesFile = "user_" + userId + "_queries.txt";
             String productsFile = "user_products/" + userId + ".json";
@@ -292,7 +293,7 @@ public class UserDataManager {
     /**
      * Экспорт данных пользователя
      */
-    public static boolean exportUserData(int userId, String exportFilename) {
+    public static boolean exportUserData(long userId, String exportFilename) {
         try {
             Map<String, Object> exportData = new HashMap<>();
 
@@ -327,7 +328,7 @@ public class UserDataManager {
     /**
      * Поиск товаров пользователя по критериям
      */
-    public static List<Product> searchUserProducts(int userId, String searchTerm,
+    public static List<Product> searchUserProducts(long userId, String searchTerm,
                                                    double minPrice, double maxPrice) {
         List<Product> allProducts = getUserProducts(userId);
         List<Product> results = new ArrayList<>();

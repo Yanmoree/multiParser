@@ -34,18 +34,35 @@ public class FileStorage {
         File dir = new File(dataDir);
 
         if (!dir.exists()) {
+            logger.info("Создание директории данных: {}", dataDir);
             if (dir.mkdirs()) {
-                logger.info("Created data directory: {}", dataDir);
+                logger.info("✅ Директория данных создана: {}", dataDir);
 
                 // Создание поддиректорий
-                new File(dataDir + "/user_settings").mkdirs();
-                new File(dataDir + "/user_products").mkdirs();
-                new File(dataDir + "/backups").mkdirs();
-                new File(dataDir + "/logs").mkdirs();
+                createSubdirectory(dataDir, "user_settings");
+                createSubdirectory(dataDir, "user_products");
+                createSubdirectory(dataDir, "backups");
+                createSubdirectory(dataDir, "logs");
 
             } else {
-                logger.error("Failed to create data directory: {}", dataDir);
+                logger.error("❌ Не удалось создать директорию данных: {}", dataDir);
                 throw new RuntimeException("Failed to create data directory: " + dataDir);
+            }
+        } else {
+            logger.debug("Директория данных уже существует: {}", dataDir);
+        }
+    }
+
+    /**
+     * Создание поддиректории
+     */
+    private static void createSubdirectory(String parentDir, String subdirName) {
+        File subdir = new File(parentDir + "/" + subdirName);
+        if (!subdir.exists()) {
+            if (subdir.mkdirs()) {
+                logger.debug("✅ Создана поддиректория: {}", subdir.getAbsolutePath());
+            } else {
+                logger.warn("⚠️ Не удалось создать поддиректорию: {}", subdir.getAbsolutePath());
             }
         }
     }
@@ -68,6 +85,7 @@ public class FileStorage {
         try {
             File file = new File(getFilePath(filename));
             if (!file.exists()) {
+                logger.debug("Файл не существует: {}", filename);
                 return new ArrayList<>();
             }
 
@@ -76,18 +94,20 @@ public class FileStorage {
                     new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
 
                 String line;
+                int lineNumber = 0;
                 while ((line = reader.readLine()) != null) {
+                    lineNumber++;
                     line = line.trim();
-                    if (!line.isEmpty() && !line.startsWith("#")) {
+                    if (!line.isEmpty()) {
                         lines.add(line);
                     }
                 }
 
-                logger.debug("Read {} lines from {}", lines.size(), filename);
+                logger.debug("Прочитано {} строк из {}", lines.size(), filename);
                 return lines;
 
             } catch (IOException e) {
-                logger.error("Error reading file {}: {}", filename, e.getMessage());
+                logger.error("Ошибка чтения файла {}: {}", filename, e.getMessage());
                 return new ArrayList<>();
             }
 
@@ -107,8 +127,31 @@ public class FileStorage {
             ensureDataDir();
             File file = new File(getFilePath(filename));
 
+            logger.info("📝 Запись в файл: {} (абсолютный путь: {})",
+                    filename, file.getAbsolutePath());
+            logger.info("   Файл существует перед записью: {}", file.exists());
+            logger.info("   Родительская директория: {}", file.getParent());
+            logger.info("   Количество строк для записи: {}", lines.size());
+
+            // Проверяем родительскую директорию
+            File parentDir = file.getParentFile();
+            if (parentDir != null && !parentDir.exists()) {
+                logger.info("   Создание родительской директории: {}", parentDir.getAbsolutePath());
+                if (!parentDir.mkdirs()) {
+                    logger.error("❌ Не удалось создать родительскую директорию");
+                    throw new RuntimeException("Cannot create parent directory: " + parentDir.getAbsolutePath());
+                }
+            }
+
+            // Проверяем права на запись
+            if (file.exists() && !file.canWrite()) {
+                logger.error("❌ Нет прав на запись в файл: {}", file.getAbsolutePath());
+                throw new RuntimeException("No write permission for file: " + file.getAbsolutePath());
+            }
+
             // Создание резервной копии, если файл существует
             if (file.exists()) {
+                logger.debug("   Создание резервной копии...");
                 createBackup(filename);
             }
 
@@ -120,13 +163,25 @@ public class FileStorage {
                     writer.newLine();
                 }
 
-                logger.debug("Wrote {} lines to {}", lines.size(), filename);
+                writer.flush();
+
+                logger.info("✅ Успешно записано {} строк в {}", lines.size(), filename);
+                logger.info("   Файл существует после записи: {}", file.exists());
+                logger.info("   Размер файла после записи: {} байт", file.length());
 
             } catch (IOException e) {
-                logger.error("Error writing file {}: {}", filename, e.getMessage());
+                logger.error("❌ Ошибка записи файла {}: {}", filename, e.getMessage(), e);
                 throw new RuntimeException("Failed to write file: " + filename, e);
             }
 
+        } catch (Exception e) {
+            logger.error("❌ Критическая ошибка в writeLines для {}: {}", filename, e.getMessage(), e);
+            // Пробрасываем исключение дальше
+            if (e instanceof RuntimeException) {
+                throw (RuntimeException) e;
+            } else {
+                throw new RuntimeException("Error in writeLines for " + filename, e);
+            }
         } finally {
             lock.unlock();
         }
@@ -153,6 +208,7 @@ public class FileStorage {
 
             } catch (IOException e) {
                 logger.error("Error appending to file {}: {}", filename, e.getMessage());
+                throw new RuntimeException("Failed to append to file: " + filename, e);
             }
 
         } finally {

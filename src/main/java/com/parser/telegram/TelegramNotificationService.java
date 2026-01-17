@@ -30,21 +30,21 @@ public class TelegramNotificationService {
     /**
      * Отправка простого текстового сообщения
      */
-    public static boolean sendMessage(int userId, String text) {
+    public static boolean sendMessage(long userId, String text) {
         return sendMessage(userId, text, false);
     }
 
     /**
      * Отправка текстового сообщения с HTML форматированием
      */
-    public static boolean sendHtmlMessage(int userId, String htmlText) {
+    public static boolean sendHtmlMessage(long userId, String htmlText) {
         return sendMessage(userId, htmlText, true);
     }
 
     /**
      * Основной метод отправки сообщения
      */
-    private static boolean sendMessage(int userId, String text, boolean useHtml) {
+    private static boolean sendMessage(long userId, String text, boolean useHtml) {
         if (botInstance == null) {
             logger.error("Bot instance not set for TelegramNotificationService");
             return false;
@@ -86,7 +86,7 @@ public class TelegramNotificationService {
     /**
      * Отправка фото с подписью (HTML форматирование)
      */
-    public static boolean sendPhotoWithHtmlCaption(int userId, String photoUrl, String htmlCaption) {
+    public static boolean sendPhotoWithHtmlCaption(long userId, String photoUrl, String htmlCaption) {
         if (botInstance == null) {
             logger.error("Bot instance not set for TelegramNotificationService");
             return false;
@@ -179,7 +179,7 @@ public class TelegramNotificationService {
     /**
      * Отправка тестового уведомления
      */
-    public static boolean sendTestNotification(int userId) {
+    public static boolean sendTestNotification(long userId) {
         logger.info("Sending test notification to user {}", userId);
 
         String message = "<b>✅ Test notification</b>\n\n" +
@@ -193,7 +193,7 @@ public class TelegramNotificationService {
     /**
      * Отправка уведомления о найденных товарах
      */
-    public static boolean sendProductsNotification(int userId, int count, String query) {
+    public static boolean sendProductsNotification(long userId, int count, String query) {
         String message = String.format("<b>🛍️ Found products!</b>\n\n" +
                 "Query: %s\n" +
                 "Products found: %d\n\n" +
@@ -205,7 +205,7 @@ public class TelegramNotificationService {
     /**
      * Отправка уведомления об ошибке
      */
-    public static boolean sendErrorNotification(int userId, String errorMessage) {
+    public static boolean sendErrorNotification(long userId, String errorMessage) {
         String message = String.format("<b>❌ Parser error</b>\n\n" +
                         "An error occurred:\n" +
                         "<code>%s</code>\n\n" +
@@ -218,7 +218,7 @@ public class TelegramNotificationService {
     /**
      * Отправка уведомления о состоянии парсера
      */
-    public static boolean sendStatusNotification(int userId, String status, String details) {
+    public static boolean sendStatusNotification(long userId, String status, String details) {
         String emoji = "🟢";
         if (status.contains("stopped")) emoji = "🔴";
         if (status.contains("paused")) emoji = "⏸️";
@@ -247,7 +247,7 @@ public class TelegramNotificationService {
                 escapeHtml(message),
                 new Date());
 
-        return sendHtmlMessage((int) adminId, adminMessage);
+        return sendHtmlMessage(adminId, adminMessage);
     }
 
     /**
@@ -260,7 +260,7 @@ public class TelegramNotificationService {
     /**
      * Отправка фото с подписью (удобный метод для использования из других классов)
      */
-    public static boolean sendPhotoWithCaption(int userId, String photoUrl, String caption) {
+    public static boolean sendPhotoWithCaption(long userId, String photoUrl, String caption) {
         return sendPhotoWithHtmlCaption(userId, photoUrl, caption);
     }
 }

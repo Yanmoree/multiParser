@@ -4829,3 +4829,496 @@ Session ID: 6f4fedce2fafffcccb1a277caa5d7a8c
 2026-01-17 15:39:41.680 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /admin
 2026-01-17 15:39:57.691 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /admin
 2026-01-17 15:40:04.061 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280: /admin users
+2026-01-17 17:00:48.117 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:00:48.118 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-17 17:00:48.118 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:00:48.118 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-17 17:00:48.118 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main - ✅ Конфигурация проверена:
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main -    Bot token: 8404858867...
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main -    Bot username: @goofishparse_bot
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main -    Data directory: ./data
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main - 🔄 Создание директорий для данных...
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main - ✅ Директории данных созданы
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main - 📋 Файл whitelist найден: ./data/whitelist.txt
+2026-01-17 17:00:48.119 [main] INFO  com.parser.Main -    Размер файла: 11 байт
+2026-01-17 17:00:48.121 [main] INFO  com.parser.Main -    Строк в файле: 1
+2026-01-17 17:00:48.121 [main] INFO  com.parser.Main -    [1]: 1080595280
+2026-01-17 17:00:48.121 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from file. Found 1 lines
+2026-01-17 17:00:48.121 [main] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist file
+2026-01-17 17:00:48.122 [main] INFO  com.parser.storage.WhitelistManager - Reloading whitelist from file...
+2026-01-17 17:00:48.122 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from file. Found 1 lines
+2026-01-17 17:00:48.122 [main] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist file
+2026-01-17 17:00:48.122 [main] INFO  com.parser.storage.WhitelistManager - Whitelist reloaded. Now contains 1 users
+2026-01-17 17:00:48.122 [main] INFO  com.parser.Main -    Пользователей загружено: 1
+2026-01-17 17:00:48.122 [main] INFO  com.parser.Main - 🔄 Инициализация ThreadManager...
+2026-01-17 17:00:48.124 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-17 17:00:48.124 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-17 17:00:48.124 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-17 17:00:48.124 [main] INFO  com.parser.Main - ✅ ThreadManager инициализирован
+2026-01-17 17:00:48.124 [main] INFO  com.parser.Main - 🔄 Инициализация Telegram бота...
+2026-01-17 17:00:48.124 [main] INFO  com.parser.Main - 🤖 Создание экземпляра TelegramBotService...
+2026-01-17 17:00:48.622 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-17 17:00:48.622 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-17 17:00:48.622 [main] INFO  com.parser.Main - ✅ Экземпляр TelegramBotService создан
+2026-01-17 17:00:48.622 [main] INFO  com.parser.Main - ✅ Username бота получен: @goofishparse_bot
+2026-01-17 17:00:48.623 [main] INFO  com.parser.Main - 🤖 Регистрация бота в Telegram API...
+2026-01-17 17:00:48.623 [main] INFO  com.parser.Main - ✅ TelegramBotsApi создан
+2026-01-17 17:00:48.682 [main] INFO  com.parser.Main - 🎉 Telegram бот успешно зарегистрирован!
+2026-01-17 17:00:48.682 [main] INFO  com.parser.Main - ✅ Бот теперь слушает сообщения...
+2026-01-17 17:00:48.683 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-17 17:00:48.683 [main] INFO  com.parser.Main - ✅ TelegramNotificationService инициализирован с экземпляром бота
+2026-01-17 17:00:48.683 [main] INFO  com.parser.Main - 🔄 Проверка cookies...
+2026-01-17 17:00:48.683 [main] INFO  com.parser.Main - 🍪 Проверка cookies при запуске...
+2026-01-17 17:00:48.683 [main] INFO  com.parser.Main -    Динамические cookies: ВКЛЮЧЕНЫ
+2026-01-17 17:00:48.683 [main] INFO  com.parser.Main -    Автообновление: ВКЛЮЧЕНО
+2026-01-17 17:00:48.683 [main] INFO  com.parser.Main - 🔄 Получение свежих cookies через Selenium...
+2026-01-17 17:00:48.683 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-17 17:00:48.684 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-17 17:00:49.693 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-17 17:00:49.696 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-17 17:00:51.235 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-17 17:00:51.238 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-17 17:00:52.069 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-17 17:00:59.907 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 53d73be0000373e1e656200976c32d60
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : FYTyIedceFsCAbJFkxTq9/tn
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 8936c1ef2d6a53dce1fa56dbd63fe027
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 333853e3ed3b8
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 9728d5779ac488d93cadb9fee50fb675_1768668533058
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1574949974b86b53d1ec0fc9f0457e14
+2026-01-17 17:01:00.017 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-17 17:01:00.018 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 9728d5779ac488d93cad...
+2026-01-17 17:01:00.018 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768668533058
+2026-01-17 17:01:00.132 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-17 17:01:00.132 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-17 17:01:00.134 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-17 17:01:00.135 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-17 17:01:00.135 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-17 17:01:00.135 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=53d73be0000373e1e656200976c32d60; cna=FYTyIedceFsCAbJFkxTq9/tn; _m_h5_tk_enc=8936c1ef2d6a53dce1fa5...
+2026-01-17 17:01:00.135 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - ✅ Свежие cookies успешно получены
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - ✅ Последовательность запуска приложения завершена!
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - 🤖 Telegram бот: @goofishparse_bot - ГОТОВ
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - 🍪 Динамические cookies: ВКЛЮЧЕНЫ
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - 📋 Пользователей в whitelist: 1
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - 📱 Отправьте /start боту @goofishparse_bot в Telegram
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - 🚀 Приложение успешно запущено!
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - ⏳ Поддержание работы приложения...
+2026-01-17 17:01:00.135 [main] INFO  com.parser.Main - ⏳ Вход в основной цикл...
+2026-01-17 17:01:08.045 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /listqueries
+2026-01-17 17:01:13.530 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /checkwhitelist
+2026-01-17 17:01:20.360 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin
+2026-01-17 17:01:31.119 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin adduser 1234567
+2026-01-17 17:01:31.121 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Adding user 1234567 to whitelist. Current whitelist size: 1
+2026-01-17 17:01:31.122 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Saving whitelist with 2 users to: ./data/whitelist.txt
+2026-01-17 17:01:31.122 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: whitelist.txt (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/whitelist.txt)
+2026-01-17 17:01:31.123 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-17 17:01:31.123 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data
+2026-01-17 17:01:31.123 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 6
+2026-01-17 17:01:31.133 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error copying file whitelist.txt to ./data/backups/whitelist.txt_20260117_170131.backup: ./data/./data/backups/whitelist.txt_20260117_170131.backup
+2026-01-17 17:01:31.134 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/whitelist.txt_20260117_170131.backup: ./data/backups/whitelist.txt_20260117_170131.backup (No such file or directory)
+2026-01-17 17:01:31.135 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 6 строк в whitelist.txt
+2026-01-17 17:01:31.135 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-17 17:01:31.135 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 219 байт
+2026-01-17 17:01:31.135 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ Whitelist saved successfully with 2 users
+2026-01-17 17:01:31.136 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ User 1234567 successfully added to whitelist
+2026-01-17 17:01:31.136 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - 📊 Whitelist now contains 2 users
+2026-01-17 17:01:40.817 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /myid
+2026-01-17 17:02:02.042 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin removeuser 1234567
+2026-01-17 17:02:02.046 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Removing user 1234567 from whitelist
+2026-01-17 17:02:02.047 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Saving whitelist with 1 users to: ./data/whitelist.txt
+2026-01-17 17:02:02.048 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: whitelist.txt (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/whitelist.txt)
+2026-01-17 17:02:02.048 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-17 17:02:02.048 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data
+2026-01-17 17:02:02.048 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 5
+2026-01-17 17:02:02.051 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error copying file whitelist.txt to ./data/backups/whitelist.txt_20260117_170202.backup: ./data/./data/backups/whitelist.txt_20260117_170202.backup
+2026-01-17 17:02:02.051 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/whitelist.txt_20260117_170202.backup: ./data/backups/whitelist.txt_20260117_170202.backup (No such file or directory)
+2026-01-17 17:02:02.052 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 5 строк в whitelist.txt
+2026-01-17 17:02:02.052 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-17 17:02:02.052 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 211 байт
+2026-01-17 17:02:02.053 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ Whitelist saved successfully with 1 users
+2026-01-17 17:02:02.053 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ User 1234567 removed from whitelist
+2026-01-17 17:02:02.388 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Attempting to stop parser for user 1234567
+2026-01-17 17:02:02.388 [goofishparse_bot Telegram Executor] WARN  com.parser.core.ThreadManager - No active parser found for user 1234567
+2026-01-17 17:02:02.802 [goofishparse_bot Telegram Executor] ERROR c.p.t.TelegramNotificationService - Error sending message to user 1234567: Error executing org.telegram.telegrambots.meta.api.methods.send.SendMessage query: [400] Bad Request: chat not found
+2026-01-17 17:02:09.309 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin adduser 6937423668
+2026-01-17 17:02:26.856 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin adduser 6937423668
+2026-01-17 17:32:48.655 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:32:48.656 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-17 17:32:48.656 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:32:48.656 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-17 17:32:48.656 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-17 17:32:48.657 [main] INFO  com.parser.Main - ✅ Конфигурация проверена:
+2026-01-17 17:32:48.657 [main] INFO  com.parser.Main -    Bot token: 8404858867...
+2026-01-17 17:32:48.657 [main] INFO  com.parser.Main -    Bot username: @goofishparse_bot
+2026-01-17 17:32:48.657 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-17 17:32:48.657 [main] INFO  com.parser.Main -    Data directory: ./data
+2026-01-17 17:32:48.657 [main] INFO  com.parser.Main - 🔄 Создание директорий для данных...
+2026-01-17 17:32:48.657 [main] INFO  com.parser.Main - ✅ Директории данных созданы
+2026-01-17 17:32:48.657 [main] INFO  com.parser.Main - 📋 Файл whitelist найден: ./data/whitelist.txt
+2026-01-17 17:32:48.658 [main] INFO  com.parser.Main -    Размер файла: 211 байт
+2026-01-17 17:32:48.659 [main] INFO  com.parser.Main -    Строк в файле: 5
+2026-01-17 17:32:48.659 [main] INFO  com.parser.Main -    [1]: # Whitelist - список авторизованных пользователей
+2026-01-17 17:32:48.659 [main] INFO  com.parser.Main -    [2]: # Формат: один ID пользователя на строку
+2026-01-17 17:32:48.659 [main] INFO  com.parser.Main -    [3]: # Создан: Sat Jan 17 17:02:02 MSK 2026
+2026-01-17 17:32:48.659 [main] INFO  com.parser.Main -    [4]: 
+2026-01-17 17:32:48.659 [main] INFO  com.parser.Main -    [5]: 1080595280
+2026-01-17 17:32:48.660 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from file. Found 4 lines
+2026-01-17 17:32:48.660 [main] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist file
+2026-01-17 17:32:48.660 [main] INFO  com.parser.storage.WhitelistManager - Reloading whitelist from file...
+2026-01-17 17:32:48.660 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from file. Found 4 lines
+2026-01-17 17:32:48.660 [main] INFO  com.parser.storage.WhitelistManager - Loaded 1 users from whitelist file
+2026-01-17 17:32:48.660 [main] INFO  com.parser.storage.WhitelistManager - Whitelist reloaded. Now contains 1 users
+2026-01-17 17:32:48.660 [main] INFO  com.parser.Main -    Пользователей загружено: 1
+2026-01-17 17:32:48.660 [main] INFO  com.parser.Main - 🔄 Инициализация ThreadManager...
+2026-01-17 17:32:48.662 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-17 17:32:48.663 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-17 17:32:48.663 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-17 17:32:48.663 [main] INFO  com.parser.Main - ✅ ThreadManager инициализирован
+2026-01-17 17:32:48.663 [main] INFO  com.parser.Main - 🔄 Инициализация Telegram бота...
+2026-01-17 17:32:48.663 [main] INFO  com.parser.Main - 🤖 Создание экземпляра TelegramBotService...
+2026-01-17 17:32:49.172 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-17 17:32:49.173 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-17 17:32:49.173 [main] INFO  com.parser.Main - ✅ Экземпляр TelegramBotService создан
+2026-01-17 17:32:49.173 [main] INFO  com.parser.Main - ✅ Username бота получен: @goofishparse_bot
+2026-01-17 17:32:49.173 [main] INFO  com.parser.Main - 🤖 Регистрация бота в Telegram API...
+2026-01-17 17:32:49.173 [main] INFO  com.parser.Main - ✅ TelegramBotsApi создан
+2026-01-17 17:32:49.240 [main] INFO  com.parser.Main - 🎉 Telegram бот успешно зарегистрирован!
+2026-01-17 17:32:49.241 [main] INFO  com.parser.Main - ✅ Бот теперь слушает сообщения...
+2026-01-17 17:32:49.241 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-17 17:32:49.241 [main] INFO  com.parser.Main - ✅ TelegramNotificationService инициализирован с экземпляром бота
+2026-01-17 17:32:49.241 [main] INFO  com.parser.Main - 🔄 Проверка cookies...
+2026-01-17 17:32:49.241 [main] INFO  com.parser.Main - 🍪 Проверка cookies при запуске...
+2026-01-17 17:32:49.241 [main] INFO  com.parser.Main -    Динамические cookies: ВКЛЮЧЕНЫ
+2026-01-17 17:32:49.241 [main] INFO  com.parser.Main -    Автообновление: ВКЛЮЧЕНО
+2026-01-17 17:32:49.241 [main] INFO  com.parser.Main - 🔄 Получение свежих cookies через Selenium...
+2026-01-17 17:32:49.241 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-17 17:32:49.242 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-17 17:32:49.377 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-17 17:32:49.379 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-17 17:32:51.369 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-17 17:32:51.372 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-17 17:32:52.830 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-17 17:32:58.287 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-17 17:32:58.300 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 879e70f0e7dd316eb7ddd1f1935b8d08
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : lYvyIRlS2wMCAbJFkxSM+b6K
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : c954c61c68da06e7b75b307ccb4e06bb
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 5359a6713b78d
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 3351025e13be17f149d54cb4f1295db4_1768668293572
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1c1e72a85818671cf336bc8f9f26e817
+2026-01-17 17:32:58.301 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-17 17:32:58.302 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 3351025e13be17f149d5...
+2026-01-17 17:32:58.303 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768668293572
+2026-01-17 17:32:58.403 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-17 17:32:58.403 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-17 17:32:58.404 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-17 17:32:58.407 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-17 17:32:58.407 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-17 17:32:58.407 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=879e70f0e7dd316eb7ddd1f1935b8d08; cna=lYvyIRlS2wMCAbJFkxSM+b6K; _m_h5_tk_enc=c954c61c68da06e7b75b3...
+2026-01-17 17:32:58.407 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - ✅ Свежие cookies успешно получены
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - ✅ Последовательность запуска приложения завершена!
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - 🤖 Telegram бот: @goofishparse_bot - ГОТОВ
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - 🍪 Динамические cookies: ВКЛЮЧЕНЫ
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - 📋 Пользователей в whitelist: 1
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - 📱 Отправьте /start боту @goofishparse_bot в Telegram
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - 🚀 Приложение успешно запущено!
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - ⏳ Поддержание работы приложения...
+2026-01-17 17:32:58.407 [main] INFO  com.parser.Main - ⏳ Вход в основной цикл...
+2026-01-17 17:33:05.234 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin
+2026-01-17 17:33:19.216 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start_parser
+2026-01-17 17:33:19.219 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 requested to start parser
+2026-01-17 17:33:19.220 [goofishparse_bot Telegram Executor] WARN  c.parser.telegram.TelegramBotService - User -1652510924 not in whitelist, cannot start parser
+2026-01-17 17:33:21.146 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start
+2026-01-17 17:33:21.146 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Processing /start for user -1652510924 (chat 6937423668)
+2026-01-17 17:33:21.147 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 in whitelist before /start: false
+2026-01-17 17:33:21.147 [goofishparse_bot Telegram Executor] WARN  com.parser.storage.WhitelistManager - Attempted to add invalid user ID: -1652510924
+2026-01-17 17:33:21.147 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 in whitelist after /start: false (isNewUser: false)
+2026-01-17 17:33:22.623 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /help
+2026-01-17 17:33:30.204 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /myid
+2026-01-17 17:33:32.554 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /id
+2026-01-17 17:33:40.234 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /startparser
+2026-01-17 17:33:42.619 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start_parser
+2026-01-17 17:33:42.620 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 requested to start parser
+2026-01-17 17:33:42.620 [goofishparse_bot Telegram Executor] WARN  c.parser.telegram.TelegramBotService - User -1652510924 not in whitelist, cannot start parser
+2026-01-17 17:33:46.583 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start
+2026-01-17 17:33:46.583 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Processing /start for user -1652510924 (chat 6937423668)
+2026-01-17 17:33:46.584 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 in whitelist before /start: false
+2026-01-17 17:33:46.584 [goofishparse_bot Telegram Executor] WARN  com.parser.storage.WhitelistManager - Attempted to add invalid user ID: -1652510924
+2026-01-17 17:33:46.584 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 in whitelist after /start: false (isNewUser: false)
+2026-01-17 17:33:48.511 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /help
+2026-01-17 17:33:56.870 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin adduser 6937423668
+2026-01-17 17:33:56.872 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Adding user 6937423668 to whitelist. Current whitelist size: 1
+2026-01-17 17:33:56.876 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Saving whitelist with 2 users to: ./data/whitelist.txt
+2026-01-17 17:33:56.877 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: whitelist.txt (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/whitelist.txt)
+2026-01-17 17:33:56.882 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-17 17:33:56.882 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data
+2026-01-17 17:33:56.883 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 6
+2026-01-17 17:33:56.897 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error copying file whitelist.txt to ./data/backups/whitelist.txt_20260117_173356.backup: ./data/./data/backups/whitelist.txt_20260117_173356.backup
+2026-01-17 17:33:56.897 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/whitelist.txt_20260117_173356.backup: ./data/backups/whitelist.txt_20260117_173356.backup (No such file or directory)
+2026-01-17 17:33:56.898 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 6 строк в whitelist.txt
+2026-01-17 17:33:56.898 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-17 17:33:56.898 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 222 байт
+2026-01-17 17:33:56.899 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ Whitelist saved successfully with 2 users
+2026-01-17 17:33:56.899 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ User 6937423668 successfully added to whitelist
+2026-01-17 17:33:56.899 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - 📊 Whitelist now contains 2 users
+2026-01-17 17:34:08.293 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start_parser
+2026-01-17 17:34:08.294 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 requested to start parser
+2026-01-17 17:34:08.294 [goofishparse_bot Telegram Executor] WARN  c.parser.telegram.TelegramBotService - User -1652510924 not in whitelist, cannot start parser
+2026-01-17 17:35:59.661 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:35:59.662 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-17 17:35:59.662 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:35:59.662 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-17 17:35:59.662 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main - ✅ Конфигурация проверена:
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main -    Bot token: 8404858867...
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main -    Bot username: @goofishparse_bot
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main -    Data directory: ./data
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main - 🔄 Создание директорий для данных...
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main - ✅ Директории данных созданы
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main - 📋 Файл whitelist найден: ./data/whitelist.txt
+2026-01-17 17:35:59.663 [main] INFO  com.parser.Main -    Размер файла: 222 байт
+2026-01-17 17:35:59.665 [main] INFO  com.parser.Main -    Строк в файле: 6
+2026-01-17 17:35:59.665 [main] INFO  com.parser.Main -    [1]: # Whitelist - список авторизованных пользователей
+2026-01-17 17:35:59.665 [main] INFO  com.parser.Main -    [2]: # Формат: один ID пользователя на строке
+2026-01-17 17:35:59.665 [main] INFO  com.parser.Main -    [3]: # Создан: Sat Jan 17 17:33:56 MSK 2026
+2026-01-17 17:35:59.665 [main] INFO  com.parser.Main -    [4]: 
+2026-01-17 17:35:59.665 [main] INFO  com.parser.Main -    [5]: 1080595280
+2026-01-17 17:35:59.665 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from file. Found 5 lines
+2026-01-17 17:35:59.666 [main] INFO  com.parser.storage.WhitelistManager - Loaded 2 users from whitelist file
+2026-01-17 17:35:59.666 [main] INFO  com.parser.storage.WhitelistManager - Reloading whitelist from file...
+2026-01-17 17:35:59.666 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from file. Found 5 lines
+2026-01-17 17:35:59.666 [main] INFO  com.parser.storage.WhitelistManager - Loaded 2 users from whitelist file
+2026-01-17 17:35:59.666 [main] INFO  com.parser.storage.WhitelistManager - Whitelist reloaded. Now contains 2 users
+2026-01-17 17:35:59.666 [main] INFO  com.parser.Main -    Пользователей загружено: 2
+2026-01-17 17:35:59.666 [main] INFO  com.parser.Main - 🔄 Инициализация ThreadManager...
+2026-01-17 17:35:59.668 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-17 17:35:59.668 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-17 17:35:59.668 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-17 17:35:59.668 [main] INFO  com.parser.Main - ✅ ThreadManager инициализирован
+2026-01-17 17:35:59.668 [main] INFO  com.parser.Main - 🔄 Инициализация Telegram бота...
+2026-01-17 17:35:59.668 [main] INFO  com.parser.Main - 🤖 Создание экземпляра TelegramBotService...
+2026-01-17 17:36:00.229 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-17 17:36:00.229 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-17 17:36:00.229 [main] INFO  com.parser.Main - ✅ Экземпляр TelegramBotService создан
+2026-01-17 17:36:00.229 [main] INFO  com.parser.Main - ✅ Username бота получен: @goofishparse_bot
+2026-01-17 17:36:00.230 [main] INFO  com.parser.Main - 🤖 Регистрация бота в Telegram API...
+2026-01-17 17:36:00.230 [main] INFO  com.parser.Main - ✅ TelegramBotsApi создан
+2026-01-17 17:36:00.393 [main] INFO  com.parser.Main - 🎉 Telegram бот успешно зарегистрирован!
+2026-01-17 17:36:00.394 [main] INFO  com.parser.Main - ✅ Бот теперь слушает сообщения...
+2026-01-17 17:36:00.395 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-17 17:36:00.395 [main] INFO  com.parser.Main - ✅ TelegramNotificationService инициализирован с экземпляром бота
+2026-01-17 17:36:00.395 [main] INFO  com.parser.Main - 🔄 Проверка cookies...
+2026-01-17 17:36:00.395 [main] INFO  com.parser.Main - 🍪 Проверка cookies при запуске...
+2026-01-17 17:36:00.397 [main] INFO  com.parser.Main -    Динамические cookies: ВКЛЮЧЕНЫ
+2026-01-17 17:36:00.397 [main] INFO  com.parser.Main -    Автообновление: ВКЛЮЧЕНО
+2026-01-17 17:36:00.397 [main] INFO  com.parser.Main - 🔄 Получение свежих cookies через Selenium...
+2026-01-17 17:36:00.398 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-17 17:36:00.400 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-17 17:36:00.551 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-17 17:36:00.552 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-17 17:36:02.335 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-17 17:36:02.339 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-17 17:36:03.431 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-17 17:36:05.116 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start
+2026-01-17 17:36:05.117 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Processing /start for user -1652510924 (chat 6937423668)
+2026-01-17 17:36:08.736 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-17 17:36:08.774 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : dd83b8d8b18523dcc4509f3d35e310fa
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : VIzyIQkWlQwCAbJFkxSrdgpQ
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 1ef446d24f761b53e3956558172b5446
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 579f67f331631
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 109e49a69f7e44b86d42c28ff4158023_1768670283847
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 11733d33b66ac8b3187a450105ae36f0
+2026-01-17 17:36:08.775 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-17 17:36:08.776 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 109e49a69f7e44b86d42...
+2026-01-17 17:36:08.776 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768670283847
+2026-01-17 17:36:08.883 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-17 17:36:08.883 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-17 17:36:08.884 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-17 17:36:08.887 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-17 17:36:08.887 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-17 17:36:08.887 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (236 символов): t=dd83b8d8b18523dcc4509f3d35e310fa; cna=VIzyIQkWlQwCAbJFkxSrdgpQ; _m_h5_tk_enc=1ef446d24f761b53e3956...
+2026-01-17 17:36:08.887 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-17 17:36:08.887 [main] INFO  com.parser.Main - ✅ Свежие cookies успешно получены
+2026-01-17 17:36:08.887 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:36:08.887 [main] INFO  com.parser.Main - ✅ Последовательность запуска приложения завершена!
+2026-01-17 17:36:08.887 [main] INFO  com.parser.Main - 🤖 Telegram бот: @goofishparse_bot - ГОТОВ
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - 🍪 Динамические cookies: ВКЛЮЧЕНЫ
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - 📋 Пользователей в whitelist: 2
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - 📱 Отправьте /start боту @goofishparse_bot в Telegram
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - 🚀 Приложение успешно запущено!
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - ⏳ Поддержание работы приложения...
+2026-01-17 17:36:08.888 [main] INFO  com.parser.Main - ⏳ Вход в основной цикл...
+2026-01-17 17:36:26.761 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin adduser -1652510924
+2026-01-17 17:36:26.762 [goofishparse_bot Telegram Executor] WARN  com.parser.storage.WhitelistManager - Attempted to add invalid user ID: -1652510924
+2026-01-17 17:36:40.870 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start_parser
+2026-01-17 17:36:40.871 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 requested to start parser
+2026-01-17 17:36:40.871 [goofishparse_bot Telegram Executor] WARN  c.parser.telegram.TelegramBotService - User -1652510924 not in whitelist, cannot start parser
+2026-01-17 17:36:43.142 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start
+2026-01-17 17:36:43.143 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Processing /start for user -1652510924 (chat 6937423668)
+2026-01-17 17:36:55.923 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 1080595280 (user 1080595280): /admin adduser 1652510924
+2026-01-17 17:36:55.925 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Adding user 1652510924 to whitelist. Current whitelist size: 2
+2026-01-17 17:36:55.927 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - Saving whitelist with 3 users to: ./data/whitelist.txt
+2026-01-17 17:36:55.927 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: whitelist.txt (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/whitelist.txt)
+2026-01-17 17:36:55.927 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-17 17:36:55.928 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data
+2026-01-17 17:36:55.928 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 7
+2026-01-17 17:36:55.940 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error copying file whitelist.txt to ./data/backups/whitelist.txt_20260117_173655.backup: ./data/./data/backups/whitelist.txt_20260117_173655.backup
+2026-01-17 17:36:55.941 [goofishparse_bot Telegram Executor] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/whitelist.txt_20260117_173655.backup: ./data/backups/whitelist.txt_20260117_173655.backup (No such file or directory)
+2026-01-17 17:36:55.941 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 7 строк в whitelist.txt
+2026-01-17 17:36:55.942 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-17 17:36:55.942 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 233 байт
+2026-01-17 17:36:55.942 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ Whitelist saved successfully with 3 users
+2026-01-17 17:36:55.942 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ User 1652510924 successfully added to whitelist
+2026-01-17 17:36:55.942 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - 📊 Whitelist now contains 3 users
+2026-01-17 17:37:00.828 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start_parser
+2026-01-17 17:37:00.828 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 requested to start parser
+2026-01-17 17:37:00.828 [goofishparse_bot Telegram Executor] WARN  c.parser.telegram.TelegramBotService - User -1652510924 not in whitelist, cannot start parser
+2026-01-17 17:37:02.168 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start
+2026-01-17 17:37:02.169 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Processing /start for user -1652510924 (chat 6937423668)
+2026-01-17 17:37:08.518 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user -1652510924): /start_parser
+2026-01-17 17:37:08.520 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User -1652510924 requested to start parser
+2026-01-17 17:37:08.520 [goofishparse_bot Telegram Executor] WARN  c.parser.telegram.TelegramBotService - User -1652510924 not in whitelist, cannot start parser
+2026-01-17 17:40:59.678 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Statistics: 0 active users, 0 total products found, 0 active threads, null cookie cache domains
+2026-01-17 17:41:08.937 [main] INFO  com.parser.Main - ⏱️ Heartbeat #10 - Приложение работает
+2026-01-17 17:41:08.942 [main] INFO  com.parser.Main - 📊 Статус приложения:
+2026-01-17 17:41:08.943 [main] INFO  com.parser.Main -    Пользователей в whitelist: 3
+2026-01-17 17:41:08.943 [main] INFO  com.parser.Main -    Активных сессий: 0
+2026-01-17 17:41:08.943 [main] INFO  com.parser.Main -    Telegram бот: АКТИВЕН
+2026-01-17 17:45:59.671 [pool-2-thread-2] INFO  com.parser.core.ThreadManager - Statistics: 0 active users, 0 total products found, 0 active threads, null cookie cache domains
+2026-01-17 17:46:08.990 [main] INFO  com.parser.Main - ⏱️ Heartbeat #20 - Приложение работает
+2026-01-17 17:46:08.999 [main] INFO  com.parser.Main - 📊 Статус приложения:
+2026-01-17 17:46:08.999 [main] INFO  com.parser.Main -    Пользователей в whitelist: 3
+2026-01-17 17:46:08.999 [main] INFO  com.parser.Main -    Активных сессий: 0
+2026-01-17 17:46:08.999 [main] INFO  com.parser.Main -    Telegram бот: АКТИВЕН
+2026-01-17 18:22:09.008 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 18:22:09.009 [main] INFO  com.parser.Main - === Product Parser with Dynamic Cookies ===
+2026-01-17 18:22:09.009 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 18:22:09.009 [main] INFO  com.parser.Main - Starting initialization...
+2026-01-17 18:22:09.010 [main] INFO  com.parser.config.Config - Loaded configuration from resources: config.properties
+2026-01-17 18:22:09.010 [main] INFO  com.parser.Main - ✅ Конфигурация проверена:
+2026-01-17 18:22:09.010 [main] INFO  com.parser.Main -    Bot token: 8404858867...
+2026-01-17 18:22:09.010 [main] INFO  com.parser.Main -    Bot username: @goofishparse_bot
+2026-01-17 18:22:09.010 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-17 18:22:09.010 [main] INFO  com.parser.Main -    Data directory: ./data
+2026-01-17 18:22:09.010 [main] INFO  com.parser.Main - 🔄 Создание директорий для данных...
+2026-01-17 18:22:09.011 [main] INFO  com.parser.Main - ✅ Директории данных созданы
+2026-01-17 18:22:09.011 [main] INFO  com.parser.Main - 📋 Файл whitelist найден: ./data/whitelist.txt
+2026-01-17 18:22:09.011 [main] INFO  com.parser.Main -    Размер файла: 233 байт
+2026-01-17 18:22:09.012 [main] INFO  com.parser.Main -    Строк в файле: 7
+2026-01-17 18:22:09.012 [main] INFO  com.parser.Main -    [1]: # Whitelist - список авторизованных пользователей
+2026-01-17 18:22:09.012 [main] INFO  com.parser.Main -    [2]: # Формат: один ID пользователя на строке
+2026-01-17 18:22:09.012 [main] INFO  com.parser.Main -    [3]: # Создан: Sat Jan 17 17:36:55 MSK 2026
+2026-01-17 18:22:09.012 [main] INFO  com.parser.Main -    [4]: 
+2026-01-17 18:22:09.012 [main] INFO  com.parser.Main -    [5]: 1080595280
+2026-01-17 18:22:09.013 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from file. Found 6 lines
+2026-01-17 18:22:09.013 [main] INFO  com.parser.storage.WhitelistManager - Loaded 3 users from whitelist file
+2026-01-17 18:22:09.013 [main] INFO  com.parser.storage.WhitelistManager - Reloading whitelist from file...
+2026-01-17 18:22:09.013 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from file. Found 6 lines
+2026-01-17 18:22:09.013 [main] INFO  com.parser.storage.WhitelistManager - Loaded 3 users from whitelist file
+2026-01-17 18:22:09.013 [main] INFO  com.parser.storage.WhitelistManager - Whitelist reloaded. Now contains 3 users
+2026-01-17 18:22:09.013 [main] INFO  com.parser.Main -    Пользователей загружено: 3
+2026-01-17 18:22:09.013 [main] INFO  com.parser.Main - 🔄 Инициализация ThreadManager...
+2026-01-17 18:22:09.015 [main] INFO  com.parser.core.ThreadManager - Cookie auto-update scheduled every 60 minutes
+2026-01-17 18:22:09.016 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized. Pool: 5-20 threads, queue: 100
+2026-01-17 18:22:09.016 [main] INFO  com.parser.core.ThreadManager - Dynamic cookies enabled: true
+2026-01-17 18:22:09.016 [main] INFO  com.parser.Main - ✅ ThreadManager инициализирован
+2026-01-17 18:22:09.016 [main] INFO  com.parser.Main - 🔄 Инициализация Telegram бота...
+2026-01-17 18:22:09.016 [main] INFO  com.parser.Main - 🤖 Создание экземпляра TelegramBotService...
+2026-01-17 18:22:09.498 [main] INFO  c.parser.telegram.TelegramBotService - Bot commands registered
+2026-01-17 18:22:09.499 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-17 18:22:09.499 [main] INFO  com.parser.Main - ✅ Экземпляр TelegramBotService создан
+2026-01-17 18:22:09.499 [main] INFO  com.parser.Main - ✅ Username бота получен: @goofishparse_bot
+2026-01-17 18:22:09.499 [main] INFO  com.parser.Main - 🤖 Регистрация бота в Telegram API...
+2026-01-17 18:22:09.499 [main] INFO  com.parser.Main - ✅ TelegramBotsApi создан
+2026-01-17 18:22:09.558 [main] INFO  com.parser.Main - 🎉 Telegram бот успешно зарегистрирован!
+2026-01-17 18:22:09.559 [main] INFO  com.parser.Main - ✅ Бот теперь слушает сообщения...
+2026-01-17 18:22:09.559 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-17 18:22:09.559 [main] INFO  com.parser.Main - ✅ TelegramNotificationService инициализирован с экземпляром бота
+2026-01-17 18:22:09.559 [main] INFO  com.parser.Main - 🔄 Проверка cookies...
+2026-01-17 18:22:09.559 [main] INFO  com.parser.Main - 🍪 Проверка cookies при запуске...
+2026-01-17 18:22:09.559 [main] INFO  com.parser.Main -    Динамические cookies: ВКЛЮЧЕНЫ
+2026-01-17 18:22:09.559 [main] INFO  com.parser.Main -    Автообновление: ВКЛЮЧЕНО
+2026-01-17 18:22:09.559 [main] INFO  com.parser.Main - 🔄 Получение свежих cookies через Selenium...
+2026-01-17 18:22:09.559 [main] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для домена: h5api.m.goofish.com
+2026-01-17 18:22:09.560 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-17 18:22:10.444 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-17 18:22:10.446 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-17 18:22:11.730 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-17 18:22:11.734 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-17 18:22:12.717 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-17 18:22:16.689 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user 6937423668): /start_parser
+2026-01-17 18:22:16.690 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - User 6937423668 requested to start parser
+2026-01-17 18:22:16.690 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Attempting to start parser for user 6937423668
+2026-01-17 18:22:16.690 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - User 6937423668 whitelist status: true
+2026-01-17 18:22:16.691 [goofishparse_bot Telegram Executor] WARN  com.parser.core.ThreadManager - User 6937423668 has no queries
+2026-01-17 18:22:18.982 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user 6937423668): /addquery
+2026-01-17 18:22:19.733 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Получение cookies...
+2026-01-17 18:22:19.752 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-17 18:22:19.752 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-17 18:22:19.752 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 6
+2026-01-17 18:22:19.752 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Важные cookies:
+2026-01-17 18:22:19.753 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 18892bdceb6221dda0f18e35899a8243
+2026-01-17 18:22:19.753 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : JZfyIdFY2EACAbJFkxQty9Mf
+2026-01-17 18:22:19.753 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 4c8cda259e25eddeaa369812b1df21c1
+2026-01-17 18:22:19.753 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 9ebe3de4dbee
+2026-01-17 18:22:19.753 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 5a23ca3b2ced11c2289608a3a4d2be6c_1768673054497
+2026-01-17 18:22:19.753 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 113de5db3234dac2000f218677054bd1
+2026-01-17 18:22:19.753 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-17 18:22:19.753 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 5a23ca3b2ced11c22896...
+2026-01-17 18:22:19.754 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768673054497
+2026-01-17 18:22:19.860 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-17 18:22:19.860 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Cookies прошли валидацию
+2026-01-17 18:22:19.861 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-17 18:22:19.862 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-17 18:22:19.862 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-17 18:22:19.862 [main] INFO  com.parser.service.CookieService - 🍪 Строка cookies (235 символов): t=18892bdceb6221dda0f18e35899a8243; cna=JZfyIdFY2EACAbJFkxQty9Mf; _m_h5_tk_enc=4c8cda259e25eddeaa369...
+2026-01-17 18:22:19.862 [main] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - ✅ Свежие cookies успешно получены
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - ✅ Последовательность запуска приложения завершена!
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - 🤖 Telegram бот: @goofishparse_bot - ГОТОВ
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - 🍪 Динамические cookies: ВКЛЮЧЕНЫ
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - 📋 Пользователей в whitelist: 3
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - 📱 Отправьте /start боту @goofishparse_bot в Telegram
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - ============================================================
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - 🚀 Приложение успешно запущено!
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - ⏳ Поддержание работы приложения...
+2026-01-17 18:22:19.862 [main] INFO  com.parser.Main - ⏳ Вход в основной цикл...
+2026-01-17 18:22:23.934 [goofishparse_bot Telegram Executor] INFO  c.parser.telegram.TelegramBotService - Message from 6937423668 (user 6937423668): stone island
+2026-01-17 18:22:23.936 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_6937423668_queries.txt (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_6937423668_queries.txt)
+2026-01-17 18:22:23.936 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: false
+2026-01-17 18:22:23.937 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data
+2026-01-17 18:22:23.937 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-17 18:22:23.938 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_6937423668_queries.txt
+2026-01-17 18:22:23.938 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-17 18:22:23.938 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 13 байт
+2026-01-17 18:22:23.939 [goofishparse_bot Telegram Executor] INFO  com.parser.storage.UserDataManager - Query added for user 6937423668: stone island

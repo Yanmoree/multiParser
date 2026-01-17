@@ -13,7 +13,7 @@ import java.util.*;
 public class UserSession {
     private static final Logger logger = LoggerFactory.getLogger(UserSession.class);
 
-    private final int userId;
+    private final long userId;
     private final List<String> queries;
     private final UserSettings settings;
 
@@ -37,7 +37,7 @@ public class UserSession {
     // История найденных товаров (последние 100)
     private final List<Map<String, Object>> recentProducts;
 
-    public UserSession(int userId, List<String> queries, UserSettings settings) {
+    public UserSession(long userId, List<String> queries, UserSettings settings) {
         this.userId = userId;
         this.queries = new ArrayList<>(queries);
         this.settings = settings;
@@ -51,8 +51,7 @@ public class UserSession {
     }
 
     // Геттеры
-
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
@@ -113,7 +112,6 @@ public class UserSession {
     }
 
     // Сеттеры
-
     public void setRunning(boolean running) {
         this.running = running;
         this.status = running ? ParserSettings.STATUS_RUNNING : ParserSettings.STATUS_STOPPED;
@@ -155,7 +153,6 @@ public class UserSession {
     }
 
     // Методы для работы со статистикой
-
     public void addProductsFound(int count) {
         this.totalProductsFound += count;
         this.lastProductFoundTime = new Date();
@@ -272,7 +269,7 @@ public class UserSession {
     }
 
     /**
-     * Сброс статистики
+     * Сброс статистика
      */
     public void resetStatistics() {
         totalProductsFound = 0;

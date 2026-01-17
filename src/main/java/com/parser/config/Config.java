@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.util.Properties;
 
+import static java.lang.Long.getLong;
+
 /**
  * Класс для управления конфигурацией приложения
  */
@@ -201,8 +203,24 @@ public class Config {
         return getString("telegram.bot.username", "");
     }
 
-    public static int getTelegramAdminId() {
-        return getInt("telegram.admin.id", 0);
+    public static long getTelegramAdminId() {
+        return getLong("telegram.admin.id", 0);
+    }
+
+    public static long getLong(String key, long defaultValue) {
+        try {
+            return Long.parseLong(properties.getProperty(key, String.valueOf(defaultValue)).trim());
+        } catch (NumberFormatException e) {
+            logger.warn("Invalid long value for key '{}', using default: {}", key, defaultValue);
+            return defaultValue;
+        }
+    }
+
+    /**
+     * Получение ID администратора как long
+     */
+    public static long getTelegramAdminIdLong() {
+        return getLong("telegram.admin.id", 0);
     }
 
     public static int getThreadPoolCoreSize() {

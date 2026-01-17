@@ -17,8 +17,6 @@ import java.io.File;
 import java.util.*;
 import java.util.concurrent.*;
 
-import static com.parser.config.ParserSettings.CURRENCY_RUBLES;
-
 /**
  * Менеджер потоков для управления парсерами пользователей
  */
@@ -73,7 +71,7 @@ public class ThreadManager {
         // Запуск задачи для очистки устаревших кук
         scheduler.scheduleAtFixedRate(
                 this::cleanupExpiredCookiesTask,
-                10, // Каждые 10 минут
+                10,
                 10,
                 TimeUnit.MINUTES
         );
@@ -95,7 +93,6 @@ public class ThreadManager {
         logger.info("Starting automatic cookie update...");
 
         try {
-            // Обновляем куки для основных доменов
             String[] domains = {
                     "h5api.m.goofish.com",
                     "www.goofish.com",
@@ -117,7 +114,6 @@ public class ThreadManager {
             if (updatedCount > 0) {
                 logger.info("Automatic cookie update completed: {} domains updated", updatedCount);
 
-                // Отправляем уведомление админу
                 if (Config.getInt("telegram.admin.id", 0) > 0) {
                     TelegramNotificationService.sendMessage(
                             Config.getInt("telegram.admin.id", 0),
@@ -140,7 +136,6 @@ public class ThreadManager {
         } catch (Exception e) {
             logger.error("Error in cookie update task: {}", e.getMessage(), e);
 
-            // Отправляем уведомление об ошибке админу
             if (Config.getInt("telegram.admin.id", 0) > 0) {
                 TelegramNotificationService.sendMessage(
                         Config.getInt("telegram.admin.id", 0),
@@ -162,8 +157,6 @@ public class ThreadManager {
      */
     private void cleanupExpiredCookiesTask() {
         logger.debug("Cleaning up expired cookies from cache...");
-        // CookieService автоматически очищает устаревшие куки при доступе
-        // Этот метод можно использовать для принудительной очистки
     }
 
     /**
@@ -172,7 +165,6 @@ public class ThreadManager {
     public boolean startUserParser(int userId) {
         logger.info("Attempting to start parser for user {}", userId);
 
-        // Проверка на существующую сессию
         if (userSessions.containsKey(userId)) {
             UserSession session = userSessions.get(userId);
             if (session.isRunning()) {
@@ -184,7 +176,6 @@ public class ThreadManager {
             stopUserParser(userId);
         }
 
-        // Проверка вайтлиста
         if (!WhitelistManager.isUserAllowed(userId)) {
             logger.warn("User {} not in whitelist", userId);
             TelegramNotificationService.sendMessage(userId,
@@ -193,7 +184,6 @@ public class ThreadManager {
             return false;
         }
 
-        // Получение запросов пользователя
         List<String> queries = UserDataManager.getUserQueries(userId);
         if (queries.isEmpty()) {
             logger.warn("User {} has no queries", userId);
@@ -203,29 +193,21 @@ public class ThreadManager {
             return false;
         }
 
-        // Получение настроек пользователя
         UserSettings settings = UserDataManager.getUserSettings(userId);
 
-        // Создание сессии пользователя
         UserSession session = new UserSession(userId, queries, settings);
         userSessions.put(userId, session);
 
-        // Проверяем наличие cookies перед запуском
-        try {
-            Map<String, String> cookies = CookieService.getCookiesForDomain("h5api.m.goofish.com");
-            if (cookies.isEmpty()) {
-                logger.warn("⚠️ No cookies found for user {} before starting parser", userId);
-                TelegramNotificationService.sendMessage(userId,
-                        "⚠️ Предупреждение: cookies не найдены. Парсер может не работать корректно.");
-            } else {
-                logger.info("✅ Found {} cookies for user {} before starting parser",
-                        cookies.size(), userId);
+        if (Config.isDynamicCookiesEnabled()) {
+            try {
+                logger.info("Refreshing cookies before starting parser for user {}", userId);
+                CookieService.refreshCookies("h5api.m.goofish.com");
+            } catch (Exception e) {
+                logger.warn("Failed to refresh cookies before starting parser for user {}: {}",
+                        userId, e.getMessage());
             }
-        } catch (Exception e) {
-            logger.warn("⚠️ Error checking cookies for user {}: {}", userId, e.getMessage());
         }
 
-        // Создание директорий для пользователя если не существуют
         try {
             String dataDir = Config.getString("storage.data.dir", "./data");
             new File(dataDir + "/user_settings").mkdirs();
@@ -234,7 +216,6 @@ public class ThreadManager {
             logger.error("Failed to create user directories: {}", e.getMessage());
         }
 
-        // Запуск парсера в отдельном потоке
         threadPool.submit(() -> {
             try {
                 runUserParser(session);
@@ -245,8 +226,6 @@ public class ThreadManager {
                 userSessions.remove(userId);
             }
         });
-
-
 
         logger.info("Parser started for user {}", userId);
         TelegramNotificationService.sendMessage(userId,
@@ -301,16 +280,13 @@ public class ThreadManager {
                             logger.info("Found {} products for query '{}' (user {})",
                                     products.size(), query, userId);
 
-                            // Отправка уведомлений о найденных товарах
                             if (shouldSendNotification(session, products)) {
                                 sendProductNotifications(userId, products, query, session.getSettings());
                             }
 
-                            // Сохранение товаров
                             UserDataManager.saveUserProducts(userId, products);
                         }
 
-                        // Задержка между запросами
                         Thread.sleep(Config.getInt("api.goofish.delay.between.requests", 2000));
 
                     } catch (Exception e) {
@@ -318,7 +294,6 @@ public class ThreadManager {
                                 query, userId, e.getMessage(), e);
                         session.incrementErrors();
 
-                        // Проверяем, связана ли ошибка с куками
                         if (isCookieRelatedError(e)) {
                             logger.warn("Cookie-related error detected for user {}, refreshing cookies...", userId);
                             try {
@@ -330,28 +305,23 @@ public class ThreadManager {
                             }
                         }
 
-                        // Задержка при ошибке
                         Thread.sleep(5000);
                     }
                 }
 
-                // Логирование результатов итерации
                 if (productsFoundInIteration > 0) {
                     logger.info("Iteration completed for user {}: found {} products",
                             userId, productsFoundInIteration);
                 }
 
-                // Ожидание до следующей проверки
                 int checkInterval = session.getSettings().getCheckInterval();
                 logger.debug("Waiting {} seconds for next check (user {})",
                         checkInterval, userId);
 
-                // Проверка каждую секунду на возможность прерывания
                 for (int i = 0; i < checkInterval && session.isRunning(); i++) {
                     Thread.sleep(1000);
                 }
 
-                // Обновление времени выполнения
                 session.setLastIterationTime(new Date());
             }
 
@@ -403,9 +373,7 @@ public class ThreadManager {
             return false;
         }
 
-        // Если включены уведомления только о новых товарах
         if (settings.isNotifyNewOnly()) {
-            // Проверяем, есть ли новые товары
             List<Product> newProducts = UserDataManager.filterNewProducts(
                     session.getUserId(), products);
             return !newProducts.isEmpty();
@@ -415,59 +383,171 @@ public class ThreadManager {
     }
 
     /**
-     * Отправка уведомлений о товарах
+     * Отправка уведомлений о товарах в Telegram с HTML форматированием и изображениями
      */
     private void sendProductNotifications(int userId, List<Product> products,
                                           String query, UserSettings settings) {
         if (products.isEmpty()) return;
 
-        // Фильтрация новых товаров, если необходимо
         List<Product> productsToNotify = settings.isNotifyNewOnly() ?
                 UserDataManager.filterNewProducts(userId, products) : products;
 
         if (productsToNotify.isEmpty()) return;
 
-        // Создание сообщения
+        logger.info("Sending notifications for {} products to user {}",
+                productsToNotify.size(), userId);
+
+        // Логируем информацию о изображениях
+        int totalImages = 0;
+        int productsWithImages = 0;
+        for (Product product : productsToNotify) {
+            if (product.hasCoverImage()) {
+                totalImages++;
+                productsWithImages++;
+                logger.debug("Product '{}' has image: {}",
+                        product.getShortTitle(), product.getCoverImageUrl());
+            }
+        }
+        logger.info("Found {} products with images (total {} images)",
+                productsWithImages, totalImages);
+
+        // Сначала отправляем общее уведомление
+        String summary = String.format(
+                "🔍 Найдено товаров: %d\n📝 По запросу: \"%s\"\n📸 Товаров с фото: %d",
+                productsToNotify.size(), escapeHtml(query), productsWithImages
+        );
+        TelegramNotificationService.sendMessage(userId, summary);
+
+        // Затем отправляем каждый товар
+        for (int i = 0; i < productsToNotify.size(); i++) {
+            Product product = productsToNotify.get(i);
+
+            try {
+                // Проверяем, есть ли у товара изображение
+                if (product.hasCoverImage()) {
+                    String imageUrl = product.getCoverImageUrl();
+                    logger.debug("Sending photo for product {}: {}", product.getShortTitle(), imageUrl);
+
+                    // Формируем подпись с HTML
+                    String caption = formatProductCaption(product, settings);
+
+                    // Отправляем фото с подписью
+                    boolean photoSent = TelegramNotificationService.sendPhotoWithHtmlCaption(
+                            userId,
+                            imageUrl,
+                            caption
+                    );
+
+                    // Если фото не отправилось, отправляем текстовое сообщение
+                    if (!photoSent) {
+                        logger.warn("Failed to send photo, falling back to text message");
+                        String message = formatProductMessage(product, settings, i + 1, productsToNotify.size());
+                        TelegramNotificationService.sendHtmlMessage(userId, message);
+                    } else {
+                        logger.debug("Photo sent successfully for product {}", product.getId());
+                    }
+                } else {
+                    // Если нет фото, отправляем только текстовое сообщение
+                    logger.debug("Product {} has no image, sending text only", product.getShortTitle());
+                    String message = formatProductMessage(product, settings, i + 1, productsToNotify.size());
+                    TelegramNotificationService.sendHtmlMessage(userId, message);
+                }
+
+                // Задержка между сообщениями чтобы избежать блокировки
+                Thread.sleep(1500);
+
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            } catch (Exception e) {
+                logger.error("Error sending notification for product {}: {}",
+                        product.getId(), e.getMessage());
+
+                // Пробуем отправить хотя бы текстовое сообщение
+                try {
+                    String message = formatProductMessage(product, settings, i + 1, productsToNotify.size());
+                    TelegramNotificationService.sendHtmlMessage(userId, message);
+                } catch (Exception ex) {
+                    logger.error("Failed to send fallback message: {}", ex.getMessage());
+                }
+            }
+        }
+
+        logger.info("Finished sending notifications for {} products", productsToNotify.size());
+    }
+
+    /**
+     * Форматирование сообщения о товаре с HTML
+     */
+    private String formatProductMessage(Product product, UserSettings settings,
+                                        int index, int total) {
         StringBuilder message = new StringBuilder();
-        message.append("🎯 Найдены товары по запросу \"").append(query).append("\"\n\n");
 
-        for (int i = 0; i < Math.min(productsToNotify.size(), 5); i++) {
-            Product p = productsToNotify.get(i);
-            message.append(i + 1).append(". ").append(p.getTitle()).append("\n");
-
-            if (CURRENCY_RUBLES.equals(settings.getPriceCurrency())) {
-                message.append("💰 Цена: ").append(p.getPriceDisplayRub()).append("\n");
-            } else {
-                message.append("💰 Цена: ").append(p.getPriceDisplay()).append("\n");
-            }
-
-            message.append("📍 Место: ").append(p.getLocation()).append("\n");
-            message.append("⏳ Возраст: ").append(p.getAgeMinutes()).append(" мин\n");
-            message.append("🔗 Ссылка: ").append(p.getUrl()).append("\n\n");
+        if (total > 1) {
+            message.append("<b>🎯 Товар ").append(index).append(" из ").append(total).append("</b>\n\n");
         }
 
-        if (productsToNotify.size() > 5) {
-            message.append("... и еще ").append(productsToNotify.size() - 5)
-                    .append(" товаров\n");
+        String title = escapeHtml(product.getTitle());
+        message.append("🛍️ <a href=\"").append(product.getUrl()).append("\">").append(title).append("</a>\n\n");
+
+        message.append("<b>💰 Цены:</b>\n");
+        message.append("• ").append(product.getPriceDisplay()).append(" (юани)\n");
+
+        if (ParserSettings.CURRENCY_RUBLES.equals(settings.getPriceCurrency())) {
+            message.append("• ").append(product.getPriceDisplayRub()).append(" (рубли)\n");
         }
 
-        message.append("\nДля управления парсером используйте команды:\n");
-        message.append("/status - статус\n");
-        message.append("/settings - настройки\n");
-        message.append("/stop_parser - остановить\n");
+        message.append("\n<b>📍 Местоположение:</b> ").append(escapeHtml(product.getLocation())).append("\n");
+        message.append("<b>⏳ Возраст:</b> ").append(product.getAgeDisplay()).append("\n");
 
-        // Отправка уведомления
-        TelegramNotificationService.sendMessage(userId, message.toString());
-
-        // Отправка изображений (первые 3 товара)
-        for (int i = 0; i < Math.min(productsToNotify.size(), 3); i++) {
-            Product p = productsToNotify.get(i);
-            if (!p.getImages().isEmpty()) {
-                TelegramNotificationService.sendPhoto(userId,
-                        p.getImages().get(0),
-                        "📸 " + p.getTitle());
-            }
+        if (product.getSeller() != null && !product.getSeller().isEmpty()) {
+            message.append("<b>👤 Продавец:</b> ").append(escapeHtml(product.getSeller())).append("\n");
         }
+
+        message.append("\n🔗 <b>Ссылка:</b> <a href=\"").append(product.getUrl()).append("\">").append(product.getUrl()).append("</a>");
+
+        return message.toString();
+    }
+
+    /**
+     * Форматирование подписи для фото с HTML
+     */
+    private String formatProductCaption(Product product, UserSettings settings) {
+        StringBuilder caption = new StringBuilder();
+
+        String title = escapeHtml(product.getTitle());
+        caption.append("<b>🛍️ ").append(title).append("</b>\n\n");
+
+        caption.append("<b>💰 Цена:</b> ");
+        caption.append(product.getPriceDisplay());
+
+        if (ParserSettings.CURRENCY_RUBLES.equals(settings.getPriceCurrency())) {
+            caption.append(" (").append(product.getPriceDisplayRub()).append(")");
+        }
+
+        caption.append("\n<b>📍 Локация:</b> ").append(escapeHtml(product.getLocation()));
+        caption.append("\n<b>⏳ Возраст:</b> ").append(product.getAgeDisplay());
+
+        if (product.getSeller() != null && !product.getSeller().isEmpty()) {
+            caption.append("\n<b>👤 Продавец:</b> ").append(escapeHtml(product.getSeller()));
+        }
+
+        caption.append("\n\n<a href=\"").append(product.getUrl()).append("\">🔗 Открыть товар</a>");
+
+        return caption.toString();
+    }
+
+    /**
+     * Экранирование HTML символов
+     */
+    private String escapeHtml(String text) {
+        if (text == null) return "";
+
+        return text.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\"", "&quot;")
+                .replace("'", "&#39;");
     }
 
     /**
@@ -562,7 +642,6 @@ public class ThreadManager {
         stats.put("queueSize", threadPool.getQueue().size());
         stats.put("startTime", startTime);
 
-        // Добавляем информацию о куках
         Map<String, Object> cookieStats = CookieService.getCacheStats();
         stats.put("cookieCacheDomains", cookieStats.get("totalDomains"));
         stats.put("cookieCacheSize", cookieStats.get("totalCookies"));
@@ -589,18 +668,15 @@ public class ThreadManager {
     public void shutdown() {
         logger.info("Shutting down ThreadManager...");
 
-        // Остановка всех парсеров
         List<Integer> userIds = new ArrayList<>(userSessions.keySet());
         for (Integer userId : userIds) {
             stopUserParser(userId);
         }
 
-        // Завершение пула потоков
         threadPool.shutdown();
         scheduler.shutdown();
 
         try {
-            // Ожидание завершения текущих задач
             if (!threadPool.awaitTermination(30, TimeUnit.SECONDS)) {
                 threadPool.shutdownNow();
                 logger.warn("Thread pool did not terminate gracefully");
@@ -649,7 +725,6 @@ public class ThreadManager {
             CookieService.refreshCookies("h5api.m.goofish.com");
             logger.info("Cookies refreshed for all active parsers");
 
-            // Уведомляем админа
             if (Config.getInt("telegram.admin.id", 0) > 0) {
                 TelegramNotificationService.sendMessage(
                         Config.getInt("telegram.admin.id", 0),

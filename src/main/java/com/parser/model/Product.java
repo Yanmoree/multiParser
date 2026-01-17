@@ -242,6 +242,21 @@ public class Product {
         return images.isEmpty() ? null : images.get(0);
     }
 
+    // НОВЫЙ МЕТОД: Получение URL обложки (первого изображения)
+    @JsonIgnore
+    public String getCoverImageUrl() {
+        if (images != null && !images.isEmpty()) {
+            return images.get(0);
+        }
+        return null;
+    }
+
+    // НОВЫЙ МЕТОД: Проверка наличия обложки
+    @JsonIgnore
+    public boolean hasCoverImage() {
+        return getCoverImageUrl() != null;
+    }
+
     // Методы для сериализации
 
     @JsonIgnore

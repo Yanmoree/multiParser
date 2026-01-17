@@ -6,7 +6,7 @@ package com.parser.config;
 public class ParserSettings {
     // Минимальные и максимальные значения для валидации
 
-    public static final int MIN_CHECK_INTERVAL = 10; // секунд
+    public static final int MIN_CHECK_INTERVAL = 20; // секунд
     public static final int MAX_CHECK_INTERVAL = 3600; // секунд
 
     public static final int MIN_MAX_AGE_MINUTES = 1;
@@ -76,13 +76,13 @@ public class ParserSettings {
     }
 
     /**
-     * Получение курса валюты
+     * Получение курса валюты (обновленный актуальный курс)
      */
     public static double getCurrencyRate(String fromCurrency, String toCurrency) {
         if (CURRENCY_YUAN.equals(fromCurrency) && CURRENCY_RUBLES.equals(toCurrency)) {
-            return 12.5; // Примерный курс юаня к рублю
+            return 14.0; // Обновленный курс юаня к рублю (январь 2026)
         } else if (CURRENCY_RUBLES.equals(fromCurrency) && CURRENCY_YUAN.equals(toCurrency)) {
-            return 0.08; // Обратный курс
+            return 1.0 / 14.0; // Обратный курс
         }
         return 1.0;
     }

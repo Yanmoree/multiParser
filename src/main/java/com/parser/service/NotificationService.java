@@ -71,7 +71,8 @@ public class NotificationService {
             for (int i = 0; i < Math.min(products.size(), 3); i++) {
                 Product p = products.get(i);
                 if (p.getImages() != null && !p.getImages().isEmpty()) {
-                    TelegramNotificationService.sendPhoto(userId,
+                    // Используем метод sendPhotoWithCaption вместо sendPhoto
+                    TelegramNotificationService.sendPhotoWithCaption(userId,
                             p.getImages().get(0),
                             "📸 " + p.getTitle());
                 }

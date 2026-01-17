@@ -244,4 +244,12 @@ public abstract class BaseParser implements SiteParser {
         // Преобразование в минуты
         return (int)(ageMillis / (1000 * 60));
     }
+
+    /**
+     * Поиск с параметрами по умолчанию (реализация по умолчанию из интерфейса)
+     */
+    @Override
+    public List<Product> search(String query) {
+        return search(query, 3, 100, 1440);
+    }
 }

@@ -263,8 +263,12 @@ public class ThreadManager {
                         if (isCookieRelatedError(e)) {
                             logger.warn("Cookie-related error detected for user {}, refreshing cookies...", userId);
                             try {
+                                // Принудительно обновляем куки при ошибке токена
                                 CookieService.refreshCookies("h5api.m.goofish.com");
-                                logger.info("Cookies refreshed for user {}", userId);
+                                logger.info("Cookies refreshed for user {}, retrying query...", userId);
+
+                                // Повторяем запрос сразу после обновления куки
+                                continue; // Вернуться к началу цикла для этого запроса
                             } catch (Exception cookieError) {
                                 logger.error("Failed to refresh cookies for user {}: {}",
                                         userId, cookieError.getMessage());

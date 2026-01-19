@@ -1,0 +1,1 @@
+{"checkInterval":300,"maxAgeMinutes":1440,"maxPages":3,"rowsPerPage":100,"priceCurrency":"rubles","notifyNewOnly":true,"notifyTelegram":true,"notifyEmail":false,"minPrice":0.0,"maxPrice":0.0,"requestDelay":2000,"maxRetries":3}

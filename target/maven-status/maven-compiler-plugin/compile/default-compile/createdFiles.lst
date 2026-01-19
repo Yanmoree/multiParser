@@ -1,3 +1,4 @@
+com/parser/ProjectStructureExporter$1.class
 com/parser/service/NotificationService.class
 com/parser/parser/BaseParser$ParserStats.class
 com/parser/storage/FileStorage.class
@@ -23,6 +24,7 @@ com/parser/model/UserSettings.class
 com/parser/test/GoofishApiTester.class
 com/parser/core/UserSession.class
 com/parser/telegram/TelegramStateManager$UserState.class
+com/parser/ProjectStructureExporter.class
 com/parser/parser/GoofishParser.class
 com/parser/core/ThreadManager.class
 com/parser/parser/BaseParser.class

@@ -9,6 +9,7 @@
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/core/UserSession.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/parser/ParserFactory.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/parser/SiteParser.java
+/Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/ProjectStructureExporter.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/service/NotificationService.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/FileStorage.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/service/CookieService.java

@@ -92,6 +92,27 @@ public class GoofishParser extends BaseParser {
         }
     }
 
+    private boolean isCookieExpired() {
+        try {
+            String mh5tk = getTokenFromCookies();
+            if (mh5tk != null && mh5tk.contains("_")) {
+                String[] parts = mh5tk.split("_");
+                if (parts.length == 2) {
+                    long cookieTimestamp = Long.parseLong(parts[1]);
+                    long currentTime = System.currentTimeMillis();
+                    long age = currentTime - cookieTimestamp;
+
+                    // Куки истекают через 24 часа (86,400,000 мс), но обновляем заранее
+                    return age > 12 * 60 * 60 * 1000; // 12 часов
+                }
+            }
+            return true; // Если не можем распарсить, считаем устаревшими
+        } catch (Exception e) {
+            logger.error("Error checking cookie expiration: {}", e.getMessage());
+            return true;
+        }
+    }
+
     /**
      * Получение токена из куки _m_h5_tk
      */
@@ -186,6 +207,12 @@ public class GoofishParser extends BaseParser {
      * Проверка необходимости обновления кук
      */
     private boolean shouldRefreshCookies() {
+        // Всегда обновляем если куки истекли
+        if (isCookieExpired()) {
+            logger.warn("Cookies are expired, forcing refresh");
+            return true;
+        }
+
         long currentTime = System.currentTimeMillis();
         long timeSinceLastRefresh = currentTime - lastCookieRefreshTime;
 
@@ -194,12 +221,8 @@ public class GoofishParser extends BaseParser {
             return false;
         }
 
-        // Если было много попыток, увеличиваем интервал
-        if (cookieRefreshAttempts > 10) {
-            return timeSinceLastRefresh > 30 * 60 * 1000;
-        }
-
-        return true;
+        // Обновляем каждые 60 минут для профилактики
+        return timeSinceLastRefresh > 60 * 60 * 1000;
     }
 
     /**

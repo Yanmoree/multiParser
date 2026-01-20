@@ -224,28 +224,18 @@ public class GoofishParser extends BaseParser {
         try {
             logger.debug("📦 Размер сжатых данных: {} байт", compressedData.length);
 
-            // Используем org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStream
-            try (ByteArrayInputStream bais = new ByteArrayInputStream(compressedData);
-                 org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStream zstdIn =
-                         new org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStream(bais);
-                 ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            // Используем zstd-jni для распаковки
+            byte[] decompressed = com.github.luben.zstd.Zstd.decompress(compressedData, 10 * 1024 * 1024); // Макс 10MB
 
-                byte[] buffer = new byte[8192];
-                int len;
-                while ((len = zstdIn.read(buffer)) > 0) {
-                    baos.write(buffer, 0, len);
-                }
-
-                String result = baos.toString("UTF-8");
-                logger.debug("✅ Zstd успешно распакован");
-                logger.debug("📄 Размер распакованных данных: {} символов", result.length());
-                return result;
-            }
+            String result = new String(decompressed, StandardCharsets.UTF_8);
+            logger.debug("✅ Zstd успешно распакован");
+            logger.debug("📄 Размер распакованных данных: {} символов", result.length());
+            return result;
 
         } catch (Exception e) {
             logger.error("❌ Ошибка распаковки zstd: {}", e.getMessage());
 
-            // Пробуем прочитать как обычную строку (на случай, если это не zstd)
+            // Пробуем прочитать как обычную строку
             try {
                 String fallback = new String(compressedData, StandardCharsets.UTF_8);
                 logger.warn("⚠️ Используем fallback чтение как UTF-8");
@@ -346,10 +336,48 @@ public class GoofishParser extends BaseParser {
             product.setSite("goofish");
             product.setQuery(query);
 
-            // Название
-            String title = itemData != null ? itemData.optString("title", "") : "";
-            product.setTitle(title.isEmpty() ? "No title" : title);
+            // 🔴 ИСПРАВЛЕНИЕ: ПАРСИНГ НАЗВАНИЯ
+            String title = "";
 
+            // Пробуем разные источники названия
+            if (itemData != null) {
+                title = itemData.optString("title", "");
+                if (title.isEmpty()) {
+                    title = itemData.optString("text", "");
+                }
+                if (title.isEmpty()) {
+                    title = itemData.optString("name", "");
+                }
+            }
+
+            if (title.isEmpty() && exContent != null) {
+                title = exContent.optString("title", "");
+                if (title.isEmpty()) {
+                    title = exContent.optString("text", "");
+                }
+                if (title.isEmpty()) {
+                    title = exContent.optString("name", "");
+                }
+            }
+
+            if (title.isEmpty() && mainObj != null) {
+                JSONObject clickParam = mainObj.optJSONObject("clickParam");
+                if (clickParam != null) {
+                    JSONObject args = clickParam.optJSONObject("args");
+                    if (args != null) {
+                        title = args.optString("subject", "");
+                    }
+                }
+            }
+
+            // Если название по-прежнему пустое, создаем более информативное
+            if (title.isEmpty()) {
+                title = "Товар #" + itemId + " (" + query + ")";
+            }
+
+            product.setTitle(title);
+
+            // Остальной код остается без изменений...
             // Цена
             double price = extractPrice(itemData, exContent);
             product.setPrice(price);
@@ -361,9 +389,9 @@ public class GoofishParser extends BaseParser {
 
             // Локация
             String location = itemData != null ? itemData.optString("area", "") : "";
-            product.setLocation(location.isEmpty() ? "Unknown" : location);
+            product.setLocation(location.isEmpty() ? "Не указано" : location);
 
-            // URL
+            // URL - убедимся, что он правильный
             product.setUrl("https://www.goofish.com/item?id=" + itemId);
 
             // Изображения

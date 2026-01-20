@@ -1944,3 +1944,726 @@ java.net.SocketException: Connection reset
 2026-01-20 12:00:47.161 [Thread-7] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
 2026-01-20 12:00:47.162 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
 2026-01-20 12:00:47.162 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete
+2026-01-20 12:05:44.834 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:05:44.834 [main] INFO  com.parser.Main - Product Parser with Real-Time Cookies
+2026-01-20 12:05:44.835 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:05:44.835 [main] INFO  com.parser.config.Config - Loaded configuration from resources
+2026-01-20 12:05:44.835 [main] INFO  com.parser.Main - ✅ Configuration:
+2026-01-20 12:05:44.835 [main] INFO  com.parser.Main -    Token: 8538627254...
+2026-01-20 12:05:44.836 [main] INFO  com.parser.Main -    Username: @multiparse_bot
+2026-01-20 12:05:44.836 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-20 12:05:44.836 [main] INFO  com.parser.Main - ✅ Data directory ready
+2026-01-20 12:05:44.836 [main] INFO  com.parser.Main - 🍪 Инициализация системы cookies...
+2026-01-20 12:05:44.837 [main] INFO  com.parser.service.CookieService - 🍪 Инициализация CookieService...
+2026-01-20 12:05:44.838 [main] INFO  com.parser.service.CookieService - ✅ Автообновление настроено: каждые 60 минут
+2026-01-20 12:05:44.838 [main] INFO  com.parser.service.CookieService - 🔄 Предварительная загрузка cookies...
+2026-01-20 12:05:44.839 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-20 12:05:44.839 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-20 12:05:44.840 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-20 12:05:45.053 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-20 12:05:45.055 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-20 12:05:47.417 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-20 12:05:47.421 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-20 12:05:58.282 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-20 12:06:07.628 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-20 12:06:13.047 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 918d9b39e6d815207e9d478341e136f0_1768908954055
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 5b0e6681acab8853f215bce75ee98777
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_     : true
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : 735bde70993e3
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : dTP2IU6AnWwCAZH5bQa2jDrt
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1520c49679abc9527660b5efa04ace09
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect: 1
+2026-01-20 12:06:13.102 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 5521ed5541b8e3bc7c706eb58b17c3e7
+2026-01-20 12:06:13.103 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : gshtfKOk0eQt8vRB21vHmLxW6KYHEp0wvcu5ioqGhDnKumC...
+2026-01-20 12:06:13.103 [main] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s              : 1
+2026-01-20 12:06:13.220 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-20 12:06:13.221 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-20 12:06:13.221 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 918d9b39e6d815207...
+2026-01-20 12:06:13.221 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768908954055
+2026-01-20 12:06:13.221 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 5/5 ключевых)
+2026-01-20 12:06:13.225 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-01-20 12:06:13.226 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-20 12:06:13.226 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService - ✅ Получены свежие cookies, 10 элементов
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService - ✅ CookieService инициализирован
+2026-01-20 12:06:13.226 [main] INFO  com.parser.Main - 🧪 Тестирование cookies...
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService - ✅ Cookies доступны, длина: 656 символов
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService - 📊 Ключевые cookies:
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService -    _m_h5_tk: 918d9b39e6d815207e9d478341e...
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService -    _tb_token_: 735bde70993e3
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService -    cna: dTP2IU6AnWwCAZH5bQa2jDrt
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService -    cookie2: 1520c49679abc9527660b5efa04...
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService -    t: 5521ed5541b8e3bc7c706eb58b1...
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService - 📊 Анализ _m_h5_tk:
+2026-01-20 12:06:13.226 [main] INFO  com.parser.service.CookieService -    Токен: 918d9b39e6d815207...
+2026-01-20 12:06:13.227 [main] INFO  com.parser.service.CookieService -    Время: 1768908954055
+2026-01-20 12:06:13.227 [main] INFO  com.parser.Main - ✅ Cookies работают корректно
+2026-01-20 12:06:13.228 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized: core=5, max=20
+2026-01-20 12:06:13.228 [main] INFO  com.parser.Main - ✅ ThreadManager initialized
+2026-01-20 12:06:13.228 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-01-20 12:06:13.318 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-20 12:06:13.318 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-20 12:06:14.056 [main] INFO  com.parser.Main - ✅ Telegram bot registered and running
+2026-01-20 12:06:14.056 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:06:14.056 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-01-20 12:06:14.056 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-20 12:06:14.057 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: true
+2026-01-20 12:06:14.058 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist. Found 4 lines
+2026-01-20 12:06:14.058 [main] INFO  com.parser.storage.WhitelistManager - ✅ Loaded 1 users from whitelist
+2026-01-20 12:06:14.058 [main] INFO  com.parser.Main - 📋 Users: 1
+2026-01-20 12:06:14.058 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:06:14.058 [main] INFO  com.parser.Main - ⏳ Application is running...
+2026-01-20 12:06:16.065 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 1080595280
+2026-01-20 12:06:16.070 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280: 3 queries
+2026-01-20 12:06:16.070 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-20 12:06:16.071 [pool-2-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for: goofish
+2026-01-20 12:06:16.071 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='Stone Island', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:06:16.075 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768899976071&sign=a13518df031f55678707550467c0dd1c&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:06:22.918 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:06:53.691 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:06:54.627 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3126674 символов
+2026-01-20 12:06:54.685 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:06:54.693 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:06:54.694 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:06:54.694 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 1 requests
+2026-01-20 12:06:54.702 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 1 new products for user 1080595280
+2026-01-20 12:06:54.706 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:06:54.706 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:06:54.706 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:06:54.706 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:06:54.708 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260120_120654.backup: ./data/./data/backups/user_products_1080595280.json_20260120_120654.backup
+2026-01-20 12:06:54.709 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260120_120654.backup: ./data/backups/user_products_1080595280.json_20260120_120654.backup (No such file or directory)
+2026-01-20 12:06:54.709 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:06:54.709 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:06:54.709 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 4872 байт
+2026-01-20 12:06:54.711 [pool-2-thread-1] ERROR com.parser.core.ThreadManager - Error searching 'Stone Island' for user 1080595280: Recursive update
+2026-01-20 12:06:59.851 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:06:59.860 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900019855&sign=44bde1a9dd4377bcedc2f74d10fe4fe3&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:07:01.012 [Thread-7] INFO  com.parser.Main - 🛑 Получен сигнал завершения...
+2026-01-20 12:07:01.012 [Thread-7] INFO  com.parser.Main - 🛑 Shutting down...
+2026-01-20 12:07:01.012 [Thread-7] INFO  com.parser.core.ThreadManager - Shutting down ThreadManager...
+2026-01-20 12:07:01.013 [Thread-7] INFO  com.parser.core.ThreadManager - Parser stopped for user 1080595280
+2026-01-20 12:07:01.013 [Thread-7] INFO  c.p.storage.ProductDuplicateFilter - Cache cleared for user 1080595280
+2026-01-20 12:07:02.484 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:07:31.024 [Thread-7] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
+2026-01-20 12:07:31.053 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
+2026-01-20 12:07:31.054 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete
+2026-01-20 12:07:39.742 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:07:39.742 [main] INFO  com.parser.Main - Product Parser with Real-Time Cookies
+2026-01-20 12:07:39.742 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:07:39.743 [main] INFO  com.parser.config.Config - Loaded configuration from resources
+2026-01-20 12:07:39.743 [main] INFO  com.parser.Main - ✅ Configuration:
+2026-01-20 12:07:39.743 [main] INFO  com.parser.Main -    Token: 8538627254...
+2026-01-20 12:07:39.743 [main] INFO  com.parser.Main -    Username: @multiparse_bot
+2026-01-20 12:07:39.743 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-20 12:07:39.744 [main] INFO  com.parser.Main - ✅ Data directory ready
+2026-01-20 12:07:39.744 [main] INFO  com.parser.Main - 🍪 Инициализация системы cookies...
+2026-01-20 12:07:39.744 [main] INFO  com.parser.service.CookieService - 🍪 Инициализация CookieService...
+2026-01-20 12:07:39.746 [main] INFO  com.parser.service.CookieService - ✅ Автообновление настроено: каждые 60 минут
+2026-01-20 12:07:39.746 [main] INFO  com.parser.service.CookieService - 🔄 Предварительная загрузка cookies...
+2026-01-20 12:07:39.746 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-20 12:07:39.747 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-20 12:07:39.748 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-20 12:07:39.969 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-20 12:07:39.972 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-20 12:07:43.877 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-20 12:07:43.882 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-20 12:08:13.943 [main] ERROR c.p.service.SeleniumCookieFetcher - ❌ Ошибка при получении cookies через Selenium: timeout: Timed out receiving message from renderer: 29.876
+  (Session info: chrome=144.0.7559.60)
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.2', java.version: '25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c481275f7f8c5b9421fe685f75d65395, get {url=https://www.goofish.com}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.60, chrome: {chromedriverVersion: 144.0.7559.31 (18537d992890..., userDataDir: /var/folders/ck/vyxy1kkj565...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56700}, goog:processID: 57175, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:56700/devtoo..., se:cdpVersion: 144.0.7559.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c481275f7f8c5b9421fe685f75d65395
+2026-01-20 12:08:14.066 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-20 12:08:14.066 [main] ERROR c.p.service.SeleniumCookieFetcher - ❌ Cookies пусты или null
+2026-01-20 12:08:14.066 [main] WARN  com.parser.service.CookieService - ⚠️ Валидация свежих cookies не пройдена, используем кэшированные
+2026-01-20 12:08:14.066 [main] INFO  com.parser.service.CookieService - ✅ CookieService инициализирован
+2026-01-20 12:08:14.066 [main] INFO  com.parser.Main - 🧪 Тестирование cookies...
+2026-01-20 12:08:14.066 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-20 12:08:14.066 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-20 12:08:14.097 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-20 12:08:14.097 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-20 12:08:16.655 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-20 12:08:16.659 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-20 12:08:23.017 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-20 12:08:32.120 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-20 12:08:37.495 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : f17dbe2847a695c3ac3df8dd8d138bd8_1768908379783
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 0d66a832839961f0be804f923cc999ac
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_     : true
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : ee7ad8de6e86b
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : BDT2IYZLLX8CAbJFfm+LFqIO
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 12091dc89b7672fa6d92fc2206318f23
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect: 1
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 4e15c79aaf478f95efff538ff81bba4e
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : gJ6nUHsBqFgbeygan4JQTXIZQYFtOp9WRaHJyLLz_F86ykT...
+2026-01-20 12:08:37.520 [main] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s              : 1
+2026-01-20 12:08:37.639 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-20 12:08:37.639 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-20 12:08:37.639 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: f17dbe2847a695c3a...
+2026-01-20 12:08:37.639 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768908379783
+2026-01-20 12:08:37.639 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 5/5 ключевых)
+2026-01-20 12:08:37.647 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-01-20 12:08:37.647 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-20 12:08:37.647 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService - ✅ Получены свежие cookies, 10 элементов
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService - ✅ Cookies доступны, длина: 656 символов
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService - 📊 Ключевые cookies:
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService -    _m_h5_tk: f17dbe2847a695c3ac3df8dd8d1...
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService -    _tb_token_: ee7ad8de6e86b
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService -    cna: BDT2IYZLLX8CAbJFfm+LFqIO
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService -    cookie2: 12091dc89b7672fa6d92fc22063...
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService -    t: 4e15c79aaf478f95efff538ff81...
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService - 📊 Анализ _m_h5_tk:
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService -    Токен: f17dbe2847a695c3a...
+2026-01-20 12:08:37.648 [main] INFO  com.parser.service.CookieService -    Время: 1768908379783
+2026-01-20 12:08:37.648 [main] INFO  com.parser.Main - ✅ Cookies работают корректно
+2026-01-20 12:08:37.651 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized: core=5, max=20
+2026-01-20 12:08:37.651 [main] INFO  com.parser.Main - ✅ ThreadManager initialized
+2026-01-20 12:08:37.651 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-01-20 12:08:37.743 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-20 12:08:37.743 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-20 12:08:38.303 [main] INFO  com.parser.Main - ✅ Telegram bot registered and running
+2026-01-20 12:08:38.303 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:08:38.303 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-01-20 12:08:38.303 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-20 12:08:38.304 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: true
+2026-01-20 12:08:38.305 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist. Found 4 lines
+2026-01-20 12:08:38.305 [main] INFO  com.parser.storage.WhitelistManager - ✅ Loaded 1 users from whitelist
+2026-01-20 12:08:38.305 [main] INFO  com.parser.Main - 📋 Users: 1
+2026-01-20 12:08:38.305 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:08:38.305 [main] INFO  com.parser.Main - ⏳ Application is running...
+2026-01-20 12:08:43.707 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 1080595280
+2026-01-20 12:08:43.712 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280: 3 queries
+2026-01-20 12:08:43.712 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-20 12:08:43.713 [pool-2-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for: goofish
+2026-01-20 12:08:43.714 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='Stone Island', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:08:43.717 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900123714&sign=3c1cb952fdff89d6bf429f4e79397f19&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:08:46.258 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:08:46.885 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:08:47.334 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3135698 символов
+2026-01-20 12:08:47.393 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:08:47.400 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:08:47.400 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:08:47.400 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 1 requests
+2026-01-20 12:08:47.408 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:08:47.409 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:08:47.409 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:08:47.409 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:08:47.411 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260120_120847.backup: ./data/./data/backups/user_products_1080595280.json_20260120_120847.backup
+2026-01-20 12:08:47.412 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260120_120847.backup: ./data/backups/user_products_1080595280.json_20260120_120847.backup (No such file or directory)
+2026-01-20 12:08:47.412 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:08:47.412 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:08:47.412 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 1636 байт
+2026-01-20 12:08:49.415 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:08:49.417 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900129416&sign=17496855eb09d9e3f72543ed876b6d53&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:08:51.275 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:08:51.349 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:08:51.379 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 2576985 символов
+2026-01-20 12:08:51.417 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:08:51.420 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:08:51.420 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:08:51.420 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 2 requests
+2026-01-20 12:08:51.421 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 new products for user 1080595280
+2026-01-20 12:08:51.422 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:08:51.422 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:08:51.422 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:08:51.422 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:08:51.422 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260120_120851.backup: ./data/./data/backups/user_products_1080595280.json_20260120_120851.backup
+2026-01-20 12:08:51.422 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260120_120851.backup: ./data/backups/user_products_1080595280.json_20260120_120851.backup (No such file or directory)
+2026-01-20 12:08:51.423 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:08:51.423 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:08:51.423 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 3252 байт
+2026-01-20 12:08:51.425 [pool-2-thread-1] ERROR com.parser.core.ThreadManager - Error searching 'cav empt' for user 1080595280: Recursive update
+2026-01-20 12:08:57.535 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='jeremy scott', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:08:57.545 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900137541&sign=09b43a95e3462d277c8e2450af08aeed&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:08:58.789 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:08:58.876 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:08:58.884 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 2613011 символов
+2026-01-20 12:08:58.919 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:08:58.922 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:08:58.922 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:08:58.922 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 3 requests
+2026-01-20 12:08:58.923 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 new products for user 1080595280
+2026-01-20 12:08:58.924 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:08:58.924 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:08:58.924 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:08:58.924 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:08:58.925 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260120_120858.backup: ./data/./data/backups/user_products_1080595280.json_20260120_120858.backup
+2026-01-20 12:08:58.925 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260120_120858.backup: ./data/backups/user_products_1080595280.json_20260120_120858.backup (No such file or directory)
+2026-01-20 12:08:58.925 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:08:58.925 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:08:58.925 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 4859 байт
+2026-01-20 12:08:58.926 [pool-2-thread-1] ERROR com.parser.core.ThreadManager - Error searching 'jeremy scott' for user 1080595280: Recursive update
+2026-01-20 12:09:24.079 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='Stone Island', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:09:24.097 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900164092&sign=2e40db993c060837e77399ac82bfd2d2&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:09:26.350 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:09:26.390 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:09:26.411 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3135657 символов
+2026-01-20 12:09:26.441 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:09:26.445 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:09:26.445 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:09:26.445 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 4 requests
+2026-01-20 12:09:26.447 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:09:26.447 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:09:26.447 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:09:26.447 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:09:26.448 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260120_120926.backup: ./data/./data/backups/user_products_1080595280.json_20260120_120926.backup
+2026-01-20 12:09:26.448 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260120_120926.backup: ./data/backups/user_products_1080595280.json_20260120_120926.backup (No such file or directory)
+2026-01-20 12:09:26.448 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:09:26.448 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:09:26.448 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 1636 байт
+2026-01-20 12:09:28.449 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:09:28.453 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900168451&sign=53cbd9ac1f80aa4c97f82d6fc20c808b&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:09:30.302 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:09:31.224 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:09:31.248 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 2576985 символов
+2026-01-20 12:09:31.281 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:09:31.285 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:09:31.285 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:09:31.285 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 5 requests
+2026-01-20 12:09:31.286 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 new products for user 1080595280
+2026-01-20 12:09:31.287 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:09:31.288 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:09:31.288 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:09:31.288 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:09:31.288 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260120_120931.backup: ./data/./data/backups/user_products_1080595280.json_20260120_120931.backup
+2026-01-20 12:09:31.289 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260120_120931.backup: ./data/backups/user_products_1080595280.json_20260120_120931.backup (No such file or directory)
+2026-01-20 12:09:31.289 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:09:31.289 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:09:31.289 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 3252 байт
+2026-01-20 12:09:31.290 [pool-2-thread-1] ERROR com.parser.core.ThreadManager - Error searching 'cav empt' for user 1080595280: Recursive update
+2026-01-20 12:09:36.397 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='jeremy scott', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:09:36.402 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900176399&sign=98678a7bb2db55e4ca37ec02935db442&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:09:39.527 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:09:39.581 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:09:39.595 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3080379 символов
+2026-01-20 12:09:39.630 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:09:39.634 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:09:39.634 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:09:39.634 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 6 requests
+2026-01-20 12:09:39.636 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 new products for user 1080595280
+2026-01-20 12:09:39.637 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:09:39.637 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:09:39.637 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:09:39.637 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:09:39.638 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260120_120939.backup: ./data/./data/backups/user_products_1080595280.json_20260120_120939.backup
+2026-01-20 12:09:39.638 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260120_120939.backup: ./data/backups/user_products_1080595280.json_20260120_120939.backup (No such file or directory)
+2026-01-20 12:09:39.638 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:09:39.638 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:09:39.638 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 4859 байт
+2026-01-20 12:09:39.639 [pool-2-thread-1] ERROR com.parser.core.ThreadManager - Error searching 'jeremy scott' for user 1080595280: Recursive update
+2026-01-20 12:10:04.872 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='Stone Island', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:10:04.883 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900204875&sign=a0f4e227774741df5f26b4b24b1a01b2&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:10:06.762 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:10:07.034 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:10:07.056 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 2668329 символов
+2026-01-20 12:10:07.091 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:10:07.095 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:10:07.095 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:10:07.095 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 7 requests
+2026-01-20 12:10:07.099 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:10:07.099 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:10:07.099 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:10:07.099 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:10:07.100 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to ./data/backups/user_products_1080595280.json_20260120_121007.backup: ./data/./data/backups/user_products_1080595280.json_20260120_121007.backup
+2026-01-20 12:10:07.100 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file ./data/backups/user_products_1080595280.json_20260120_121007.backup: ./data/backups/user_products_1080595280.json_20260120_121007.backup (No such file or directory)
+2026-01-20 12:10:07.101 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:10:07.101 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:10:07.101 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 1636 байт
+2026-01-20 12:10:08.445 [Thread-11] INFO  com.parser.Main - 🛑 Получен сигнал завершения...
+2026-01-20 12:10:08.446 [Thread-11] INFO  com.parser.Main - 🛑 Shutting down...
+2026-01-20 12:10:08.446 [Thread-11] INFO  com.parser.core.ThreadManager - Shutting down ThreadManager...
+2026-01-20 12:10:08.446 [Thread-11] INFO  com.parser.core.ThreadManager - Parser stopped for user 1080595280
+2026-01-20 12:10:08.446 [Thread-11] INFO  c.p.storage.ProductDuplicateFilter - Cache cleared for user 1080595280
+2026-01-20 12:10:09.399 [Thread-11] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
+2026-01-20 12:10:09.400 [Thread-11] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
+2026-01-20 12:10:09.400 [Thread-11] INFO  com.parser.Main - ✅ Shutdown complete
+2026-01-20 12:17:56.129 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:17:56.130 [main] INFO  com.parser.Main - Product Parser with Real-Time Cookies
+2026-01-20 12:17:56.130 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:17:56.131 [main] INFO  com.parser.config.Config - Loaded configuration from resources
+2026-01-20 12:17:56.131 [main] INFO  com.parser.Main - ✅ Configuration:
+2026-01-20 12:17:56.131 [main] INFO  com.parser.Main -    Token: 8538627254...
+2026-01-20 12:17:56.131 [main] INFO  com.parser.Main -    Username: @multiparse_bot
+2026-01-20 12:17:56.131 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-20 12:17:56.132 [main] INFO  com.parser.Main - ✅ Data directory ready
+2026-01-20 12:17:56.132 [main] INFO  com.parser.Main - 🍪 Инициализация системы cookies...
+2026-01-20 12:17:56.132 [main] INFO  com.parser.service.CookieService - 🍪 Инициализация CookieService...
+2026-01-20 12:17:56.135 [main] INFO  com.parser.service.CookieService - ✅ Автообновление настроено: каждые 60 минут
+2026-01-20 12:17:56.135 [main] INFO  com.parser.service.CookieService - 🔄 Предварительная загрузка cookies...
+2026-01-20 12:17:56.135 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-20 12:17:56.136 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-20 12:17:56.137 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-20 12:17:56.353 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-20 12:17:56.355 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-20 12:17:58.263 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-20 12:17:58.266 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-20 12:18:04.340 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-20 12:18:13.387 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-20 12:18:21.589 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-20 12:18:21.629 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : ab5f541416459b2a2f91b2fcb232b906_1768909321004
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : f7e04dbefd1223e75c0946f34a7e2eeb
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_     : true
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : e39338d333b05
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : STb2ISe2XWcCAbJFfm+LP/ja
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 19414c231439bbf72aa9291da256599c
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect: 1
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : e6abfc7d5afcbbd647a001a7878a35aa
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : g6iIfgOq4bnwefJpw6JN1Z4YGxESVd-q9Tw-nYIFekEKeuM...
+2026-01-20 12:18:21.630 [main] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s              : 1
+2026-01-20 12:18:21.754 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-20 12:18:21.754 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-20 12:18:21.754 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: ab5f541416459b2a2...
+2026-01-20 12:18:21.754 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768909321004
+2026-01-20 12:18:21.754 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 5/5 ключевых)
+2026-01-20 12:18:21.759 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-01-20 12:18:21.759 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-20 12:18:21.759 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-01-20 12:18:21.759 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-20 12:18:21.759 [main] INFO  com.parser.service.CookieService - ✅ Получены свежие cookies, 10 элементов
+2026-01-20 12:18:21.759 [main] INFO  com.parser.service.CookieService - ✅ CookieService инициализирован
+2026-01-20 12:18:21.760 [main] INFO  com.parser.Main - 🧪 Тестирование cookies...
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService - ✅ Cookies доступны, длина: 656 символов
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService - 📊 Ключевые cookies:
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService -    _m_h5_tk: ab5f541416459b2a2f91b2fcb23...
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService -    _tb_token_: e39338d333b05
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService -    cna: STb2ISe2XWcCAbJFfm+LP/ja
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService -    cookie2: 19414c231439bbf72aa9291da25...
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService -    t: e6abfc7d5afcbbd647a001a7878...
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService - 📊 Анализ _m_h5_tk:
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService -    Токен: ab5f541416459b2a2...
+2026-01-20 12:18:21.760 [main] INFO  com.parser.service.CookieService -    Время: 1768909321004
+2026-01-20 12:18:21.760 [main] INFO  com.parser.Main - ✅ Cookies работают корректно
+2026-01-20 12:18:21.761 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized: core=5, max=20
+2026-01-20 12:18:21.761 [main] INFO  com.parser.Main - ✅ ThreadManager initialized
+2026-01-20 12:18:21.761 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-01-20 12:18:21.856 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-20 12:18:21.856 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-20 12:18:22.247 [main] INFO  com.parser.Main - ✅ Telegram bot registered and running
+2026-01-20 12:18:22.247 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:18:22.248 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-01-20 12:18:22.248 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-20 12:18:22.248 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: true
+2026-01-20 12:18:22.248 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist. Found 4 lines
+2026-01-20 12:18:22.248 [main] INFO  com.parser.storage.WhitelistManager - ✅ Loaded 1 users from whitelist
+2026-01-20 12:18:22.248 [main] INFO  com.parser.Main - 📋 Users: 1
+2026-01-20 12:18:22.248 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:18:22.249 [main] INFO  com.parser.Main - ⏳ Application is running...
+2026-01-20 12:18:29.664 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 1080595280
+2026-01-20 12:18:29.669 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280: 3 queries
+2026-01-20 12:18:29.669 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-20 12:18:29.669 [pool-2-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for: goofish
+2026-01-20 12:18:29.670 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='Stone Island', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:18:29.673 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900709670&sign=a97c473d6cd293bec606cb36c4f77800&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:18:32.753 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:18:33.345 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:18:34.062 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3125350 символов
+2026-01-20 12:18:34.124 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:18:34.135 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:18:34.135 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:18:34.135 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 1 requests
+2026-01-20 12:18:34.135 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 products for user 1080595280
+2026-01-20 12:18:39.381 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:18:39.382 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:18:39.382 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:18:39.382 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:18:39.389 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_121839.backup: ./data/backups/user_products_1080595280.json_20260120_121839.backup
+2026-01-20 12:18:39.390 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_121839.backup: ./data/backups/user_products_1080595280.json_20260120_121839.backup (No such file or directory)
+2026-01-20 12:18:39.390 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:18:39.390 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:18:39.391 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 1636 байт
+2026-01-20 12:18:41.396 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:18:41.398 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900721397&sign=f97db89d107330733c5a0b09567d6dab&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:18:43.507 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:18:43.733 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:18:43.757 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3043773 символов
+2026-01-20 12:18:43.790 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:18:43.793 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:18:43.793 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (5 after age filter)
+2026-01-20 12:18:43.793 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 5 products in 2 requests
+2026-01-20 12:18:43.793 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 5 products for user 1080595280
+2026-01-20 12:18:52.918 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:18:52.921 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:18:52.922 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:18:52.922 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:18:52.925 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_121852.backup: ./data/backups/user_products_1080595280.json_20260120_121852.backup
+2026-01-20 12:18:52.925 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_121852.backup: ./data/backups/user_products_1080595280.json_20260120_121852.backup (No such file or directory)
+2026-01-20 12:18:52.926 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:18:52.926 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:18:52.927 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 2022 байт
+2026-01-20 12:18:54.932 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='jeremy scott', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:18:54.935 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768900734933&sign=b7e78a8c4a857049f7e23c4f48ef813e&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:18:56.747 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:18:57.855 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:18:57.871 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3074436 символов
+2026-01-20 12:18:57.908 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:18:57.911 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:18:57.911 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:18:57.911 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 3 requests
+2026-01-20 12:18:57.911 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 products for user 1080595280
+2026-01-20 12:19:06.835 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:19:06.836 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:19:06.836 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:19:06.837 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:19:06.838 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_121906.backup: ./data/backups/user_products_1080595280.json_20260120_121906.backup
+2026-01-20 12:19:06.839 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_121906.backup: ./data/backups/user_products_1080595280.json_20260120_121906.backup (No such file or directory)
+2026-01-20 12:19:06.840 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:19:06.840 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:19:06.840 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 1609 байт
+2026-01-20 12:19:08.970 [Thread-7] INFO  com.parser.Main - 🛑 Получен сигнал завершения...
+2026-01-20 12:19:08.971 [Thread-7] INFO  com.parser.Main - 🛑 Shutting down...
+2026-01-20 12:19:08.971 [Thread-7] INFO  com.parser.core.ThreadManager - Shutting down ThreadManager...
+2026-01-20 12:19:08.971 [Thread-7] INFO  com.parser.core.ThreadManager - Parser stopped for user 1080595280
+2026-01-20 12:19:08.974 [Thread-7] INFO  c.p.storage.ProductDuplicateFilter - Cache cleared for user 1080595280
+2026-01-20 12:19:10.017 [Thread-7] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
+2026-01-20 12:19:10.020 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
+2026-01-20 12:19:10.020 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete
+2026-01-20 12:56:04.441 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:56:04.441 [main] INFO  com.parser.Main - Product Parser with Real-Time Cookies
+2026-01-20 12:56:04.441 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:56:04.442 [main] INFO  com.parser.config.Config - Loaded configuration from resources
+2026-01-20 12:56:04.442 [main] INFO  com.parser.Main - ✅ Configuration:
+2026-01-20 12:56:04.442 [main] INFO  com.parser.Main -    Token: 8538627254...
+2026-01-20 12:56:04.443 [main] INFO  com.parser.Main -    Username: @multiparse_bot
+2026-01-20 12:56:04.443 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-20 12:56:04.443 [main] INFO  com.parser.Main - ✅ Data directory ready
+2026-01-20 12:56:04.443 [main] INFO  com.parser.Main - 🍪 Инициализация системы cookies...
+2026-01-20 12:56:04.444 [main] INFO  com.parser.service.CookieService - 🍪 Инициализация CookieService...
+2026-01-20 12:56:04.446 [main] INFO  com.parser.service.CookieService - ✅ Автообновление настроено: каждые 60 минут
+2026-01-20 12:56:04.446 [main] INFO  com.parser.service.CookieService - 🔄 Предварительная загрузка cookies...
+2026-01-20 12:56:04.446 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-20 12:56:04.447 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-20 12:56:04.448 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-20 12:56:06.237 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-20 12:56:06.239 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-20 12:56:07.954 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-20 12:56:07.958 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-20 12:56:11.827 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-20 12:56:20.932 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-20 12:56:27.341 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-20 12:56:27.380 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-20 12:56:27.380 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : c7aa621a10e9e2adde9afa0a6764f727_1768913052878
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 699d0d0e0e032c03d5f20287dcdd9d67
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_     : true
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : e65b3563717d7
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : PT/2IUTykGACAcJXLfYklv/w
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 184a066309be190c1bb898d8fc422356
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect: 1
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : b6d52226f37604cd7dfbe724cd2e6db9
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : g7gifsc_iJ6Wkd6ertz6bGIItrxLfPabCxQYHre2YJyQHCw...
+2026-01-20 12:56:27.381 [main] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s              : 1
+2026-01-20 12:56:27.496 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-20 12:56:27.496 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-20 12:56:27.496 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: c7aa621a10e9e2add...
+2026-01-20 12:56:27.496 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1768913052878
+2026-01-20 12:56:27.496 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 5/5 ключевых)
+2026-01-20 12:56:27.497 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-01-20 12:56:27.497 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-20 12:56:27.497 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-01-20 12:56:27.497 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService - ✅ Получены свежие cookies, 10 элементов
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService - ✅ CookieService инициализирован
+2026-01-20 12:56:27.498 [main] INFO  com.parser.Main - 🧪 Тестирование cookies...
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService - ✅ Cookies доступны, длина: 656 символов
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService - 📊 Ключевые cookies:
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService -    _m_h5_tk: c7aa621a10e9e2adde9afa0a676...
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService -    _tb_token_: e65b3563717d7
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService -    cna: PT/2IUTykGACAcJXLfYklv/w
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService -    cookie2: 184a066309be190c1bb898d8fc4...
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService -    t: b6d52226f37604cd7dfbe724cd2...
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService - 📊 Анализ _m_h5_tk:
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService -    Токен: c7aa621a10e9e2add...
+2026-01-20 12:56:27.498 [main] INFO  com.parser.service.CookieService -    Время: 1768913052878
+2026-01-20 12:56:27.498 [main] INFO  com.parser.Main - ✅ Cookies работают корректно
+2026-01-20 12:56:27.499 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized: core=5, max=20
+2026-01-20 12:56:27.500 [main] INFO  com.parser.Main - ✅ ThreadManager initialized
+2026-01-20 12:56:27.500 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-01-20 12:56:27.584 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-20 12:56:27.584 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-20 12:56:28.307 [main] INFO  com.parser.Main - ✅ Telegram bot registered and running
+2026-01-20 12:56:28.307 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:56:28.307 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-01-20 12:56:28.307 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-20 12:56:28.307 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: true
+2026-01-20 12:56:28.309 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist. Found 4 lines
+2026-01-20 12:56:28.309 [main] INFO  com.parser.storage.WhitelistManager - ✅ Loaded 1 users from whitelist
+2026-01-20 12:56:28.309 [main] INFO  com.parser.Main - 📋 Users: 1
+2026-01-20 12:56:28.309 [main] INFO  com.parser.Main - ============================================================
+2026-01-20 12:56:28.309 [main] INFO  com.parser.Main - ⏳ Application is running...
+2026-01-20 12:57:03.214 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 1080595280
+2026-01-20 12:57:03.227 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280: 3 queries
+2026-01-20 12:57:03.227 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-20 12:57:03.229 [pool-2-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for: goofish
+2026-01-20 12:57:03.230 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='Stone Island', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:57:03.252 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768903023230&sign=f2d53625bfbdc9f2b9f39bcc7a9cda97&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:57:06.825 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:57:18.231 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:57:19.233 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3110824 символов
+2026-01-20 12:57:19.303 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:57:19.315 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:57:19.316 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:57:19.316 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 1 requests
+2026-01-20 12:57:19.316 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 products for user 1080595280
+2026-01-20 12:57:23.541 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:57:23.545 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:57:23.545 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:57:23.545 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:57:23.566 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_125723.backup: ./data/backups/user_products_1080595280.json_20260120_125723.backup
+2026-01-20 12:57:23.566 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_125723.backup: ./data/backups/user_products_1080595280.json_20260120_125723.backup (No such file or directory)
+2026-01-20 12:57:23.567 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:57:23.567 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:57:23.568 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 3361 байт
+2026-01-20 12:57:25.574 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:57:25.580 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768903045577&sign=c75d6d5ed743e813e2c15b6fefe03afb&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:57:27.351 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:57:46.642 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:57:46.693 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3026916 символов
+2026-01-20 12:57:46.812 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:57:46.815 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:57:46.815 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:57:46.815 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 2 requests
+2026-01-20 12:57:46.815 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 products for user 1080595280
+2026-01-20 12:57:51.401 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:57:51.402 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:57:51.402 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:57:51.402 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:57:51.405 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_125751.backup: ./data/backups/user_products_1080595280.json_20260120_125751.backup
+2026-01-20 12:57:51.405 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_125751.backup: ./data/backups/user_products_1080595280.json_20260120_125751.backup (No such file or directory)
+2026-01-20 12:57:51.406 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:57:51.406 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:57:51.407 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 3254 байт
+2026-01-20 12:57:53.411 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='jeremy scott', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:57:53.415 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768903073412&sign=e5c972970870758962d30a0fe157bd37&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:57:55.207 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:58:13.170 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:58:13.209 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3239305 символов
+2026-01-20 12:58:13.283 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:58:13.287 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:58:13.288 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:58:13.288 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 3 requests
+2026-01-20 12:58:13.288 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 products for user 1080595280
+2026-01-20 12:58:17.356 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:58:17.357 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:58:17.357 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:58:17.357 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:58:17.359 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_125817.backup: ./data/backups/user_products_1080595280.json_20260120_125817.backup
+2026-01-20 12:58:17.360 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_125817.backup: ./data/backups/user_products_1080595280.json_20260120_125817.backup (No such file or directory)
+2026-01-20 12:58:17.362 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:58:17.362 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:58:17.362 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 2936 байт
+2026-01-20 12:58:39.434 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='Stone Island', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:58:39.444 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768903119439&sign=b2916aa14ba22f6849258f90290b0117&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:58:41.530 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:58:48.650 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:58:48.692 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3110923 символов
+2026-01-20 12:58:48.750 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:58:48.781 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:58:48.784 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:58:48.784 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 4 requests
+2026-01-20 12:58:48.784 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 products for user 1080595280
+2026-01-20 12:58:52.871 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:58:52.872 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:58:52.872 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:58:52.872 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:58:52.875 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_125852.backup: ./data/backups/user_products_1080595280.json_20260120_125852.backup
+2026-01-20 12:58:52.875 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_125852.backup: ./data/backups/user_products_1080595280.json_20260120_125852.backup (No such file or directory)
+2026-01-20 12:58:52.877 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:58:52.878 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:58:52.878 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 3361 байт
+2026-01-20 12:58:54.881 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:58:54.883 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768903134882&sign=995f91819eda60c47fb2edb644a362e7&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:58:56.887 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:59:00.698 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:59:00.745 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 2657767 символов
+2026-01-20 12:59:00.777 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:59:00.782 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:59:00.782 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:59:00.782 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 5 requests
+2026-01-20 12:59:00.782 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 products for user 1080595280
+2026-01-20 12:59:05.423 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:59:05.424 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:59:05.424 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:59:05.424 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:59:05.427 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_125905.backup: ./data/backups/user_products_1080595280.json_20260120_125905.backup
+2026-01-20 12:59:05.428 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_125905.backup: ./data/backups/user_products_1080595280.json_20260120_125905.backup (No such file or directory)
+2026-01-20 12:59:05.429 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:59:05.429 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:59:05.429 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 3254 байт
+2026-01-20 12:59:07.437 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='jeremy scott', pages=3, rows=500, maxAge=1440min
+2026-01-20 12:59:07.441 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1768903147439&sign=b436ac9bb449dff929e98b4a58415d20&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-20 12:59:08.967 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-20 12:59:10.900 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser stopped for user 1080595280
+2026-01-20 12:59:10.925 [multiparse_bot Telegram Executor] INFO  c.p.storage.ProductDuplicateFilter - Cache cleared for user 1080595280
+2026-01-20 12:59:13.522 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-20 12:59:13.600 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 2599728 символов
+2026-01-20 12:59:13.658 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-20 12:59:13.677 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-20 12:59:13.678 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (4 after age filter)
+2026-01-20 12:59:13.679 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 4 products in 6 requests
+2026-01-20 12:59:13.679 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Sending notifications: 4 products for user 1080595280
+2026-01-20 12:59:17.729 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - 📝 Запись в файл: user_products/1080595280.json (абсолютный путь: /Users/yanmore/IdeaProjects/multiParser/./data/user_products/1080595280.json)
+2026-01-20 12:59:17.730 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует перед записью: true
+2026-01-20 12:59:17.731 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Родительская директория: ./data/user_products
+2026-01-20 12:59:17.731 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Количество строк для записи: 1
+2026-01-20 12:59:17.734 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error copying file user_products/1080595280.json to backups/user_products_1080595280.json_20260120_125917.backup: ./data/backups/user_products_1080595280.json_20260120_125917.backup
+2026-01-20 12:59:17.734 [pool-2-thread-1] ERROR com.parser.storage.FileStorage - Error compressing file backups/user_products_1080595280.json_20260120_125917.backup: ./data/backups/user_products_1080595280.json_20260120_125917.backup (No such file or directory)
+2026-01-20 12:59:17.735 [pool-2-thread-1] INFO  com.parser.storage.FileStorage - ✅ Успешно записано 1 строк в user_products/1080595280.json
+2026-01-20 12:59:17.735 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Файл существует после записи: true
+2026-01-20 12:59:17.735 [pool-2-thread-1] INFO  com.parser.storage.FileStorage -    Размер файла после записи: 2936 байт
+2026-01-20 13:01:10.324 [multiparse_bot Telegram Connection] ERROR o.t.t.u.DefaultBotSession - Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:316)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:354)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:798)
+	at java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:974)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:964)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1068)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188)
+2026-01-20 13:01:55.855 [Thread-7] INFO  com.parser.Main - 🛑 Получен сигнал завершения...
+2026-01-20 13:01:55.868 [Thread-7] INFO  com.parser.Main - 🛑 Shutting down...
+2026-01-20 13:01:55.869 [Thread-7] INFO  com.parser.core.ThreadManager - Shutting down ThreadManager...
+2026-01-20 13:01:55.874 [Thread-7] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
+2026-01-20 13:01:55.875 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
+2026-01-20 13:01:55.875 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete

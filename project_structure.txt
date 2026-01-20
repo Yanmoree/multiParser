@@ -1,7 +1,7 @@
 СТРУКТУРА ПРОЕКТА
 =================
 Директория: /Users/yanmore/IdeaProjects/multiParser
-Дата создания отчета: 2026-01-20T11:34:05.407089
+Дата создания отчета: 2026-01-20T12:20:02.465074
 
 ================================================================================
 
@@ -39,15 +39,15 @@
   [FILE] cookies.properties
     Путь: /Users/yanmore/IdeaProjects/multiParser/cookies.properties
     Размер: 2153 байт
-    Дата изменения: 2026-01-19T23:46:17.647495519Z
+    Дата изменения: 2026-01-20T09:18:21.759869925Z
     Содержимое:
     ----------------------------------------
     #Cookies for HTTP requests
     #Auto-generated file
-    #Tue Jan 20 02:46:17 MSK 2026
-    h5api.m.goofish.com.cookies=t\=2d73cf9fa88e7dee77ebd744a286b260; cna\=O7D1IZrV+1sCAbnqQ/id+LcV; _m_h5_tk_enc\=837762af7840c0b9b60bc9da8179cb3b; _samesite_flag_\=true; tfstk\=gr5rfCAdjBjjA7EG7NAUgcUaHgAJ6Br6Z6tB-wbHP3xkO8KHxwIvRX_hNMSFbgl5AwqRY6-c0a9CF7UFYGjydpfBA6uRgGlINueR-XRBtlZ_15_-yBd3fcfbxn-JJZx3lLAPizPXtlZ_19NKxTAhPpwGwZbDDe8nxbjnmZxvJUAHqpmmnFxDxBjHqmYDJF0k-pcHmr8pmHAHtMA0uetDxBAhxZbZOLvm0EpukkVJYxHv7L-Grnlhxs8kUYQk0XchgQ9yjXtqtXf2rwf7Pphu_nX5K_OcZoqc4HipovaC9TonKLYvuha4uSmkAHqmgBXIpvp5XE-_l-MKpLxyuha42vHpnCL2fzT5.; mtop_partitioned_detect\=1; _tb_token_\=e873beba8d535; _m_h5_tk\=5518eaf2fed218ff94856f95716cd836_1768876083127; xlly_s\=1; cookie2\=1d1b3ecbc7a1d1e35f94ccfdb3307de0
-    m.goofish.com.cookies=t\=2d73cf9fa88e7dee77ebd744a286b260; cna\=O7D1IZrV+1sCAbnqQ/id+LcV; _m_h5_tk_enc\=837762af7840c0b9b60bc9da8179cb3b; _samesite_flag_\=true; tfstk\=gr5rfCAdjBjjA7EG7NAUgcUaHgAJ6Br6Z6tB-wbHP3xkO8KHxwIvRX_hNMSFbgl5AwqRY6-c0a9CF7UFYGjydpfBA6uRgGlINueR-XRBtlZ_15_-yBd3fcfbxn-JJZx3lLAPizPXtlZ_19NKxTAhPpwGwZbDDe8nxbjnmZxvJUAHqpmmnFxDxBjHqmYDJF0k-pcHmr8pmHAHtMA0uetDxBAhxZbZOLvm0EpukkVJYxHv7L-Grnlhxs8kUYQk0XchgQ9yjXtqtXf2rwf7Pphu_nX5K_OcZoqc4HipovaC9TonKLYvuha4uSmkAHqmgBXIpvp5XE-_l-MKpLxyuha42vHpnCL2fzT5.; mtop_partitioned_detect\=1; _tb_token_\=e873beba8d535; _m_h5_tk\=5518eaf2fed218ff94856f95716cd836_1768876083127; xlly_s\=1; cookie2\=1d1b3ecbc7a1d1e35f94ccfdb3307de0
-    www.goofish.com.cookies=t\=2d73cf9fa88e7dee77ebd744a286b260; cna\=O7D1IZrV+1sCAbnqQ/id+LcV; _m_h5_tk_enc\=837762af7840c0b9b60bc9da8179cb3b; _samesite_flag_\=true; tfstk\=gr5rfCAdjBjjA7EG7NAUgcUaHgAJ6Br6Z6tB-wbHP3xkO8KHxwIvRX_hNMSFbgl5AwqRY6-c0a9CF7UFYGjydpfBA6uRgGlINueR-XRBtlZ_15_-yBd3fcfbxn-JJZx3lLAPizPXtlZ_19NKxTAhPpwGwZbDDe8nxbjnmZxvJUAHqpmmnFxDxBjHqmYDJF0k-pcHmr8pmHAHtMA0uetDxBAhxZbZOLvm0EpukkVJYxHv7L-Grnlhxs8kUYQk0XchgQ9yjXtqtXf2rwf7Pphu_nX5K_OcZoqc4HipovaC9TonKLYvuha4uSmkAHqmgBXIpvp5XE-_l-MKpLxyuha42vHpnCL2fzT5.; mtop_partitioned_detect\=1; _tb_token_\=e873beba8d535; _m_h5_tk\=5518eaf2fed218ff94856f95716cd836_1768876083127; xlly_s\=1; cookie2\=1d1b3ecbc7a1d1e35f94ccfdb3307de0
+    #Tue Jan 20 12:18:21 MSK 2026
+    h5api.m.goofish.com.cookies=t\=e6abfc7d5afcbbd647a001a7878a35aa; cna\=STb2ISe2XWcCAbJFfm+LP/ja; _m_h5_tk_enc\=f7e04dbefd1223e75c0946f34a7e2eeb; _samesite_flag_\=true; tfstk\=g6iIfgOq4bnwefJpw6JN1Z4YGxESVd-q9Tw-nYIFekEKeuM-E7PUz7u1NfhizvPE4VNS6fNL82kyVflisXkEUYB7efrLr2PzT7ZSEj9wgn-qKvquvIR20utanoZuw3rJ7lh3Q646gn-qKUtEnHAq8kWMQ8282JUR21p_H8E8egh86PeY36E82bp_W8eA9wF8JNKTe5F82uh-Bdwz6JE82bH9C8bwBEw6d7kB3yRd_cJ09vF12gn9RyNjpaSR2cwQRokL1vkEfJaQGziyvgojHvn0F0vAP7wC4HI4G4SVPOac2RN2Cd_lr82LmJZC8EpzJR2iQd91kT4LIRwJCd_ldyegdPJ6C63l.; mtop_partitioned_detect\=1; _tb_token_\=e39338d333b05; _m_h5_tk\=ab5f541416459b2a2f91b2fcb232b906_1768909321004; xlly_s\=1; cookie2\=19414c231439bbf72aa9291da256599c
+    m.goofish.com.cookies=t\=e6abfc7d5afcbbd647a001a7878a35aa; cna\=STb2ISe2XWcCAbJFfm+LP/ja; _m_h5_tk_enc\=f7e04dbefd1223e75c0946f34a7e2eeb; _samesite_flag_\=true; tfstk\=g6iIfgOq4bnwefJpw6JN1Z4YGxESVd-q9Tw-nYIFekEKeuM-E7PUz7u1NfhizvPE4VNS6fNL82kyVflisXkEUYB7efrLr2PzT7ZSEj9wgn-qKvquvIR20utanoZuw3rJ7lh3Q646gn-qKUtEnHAq8kWMQ8282JUR21p_H8E8egh86PeY36E82bp_W8eA9wF8JNKTe5F82uh-Bdwz6JE82bH9C8bwBEw6d7kB3yRd_cJ09vF12gn9RyNjpaSR2cwQRokL1vkEfJaQGziyvgojHvn0F0vAP7wC4HI4G4SVPOac2RN2Cd_lr82LmJZC8EpzJR2iQd91kT4LIRwJCd_ldyegdPJ6C63l.; mtop_partitioned_detect\=1; _tb_token_\=e39338d333b05; _m_h5_tk\=ab5f541416459b2a2f91b2fcb232b906_1768909321004; xlly_s\=1; cookie2\=19414c231439bbf72aa9291da256599c
+    www.goofish.com.cookies=t\=e6abfc7d5afcbbd647a001a7878a35aa; cna\=STb2ISe2XWcCAbJFfm+LP/ja; _m_h5_tk_enc\=f7e04dbefd1223e75c0946f34a7e2eeb; _samesite_flag_\=true; tfstk\=g6iIfgOq4bnwefJpw6JN1Z4YGxESVd-q9Tw-nYIFekEKeuM-E7PUz7u1NfhizvPE4VNS6fNL82kyVflisXkEUYB7efrLr2PzT7ZSEj9wgn-qKvquvIR20utanoZuw3rJ7lh3Q646gn-qKUtEnHAq8kWMQ8282JUR21p_H8E8egh86PeY36E82bp_W8eA9wF8JNKTe5F82uh-Bdwz6JE82bH9C8bwBEw6d7kB3yRd_cJ09vF12gn9RyNjpaSR2cwQRokL1vkEfJaQGziyvgojHvn0F0vAP7wC4HI4G4SVPOac2RN2Cd_lr82LmJZC8EpzJR2iQd91kT4LIRwJCd_ldyegdPJ6C63l.; mtop_partitioned_detect\=1; _tb_token_\=e39338d333b05; _m_h5_tk\=ab5f541416459b2a2f91b2fcb232b906_1768909321004; xlly_s\=1; cookie2\=19414c231439bbf72aa9291da256599c
     ----------------------------------------
 
   [FILE] cookies_debug_20260119_110719.properties
@@ -282,8 +282,8 @@
 
     [FILE] parser.log
       Путь: /Users/yanmore/IdeaProjects/multiParser/logs/parser.log
-      Размер: 171551 байт
-      Дата изменения: 2026-01-19T23:55:50.397093623Z
+      Размер: 330979 байт
+      Дата изменения: 2026-01-20T09:19:10.020563094Z
       [БИНАРНЫЙ ФАЙЛ ИЛИ СЛИШКОМ БОЛЬШОЙ]
 
   [FILE] api_response.json
@@ -298,7 +298,7 @@
   [FILE] dependency-reduced-pom.xml
     Путь: /Users/yanmore/IdeaProjects/multiParser/dependency-reduced-pom.xml
     Размер: 2216 байт
-    Дата изменения: 2026-01-19T23:45:48.247360402Z
+    Дата изменения: 2026-01-20T09:17:48.303399871Z
     Содержимое:
     ----------------------------------------
     <?xml version="1.0" encoding="UTF-8"?>
@@ -440,11 +440,11 @@
 
       [FILE] 1080595280.json
         Путь: /Users/yanmore/IdeaProjects/multiParser/data/user_products/1080595280.json
-        Размер: 4468 байт
-        Дата изменения: 2026-01-19T23:49:30.393344374Z
+        Размер: 1609 байт
+        Дата изменения: 2026-01-20T09:19:06.840027162Z
         Содержимое:
         ----------------------------------------
-        [{"id":"1014021310952","title":"No title","price":380.0,"url":"https://www.goofish.com/item?id=1014021310952","site":"goofish","location":"Unknown","ageMinutes":743,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i2/295227765/O1CN01Tv6HaX27EQZMsQJGG_!!4611686018427384181-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556662,"isNew":true},{"id":"1014032670473","title":"No title","price":158.0,"url":"https://www.goofish.com/item?id=1014032670473","site":"goofish","location":"Unknown","ageMinutes":686,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i2/2212071604289/O1CN019byGz21hYPqMF9Tx4_!!4611686018427379777-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556663,"isNew":true},{"id":"1014070070790","title":"No title","price":209.0,"url":"https://www.goofish.com/item?id=1014070070790","site":"goofish","location":"Unknown","ageMinutes":441,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i3/2221589525364/O1CN01kEEftV1pUlcERfZSR_!!4611686018427384692-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556665,"isNew":true},{"id":"1014030958229","title":"No title","price":205.0,"url":"https://www.goofish.com/item?id=1014030958229","site":"goofish","location":"Unknown","ageMinutes":697,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i3/2212071604289/O1CN01GGyjPa1hYPqROf7Qu_!!4611686018427379777-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556666,"isNew":true},{"id":"1014894961236","title":"No title","price":200.0,"url":"https://www.goofish.com/item?id=1014894961236","site":"goofish","location":"Unknown","ageMinutes":692,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i1/2212071604289/O1CN019NUBdJ1hYPqRGpb47_!!4611686018427379777-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556667,"isNew":true},{"id":"1015451252142","title":"No title","price":282.0,"url":"https://www.goofish.com/item?id=1015451252142","site":"goofish","location":"Unknown","ageMinutes":1345,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i3/O1CN01M7BCcI1g1brKBJ5L7_!!4611686018427381186-0-fleamarket.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556667,"isNew":true},{"id":"1013206687685","title":"No title","price":899.0,"url":"https://www.goofish.com/item?id=1013206687685","site":"goofish","location":"Unknown","ageMinutes":1281,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i4/O1CN01Js7dmU1l8Xw8CduuM_!!4611686018427383366-0-fleamarket.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556667,"isNew":true},{"id":"1014739821278","title":"No title","price":349.0,"url":"https://www.goofish.com/item?id=1014739821278","site":"goofish","location":"Unknown","ageMinutes":1202,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i2/2208747010468/O1CN01eCtVbU1FKOTey6GSA_!!4611686018427386276-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556668,"isNew":true},{"id":"1013953926415","title":"No title","price":69.0,"url":"https://www.goofish.com/item?id=1013953926415","site":"goofish","location":"Unknown","ageMinutes":937,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i4/3381598818/O1CN01Tnuo2k2F0hcvLZPP6_!!4611686018427386466-0-xy_item.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556668,"isNew":true},{"id":"1014918089424","title":"No title","price":234.0,"url":"https://www.goofish.com/item?id=1014918089424","site":"goofish","location":"Unknown","ageMinutes":543,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i4/O1CN01vQrj231QzZriQSLrM~livephoto~_!!4611686018427380015-53-fleamarket.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556668,"isNew":true},{"id":"1013406119306","title":"No title","price":129.0,"url":"https://www.goofish.com/item?id=1013406119306","site":"goofish","location":"Unknown","ageMinutes":598,"query":"Stone Island","images":["http://img.alicdn.com/bao/uploaded/i3/2218320977322/O1CN01r8F1hf23xX71ASOyX_!!4611686018427387306-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768866556669,"isNew":true}]
+        [{"id":"1014997073429","title":"No title","price":1869.0,"url":"https://www.goofish.com/item?id=1014997073429","site":"goofish","location":"Unknown","ageMinutes":478,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i2/4020309979/O1CN01joH2Me2NaRSXYJF0p_!!4611686018427383771-0-xy_item.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768900737909,"isNew":true},{"id":"1013428463027","title":"No title","price":399.0,"url":"https://www.goofish.com/item?id=1013428463027","site":"goofish","location":"Unknown","ageMinutes":1019,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i2/O1CN013uxtzP1hA8qycspxh_!!4611686018427380124-53-fleamarket.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768900737909,"isNew":true},{"id":"1015705392466","title":"No title","price":693.0,"url":"https://www.goofish.com/item?id=1015705392466","site":"goofish","location":"Unknown","ageMinutes":930,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i3/O1CN01hkPt261Gy4P8ZZAFH_!!4611686018427387106-0-fleamarket.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768900737910,"isNew":true},{"id":"1014073978495","title":"No title","price":1399.0,"url":"https://www.goofish.com/item?id=1014073978495","site":"goofish","location":"Unknown","ageMinutes":987,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i3/3804186192/O1CN01CWviZr1vbzYfMaRDw_!!4611686018427381328-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768900737910,"isNew":true}]
         ----------------------------------------
     [DIR] user_settings
 
@@ -483,14 +483,30 @@
       ----------------------------------------
       stone island
       ----------------------------------------
+    [DIR] data
+
+      [FILE] whitelist.txt
+        Путь: /Users/yanmore/IdeaProjects/multiParser/data/data/whitelist.txt
+        Размер: 114 байт
+        Дата изменения: 2026-01-20T08:42:33.667681455Z
+        Содержимое:
+        ----------------------------------------
+        # Whitelist - authorized users
+        # Format: one user ID per line
+        # Created: Tue Jan 20 11:42:33 MSK 2026
+        
+        1080595280
+        ----------------------------------------
 
     [FILE] user_1080595280_queries.txt
       Путь: /Users/yanmore/IdeaProjects/multiParser/data/user_1080595280_queries.txt
-      Размер: 13 байт
-      Дата изменения: 2026-01-19T23:48:27.679671546Z
+      Размер: 35 байт
+      Дата изменения: 2026-01-20T08:53:19.272749598Z
       Содержимое:
       ----------------------------------------
       Stone Island
+      cav empt
+      jeremy scott
       ----------------------------------------
 
   [FILE] cookies_debug_20260119_110601.properties
@@ -974,8 +990,8 @@
 
               [FILE] ThreadManager.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/core/ThreadManager.java
-                Размер: 12951 байт
-                Дата изменения: 2026-01-19T23:45:42.996879759Z
+                Размер: 16895 байт
+                Дата изменения: 2026-01-20T09:17:42.9105603Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.core;
@@ -986,12 +1002,14 @@
                 import com.parser.parser.ParserFactory;
                 import com.parser.parser.SiteParser;
                 import com.parser.service.CookieService;
+                import com.parser.storage.ProductDuplicateFilter;
                 import com.parser.storage.UserDataManager;
                 import com.parser.storage.WhitelistManager;
                 import com.parser.telegram.TelegramNotificationService;
                 import org.slf4j.Logger;
                 import org.slf4j.LoggerFactory;
                 
+                import java.nio.charset.StandardCharsets;
                 import java.util.*;
                 import java.util.concurrent.*;
                 
@@ -1044,9 +1062,10 @@
                     public boolean startUserParser(long userId) {
                         logger.info("Starting parser for user {}", userId);
                 
+                        // 🔴 ПРОВЕРКА WHITELIST
                         if (!WhitelistManager.isUserAllowed(userId)) {
                             logger.warn("User {} not in whitelist", userId);
-                            TelegramNotificationService.sendMessage(userId, "❌ You are not authorized");
+                            TelegramNotificationService.sendMessage(userId, "❌ You are not authorized to use this bot");
                             return false;
                         }
                 
@@ -1057,7 +1076,7 @@
                 
                         List<String> queries = UserDataManager.getUserQueries(userId);
                         if (queries.isEmpty()) {
-                            TelegramNotificationService.sendMessage(userId, "📭 No search queries added");
+                            TelegramNotificationService.sendMessage(userId, "📭 No search queries added. Use /addquery");
                             return false;
                         }
                 
@@ -1068,7 +1087,9 @@
                         threadPool.submit(() -> runUserParser(session));
                 
                         logger.info("Parser started for user {}: {} queries", userId, queries.size());
-                        TelegramNotificationService.sendMessage(userId, "✅ Parser started!");
+                        TelegramNotificationService.sendMessage(userId,
+                                "✅ Parser started!\nQueries: " + queries.size() + "\nCheck interval: " + settings.getCheckInterval() + " sec");
+                
                         return true;
                     }
                 
@@ -1151,39 +1172,65 @@
                         if (products.isEmpty()) return false;
                 
                         if (session.getSettings().isNotifyNewOnly()) {
-                            List<Product> newProducts = UserDataManager.filterNewProducts(session.getUserId(), products);
-                            return !newProducts.isEmpty();
+                            // Без использования ProductDuplicateFilter, чтобы избежать рекурсии
+                            List<Product> existingProducts = UserDataManager.getUserProducts(session.getUserId());
+                            Set<String> existingIds = new HashSet<>();
+                            for (Product p : existingProducts) {
+                                existingIds.add(p.getId());
+                            }
+                
+                            for (Product p : products) {
+                                if (!existingIds.contains(p.getId())) {
+                                    return true;
+                                }
+                            }
+                            return false;
                         }
                         return true;
                     }
                 
+                
                     private void sendProductNotifications(long userId, List<Product> products, String query, UserSettings settings) {
-                        if (products.isEmpty()) return;
+                        if (products == null || products.isEmpty()) {
+                            return;
+                        }
                 
-                        List<Product> toNotify = settings.isNotifyNewOnly() ?
-                                UserDataManager.filterNewProducts(userId, products) : products;
+                        logger.info("Sending notifications: {} products for user {}", products.size(), userId);
                 
-                        if (toNotify.isEmpty()) return;
+                        // 🔴 ПРОСТОЕ РЕШЕНИЕ: Сохраняем без сложной логики
+                        try {
+                            // Просто сохраняем товары (без проверки дубликатов для устранения рекурсии)
+                            String json = new com.fasterxml.jackson.databind.ObjectMapper()
+                                    .writeValueAsString(products);
                 
-                        logger.info("Sending notifications: {} products for user {}", toNotify.size(), userId);
+                            String filepath = Config.getStorageDataDir() + "/user_products/" + userId + ".json";
+                            java.nio.file.Files.write(
+                                    java.nio.file.Paths.get(filepath),
+                                    json.getBytes(StandardCharsets.UTF_8)
+                            );
                 
-                        String summary = String.format("🔍 Found %d products for '%s'", toNotify.size(), query);
-                        TelegramNotificationService.sendMessage(userId, summary);
+                            logger.debug("✅ Товары сохранены для пользователя {}", userId);
+                        } catch (Exception e) {
+                            logger.error("Ошибка сохранения товаров: {}", e.getMessage());
+                        }
                 
-                        for (int i = 0; i < toNotify.size(); i++) {
-                            Product p = toNotify.get(i);
+                        // 🟢 Отправляем уведомления
+                        String summary = String.format("🔍 Found %d products for '<b>%s</b>'\n\n",
+                                products.size(), escapeHtml(query));
+                        TelegramNotificationService.sendHtmlMessage(userId, summary);
+                
+                        // Отправляем товары по одному
+                        for (int i = 0; i < products.size(); i++) {
+                            Product p = products.get(i);
                 
                             try {
                                 if (p.hasCoverImage()) {
-                                    String caption = formatProductCaption(p, settings);
-                                    if (!TelegramNotificationService.sendPhotoWithHtmlCaption(userId, p.getCoverImageUrl(), caption)) {
-                                        TelegramNotificationService.sendHtmlMessage(userId, formatProductMessage(p, settings));
-                                    }
+                                    sendProductWithPhoto(userId, p, i + 1, products.size());
                                 } else {
-                                    TelegramNotificationService.sendHtmlMessage(userId, formatProductMessage(p, settings));
+                                    sendProductAsText(userId, p, i + 1, products.size());
                                 }
                 
-                                Thread.sleep(1000);
+                                Thread.sleep(800);
                             } catch (InterruptedException e) {
                                 Thread.currentThread().interrupt();
                                 break;
@@ -1193,21 +1240,83 @@
                         }
                     }
                 
+                    private void sendProductWithPhoto(long userId, Product p, int number, int total) {
+                        try {
+                            // Создаем подпись под фото
+                            String caption = formatProductCaption(p, number, total);
+                
+                            // Отправляем фото с подписью
+                            boolean sent = TelegramNotificationService.sendPhotoWithHtmlCaption(userId,
+                                    p.getCoverImageUrl(), caption);
+                
+                            // Если не удалось отправить фото, отправляем текст
+                            if (!sent) {
+                                sendProductAsText(userId, p, number, total);
+                            }
+                        } catch (Exception e) {
+                            logger.warn("Failed to send photo for product {}, sending as text: {}",
+                                    p.getId(), e.getMessage());
+                            sendProductAsText(userId, p, number, total);
+                        }
+                    }
+                
+                    private void sendProductAsText(long userId, Product p, int number, int total) {
+                        try {
+                            String message = formatProductCaption(p, number, total);
+                            TelegramNotificationService.sendHtmlMessage(userId, message);
+                        } catch (Exception e) {
+                            logger.error("Failed to send product text for {}: {}", p.getId(), e.getMessage());
+                        }
+                    }
+                
+                
                     private String formatProductMessage(Product p, UserSettings settings) {
                         return String.format("🛍️ <a href=\"%s\">%s</a>\n💰 %s\n📍 %s\n⏳ %s",
                                 p.getUrl(), escapeHtml(p.getTitle()), p.getPriceDisplay(),
                                 escapeHtml(p.getLocation()), p.getAgeDisplay());
                     }
                 
-                    private String formatProductCaption(Product p, UserSettings settings) {
-                        return String.format("<b>%s</b>\n💰 %s\n📍 %s",
-                                escapeHtml(p.getTitle()), p.getPriceDisplay(), escapeHtml(p.getLocation()));
+                    private String getNumberEmoji(int number) {
+                        String[] emojis = {"1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"};
+                        if (number > 0 && number <= emojis.length) {
+                            return emojis[number - 1];
+                        }
+                        return number + ".";
+                    }
+                
+                    private String formatProductCaption(Product p, int number, int total) {
+                        // Номер товара с эмодзи
+                        String numberEmoji = getNumberEmoji(number);
+                
+                        // Название как гиперссылка
+                        String titleLink = String.format("<a href=\"%s\"><b>%s</b></a>",
+                                escapeHtml(p.getUrl()),
+                                escapeHtml(p.getShortTitle()));
+                
+                        // Цена: юани и рубли
+                        String priceRub = String.format("%.0f", p.getPriceRubles());
+                        String price = String.format("💰 <b>%s ¥</b> | %s руб",
+                                String.format("%.0f", p.getPrice()),
+                                priceRub);
+                
+                        // Локация
+                        String location = String.format("📍 <i>%s</i>", escapeHtml(p.getLocation()));
+                
+                        // Возраст
+                        String age = String.format("⏳ %s", p.getAgeDisplay());
+                
+                        // Собираем итоговое сообщение
+                        return String.format("%s %s\n\n%s\n%s\n%s",
+                                numberEmoji, titleLink, price, location, age);
                     }
                 
                     private String escapeHtml(String text) {
                         if (text == null) return "";
-                        return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-                                .replace("\"", "&quot;").replace("'", "&#39;");
+                        return text.replace("&", "&amp;")
+                                .replace("<", "&lt;")
+                                .replace(">", "&gt;")
+                                .replace("\"", "&quot;")
+                                .replace("'", "&#39;");
                     }
                 
                     public boolean stopUserParser(long userId) {
@@ -1216,6 +1325,10 @@
                             session.setRunning(false);
                             userSessions.remove(userId);
                             logger.info("Parser stopped for user {}", userId);
+                
+                            // Очищаем кэш фильтра при остановке
+                            ProductDuplicateFilter.clearUserCache(userId);
+                
                             return true;
                         }
                         return false;
@@ -2951,8 +3064,8 @@
 
               [FILE] GoofishParser.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/parser/GoofishParser.java
-                Размер: 26560 байт
-                Дата изменения: 2026-01-19T23:43:39.165820601Z
+                Размер: 29321 байт
+                Дата изменения: 2026-01-20T09:17:00.259517471Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.parser;
@@ -3181,28 +3294,18 @@
                         try {
                             logger.debug("📦 Размер сжатых данных: {} байт", compressedData.length);
                 
-                            // Используем org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStream
-                            try (ByteArrayInputStream bais = new ByteArrayInputStream(compressedData);
-                                 org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStream zstdIn =
-                                         new org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStream(bais);
-                                 ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                            // Используем zstd-jni для распаковки
+                            byte[] decompressed = com.github.luben.zstd.Zstd.decompress(compressedData, 10 * 1024 * 1024); // Макс 10MB
                 
-                                byte[] buffer = new byte[8192];
-                                int len;
-                                while ((len = zstdIn.read(buffer)) > 0) {
-                                    baos.write(buffer, 0, len);
-                                }
-                
-                                String result = baos.toString("UTF-8");
-                                logger.debug("✅ Zstd успешно распакован");
-                                logger.debug("📄 Размер распакованных данных: {} символов", result.length());
-                                return result;
-                            }
+                            String result = new String(decompressed, StandardCharsets.UTF_8);
+                            logger.debug("✅ Zstd успешно распакован");
+                            logger.debug("📄 Размер распакованных данных: {} символов", result.length());
+                            return result;
                 
                         } catch (Exception e) {
                             logger.error("❌ Ошибка распаковки zstd: {}", e.getMessage());
                 
-                            // Пробуем прочитать как обычную строку (на случай, если это не zstd)
+                            // Пробуем прочитать как обычную строку
                             try {
                                 String fallback = new String(compressedData, StandardCharsets.UTF_8);
                                 logger.warn("⚠️ Используем fallback чтение как UTF-8");
@@ -3422,47 +3525,124 @@
                     private List<String> extractImages(JSONObject main, JSONObject itemObj, JSONObject data) {
                         List<String> images = new ArrayList<>();
                 
-                        // Путь 1: itemObj.extra.picUrl
-                        if (itemObj != null) {
-                            JSONObject extra = itemObj.optJSONObject("extra");
-                            if (extra != null) {
-                                String picUrl = extra.optString("picUrl", "");
-                                if (isValidImageUrl(picUrl)) images.add(picUrl);
+                        // Путь 1: data.picUrl (главное фото)
+                        if (data != null && data.has("picUrl")) {
+                            String picUrl = data.optString("picUrl", "");
+                            if (isValidImageUrl(picUrl)) {
+                                images.add(picUrl);
+                                logger.debug("✅ Найдено фото в data.picUrl");
                             }
                         }
                 
-                        // Путь 2: data.pics
+                        // Путь 2: data.pics (массив фото)
                         if (data != null && data.has("pics")) {
                             JSONArray pics = data.optJSONArray("pics");
                             if (pics != null) {
-                                for (int i = 0; i < Math.min(3, pics.length()); i++) {
-                                    JSONObject pic = pics.optJSONObject(i);
-                                    if (pic != null) {
-                                        String url = pic.optString("picUrl", "");
-                                        if (isValidImageUrl(url) && !images.contains(url)) {
-                                            images.add(url);
+                                for (int i = 0; i < Math.min(5, pics.length()); i++) {
+                                    try {
+                                        JSONObject pic = pics.optJSONObject(i);
+                                        if (pic != null) {
+                                            // Пробуем разные поля
+                                            String url = pic.optString("picUrl", "");
+                                            if (url.isEmpty()) {
+                                                url = pic.optString("pic_url", "");
+                                            }
+                                            if (url.isEmpty()) {
+                                                url = pic.optString("url", "");
+                                            }
+                
+                                            if (isValidImageUrl(url) && !images.contains(url)) {
+                                                images.add(url);
+                                                logger.debug("✅ Найдено фото в data.pics[{}]", i);
+                                            }
                                         }
+                                    } catch (Exception e) {
+                                        logger.debug("Error parsing pic at index {}: {}", i, e.getMessage());
                                     }
                                 }
                             }
                         }
                 
-                        // Путь 3: main.exContent.picUrl
+                        // Путь 3: itemObj.extra.picUrl (дополнительное фото)
+                        if (itemObj != null) {
+                            JSONObject extra = itemObj.optJSONObject("extra");
+                            if (extra != null) {
+                                String picUrl = extra.optString("picUrl", "");
+                                if (picUrl.isEmpty()) {
+                                    picUrl = extra.optString("pic_url", "");
+                                }
+                                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {
+                                    images.add(picUrl);
+                                    logger.debug("✅ Найдено фото в itemObj.extra.picUrl");
+                                }
+                            }
+                        }
+                
+                        // Путь 4: main.exContent.picUrl (исходное фото)
                         if (main != null) {
                             JSONObject exContent = main.optJSONObject("exContent");
                             if (exContent != null) {
                                 String picUrl = exContent.optString("picUrl", "");
+                                if (picUrl.isEmpty()) {
+                                    picUrl = exContent.optString("pic_url", "");
+                                }
                                 if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {
                                     images.add(picUrl);
+                                    logger.debug("✅ Найдено фото в main.exContent.picUrl");
                                 }
                             }
+                        }
+                
+                        // Путь 5: Прямые поля объекта (на случай если структура упрощена)
+                        if (data != null) {
+                            // Проверяем прямые поля в data
+                            String directPic = data.optString("image", "");
+                            if (directPic.isEmpty()) {
+                                directPic = data.optString("img", "");
+                            }
+                            if (isValidImageUrl(directPic) && !images.contains(directPic)) {
+                                images.add(directPic);
+                                logger.debug("✅ Найдено фото в data.image");
+                            }
+                        }
+                
+                        if (images.isEmpty()) {
+                            logger.debug("⚠️ Фотографии не найдены для товара");
+                        } else {
+                            logger.debug("📷 Найдено фотографий: {}", images.size());
                         }
                 
                         return images;
                     }
                 
                     private boolean isValidImageUrl(String url) {
-                        return url != null && !url.isEmpty() && url.startsWith("http");
+                        if (url == null || url.isEmpty()) {
+                            return false;
+                        }
+                
+                        // Должно быть HTTPS или HTTP
+                        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                            return false;
+                        }
+                
+                        // Проверяем расширение файла
+                        String lowerUrl = url.toLowerCase();
+                        String[] validExtensions = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".heic"};
+                
+                        boolean hasValidExtension = false;
+                        for (String ext : validExtensions) {
+                            if (lowerUrl.contains(ext)) {
+                                hasValidExtension = true;
+                                break;
+                            }
+                        }
+                
+                        // Если нет расширения - может быть OK (CDN с query parameters)
+                        if (!hasValidExtension && (lowerUrl.contains("alicdn") || lowerUrl.contains("taobaocdn"))) {
+                            return true;
+                        }
+                
+                        return hasValidExtension;
                     }
                 
                     private boolean isValidProduct(Product product) {
@@ -3886,8 +4066,8 @@
 
               [FILE] WhitelistManager.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/WhitelistManager.java
-                Размер: 9979 байт
-                Дата изменения: 2026-01-17T14:46:18.638222457Z
+                Размер: 4462 байт
+                Дата изменения: 2026-01-20T08:36:42.572540553Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.storage;
@@ -3895,35 +4075,43 @@
                 import org.slf4j.Logger;
                 import org.slf4j.LoggerFactory;
                 import java.util.*;
+                import java.util.concurrent.ConcurrentHashMap;
                 
                 /**
-                 * Менеджер белого списка пользователей
+                 * Менеджер белого списка пользователей - ОПТИМИЗИРОВАННЫЙ
                  */
                 public class WhitelistManager {
                     private static final Logger logger = LoggerFactory.getLogger(WhitelistManager.class);
-                    private static final String WHITELIST_FILE = "whitelist.txt";
-                    private static final Set<Long> whitelist = loadWhitelist();
+                    private static final String WHITELIST_FILE = "data/whitelist.txt";
+                    private static final Set<Long> whitelist = Collections.synchronizedSet(new HashSet<>());
+                    private static volatile boolean isInitialized = false;
+                
+                    static {
+                        synchronized (WhitelistManager.class) {
+                            if (!isInitialized) {
+                                loadWhitelist();
+                                isInitialized = true;
+                            }
+                        }
+                    }
                 
                     /**
                      * Загрузка белого списка из файла
                      */
-                    private static Set<Long> loadWhitelist() {
-                        Set<Long> set = new HashSet<>();
+                    private static void loadWhitelist() {
                         List<String> lines = FileStorage.readLines(WHITELIST_FILE);
-                
-                        logger.info("Loading whitelist from file. Found {} lines", lines.size());
+                        logger.info("Loading whitelist. Found {} lines", lines.size());
                 
                         for (String line : lines) {
                             try {
                                 line = line.trim();
                                 if (line.isEmpty() || line.startsWith("#")) {
-                                    continue; // Пропускаем пустые строки и комментарии
+                                    continue;
                                 }
                 
                                 long userId = Long.parseLong(line);
                                 if (userId > 0) {
-                                    set.add(userId);
-                                    logger.debug("Added user {} to whitelist from file", userId);
+                                    whitelist.add(userId);
                                 } else {
                                     logger.warn("Invalid user ID in whitelist (must be > 0): {}", userId);
                                 }
@@ -3932,8 +4120,7 @@
                             }
                         }
                 
-                        logger.info("Loaded {} users from whitelist file", set.size());
-                        return Collections.synchronizedSet(set);
+                        logger.info("✅ Loaded {} users from whitelist", whitelist.size());
                     }
                 
                     /**
@@ -3941,14 +4128,11 @@
                      */
                     private static void saveWhitelist() {
                         List<String> lines = new ArrayList<>();
-                
-                        // Добавляем заголовок
-                        lines.add("# Whitelist - список авторизованных пользователей");
-                        lines.add("# Формат: один ID пользователя на строке");
-                        lines.add("# Создан: " + new Date());
+                        lines.add("# Whitelist - authorized users");
+                        lines.add("# Format: one user ID per line");
+                        lines.add("# Created: " + new Date());
                         lines.add("");
                 
-                        // Сортируем ID для удобства чтения
                         List<Long> sortedUsers = new ArrayList<>(whitelist);
                         Collections.sort(sortedUsers);
                 
@@ -3956,85 +4140,64 @@
                             lines.add(String.valueOf(userId));
                         }
                 
-                        String filePath = FileStorage.getFilePath(WHITELIST_FILE);
-                        logger.info("Saving whitelist with {} users to: {}", whitelist.size(), filePath);
-                
                         try {
                             FileStorage.writeLines(WHITELIST_FILE, lines);
-                            logger.info("✅ Whitelist saved successfully with {} users", whitelist.size());
+                            logger.info("✅ Whitelist saved: {} users", whitelist.size());
                         } catch (Exception e) {
-                            logger.error("❌ Failed to save whitelist: {}", e.getMessage(), e);
+                            logger.error("❌ Failed to save whitelist: {}", e.getMessage());
                         }
                     }
                 
                     /**
-                     * Проверка, разрешен ли пользователь
+                     * Проверка авторизации пользователя
                      */
-                    public static boolean isUserAllowed(long userId) { // long вместо int
+                    public static boolean isUserAllowed(long userId) {
                         boolean allowed = whitelist.contains(userId);
-                        logger.debug("Checking whitelist for user {}: {}", userId, allowed);
+                        if (!allowed) {
+                            logger.warn("Unauthorized access attempt from user {}", userId);
+                        }
                         return allowed;
                     }
                 
-                
                     /**
-                     * Добавление пользователя в белый список
+                     * Добавление пользователя
                      */
-                    public static boolean addUser(long userId) { // long вместо int
+                    public static boolean addUser(long userId) {
                         if (userId <= 0) {
-                            logger.warn("Attempted to add invalid user ID: {}", userId);
+                            logger.warn("Invalid user ID: {}", userId);
                             return false;
                         }
                 
-                        logger.info("Adding user {} to whitelist. Current whitelist size: {}", userId, whitelist.size());
-                
                         if (whitelist.add(userId)) {
-                            try {
-                                saveWhitelist();
-                                logger.info("✅ User {} successfully added to whitelist", userId);
-                                logger.info("📊 Whitelist now contains {} users", whitelist.size());
-                                return true;
-                            } catch (Exception e) {
-                                logger.error("❌ Failed to save whitelist after adding user {}: {}", userId, e.getMessage());
-                                whitelist.remove(userId);
-                                return false;
-                            }
+                            saveWhitelist();
+                            logger.info("✅ User {} added to whitelist", userId);
+                            return true;
                         }
                 
-                        logger.debug("User {} already exists in whitelist", userId);
                         return false;
                     }
                 
                     /**
-                     * Удаление пользователя из белого списка
+                     * Удаление пользователя
                      */
                     public static boolean removeUser(long userId) {
-                        logger.info("Removing user {} from whitelist", userId);
-                
                         if (whitelist.remove(userId)) {
-                            try {
-                                saveWhitelist();
-                                logger.info("✅ User {} removed from whitelist", userId);
-                                return true;
-                            } catch (Exception e) {
-                                logger.error("❌ Failed to save whitelist after removing user {}: {}", userId, e.getMessage());
-                                return false;
-                            }
+                            saveWhitelist();
+                            logger.info("✅ User {} removed from whitelist", userId);
+                            return true;
                         }
-                
-                        logger.debug("User {} not found in whitelist", userId);
                         return false;
                     }
                 
                     /**
-                     * Получение всех пользователей из белого списка
+                     * Получение всех пользователей
                      */
-                    public static List<Long> getAllUsers() { // Изменяем на List<Long>
+                    public static List<Long> getAllUsers() {
                         return new ArrayList<>(whitelist);
                     }
                 
                     /**
-                     * Получение количества пользователей в белом списке
+                     * Количество пользователей
                      */
                     public static long getUserCount() {
                         return whitelist.size();
@@ -4048,138 +4211,118 @@
                     }
                 
                     /**
-                     * Очистка белого списка
-                     */
-                    public static void clearWhitelist() {
-                        long count = whitelist.size();
-                        whitelist.clear();
-                        saveWhitelist();
-                        logger.info("Whitelist cleared ({} users removed)", count);
-                    }
-                
-                    /**
-                     * Добавление нескольких пользователей
-                     */
-                    public static long addUsers(List<Long> userIds) {
-                        long added = 0;
-                        for (Long userId : userIds) {
-                            if (userId != null && userId > 0 && whitelist.add(userId)) {
-                                added++;
-                            }
-                        }
-                
-                        if (added > 0) {
-                            saveWhitelist();
-                            logger.info("Added {} users to whitelist", added);
-                        }
-                
-                        return added;
-                    }
-                
-                    /**
-                     * Получение статистики белого списка
-                     */
-                    public static Map<String, Object> getStats() {
-                        Map<String, Object> stats = new HashMap<>();
-                        stats.put("totalUsers", whitelist.size());
-                        stats.put("filePath", FileStorage.getFilePath(WHITELIST_FILE));
-                        stats.put("fileExists", FileStorage.fileExists(WHITELIST_FILE));
-                        stats.put("fileSize", FileStorage.getFileSize(WHITELIST_FILE));
-                        stats.put("lastModified", FileStorage.getLastModified(WHITELIST_FILE));
-                        stats.put("users", new ArrayList<>(whitelist));
-                        return stats;
-                    }
-                
-                    /**
-                     * Поиск пользователей по шаблону (по ID)
-                     */
-                    public static List<Long> searchUsers(String pattern) {
-                        List<Long> result = new ArrayList<>();
-                        String searchPattern = pattern.toLowerCase();
-                
-                        for (Long userId : whitelist) {
-                            if (String.valueOf(userId).contains(searchPattern)) {
-                                result.add(userId);
-                            }
-                        }
-                
-                        return result;
-                    }
-                
-                    /**
-                     * Экспорт белого списка в текстовый файл
-                     */
-                    public static boolean exportWhitelist(String exportFilename) {
-                        try {
-                            List<String> lines = new ArrayList<>();
-                            lines.add("# Whitelist export - " + new Date());
-                            lines.add("# Total users: " + whitelist.size());
-                            lines.add("");
-                
-                            // Сортируем для удобства
-                            List<Long> sortedUsers = new ArrayList<>(whitelist);
-                            Collections.sort(sortedUsers);
-                
-                            for (Long userId : sortedUsers) {
-                                lines.add(String.valueOf(userId));
-                            }
-                
-                            FileStorage.writeLines(exportFilename, lines);
-                            logger.info("Whitelist exported to {}", exportFilename);
-                            return true;
-                
-                        } catch (Exception e) {
-                            logger.error("Error exporting whitelist: {}", e.getMessage());
-                            return false;
-                        }
-                    }
-                
-                    /**
-                     * Импорт белого списка из файла
-                     */
-                    public static int importWhitelist(String importFilename) {
-                        try {
-                            List<String> lines = FileStorage.readLines(importFilename);
-                            int imported = 0;
-                
-                            for (String line : lines) {
-                                try {
-                                    line = line.trim();
-                                    if (line.isEmpty() || line.startsWith("#")) {
-                                        continue;
-                                    }
-                
-                                    long userId = Long.parseLong(line);
-                                    if (userId > 0 && whitelist.add(userId)) {
-                                        imported++;
-                                    }
-                                } catch (NumberFormatException e) {
-                                    // Пропускаем некорректные строки
-                                }
-                            }
-                
-                            if (imported > 0) {
-                                saveWhitelist();
-                                logger.info("Imported {} users from {}", imported, importFilename);
-                            }
-                
-                            return imported;
-                
-                        } catch (Exception e) {
-                            logger.error("Error importing whitelist: {}", e.getMessage());
-                            return 0;
-                        }
-                    }
-                
-                    /**
-                     * Перезагрузка whitelist из файла (для отладки)
+                     * Переинициализация (для тестов)
                      */
                     public static void reload() {
-                        logger.info("Reloading whitelist from file...");
-                        Set<Long> newWhitelist = loadWhitelist();
                         whitelist.clear();
-                        whitelist.addAll(newWhitelist);
-                        logger.info("Whitelist reloaded. Now contains {} users", whitelist.size());
+                        loadWhitelist();
+                        logger.info("Whitelist reloaded");
+                    }
+                }
+                ----------------------------------------
+
+              [FILE] ProductDuplicateFilter.java
+                Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/ProductDuplicateFilter.java
+                Размер: 3295 байт
+                Дата изменения: 2026-01-20T08:37:12.13191348Z
+                Содержимое:
+                ----------------------------------------
+                package com.parser.storage;
+                
+                import com.parser.model.Product;
+                import org.slf4j.Logger;
+                import org.slf4j.LoggerFactory;
+                import java.util.*;
+                import java.util.concurrent.ConcurrentHashMap;
+                
+                /**
+                 * Фильтр для предотвращения отправки дубликатов товаров
+                 */
+                public class ProductDuplicateFilter {
+                    private static final Logger logger = LoggerFactory.getLogger(ProductDuplicateFilter.class);
+                
+                    // Кэш: userId -> Set<productId> (найденные товары)
+                    private static final Map<Long, Set<String>> userFoundProducts = new ConcurrentHashMap<>();
+                
+                    /**
+                     * Загрузить найденные товары пользователя
+                     */
+                    private static Set<String> loadUserProducts(long userId) {
+                        List<Product> products = UserDataManager.getUserProducts(userId);
+                        Set<String> ids = new HashSet<>();
+                
+                        for (Product p : products) {
+                            ids.add(p.getId());
+                        }
+                
+                        userFoundProducts.put(userId, ids);
+                        logger.debug("Loaded {} products for user {}", ids.size(), userId);
+                        return ids;
+                    }
+                
+                    /**
+                     * Получить новые товары (не отправленные ранее)
+                     */
+                    public static List<Product> filterNew(long userId, List<Product> products) {
+                        if (products == null || products.isEmpty()) {
+                            return new ArrayList<>();
+                        }
+                
+                        Set<String> found = userFoundProducts.computeIfAbsent(userId,
+                                k -> loadUserProducts(userId));
+                
+                        List<Product> newProducts = new ArrayList<>();
+                
+                        for (Product p : products) {
+                            if (!found.contains(p.getId())) {
+                                newProducts.add(p);
+                                found.add(p.getId()); // Добавляем сразу, чтобы не отправить дважды
+                            }
+                        }
+                
+                        logger.info("Filter: {} total, {} new for user {}",
+                                products.size(), newProducts.size(), userId);
+                
+                        return newProducts;
+                    }
+                
+                    /**
+                     * Добавить товары в кэш пользователя
+                     */
+                    public static void addProductsToCache(long userId, List<Product> products) {
+                        Set<String> found = userFoundProducts.computeIfAbsent(userId,
+                                k -> loadUserProducts(userId));
+                
+                        for (Product p : products) {
+                            found.add(p.getId());
+                        }
+                
+                        logger.debug("Added {} products to cache for user {}", products.size(), userId);
+                    }
+                
+                    /**
+                     * Очистить кэш пользователя (например, при удалении его товаров)
+                     */
+                    public static void clearUserCache(long userId) {
+                        userFoundProducts.remove(userId);
+                        logger.info("Cache cleared for user {}", userId);
+                    }
+                
+                    /**
+                     * Очистить весь кэш
+                     */
+                    public static void clearAllCache() {
+                        userFoundProducts.clear();
+                        logger.info("All cache cleared");
+                    }
+                
+                    /**
+                     * Проверить, был ли товар отправлен пользователю
+                     */
+                    public static boolean isProductSent(long userId, String productId) {
+                        Set<String> found = userFoundProducts.computeIfAbsent(userId,
+                                k -> loadUserProducts(userId));
+                        return found.contains(productId);
                     }
                 }
                 ----------------------------------------
@@ -4558,8 +4701,8 @@
 
               [FILE] FileStorage.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/FileStorage.java
-                Размер: 17724 байт
-                Дата изменения: 2026-01-17T13:59:52.567565253Z
+                Размер: 17737 байт
+                Дата изменения: 2026-01-20T09:16:42.421725912Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.storage;
@@ -4890,7 +5033,7 @@
                         }
                 
                         try {
-                            String backupDir = getFilePath("backups");
+                            String backupDir = "backups";
                             String timestamp = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss")
                                     .format(new java.util.Date());
                 
@@ -4915,8 +5058,8 @@
                      */
                     private static void compressFile(String filename) {
                         try {
-                            File inputFile = new File(filename);
-                            File outputFile = new File(filename + ".gz");
+                            File inputFile = new File(getFilePath(filename));
+                            File outputFile = new File(getFilePath(filename + ".gz"));
                 
                             try (FileInputStream fis = new FileInputStream(inputFile);
                                  FileOutputStream fos = new FileOutputStream(outputFile);
@@ -5346,8 +5489,8 @@
 
               [FILE] TelegramBotService.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/telegram/TelegramBotService.java
-                Размер: 15113 байт
-                Дата изменения: 2026-01-19T22:16:21.967082306Z
+                Размер: 16482 байт
+                Дата изменения: 2026-01-20T08:40:14.817745303Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.telegram;
@@ -5497,27 +5640,51 @@
                     }
                 
                     private void handleStart(long userId) {
+                        // 🔴 ДОБАВЛЯЕМ В WHITELIST
                         boolean isNew = WhitelistManager.addUser(userId);
-                        String msg = isNew ?
-                                "🎉 Welcome! Your ID: " + userId + "\n\nUse /help for commands" :
-                                "👋 Welcome back!";
+                
+                        String msg;
+                        if (isNew) {
+                            msg = "🎉 Welcome! Your ID: " + userId + "\n\n" +
+                                    "Bot features:\n" +
+                                    "• Add search queries with /addquery\n" +
+                                    "• Start parser with /start_parser\n" +
+                                    "• View results with /stats\n\n" +
+                                    "Use /help for all commands";
+                        } else {
+                            msg = "👋 Welcome back!\n\nUse /help for commands";
+                        }
+                
                         sendMessage(userId, msg);
                     }
                 
                     private void handleAddQuery(long userId, String query) {
+                        // 🔴 ПРОВЕРКА WHITELIST
+                        if (!WhitelistManager.isUserAllowed(userId)) {
+                            sendMessage(userId, "❌ You are not authorized");
+                            return;
+                        }
+                
                         if (query.trim().isEmpty()) {
                             userStates.put(userId, "AWAITING_QUERY");
                             sendMessage(userId, "Enter search query:");
                             return;
                         }
+                
                         if (UserDataManager.addUserQuery(userId, query.trim())) {
                             sendMessage(userId, "✅ Query added: " + query);
                         } else {
-                            sendMessage(userId, "⚠️ Query already exists");
+                            sendMessage(userId, "⚠️ Query already exists or limit reached");
                         }
                     }
                 
                     private void handleListQueries(long userId) {
+                        // 🔴 ПРОВЕРКА WHITELIST
+                        if (!WhitelistManager.isUserAllowed(userId)) {
+                            sendMessage(userId, "❌ You are not authorized");
+                            return;
+                        }
+                
                         List<String> queries = UserDataManager.getUserQueries(userId);
                         if (queries.isEmpty()) {
                             sendMessage(userId, "📭 No queries. Use /addquery");
@@ -5526,29 +5693,40 @@
                 
                         StringBuilder sb = new StringBuilder("📋 Your queries:\n\n");
                         for (int i = 0; i < queries.size(); i++) {
-                            sb.append(i + 1).append(". ").append(queries.get(i)).append("\n");
+                            sb.append(String.format("%d. %s\n", i + 1, queries.get(i)));
                         }
+                
                         sendMessage(userId, sb.toString());
                     }
                 
                     private void handleRemoveQuery(long userId, String arg) {
+                        // 🔴 ПРОВЕРКА WHITELIST
+                        if (!WhitelistManager.isUserAllowed(userId)) {
+                            sendMessage(userId, "❌ You are not authorized");
+                            return;
+                        }
+                
                         try {
                             if (arg.trim().isEmpty()) {
                                 sendMessage(userId, "Use: /removequery [number]");
                                 return;
                             }
+                
                             int idx = Integer.parseInt(arg.trim()) - 1;
                             List<String> queries = UserDataManager.getUserQueries(userId);
+                
                             if (idx < 0 || idx >= queries.size()) {
                                 sendMessage(userId, "❌ Invalid number");
                                 return;
                             }
+                
                             UserDataManager.removeUserQuery(userId, queries.get(idx));
                             sendMessage(userId, "✅ Query removed");
                         } catch (NumberFormatException e) {
-                            sendMessage(userId, "❌ Invalid format");
+                            sendMessage(userId, "❌ Invalid format. Use: /removequery [number]");
                         }
                     }
+                
                 
                     private void handleSettingUpdate(long userId, String value) {
                         try {
@@ -5629,19 +5807,31 @@
                     }
                 
                     private void sendStatus(long userId) {
-                        Map<String, Object> status = threadManager.getUserStatus(userId);
-                        if (status == null) {
-                            sendMessage(userId, "🔴 Parser not running");
+                        if (!WhitelistManager.isUserAllowed(userId)) {
+                            sendMessage(userId, "❌ You are not authorized");
                             return;
                         }
                 
-                        String msg = String.format("""
-                                📊 Status: %s
-                                Found: %d products
-                                Requests: %d
-                                Errors: %d
-                                """, status.get("status"), status.get("totalProductsFound"),
-                                status.get("requestsMade"), status.get("errorsCount"));
+                        Map<String, Object> status = threadManager.getUserStatus(userId);
+                        if (status == null) {
+                            sendMessage(userId, "🔴 Parser is not running");
+                            return;
+                        }
+                
+                        String msg = String.format(
+                                "📊 Parser Status:\n\n" +
+                                        "Status: %s\n" +
+                                        "Products found: %d\n" +
+                                        "Requests made: %d\n" +
+                                        "Errors: %d\n" +
+                                        "Uptime: %s",
+                                status.get("status"),
+                                status.get("totalProductsFound"),
+                                status.get("requestsMade"),
+                                status.get("errorsCount"),
+                                status.getOrDefault("uptime", "N/A")
+                        );
+                
                         sendMessage(userId, msg);
                     }
                 

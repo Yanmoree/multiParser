@@ -326,7 +326,7 @@ public class FileStorage {
         }
 
         try {
-            String backupDir = getFilePath("backups");
+            String backupDir = "backups";
             String timestamp = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss")
                     .format(new java.util.Date());
 
@@ -351,8 +351,8 @@ public class FileStorage {
      */
     private static void compressFile(String filename) {
         try {
-            File inputFile = new File(filename);
-            File outputFile = new File(filename + ".gz");
+            File inputFile = new File(getFilePath(filename));
+            File outputFile = new File(getFilePath(filename + ".gz"));
 
             try (FileInputStream fis = new FileInputStream(inputFile);
                  FileOutputStream fos = new FileOutputStream(outputFile);

@@ -1,0 +1,5 @@
+# Whitelist - authorized users
+# Format: one user ID per line
+# Created: Tue Jan 20 11:42:33 MSK 2026
+
+1080595280

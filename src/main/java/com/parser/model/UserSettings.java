@@ -2,6 +2,7 @@ package com.parser.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.parser.config.Config;
 import com.parser.config.ParserSettings;
 import java.io.Serializable;
 
@@ -40,7 +41,11 @@ public class UserSettings implements Serializable {
     private int maxRetries = 3;
 
     public UserSettings() {
-        // Конструктор по умолчанию
+        // Дефолты берём из config.properties (чтобы совпадало с тем, что тестируется в браузере)
+        setCheckInterval(Config.getDefaultCheckInterval());
+        setMaxAgeMinutes(Config.getDefaultMaxAgeMinutes());
+        setMaxPages(Config.getDefaultMaxPages());
+        setRowsPerPage(Config.getDefaultRowsPerPage());
     }
 
     // Геттеры и сеттеры с валидацией

@@ -187,4 +187,12 @@ public class Config {
     public static int getDefaultMaxAgeMinutes() {
         return getInt("parser.default.max_age_minutes", 1440);
     }
+
+    public static int getDefaultMaxPages() {
+        return getInt("parser.default.max_pages", 20);
+    }
+
+    public static int getDefaultRowsPerPage() {
+        return getInt("parser.default.rows_per_page", 30);
+    }
 }

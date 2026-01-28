@@ -125,9 +125,8 @@ public class ThreadManager {
                             session.addProductsFound(products.size());
                             totalProductsFound += products.size();
 
-                            if (shouldSendNotification(session, products)) {
-                                sendProductNotifications(userId, products, query, session.getSettings());
-                            }
+                            // Отправка уведомлений сама решает, есть ли что слать (и что считать "новым")
+                            sendProductNotifications(userId, products, query, session.getSettings());
 
                             // Не перезаписываем историю каждый раз: добавляем новые товары к уже сохранённым
                             UserDataManager.addUserProducts(userId, products);
@@ -145,6 +144,17 @@ public class ThreadManager {
                                 "❌ Ошибка при поиске '" + query + "': " + e.getMessage());
 
                         Thread.sleep(5000);
+                    }
+                }
+
+                // Обновляем cookies после полного цикла по всем запросам пользователя.
+                // Это НЕ меняет user-agent/идентичность, а просто поддерживает актуальность токенов.
+                if (session.isRunning() && Config.isDynamicCookiesEnabled()) {
+                    try {
+                        logger.info("🔄 Обновление cookies после цикла (user={})", userId);
+                        CookieService.refreshCookies("www.goofish.com");
+                    } catch (Exception e) {
+                        logger.warn("Cookie refresh after cycle failed (user={}): {}", userId, e.getMessage());
                     }
                 }
 
@@ -177,19 +187,11 @@ public class ThreadManager {
         if (products.isEmpty()) return false;
 
         if (session.getSettings().isNotifyNewOnly()) {
-            // Без использования ProductDuplicateFilter, чтобы избежать рекурсии
-            List<Product> existingProducts = UserDataManager.getUserProducts(session.getUserId());
-            Set<String> existingIds = new HashSet<>();
-            for (Product p : existingProducts) {
-                existingIds.add(p.getId());
-            }
-
-            for (Product p : products) {
-                if (!existingIds.contains(p.getId())) {
-                    return true;
-                }
-            }
-            return false;
+            // Исторически "новизна" считалась по UserDataManager.getUserProducts().
+            // Но сейчас фактическая защита от дублей и "новые товары" определяются
+            // персистентной историей отправки (UserSentProductsManager),
+            // поэтому предварительная проверка больше не нужна.
+            return true;
         }
         return true;
     }
@@ -202,7 +204,7 @@ public class ThreadManager {
 
         logger.info("Отправка уведомлений: {} товаров для пользователя {}", products.size(), userId);
 
-        // 🔴 ФИЛЬТРАЦИЯ ТОЛЬКО НОВЫХ ТОВАРОВ
+        // Собираем ID -> Product для дальнейшей выборки/отправки
         Set<String> productIds = new HashSet<>();
         Map<String, Product> productMap = new HashMap<>();
 
@@ -211,36 +213,47 @@ public class ThreadManager {
             productMap.put(p.getId(), p);
         }
 
-        // Получаем только новые товары (не отправленные ранее)
-        Set<String> newProductIds = UserSentProductsManager.filterNewProducts(userId, productIds);
+        // Режим уведомлений:
+        // - notifyNewOnly=true  -> отправляем только то, что ещё не отправляли (по UserSentProductsManager)
+        // - notifyNewOnly=false -> отправляем все найденные (в рамках текущего цикла/фильтров парсера)
+        final boolean onlyNew = settings != null && settings.isNotifyNewOnly();
+        Set<String> idsToSend = onlyNew
+                ? UserSentProductsManager.filterNewProducts(userId, productIds)
+                : new HashSet<>(productIds);
 
-        if (newProductIds.isEmpty()) {
-            logger.debug("Нет новых товаров для отправки пользователю {}", userId);
+        if (idsToSend.isEmpty()) {
+            logger.debug("Нет товаров для отправки пользователю {} (notifyNewOnly={})", userId, onlyNew);
             return;
         }
 
-        // 🔴 СОБИРАЕМ НОВЫЕ ТОВАРЫ
-        List<Product> newProducts = new ArrayList<>();
-        for (String productId : newProductIds) {
+        // Собираем товары к отправке
+        List<Product> productsToSend = new ArrayList<>();
+        for (String productId : idsToSend) {
             Product p = productMap.get(productId);
             if (p != null) {
-                newProducts.add(p);
+                productsToSend.add(p);
             }
         }
 
-        logger.info("Будет отправлено {} новых товаров пользователю {}", newProducts.size(), userId);
+        logger.info("Будет отправлено {} товаров пользователю {} (notifyNewOnly={}, totalFetched={})",
+                productsToSend.size(), userId, onlyNew, products.size());
 
-        // 🔴 СОХРАНЯЕМ ТОВАРЫ КАК ОТПРАВЛЕННЫЕ
-        UserSentProductsManager.markProductsAsSent(userId, newProductIds);
+        // Отмечаем как отправленные ТОЛЬКО когда включен режим "только новое".
+        // Иначе пользователь явно просит видеть весь список и не “съедать” его историей.
+        if (onlyNew) {
+            UserSentProductsManager.markProductsAsSent(userId, idsToSend);
+        }
 
         // 🟢 ОТПРАВЛЯЕМ УВЕДОМЛЕНИЯ
-        String summary = String.format("🔍 Найдено <b>%d новых товаров</b> по запросу: <i>%s</i>\n\n",
-                newProducts.size(), escapeHtml(query));
+        String summary = String.format("🔍 Найдено <b>%d %s</b> по запросу: <i>%s</i>\n\n",
+                productsToSend.size(),
+                onlyNew ? "новых товаров" : "товаров",
+                escapeHtml(query));
         TelegramNotificationService.sendHtmlMessage(userId, summary);
 
-        // Отправляем новые товары по одному
-        for (int i = 0; i < newProducts.size(); i++) {
-            Product p = newProducts.get(i);
+        // Отправляем товары по одному
+        for (int i = 0; i < productsToSend.size(); i++) {
+            Product p = productsToSend.get(i);
 
             try {
                 // Проверяем название товара
@@ -249,9 +262,9 @@ public class ThreadManager {
                 }
 
                 if (p.hasCoverImage()) {
-                    sendProductWithPhoto(userId, p, i + 1, newProducts.size());
+                    sendProductWithPhoto(userId, p, i + 1, productsToSend.size());
                 } else {
-                    sendProductAsText(userId, p, i + 1, newProducts.size());
+                    sendProductAsText(userId, p, i + 1, productsToSend.size());
                 }
 
                 Thread.sleep(800);
@@ -264,8 +277,8 @@ public class ThreadManager {
         }
 
         // 🔴 ОБНОВЛЯЕМ СТАТИСТИКУ
-        logger.info("✅ Отправлено {} новых товаров пользователю {}. {}",
-                newProducts.size(), userId, UserSentProductsManager.getStats(userId));
+        logger.info("✅ Отправлено {} товаров пользователю {} (notifyNewOnly={}). {}",
+                productsToSend.size(), userId, onlyNew, UserSentProductsManager.getStats(userId));
     }
 
     private void sendProductWithPhoto(long userId, Product p, int number, int total) {
@@ -313,9 +326,6 @@ public class ThreadManager {
     }
 
     private String formatProductCaption(Product p, int number, int total) {
-        // Номер товара с эмодзи
-        String numberEmoji = getNumberEmoji(number);
-
         // Получаем название товара
         String fullTitle = p.getTitle();
         if (fullTitle == null || fullTitle.isEmpty() || "No title".equals(fullTitle)) {
@@ -334,9 +344,8 @@ public class ThreadManager {
         // 🔴 ВОЗРАСТ ТОВАРА
         String age = String.format("⏳ %s", p.getAgeDisplay());
 
-        // 🔴 УБРАЛИ ЛОКАЦИЮ, Собираем итоговое сообщение
-        return String.format("%s %s\n\n%s\n%s",
-                numberEmoji, titleLink, price, age);
+        // Итоговое сообщение (без порядкового номера)
+        return String.format("%s\n\n%s\n%s", titleLink, price, age);
     }
 
     private String escapeHtml(String text) {

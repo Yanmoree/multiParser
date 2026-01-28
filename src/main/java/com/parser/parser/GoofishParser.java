@@ -17,6 +17,8 @@ import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Исправленный парсер для Goofish с правильным POST запросом и обработкой zstd
@@ -25,6 +27,7 @@ public class GoofishParser extends BaseParser {
     private static final Logger logger = LoggerFactory.getLogger(GoofishParser.class);
     private static final String SEARCH_ENDPOINT = "/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/";
     private static final String APP_KEY = "34839810";
+    private static final Pattern PUBLISHED_AGO_ZH = Pattern.compile("(\\d+)\\s*(分钟|小?时|天)前发布");
 
     private static final Random random = new Random();
     private static long lastRequestTime = 0;
@@ -87,13 +90,16 @@ public class GoofishParser extends BaseParser {
         JSONObject data = new JSONObject();
         data.put("pageNumber", page);
         data.put("keyword", query);
-        data.put("fromFilter", false);
+        // Настройки запроса: показываем самые новые товары первыми
+        data.put("fromFilter", true);
         data.put("rowsPerPage", rows);
-        data.put("sortValue", "");
-        data.put("sortField", "");
+        data.put("sortValue", "desc");
+        data.put("sortField", "create");
         data.put("customDistance", "");
         data.put("gps", "");
-        data.put("propValueStr", new JSONObject());
+        JSONObject propValueStr = new JSONObject();
+        propValueStr.put("searchFilter", "");
+        data.put("propValueStr", propValueStr);
         data.put("customGps", "");
         data.put("searchReqFromPage", "pcSearch");
         data.put("extraFilterValue", "{}");
@@ -385,6 +391,20 @@ public class GoofishParser extends BaseParser {
             // Возраст товара
             long publishTime = extractPublishTime(mainObj, itemData, exContent);
             int ageMinutes = calculateAge(publishTime);
+
+            // Если publishTime странный/пустой, пробуем вытащить возраст из меток (например "6小时前发布")
+            Integer ageFromTags = extractAgeMinutesFromTags(exContent, mainObj);
+            if (ageFromTags != null) {
+                // Если publishTime не дал адекватного возраста — используем метку
+                if (publishTime <= 0 || ageMinutes <= 0 || ageMinutes > 10080) {
+                    ageMinutes = ageFromTags;
+                } else {
+                    // Иногда publishTime бывает неверным: если метка сильно расходится, доверяем метке
+                    if (Math.abs(ageMinutes - ageFromTags) > 60) {
+                        ageMinutes = ageFromTags;
+                    }
+                }
+            }
             product.setAgeMinutes(ageMinutes);
 
             // Локация
@@ -474,6 +494,68 @@ public class GoofishParser extends BaseParser {
         }
 
         return 0;
+    }
+
+    /**
+     * Пытается извлечь "возраст" из UI-меток в ответе (часто там есть строка вида "6小时前发布").
+     * Возвращает возраст в минутах или null, если не удалось.
+     */
+    private Integer extractAgeMinutesFromTags(JSONObject exContent, JSONObject mainObj) {
+        try {
+            // Путь 1: mainObj.clickParam.args.serviceUtParams (строка JSON с content)
+            if (mainObj != null) {
+                JSONObject clickParam = mainObj.optJSONObject("clickParam");
+                if (clickParam != null) {
+                    JSONObject args = clickParam.optJSONObject("args");
+                    if (args != null) {
+                        String serviceUtParams = args.optString("serviceUtParams", "");
+                        Integer parsed = parseAgeMinutesFromText(serviceUtParams);
+                        if (parsed != null) return parsed;
+                    }
+                }
+            }
+
+            // Путь 2: exContent.fishTags.r2.tagList[*].data.content
+            if (exContent != null) {
+                JSONObject fishTags = exContent.optJSONObject("fishTags");
+                if (fishTags != null) {
+                    JSONObject r2 = fishTags.optJSONObject("r2");
+                    if (r2 != null) {
+                        JSONArray tagList = r2.optJSONArray("tagList");
+                        if (tagList != null) {
+                            for (int i = 0; i < Math.min(5, tagList.length()); i++) {
+                                JSONObject tag = tagList.optJSONObject(i);
+                                if (tag == null) continue;
+                                JSONObject data = tag.optJSONObject("data");
+                                if (data == null) continue;
+                                String content = data.optString("content", "");
+                                Integer parsed = parseAgeMinutesFromText(content);
+                                if (parsed != null) return parsed;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception ignored) {
+        }
+        return null;
+    }
+
+    private Integer parseAgeMinutesFromText(String text) {
+        if (text == null || text.isEmpty()) return null;
+        Matcher m = PUBLISHED_AGO_ZH.matcher(text);
+        if (!m.find()) return null;
+        int value;
+        try {
+            value = Integer.parseInt(m.group(1));
+        } catch (NumberFormatException e) {
+            return null;
+        }
+        String unit = m.group(2);
+        if (unit.contains("分钟")) return Math.max(1, value);
+        if (unit.contains("时")) return Math.max(1, value * 60);
+        if (unit.contains("天")) return Math.max(1, value * 24 * 60);
+        return null;
     }
 
     private int calculateAge(long publishTime) {
@@ -702,7 +784,31 @@ public class GoofishParser extends BaseParser {
                 logger.info("Page {}: found {} products ({} after age filter)",
                         page, products.size(), filtered.size());
 
-                if (filtered.size() < rowsPerPage) break;
+                // Диагностика: если возрастной фильтр режет слишком много, показываем пару примеров (INFO),
+                // чтобы было понятно, почему “на сайте сегодняшние, а у нас их мало”.
+                if (products.size() > 0 && filtered.size() < products.size()) {
+                    int removed = products.size() - filtered.size();
+                    if (filtered.isEmpty() || removed >= Math.max(5, products.size() / 2)) {
+                        StringBuilder dbg = new StringBuilder();
+                        dbg.append("Age filter removed ").append(removed)
+                                .append(" of ").append(products.size())
+                                .append(" (maxAgeMinutes=").append(maxAgeMinutes).append("). Examples: ");
+                        int shown = 0;
+                        for (Product p : products) {
+                            if (p.getAgeMinutes() > maxAgeMinutes) {
+                                dbg.append(p.getId()).append("(age=").append(p.getAgeMinutes()).append("m)");
+                                shown++;
+                                if (shown >= 5) break;
+                                dbg.append(", ");
+                            }
+                        }
+                        logger.info(dbg.toString());
+                    }
+                }
+
+                // Останавливаемся только если API реально вернуло меньше rowsPerPage.
+                // Иначе можем преждевременно остановиться из-за возрастного фильтра и не добрать товары.
+                if (products.size() < rowsPerPage) break;
 
                 // Задержка между запросами
                 int delay = getRequestDelay();

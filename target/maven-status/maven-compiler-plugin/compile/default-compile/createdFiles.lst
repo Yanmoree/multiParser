@@ -10,10 +10,12 @@ com/parser/test/SimpleTest.class
 com/parser/service/CookieService.class
 com/parser/test/ApiTester.class
 com/parser/config/Config.class
+com/parser/storage/UserSentProductsManager.class
 com/parser/Main.class
 com/parser/service/RealTimeCookieService.class
 com/parser/telegram/TelegramNotificationService.class
 com/parser/config/ParserSettings.class
+com/parser/storage/AccessRequestManager.class
 com/parser/parser/SiteParser.class
 com/parser/storage/UserDataManager.class
 com/parser/storage/WhitelistManager.class

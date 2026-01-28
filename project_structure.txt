@@ -1,7 +1,7 @@
 СТРУКТУРА ПРОЕКТА
 =================
 Директория: /Users/yanmore/IdeaProjects/multiParser
-Дата создания отчета: 2026-01-20T12:20:02.465074
+Дата создания отчета: 2026-01-28T22:00:10.929698
 
 ================================================================================
 
@@ -39,15 +39,15 @@
   [FILE] cookies.properties
     Путь: /Users/yanmore/IdeaProjects/multiParser/cookies.properties
     Размер: 2153 байт
-    Дата изменения: 2026-01-20T09:18:21.759869925Z
+    Дата изменения: 2026-01-20T11:05:53.012121216Z
     Содержимое:
     ----------------------------------------
     #Cookies for HTTP requests
     #Auto-generated file
-    #Tue Jan 20 12:18:21 MSK 2026
-    h5api.m.goofish.com.cookies=t\=e6abfc7d5afcbbd647a001a7878a35aa; cna\=STb2ISe2XWcCAbJFfm+LP/ja; _m_h5_tk_enc\=f7e04dbefd1223e75c0946f34a7e2eeb; _samesite_flag_\=true; tfstk\=g6iIfgOq4bnwefJpw6JN1Z4YGxESVd-q9Tw-nYIFekEKeuM-E7PUz7u1NfhizvPE4VNS6fNL82kyVflisXkEUYB7efrLr2PzT7ZSEj9wgn-qKvquvIR20utanoZuw3rJ7lh3Q646gn-qKUtEnHAq8kWMQ8282JUR21p_H8E8egh86PeY36E82bp_W8eA9wF8JNKTe5F82uh-Bdwz6JE82bH9C8bwBEw6d7kB3yRd_cJ09vF12gn9RyNjpaSR2cwQRokL1vkEfJaQGziyvgojHvn0F0vAP7wC4HI4G4SVPOac2RN2Cd_lr82LmJZC8EpzJR2iQd91kT4LIRwJCd_ldyegdPJ6C63l.; mtop_partitioned_detect\=1; _tb_token_\=e39338d333b05; _m_h5_tk\=ab5f541416459b2a2f91b2fcb232b906_1768909321004; xlly_s\=1; cookie2\=19414c231439bbf72aa9291da256599c
-    m.goofish.com.cookies=t\=e6abfc7d5afcbbd647a001a7878a35aa; cna\=STb2ISe2XWcCAbJFfm+LP/ja; _m_h5_tk_enc\=f7e04dbefd1223e75c0946f34a7e2eeb; _samesite_flag_\=true; tfstk\=g6iIfgOq4bnwefJpw6JN1Z4YGxESVd-q9Tw-nYIFekEKeuM-E7PUz7u1NfhizvPE4VNS6fNL82kyVflisXkEUYB7efrLr2PzT7ZSEj9wgn-qKvquvIR20utanoZuw3rJ7lh3Q646gn-qKUtEnHAq8kWMQ8282JUR21p_H8E8egh86PeY36E82bp_W8eA9wF8JNKTe5F82uh-Bdwz6JE82bH9C8bwBEw6d7kB3yRd_cJ09vF12gn9RyNjpaSR2cwQRokL1vkEfJaQGziyvgojHvn0F0vAP7wC4HI4G4SVPOac2RN2Cd_lr82LmJZC8EpzJR2iQd91kT4LIRwJCd_ldyegdPJ6C63l.; mtop_partitioned_detect\=1; _tb_token_\=e39338d333b05; _m_h5_tk\=ab5f541416459b2a2f91b2fcb232b906_1768909321004; xlly_s\=1; cookie2\=19414c231439bbf72aa9291da256599c
-    www.goofish.com.cookies=t\=e6abfc7d5afcbbd647a001a7878a35aa; cna\=STb2ISe2XWcCAbJFfm+LP/ja; _m_h5_tk_enc\=f7e04dbefd1223e75c0946f34a7e2eeb; _samesite_flag_\=true; tfstk\=g6iIfgOq4bnwefJpw6JN1Z4YGxESVd-q9Tw-nYIFekEKeuM-E7PUz7u1NfhizvPE4VNS6fNL82kyVflisXkEUYB7efrLr2PzT7ZSEj9wgn-qKvquvIR20utanoZuw3rJ7lh3Q646gn-qKUtEnHAq8kWMQ8282JUR21p_H8E8egh86PeY36E82bp_W8eA9wF8JNKTe5F82uh-Bdwz6JE82bH9C8bwBEw6d7kB3yRd_cJ09vF12gn9RyNjpaSR2cwQRokL1vkEfJaQGziyvgojHvn0F0vAP7wC4HI4G4SVPOac2RN2Cd_lr82LmJZC8EpzJR2iQd91kT4LIRwJCd_ldyegdPJ6C63l.; mtop_partitioned_detect\=1; _tb_token_\=e39338d333b05; _m_h5_tk\=ab5f541416459b2a2f91b2fcb232b906_1768909321004; xlly_s\=1; cookie2\=19414c231439bbf72aa9291da256599c
+    #Tue Jan 20 14:05:53 MSK 2026
+    h5api.m.goofish.com.cookies=t\=651487027a314d1686d8c34a1df1c2b1; cna\=g0/2If2sgSgCAbJFfm/PkUxt; _m_h5_tk_enc\=4316600ee1a895da01b48551991688c5; _samesite_flag_\=true; tfstk\=gTjmf06XIQGQXSGzxf-buqgDSh4-lnt6G1n96hdazQRW6-OvMO5GI98NMnKxSlXNgFSvDtCljsCRHS19DfqGZQCtXtIGPcXCCieXX-tfhhta9WEdjt6XfA8fYtVRURJ6jKRm3_I1hhta9OQoD7BfM_wXth-aE3JM3j-Z0hykapdr0do2QbykCQ-wQc-w4UJ6ndRwQ1WzEdOy_h8V_3ykCQRwbh7ZH5Rc_6Iz6cpGpLblAgvDoBW0qcoGqDLDTtRob2Ikn5OF3QmZjB7d35XN_5m9Yw1ljeRl4K3r8vNjfLyOqVg6uL9k9yUgrARTHJ4YE803hEJWeHeuEVMDuL9kQ82oRrT2FKFd.; mtop_partitioned_detect\=1; _tb_token_\=e7795456eef3a; _m_h5_tk\=75c505a94a08abb3dd88da70c104e11d_1768916498656; xlly_s\=1; cookie2\=1e0b95671ffa899086abcfd2a4bf65a7
+    m.goofish.com.cookies=t\=651487027a314d1686d8c34a1df1c2b1; cna\=g0/2If2sgSgCAbJFfm/PkUxt; _m_h5_tk_enc\=4316600ee1a895da01b48551991688c5; _samesite_flag_\=true; tfstk\=gTjmf06XIQGQXSGzxf-buqgDSh4-lnt6G1n96hdazQRW6-OvMO5GI98NMnKxSlXNgFSvDtCljsCRHS19DfqGZQCtXtIGPcXCCieXX-tfhhta9WEdjt6XfA8fYtVRURJ6jKRm3_I1hhta9OQoD7BfM_wXth-aE3JM3j-Z0hykapdr0do2QbykCQ-wQc-w4UJ6ndRwQ1WzEdOy_h8V_3ykCQRwbh7ZH5Rc_6Iz6cpGpLblAgvDoBW0qcoGqDLDTtRob2Ikn5OF3QmZjB7d35XN_5m9Yw1ljeRl4K3r8vNjfLyOqVg6uL9k9yUgrARTHJ4YE803hEJWeHeuEVMDuL9kQ82oRrT2FKFd.; mtop_partitioned_detect\=1; _tb_token_\=e7795456eef3a; _m_h5_tk\=75c505a94a08abb3dd88da70c104e11d_1768916498656; xlly_s\=1; cookie2\=1e0b95671ffa899086abcfd2a4bf65a7
+    www.goofish.com.cookies=t\=651487027a314d1686d8c34a1df1c2b1; cna\=g0/2If2sgSgCAbJFfm/PkUxt; _m_h5_tk_enc\=4316600ee1a895da01b48551991688c5; _samesite_flag_\=true; tfstk\=gTjmf06XIQGQXSGzxf-buqgDSh4-lnt6G1n96hdazQRW6-OvMO5GI98NMnKxSlXNgFSvDtCljsCRHS19DfqGZQCtXtIGPcXCCieXX-tfhhta9WEdjt6XfA8fYtVRURJ6jKRm3_I1hhta9OQoD7BfM_wXth-aE3JM3j-Z0hykapdr0do2QbykCQ-wQc-w4UJ6ndRwQ1WzEdOy_h8V_3ykCQRwbh7ZH5Rc_6Iz6cpGpLblAgvDoBW0qcoGqDLDTtRob2Ikn5OF3QmZjB7d35XN_5m9Yw1ljeRl4K3r8vNjfLyOqVg6uL9k9yUgrARTHJ4YE803hEJWeHeuEVMDuL9kQ82oRrT2FKFd.; mtop_partitioned_detect\=1; _tb_token_\=e7795456eef3a; _m_h5_tk\=75c505a94a08abb3dd88da70c104e11d_1768916498656; xlly_s\=1; cookie2\=1e0b95671ffa899086abcfd2a4bf65a7
     ----------------------------------------
 
   [FILE] cookies_debug_20260119_110719.properties
@@ -282,8 +282,8 @@
 
     [FILE] parser.log
       Путь: /Users/yanmore/IdeaProjects/multiParser/logs/parser.log
-      Размер: 330979 байт
-      Дата изменения: 2026-01-20T09:19:10.020563094Z
+      Размер: 1786691 байт
+      Дата изменения: 2026-01-20T11:27:47.444830776Z
       [БИНАРНЫЙ ФАЙЛ ИЛИ СЛИШКОМ БОЛЬШОЙ]
 
   [FILE] api_response.json
@@ -298,7 +298,7 @@
   [FILE] dependency-reduced-pom.xml
     Путь: /Users/yanmore/IdeaProjects/multiParser/dependency-reduced-pom.xml
     Размер: 2216 байт
-    Дата изменения: 2026-01-20T09:17:48.303399871Z
+    Дата изменения: 2026-01-28T18:58:51.232685461Z
     Содержимое:
     ----------------------------------------
     <?xml version="1.0" encoding="UTF-8"?>
@@ -440,11 +440,40 @@
 
       [FILE] 1080595280.json
         Путь: /Users/yanmore/IdeaProjects/multiParser/data/user_products/1080595280.json
-        Размер: 1609 байт
-        Дата изменения: 2026-01-20T09:19:06.840027162Z
+        Размер: 2996 байт
+        Дата изменения: 2026-01-20T11:27:28.854616073Z
         Содержимое:
         ----------------------------------------
-        [{"id":"1014997073429","title":"No title","price":1869.0,"url":"https://www.goofish.com/item?id=1014997073429","site":"goofish","location":"Unknown","ageMinutes":478,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i2/4020309979/O1CN01joH2Me2NaRSXYJF0p_!!4611686018427383771-0-xy_item.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768900737909,"isNew":true},{"id":"1013428463027","title":"No title","price":399.0,"url":"https://www.goofish.com/item?id=1013428463027","site":"goofish","location":"Unknown","ageMinutes":1019,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i2/O1CN013uxtzP1hA8qycspxh_!!4611686018427380124-53-fleamarket.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768900737909,"isNew":true},{"id":"1015705392466","title":"No title","price":693.0,"url":"https://www.goofish.com/item?id=1015705392466","site":"goofish","location":"Unknown","ageMinutes":930,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i3/O1CN01hkPt261Gy4P8ZZAFH_!!4611686018427387106-0-fleamarket.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768900737910,"isNew":true},{"id":"1014073978495","title":"No title","price":1399.0,"url":"https://www.goofish.com/item?id=1014073978495","site":"goofish","location":"Unknown","ageMinutes":987,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i3/3804186192/O1CN01CWviZr1vbzYfMaRDw_!!4611686018427381328-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768900737910,"isNew":true}]
+        [{"id":"1014997073429","title":"adidas x Jeremy scott 经典红蓝旗帜配色 翅膀鞋 好价释出手慢无 uk9.5 中国42-43码 脚长女生加鞋垫也可以穿不接受讲价 成色如图海淘非现货仅zz 支持定尾 拍前请私信 标价全款包邮vintage二手默认微瑕 拍前请私信借14th addition / kmrii / share spirit / undercover / number (n)ine / lgb ...","price":1869.0,"url":"https://www.goofish.com/item?id=1014997073429","site":"goofish","location":"Не указано","ageMinutes":606,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i2/4020309979/O1CN01joH2Me2NaRSXYJF0p_!!4611686018427383771-0-xy_item.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768908448744,"isNew":true},{"id":"1015705392466","title":"下单送运费险，正品货号JS0557，adidas Labco 下单送运费险，正品货号JS0557，adidas Labcourt 真皮隐形增高板鞋卡其色男女厚底真皮休闲鞋。尺码36-45码，鞋面采用优质麂皮材质，厚底设计稳固，四季可穿。全新带盒，支持专柜验货，全国包邮（新疆西藏补运费）不影响二次销售支持七天无理由退货退款，麻烦宝子们试穿的时候垫张纸保持鞋底干净不脏哈感兴趣的话点\"我想要\"和我...","price":693.0,"url":"https://www.goofish.com/item?id=1015705392466","site":"goofish","location":"Не указано","ageMinutes":1059,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i3/O1CN01hkPt261Gy4P8ZZAFH_!!4611686018427387106-0-fleamarket.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768908448746,"isNew":true},{"id":"1014073978495","title":"adidas jeremy scott翅膀 size 43全新不议价","price":1399.0,"url":"https://www.goofish.com/item?id=1014073978495","site":"goofish","location":"Не указано","ageMinutes":1115,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i3/3804186192/O1CN01CWviZr1vbzYfMaRDw_!!4611686018427381328-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768908448753,"isNew":true},{"id":"1013513155481","title":"【超低价 男女同款】阿迪达斯 Jeremy Scott联名款篮球鞋 265码 尺码：265阿迪达斯Jeremy Scott联名款篮球鞋，265码。独特的图案是这款高帮鞋的魅力所在。虽然有使用痕迹，但由于设计稀有，所以具有收藏价值。如果没有其他问题，请直接购买！☆男女皆可穿着...!!! ☆除了轻微的使用痕迹外，状态良好...!!!也请务必看看我的其他商品...!!以上是韩国闪电市场bunja...","price":844.0,"url":"https://www.goofish.com/item?id=1013513155481","site":"goofish","location":"Не указано","ageMinutes":508,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i1/O1CN01Jl6WFK1SIdy97gfo9_!!4611686018427385904-49-fleamarket.webp"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768908448759,"isNew":true}]
+        ----------------------------------------
+    [DIR] sent_products
+
+      [FILE] user_1080595280.txt
+        Путь: /Users/yanmore/IdeaProjects/multiParser/data/sent_products/user_1080595280.txt
+        Размер: 280 байт
+        Дата изменения: 2026-01-20T10:58:37.295924033Z
+        Содержимое:
+        ----------------------------------------
+        1014066562509
+        1014084210134
+        1015637232984
+        1013427335125
+        1014988061587
+        1014930705152
+        1014067790667
+        1013428463027
+        1015034989119
+        1014073978495
+        1014032670473
+        1014075074344
+        1015649408181
+        1014030958229
+        1014894961236
+        1014997073429
+        1015705392466
+        1014069414231
+        1013513155481
+        1014902605318
         ----------------------------------------
     [DIR] user_settings
 
@@ -990,8 +1019,8 @@
 
               [FILE] ThreadManager.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/core/ThreadManager.java
-                Размер: 16895 байт
-                Дата изменения: 2026-01-20T09:17:42.9105603Z
+                Размер: 18255 байт
+                Дата изменения: 2026-01-28T18:55:59.161639665Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.core;
@@ -1002,8 +1031,8 @@
                 import com.parser.parser.ParserFactory;
                 import com.parser.parser.SiteParser;
                 import com.parser.service.CookieService;
-                import com.parser.storage.ProductDuplicateFilter;
                 import com.parser.storage.UserDataManager;
+                import com.parser.storage.UserSentProductsManager;
                 import com.parser.storage.WhitelistManager;
                 import com.parser.telegram.TelegramNotificationService;
                 import org.slf4j.Logger;
@@ -1125,7 +1154,8 @@
                                                 sendProductNotifications(userId, products, query, session.getSettings());
                                             }
                 
-                                            UserDataManager.saveUserProducts(userId, products);
+                                            // Не перезаписываем историю каждый раз: добавляем новые товары к уже сохранённым
+                                            UserDataManager.addUserProducts(userId, products);
                                         }
                 
                                         Thread.sleep(Config.getInt("api.goofish.delay.between.requests", 2000));
@@ -1195,39 +1225,58 @@
                             return;
                         }
                 
-                        logger.info("Sending notifications: {} products for user {}", products.size(), userId);
+                        logger.info("Отправка уведомлений: {} товаров для пользователя {}", products.size(), userId);
                 
-                        // 🔴 ПРОСТОЕ РЕШЕНИЕ: Сохраняем без сложной логики
-                        try {
-                            // Просто сохраняем товары (без проверки дубликатов для устранения рекурсии)
-                            String json = new com.fasterxml.jackson.databind.ObjectMapper()
-                                    .writeValueAsString(products);
+                        // 🔴 ФИЛЬТРАЦИЯ ТОЛЬКО НОВЫХ ТОВАРОВ
+                        Set<String> productIds = new HashSet<>();
+                        Map<String, Product> productMap = new HashMap<>();
                 
-                            String filepath = Config.getStorageDataDir() + "/user_products/" + userId + ".json";
-                            java.nio.file.Files.write(
-                                    java.nio.file.Paths.get(filepath),
-                                    json.getBytes(StandardCharsets.UTF_8)
-                            );
-                
-                            logger.debug("✅ Товары сохранены для пользователя {}", userId);
-                        } catch (Exception e) {
-                            logger.error("Ошибка сохранения товаров: {}", e.getMessage());
+                        for (Product p : products) {
+                            productIds.add(p.getId());
+                            productMap.put(p.getId(), p);
                         }
                 
-                        // 🟢 Отправляем уведомления
-                        String summary = String.format("🔍 Found %d products for '<b>%s</b>'\n\n",
-                                products.size(), escapeHtml(query));
+                        // Получаем только новые товары (не отправленные ранее)
+                        Set<String> newProductIds = UserSentProductsManager.filterNewProducts(userId, productIds);
+                
+                        if (newProductIds.isEmpty()) {
+                            logger.debug("Нет новых товаров для отправки пользователю {}", userId);
+                            return;
+                        }
+                
+                        // 🔴 СОБИРАЕМ НОВЫЕ ТОВАРЫ
+                        List<Product> newProducts = new ArrayList<>();
+                        for (String productId : newProductIds) {
+                            Product p = productMap.get(productId);
+                            if (p != null) {
+                                newProducts.add(p);
+                            }
+                        }
+                
+                        logger.info("Будет отправлено {} новых товаров пользователю {}", newProducts.size(), userId);
+                
+                        // 🔴 СОХРАНЯЕМ ТОВАРЫ КАК ОТПРАВЛЕННЫЕ
+                        UserSentProductsManager.markProductsAsSent(userId, newProductIds);
+                
+                        // 🟢 ОТПРАВЛЯЕМ УВЕДОМЛЕНИЯ
+                        String summary = String.format("🔍 Найдено <b>%d новых товаров</b> по запросу: <i>%s</i>\n\n",
+                                newProducts.size(), escapeHtml(query));
                         TelegramNotificationService.sendHtmlMessage(userId, summary);
                 
-                        // Отправляем товары по одному
-                        for (int i = 0; i < products.size(); i++) {
-                            Product p = products.get(i);
+                        // Отправляем новые товары по одному
+                        for (int i = 0; i < newProducts.size(); i++) {
+                            Product p = newProducts.get(i);
                 
                             try {
+                                // Проверяем название товара
+                                if (p.getTitle() == null || p.getTitle().isEmpty() || "No title".equals(p.getTitle())) {
+                                    p.setTitle("Товар #" + p.getId() + " (" + query + ")");
+                                }
+                
                                 if (p.hasCoverImage()) {
-                                    sendProductWithPhoto(userId, p, i + 1, products.size());
+                                    sendProductWithPhoto(userId, p, i + 1, newProducts.size());
                                 } else {
-                                    sendProductAsText(userId, p, i + 1, products.size());
+                                    sendProductAsText(userId, p, i + 1, newProducts.size());
                                 }
                 
                                 Thread.sleep(800);
@@ -1235,9 +1284,13 @@
                                 Thread.currentThread().interrupt();
                                 break;
                             } catch (Exception e) {
-                                logger.error("Error sending notification for product {}: {}", p.getId(), e.getMessage());
+                                logger.error("Ошибка отправки уведомления для товара {}: {}", p.getId(), e.getMessage());
                             }
                         }
+                
+                        // 🔴 ОБНОВЛЯЕМ СТАТИСТИКУ
+                        logger.info("✅ Отправлено {} новых товаров пользователю {}. {}",
+                                newProducts.size(), userId, UserSentProductsManager.getStats(userId));
                     }
                 
                     private void sendProductWithPhoto(long userId, Product p, int number, int total) {
@@ -1288,26 +1341,27 @@
                         // Номер товара с эмодзи
                         String numberEmoji = getNumberEmoji(number);
                 
-                        // Название как гиперссылка
+                        // Получаем название товара
+                        String fullTitle = p.getTitle();
+                        if (fullTitle == null || fullTitle.isEmpty() || "No title".equals(fullTitle)) {
+                            fullTitle = "Товар #" + p.getId();
+                        }
+                
+                        // Название как гиперссылка с полным текстом
                         String titleLink = String.format("<a href=\"%s\"><b>%s</b></a>",
                                 escapeHtml(p.getUrl()),
-                                escapeHtml(p.getShortTitle()));
+                                escapeHtml(fullTitle));
                 
-                        // Цена: юани и рубли
-                        String priceRub = String.format("%.0f", p.getPriceRubles());
-                        String price = String.format("💰 <b>%s ¥</b> | %s руб",
-                                String.format("%.0f", p.getPrice()),
-                                priceRub);
+                        // 🔴 Цена: только в юанях (убираем рубли и локацию)
+                        String price = String.format("💰 <b>%s ¥</b>",
+                                String.format("%.0f", p.getPrice()));
                 
-                        // Локация
-                        String location = String.format("📍 <i>%s</i>", escapeHtml(p.getLocation()));
-                
-                        // Возраст
+                        // 🔴 ВОЗРАСТ ТОВАРА
                         String age = String.format("⏳ %s", p.getAgeDisplay());
                 
-                        // Собираем итоговое сообщение
-                        return String.format("%s %s\n\n%s\n%s\n%s",
-                                numberEmoji, titleLink, price, location, age);
+                        // 🔴 УБРАЛИ ЛОКАЦИЮ, Собираем итоговое сообщение
+                        return String.format("%s %s\n\n%s\n%s",
+                                numberEmoji, titleLink, price, age);
                     }
                 
                     private String escapeHtml(String text) {
@@ -1316,7 +1370,8 @@
                                 .replace("<", "&lt;")
                                 .replace(">", "&gt;")
                                 .replace("\"", "&quot;")
-                                .replace("'", "&#39;");
+                                .replace("'", "&#39;")
+                                .replace("\n", "<br/>"); // Добавляем переносы строк
                     }
                 
                     public boolean stopUserParser(long userId) {
@@ -1325,9 +1380,6 @@
                             session.setRunning(false);
                             userSessions.remove(userId);
                             logger.info("Parser stopped for user {}", userId);
-                
-                            // Очищаем кэш фильтра при остановке
-                            ProductDuplicateFilter.clearUserCache(userId);
                 
                             return true;
                         }
@@ -3064,8 +3116,8 @@
 
               [FILE] GoofishParser.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/parser/GoofishParser.java
-                Размер: 29321 байт
-                Дата изменения: 2026-01-20T09:17:00.259517471Z
+                Размер: 30873 байт
+                Дата изменения: 2026-01-20T09:54:11.315758002Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.parser;
@@ -3406,10 +3458,48 @@
                             product.setSite("goofish");
                             product.setQuery(query);
                 
-                            // Название
-                            String title = itemData != null ? itemData.optString("title", "") : "";
-                            product.setTitle(title.isEmpty() ? "No title" : title);
+                            // 🔴 ИСПРАВЛЕНИЕ: ПАРСИНГ НАЗВАНИЯ
+                            String title = "";
                 
+                            // Пробуем разные источники названия
+                            if (itemData != null) {
+                                title = itemData.optString("title", "");
+                                if (title.isEmpty()) {
+                                    title = itemData.optString("text", "");
+                                }
+                                if (title.isEmpty()) {
+                                    title = itemData.optString("name", "");
+                                }
+                            }
+                
+                            if (title.isEmpty() && exContent != null) {
+                                title = exContent.optString("title", "");
+                                if (title.isEmpty()) {
+                                    title = exContent.optString("text", "");
+                                }
+                                if (title.isEmpty()) {
+                                    title = exContent.optString("name", "");
+                                }
+                            }
+                
+                            if (title.isEmpty() && mainObj != null) {
+                                JSONObject clickParam = mainObj.optJSONObject("clickParam");
+                                if (clickParam != null) {
+                                    JSONObject args = clickParam.optJSONObject("args");
+                                    if (args != null) {
+                                        title = args.optString("subject", "");
+                                    }
+                                }
+                            }
+                
+                            // Если название по-прежнему пустое, создаем более информативное
+                            if (title.isEmpty()) {
+                                title = "Товар #" + itemId + " (" + query + ")";
+                            }
+                
+                            product.setTitle(title);
+                
+                            // Остальной код остается без изменений...
                             // Цена
                             double price = extractPrice(itemData, exContent);
                             product.setPrice(price);
@@ -3421,9 +3511,9 @@
                 
                             // Локация
                             String location = itemData != null ? itemData.optString("area", "") : "";
-                            product.setLocation(location.isEmpty() ? "Unknown" : location);
+                            product.setLocation(location.isEmpty() ? "Не указано" : location);
                 
-                            // URL
+                            // URL - убедимся, что он правильный
                             product.setUrl("https://www.goofish.com/item?id=" + itemId);
                 
                             // Изображения
@@ -4066,8 +4156,8 @@
 
               [FILE] WhitelistManager.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/WhitelistManager.java
-                Размер: 4462 байт
-                Дата изменения: 2026-01-20T08:36:42.572540553Z
+                Размер: 5796 байт
+                Дата изменения: 2026-01-28T18:53:30.285175611Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.storage;
@@ -4082,7 +4172,15 @@
                  */
                 public class WhitelistManager {
                     private static final Logger logger = LoggerFactory.getLogger(WhitelistManager.class);
-                    private static final String WHITELIST_FILE = "data/whitelist.txt";
+                    /**
+                     * ВАЖНО:
+                     * FileStorage сам добавляет префикс storage.data.dir (по умолчанию ./data).
+                     * Поэтому здесь НЕ должно быть "data/..." иначе получится ./data/data/...
+                     *
+                     * Для обратной совместимости поддерживаем старый путь.
+                     */
+                    private static final String WHITELIST_FILE = "whitelist.txt";
+                    private static final String LEGACY_WHITELIST_FILE = "data/whitelist.txt";
                     private static final Set<Long> whitelist = Collections.synchronizedSet(new HashSet<>());
                     private static volatile boolean isInitialized = false;
                 
@@ -4100,7 +4198,17 @@
                      */
                     private static void loadWhitelist() {
                         List<String> lines = FileStorage.readLines(WHITELIST_FILE);
-                        logger.info("Loading whitelist. Found {} lines", lines.size());
+                        boolean loadedFromLegacy = false;
+                
+                        // Если нового файла нет/пустой, но есть legacy — читаем legacy
+                        if ((lines == null || lines.isEmpty()) && FileStorage.fileExists(LEGACY_WHITELIST_FILE)) {
+                            lines = FileStorage.readLines(LEGACY_WHITELIST_FILE);
+                            loadedFromLegacy = true;
+                        }
+                
+                        logger.info("Loading whitelist from {}. Found {} lines",
+                                loadedFromLegacy ? LEGACY_WHITELIST_FILE : WHITELIST_FILE,
+                                lines != null ? lines.size() : 0);
                 
                         for (String line : lines) {
                             try {
@@ -4121,6 +4229,12 @@
                         }
                 
                         logger.info("✅ Loaded {} users from whitelist", whitelist.size());
+                
+                        // Мягкая миграция: если загрузили из legacy и новый файл отсутствует — сохраняем в новый путь
+                        if (loadedFromLegacy && !FileStorage.fileExists(WHITELIST_FILE) && !whitelist.isEmpty()) {
+                            logger.info("Migrating whitelist from legacy path to {}", WHITELIST_FILE);
+                            saveWhitelist();
+                        }
                     }
                 
                     /**
@@ -4223,8 +4337,8 @@
 
               [FILE] ProductDuplicateFilter.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/ProductDuplicateFilter.java
-                Размер: 3295 байт
-                Дата изменения: 2026-01-20T08:37:12.13191348Z
+                Размер: 3798 байт
+                Дата изменения: 2026-01-28T18:56:14.357382489Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.storage;
@@ -4237,6 +4351,12 @@
                 
                 /**
                  * Фильтр для предотвращения отправки дубликатов товаров
+                 *
+                 * NOTE:
+                 * В актуальном потоке отправки уведомлений используется `UserSentProductsManager`
+                 * (персистентная история отправленных товаров).
+                 * Этот класс оставлен для обратной совместимости и может использоваться только
+                 * как in-memory кэш “увиденных” товаров (без гарантии персистентности).
                  */
                 public class ProductDuplicateFilter {
                     private static final Logger logger = LoggerFactory.getLogger(ProductDuplicateFilter.class);
@@ -4699,10 +4819,241 @@
                 }
                 ----------------------------------------
 
+              [FILE] AccessRequestManager.java
+                Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/AccessRequestManager.java
+                Размер: 2703 байт
+                Дата изменения: 2026-01-28T18:58:26.507979648Z
+                Содержимое:
+                ----------------------------------------
+                package com.parser.storage;
+                
+                import org.slf4j.Logger;
+                import org.slf4j.LoggerFactory;
+                
+                import java.text.SimpleDateFormat;
+                import java.util.*;
+                
+                /**
+                 * Хранит заявки на доступ к боту (когда пользователь без whitelist пытается воспользоваться ботом).
+                 * Сделано максимально просто: запись в файл в data-dir через FileStorage.
+                 */
+                public class AccessRequestManager {
+                    private static final Logger logger = LoggerFactory.getLogger(AccessRequestManager.class);
+                
+                    private static final String REQUESTS_FILE = "access_requests.txt";
+                    private static final SimpleDateFormat TS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                
+                    /**
+                     * Записать заявку (если для пользователя ещё нет записи).
+                     */
+                    public static void recordAccessRequest(long userId, String reason) {
+                        if (userId <= 0) return;
+                
+                        try {
+                            List<String> lines = FileStorage.readLines(REQUESTS_FILE);
+                            for (String line : lines) {
+                                if (line.startsWith(userId + "|")) {
+                                    return; // уже есть заявка
+                                }
+                            }
+                
+                            String safeReason = reason == null ? "" : reason.replace("|", "/").trim();
+                            String entry = userId + "|" + TS.format(new Date()) + "|" + safeReason;
+                            lines.add(entry);
+                            FileStorage.writeLines(REQUESTS_FILE, lines);
+                            logger.info("Access request recorded for user {}", userId);
+                        } catch (Exception e) {
+                            logger.warn("Failed to record access request for {}: {}", userId, e.getMessage());
+                        }
+                    }
+                
+                    /**
+                     * Получить список заявок (сырьём).
+                     */
+                    public static List<String> getRequests() {
+                        return FileStorage.readLines(REQUESTS_FILE);
+                    }
+                
+                    /**
+                     * Удалить заявку пользователя.
+                     */
+                    public static void removeRequest(long userId) {
+                        try {
+                            List<String> lines = FileStorage.readLines(REQUESTS_FILE);
+                            List<String> updated = new ArrayList<>();
+                            for (String line : lines) {
+                                if (!line.startsWith(userId + "|")) {
+                                    updated.add(line);
+                                }
+                            }
+                            FileStorage.writeLines(REQUESTS_FILE, updated);
+                        } catch (Exception e) {
+                            logger.warn("Failed to remove access request for {}: {}", userId, e.getMessage());
+                        }
+                    }
+                
+                    /**
+                     * Очистить все заявки.
+                     */
+                    public static void clearAll() {
+                        FileStorage.writeLines(REQUESTS_FILE, List.of());
+                    }
+                }
+                ----------------------------------------
+
+              [FILE] UserSentProductsManager.java
+                Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/UserSentProductsManager.java
+                Размер: 5679 байт
+                Дата изменения: 2026-01-20T10:03:25.841009955Z
+                Содержимое:
+                ----------------------------------------
+                package com.parser.storage;
+                
+                import org.slf4j.Logger;
+                import org.slf4j.LoggerFactory;
+                import java.io.*;
+                import java.util.HashSet;
+                import java.util.Set;
+                import java.util.concurrent.ConcurrentHashMap;
+                
+                /**
+                 * Менеджер для хранения товаров, которые уже были отправлены пользователю
+                 */
+                public class UserSentProductsManager {
+                    private static final Logger logger = LoggerFactory.getLogger(UserSentProductsManager.class);
+                
+                    // Кэш в памяти: userId -> Set<productId>
+                    private static final ConcurrentHashMap<Long, Set<String>> userSentProducts = new ConcurrentHashMap<>();
+                
+                    // Путь к директории для хранения файлов
+                    private static final String SENT_PRODUCTS_DIR = "sent_products";
+                
+                    static {
+                        // Создаем директорию при запуске
+                        FileStorage.createDirectory(SENT_PRODUCTS_DIR);
+                        logger.info("✅ Директория для отправленных товаров готова");
+                    }
+                
+                    /**
+                     * Проверяет, был ли товар уже отправлен пользователю
+                     */
+                    public static boolean isProductSent(long userId, String productId) {
+                        Set<String> sentProducts = loadUserSentProducts(userId);
+                        return sentProducts.contains(productId);
+                    }
+                
+                    /**
+                     * Добавляет товар в список отправленных
+                     */
+                    public static void markProductAsSent(long userId, String productId) {
+                        Set<String> sentProducts = loadUserSentProducts(userId);
+                        sentProducts.add(productId);
+                        saveUserSentProducts(userId, sentProducts);
+                
+                        // Обновляем кэш
+                        userSentProducts.put(userId, sentProducts);
+                
+                        logger.debug("✅ Товар {} отмечен как отправленный пользователю {}", productId, userId);
+                    }
+                
+                    /**
+                     * Добавляет несколько товаров в список отправленных
+                     */
+                    public static void markProductsAsSent(long userId, Set<String> productIds) {
+                        if (productIds == null || productIds.isEmpty()) {
+                            return;
+                        }
+                
+                        Set<String> sentProducts = loadUserSentProducts(userId);
+                        sentProducts.addAll(productIds);
+                        saveUserSentProducts(userId, sentProducts);
+                
+                        userSentProducts.put(userId, sentProducts);
+                
+                        logger.info("✅ {} товаров отмечены как отправленные пользователю {}", productIds.size(), userId);
+                    }
+                
+                    /**
+                     * Фильтрует только новые товары (не отправленные ранее)
+                     */
+                    public static Set<String> filterNewProducts(long userId, Set<String> productIds) {
+                        Set<String> newProducts = new HashSet<>();
+                        Set<String> sentProducts = loadUserSentProducts(userId);
+                
+                        for (String productId : productIds) {
+                            if (!sentProducts.contains(productId)) {
+                                newProducts.add(productId);
+                            }
+                        }
+                
+                        logger.debug("Фильтр: {} всего, {} новых для пользователя {}",
+                                productIds.size(), newProducts.size(), userId);
+                
+                        return newProducts;
+                    }
+                
+                    /**
+                     * Очищает историю отправленных товаров для пользователя
+                     */
+                    public static void clearUserHistory(long userId) {
+                        String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
+                        FileStorage.deleteFile(filename);
+                        userSentProducts.remove(userId);
+                        logger.info("✅ История отправленных товаров очищена для пользователя {}", userId);
+                    }
+                
+                    /**
+                     * Загружает отправленные товары пользователя (из файла или кэша)
+                     */
+                    private static Set<String> loadUserSentProducts(long userId) {
+                        // Проверяем кэш
+                        if (userSentProducts.containsKey(userId)) {
+                            return userSentProducts.get(userId);
+                        }
+                
+                        // Загружаем из файла
+                        String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
+                        Set<String> sentProducts = new HashSet<>();
+                
+                        try {
+                            for (String line : FileStorage.readLines(filename)) {
+                                line = line.trim();
+                                if (!line.isEmpty()) {
+                                    sentProducts.add(line);
+                                }
+                            }
+                            logger.debug("Загружено {} отправленных товаров для пользователя {}",
+                                    sentProducts.size(), userId);
+                        } catch (Exception e) {
+                            logger.debug("Файл с отправленными товарами не найден для пользователя {}, создаем новый", userId);
+                        }
+                
+                        userSentProducts.put(userId, sentProducts);
+                        return sentProducts;
+                    }
+                
+                    /**
+                     * Сохраняет отправленные товары пользователя в файл
+                     */
+                    private static void saveUserSentProducts(long userId, Set<String> sentProducts) {
+                        String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
+                        FileStorage.writeLines(filename, new java.util.ArrayList<>(sentProducts));
+                    }
+                
+                    /**
+                     * Получает статистику по отправленным товарам
+                     */
+                    public static String getStats(long userId) {
+                        Set<String> sentProducts = loadUserSentProducts(userId);
+                        return String.format("Отправлено товаров: %d", sentProducts.size());
+                    }
+                }
+                ----------------------------------------
+
               [FILE] FileStorage.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/FileStorage.java
-                Размер: 17737 байт
-                Дата изменения: 2026-01-20T09:16:42.421725912Z
+                Размер: 18018 байт
+                Дата изменения: 2026-01-28T18:53:38.484230981Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.storage;
@@ -4834,16 +5185,19 @@
                             ensureDataDir();
                             File file = new File(getFilePath(filename));
                 
-                            logger.info("📝 Запись в файл: {} (абсолютный путь: {})",
-                                    filename, file.getAbsolutePath());
-                            logger.info("   Файл существует перед записью: {}", file.exists());
-                            logger.info("   Родительская директория: {}", file.getParent());
-                            logger.info("   Количество строк для записи: {}", lines.size());
+                            // В проде эти логи слишком шумные — оставляем только в DEBUG.
+                            if (logger.isDebugEnabled()) {
+                                logger.debug("📝 Запись в файл: {} (абсолютный путь: {})",
+                                        filename, file.getAbsolutePath());
+                                logger.debug("   Файл существует перед записью: {}", file.exists());
+                                logger.debug("   Родительская директория: {}", file.getParent());
+                                logger.debug("   Количество строк для записи: {}", lines.size());
+                            }
                 
                             // Проверяем родительскую директорию
                             File parentDir = file.getParentFile();
                             if (parentDir != null && !parentDir.exists()) {
-                                logger.info("   Создание родительской директории: {}", parentDir.getAbsolutePath());
+                                logger.debug("   Создание родительской директории: {}", parentDir.getAbsolutePath());
                                 if (!parentDir.mkdirs()) {
                                     logger.error("❌ Не удалось создать родительскую директорию");
                                     throw new RuntimeException("Cannot create parent directory: " + parentDir.getAbsolutePath());
@@ -4872,9 +5226,11 @@
                 
                                 writer.flush();
                 
-                                logger.info("✅ Успешно записано {} строк в {}", lines.size(), filename);
-                                logger.info("   Файл существует после записи: {}", file.exists());
-                                logger.info("   Размер файла после записи: {} байт", file.length());
+                                if (logger.isDebugEnabled()) {
+                                    logger.debug("✅ Успешно записано {} строк в {}", lines.size(), filename);
+                                    logger.debug("   Файл существует после записи: {}", file.exists());
+                                    logger.debug("   Размер файла после записи: {} байт", file.length());
+                                }
                 
                             } catch (IOException e) {
                                 logger.error("❌ Ошибка записи файла {}: {}", filename, e.getMessage(), e);
@@ -5216,7 +5572,7 @@
               [FILE] TelegramNotificationService.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/telegram/TelegramNotificationService.java
                 Размер: 9465 байт
-                Дата изменения: 2026-01-17T14:49:12.908926501Z
+                Дата изменения: 2026-01-20T09:55:35.22051932Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.telegram;
@@ -5489,8 +5845,8 @@
 
               [FILE] TelegramBotService.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/telegram/TelegramBotService.java
-                Размер: 16482 байт
-                Дата изменения: 2026-01-20T08:40:14.817745303Z
+                Размер: 22756 байт
+                Дата изменения: 2026-01-28T18:58:45.794015496Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.telegram;
@@ -5499,6 +5855,8 @@
                 import com.parser.core.ThreadManager;
                 import com.parser.model.UserSettings;
                 import com.parser.service.CookieService;
+                import com.parser.storage.AccessRequestManager;
+                import com.parser.storage.UserSentProductsManager;
                 import com.parser.storage.WhitelistManager;
                 import com.parser.storage.UserDataManager;
                 import org.slf4j.Logger;
@@ -5564,10 +5922,12 @@
                                 handleStart(userId);
                                 break;
                             case "/help":
-                                sendHelpMessage(userId);
+                                handleHelpCommand(userId, args);
                                 break;
                             case "/status":
-                                sendStatus(userId);
+                                if (requireAuthorized(userId)) {
+                                    sendStatus(userId);
+                                }
                                 break;
                             case "/addquery":
                                 handleAddQuery(userId, args);
@@ -5579,16 +5939,34 @@
                                 handleRemoveQuery(userId, args);
                                 break;
                             case "/settings":
-                                sendSettingsMenu(userId);
+                                handleSettingsCommand(userId, args);
+                                break;
+                            case "/clearqueries":
+                                if (requireAuthorized(userId)) {
+                                    UserDataManager.clearUserQueries(userId);
+                                    sendMessage(userId, "✅ Запросы очищены. Добавить: /addquery");
+                                }
+                                break;
+                            case "/clearhistory":
+                                if (requireAuthorized(userId)) {
+                                    UserSentProductsManager.clearUserHistory(userId);
+                                    sendMessage(userId, "✅ История отправленных товаров очищена.");
+                                }
                                 break;
                             case "/start_parser":
-                                threadManager.startUserParser(userId);
+                                if (requireAuthorized(userId)) {
+                                    threadManager.startUserParser(userId);
+                                }
                                 break;
                             case "/stop_parser":
-                                threadManager.stopUserParser(userId);
+                                if (requireAuthorized(userId)) {
+                                    threadManager.stopUserParser(userId);
+                                }
                                 break;
                             case "/stats":
-                                sendStats(userId);
+                                if (requireAuthorized(userId)) {
+                                    sendStats(userId);
+                                }
                                 break;
                             case "/cookies":
                                 handleCookiesCommand(userId, args);
@@ -5613,6 +5991,11 @@
                 
                         switch (state) {
                             case "AWAITING_QUERY":
+                                if (!requireAuthorized(userId)) {
+                                    userStates.remove(userId);
+                                    userData.remove(userId);
+                                    return;
+                                }
                                 if (UserDataManager.addUserQuery(userId, text.trim())) {
                                     sendMessage(userId, "✅ Query added: " + text);
                                 } else {
@@ -5640,30 +6023,22 @@
                     }
                 
                     private void handleStart(long userId) {
-                        // 🔴 ДОБАВЛЯЕМ В WHITELIST
-                        boolean isNew = WhitelistManager.addUser(userId);
-                
-                        String msg;
-                        if (isNew) {
-                            msg = "🎉 Welcome! Your ID: " + userId + "\n\n" +
-                                    "Bot features:\n" +
-                                    "• Add search queries with /addquery\n" +
-                                    "• Start parser with /start_parser\n" +
-                                    "• View results with /stats\n\n" +
-                                    "Use /help for all commands";
-                        } else {
-                            msg = "👋 Welcome back!\n\nUse /help for commands";
+                        // ❗️Пользователи попадают в whitelist ТОЛЬКО через админа (см. /admin adduser)
+                        if (!WhitelistManager.isUserAllowed(userId)) {
+                            AccessRequestManager.recordAccessRequest(userId, "/start");
+                            String msg = "👋 Привет!\n\n" +
+                                    "❌ У вас нет доступа к боту.\n" +
+                                    "Отправьте администратору ваш ID: `" + userId + "`\n\n" +
+                                    "Команда: /getid";
+                            sendMessage(userId, msg);
+                            return;
                         }
                 
-                        sendMessage(userId, msg);
+                        sendMessage(userId, "👋 Welcome!\n\nUse /help for commands");
                     }
                 
                     private void handleAddQuery(long userId, String query) {
-                        // 🔴 ПРОВЕРКА WHITELIST
-                        if (!WhitelistManager.isUserAllowed(userId)) {
-                            sendMessage(userId, "❌ You are not authorized");
-                            return;
-                        }
+                        if (!requireAuthorized(userId)) return;
                 
                         if (query.trim().isEmpty()) {
                             userStates.put(userId, "AWAITING_QUERY");
@@ -5679,11 +6054,7 @@
                     }
                 
                     private void handleListQueries(long userId) {
-                        // 🔴 ПРОВЕРКА WHITELIST
-                        if (!WhitelistManager.isUserAllowed(userId)) {
-                            sendMessage(userId, "❌ You are not authorized");
-                            return;
-                        }
+                        if (!requireAuthorized(userId)) return;
                 
                         List<String> queries = UserDataManager.getUserQueries(userId);
                         if (queries.isEmpty()) {
@@ -5700,11 +6071,7 @@
                     }
                 
                     private void handleRemoveQuery(long userId, String arg) {
-                        // 🔴 ПРОВЕРКА WHITELIST
-                        if (!WhitelistManager.isUserAllowed(userId)) {
-                            sendMessage(userId, "❌ You are not authorized");
-                            return;
-                        }
+                        if (!requireAuthorized(userId)) return;
                 
                         try {
                             if (arg.trim().isEmpty()) {
@@ -5761,31 +6128,73 @@
                         }
                     }
                 
-                    private void sendHelpMessage(long userId) {
+                    private void handleHelpCommand(long userId, String args) {
+                        String a = args == null ? "" : args.trim().toLowerCase(Locale.ROOT);
+                        if ("admin".equals(a)) {
+                            if (userId != adminId) {
+                                sendMessage(userId, "❌ Только для админа");
+                                return;
+                            }
+                            sendAdminHelpMessage(userId);
+                            return;
+                        }
+                        sendUserHelpMessage(userId);
+                    }
+                
+                    private void sendUserHelpMessage(long userId) {
                         String help = """
-                                📚 Commands:
-                                
-                                🎯 Queries:
-                                /addquery [text] - add query
-                                /listqueries - list queries
-                                /removequery [number] - remove query
-                                
-                                ⚙️ Settings:
-                                /settings - parser settings
-                                /stats - statistics
-                                
-                                ▶️ Control:
-                                /start_parser - start
-                                /stop_parser - stop
-                                /status - check status
-                                
-                                🍪 Admin:
-                                /cookies - manage cookies
-                                /admin - admin menu
-                                
-                                ℹ️ Info:
-                                /getid - your ID
-                                /help - this message
+                                📚 Команды пользователя:
+                
+                                ℹ️ Доступ:
+                                /start - приветствие/проверка доступа
+                                /getid - показать ваш ID (чтобы отправить админу)
+                
+                                🎯 Запросы:
+                                /addquery [текст] - добавить запрос
+                                /listqueries - список запросов
+                                /removequery [номер] - удалить запрос
+                                /clearqueries - очистить все запросы
+                
+                                ⚙️ Настройки:
+                                /settings - показать настройки
+                                /settings check_interval <сек>
+                                /settings max_age <мин>
+                                /settings max_pages <число>
+                                /settings rows_per_page <число>
+                
+                                ▶️ Парсер:
+                                /start_parser - запустить
+                                /stop_parser - остановить
+                                /status - статус
+                                /stats - статистика
+                
+                                🧹 История:
+                                /clearhistory - очистить историю отправленных товаров
+                
+                                👑 Админ:
+                                /help admin - команды админа
+                                """;
+                        sendMessage(userId, help);
+                    }
+                
+                    private void sendAdminHelpMessage(long userId) {
+                        String help = """
+                                👑 Команды админа:
+                
+                                ✅ Доступ:
+                                /admin users - список пользователей whitelist
+                                /admin adduser <id> - добавить пользователя
+                                /admin removeuser <id> - удалить пользователя
+                                /admin pending - заявки на доступ
+                
+                                🍪 Cookies:
+                                /cookies - меню
+                                /cookies status - статус
+                                /cookies refresh - обновить
+                                /cookies dynamic - включить/выключить динамические
+                
+                                ℹ️ Справка:
+                                /help - команды пользователя
                                 """;
                         sendMessage(userId, help);
                     }
@@ -5800,18 +6209,64 @@
                                 • Rows/page: %d
                                 • Currency: %s
                                 
-                                Edit with: /settings [param] [value]
+                                Update with:
+                                /settings check_interval <seconds>
+                                /settings max_age <minutes>
+                                /settings max_pages <number>
+                                /settings rows_per_page <number>
                                 """, s.getCheckInterval(), s.getMaxAgeMinutes(), s.getMaxPages(),
                                 s.getRowsPerPage(), s.getPriceCurrency());
                         sendMessage(userId, msg);
                     }
                 
-                    private void sendStatus(long userId) {
-                        if (!WhitelistManager.isUserAllowed(userId)) {
-                            sendMessage(userId, "❌ You are not authorized");
+                    private void handleSettingsCommand(long userId, String args) {
+                        if (!requireAuthorized(userId)) {
                             return;
                         }
                 
+                        if (args == null || args.trim().isEmpty()) {
+                            sendSettingsMenu(userId);
+                            return;
+                        }
+                
+                        String[] parts = args.trim().split("\\s+");
+                        if (parts.length < 2) {
+                            sendMessage(userId, "Use: /settings <param> <value>\nTry: /settings check_interval 300");
+                            return;
+                        }
+                
+                        String key = parts[0].toLowerCase(Locale.ROOT);
+                        String value = parts[1];
+                
+                        UserSettings settings = UserDataManager.getUserSettings(userId);
+                        try {
+                            int intVal = Integer.parseInt(value.trim());
+                            switch (key) {
+                                case "check_interval":
+                                    settings.setCheckInterval(intVal);
+                                    break;
+                                case "max_age":
+                                    settings.setMaxAgeMinutes(intVal);
+                                    break;
+                                case "max_pages":
+                                    settings.setMaxPages(intVal);
+                                    break;
+                                case "rows_per_page":
+                                    settings.setRowsPerPage(intVal);
+                                    break;
+                                default:
+                                    sendMessage(userId, "❌ Unknown setting: " + key + "\nOpen menu: /settings");
+                                    return;
+                            }
+                
+                            UserDataManager.saveUserSettings(userId, settings);
+                            sendMessage(userId, "✅ Setting updated.\n\n" + settings.getSummary());
+                        } catch (NumberFormatException e) {
+                            sendMessage(userId, "❌ Invalid number: " + value);
+                        }
+                    }
+                
+                    private void sendStatus(long userId) {
                         Map<String, Object> status = threadManager.getUserStatus(userId);
                         if (status == null) {
                             sendMessage(userId, "🔴 Parser is not running");
@@ -5882,12 +6337,19 @@
                             }
                         } else if (args.equals("status")) {
                             Map<String, Object> stats = CookieService.getCacheStats();
-                            sendMessage(userId, "🍪 Dynamic: " + Config.isDynamicCookiesEnabled());
+                            String msg = "🍪 Cookie status:\n\n" +
+                                    "Dynamic: " + Config.isDynamicCookiesEnabled() + "\n" +
+                                    "Cached domains: " + stats.getOrDefault("cachedDomains", "N/A") + "\n" +
+                                    "Last refresh: " + stats.getOrDefault("lastRefreshTime", "N/A") + "\n" +
+                                    "TTL (min): " + stats.getOrDefault("cacheTTLMinutes", "N/A") + "\n";
+                            sendMessage(userId, msg);
                         } else if (args.equals("dynamic")) {
                             boolean current = Config.isDynamicCookiesEnabled();
                             Config.setProperty("cookie.dynamic.enabled", String.valueOf(!current));
                             Config.saveConfig();
                             sendMessage(userId, "✅ Dynamic cookies: " + (!current ? "ON" : "OFF"));
+                        } else {
+                            sendMessage(userId, "Unknown cookies command. Use /cookies");
                         }
                     }
                 
@@ -5916,17 +6378,36 @@
                                 break;
                             case "users":
                                 List<Long> users = WhitelistManager.getAllUsers();
-                                sendMessage(userId, "👥 Users: " + users.size() + "\n" + users);
+                                Collections.sort(users);
+                                StringBuilder sb = new StringBuilder("👥 Whitelist users: " + users.size() + "\n\n");
+                                for (Long u : users) sb.append(u).append("\n");
+                                sendMessage(userId, sb.toString());
+                                break;
+                            case "pending":
+                                List<String> reqs = AccessRequestManager.getRequests();
+                                if (reqs.isEmpty()) {
+                                    sendMessage(userId, "📭 Заявок нет");
+                                    break;
+                                }
+                                StringBuilder rsb = new StringBuilder("📨 Заявки на доступ:\n\n");
+                                for (String line : reqs) {
+                                    rsb.append(line).append("\n");
+                                }
+                                rsb.append("\nДобавить: /admin adduser <id>");
+                                sendMessage(userId, rsb.toString());
                                 break;
                             case "adduser":
                                 if (parts.length > 1) {
                                     try {
                                         long uid = Long.parseLong(parts[1]);
                                         WhitelistManager.addUser(uid);
+                                        AccessRequestManager.removeRequest(uid);
                                         sendMessage(userId, "✅ User added");
                                     } catch (NumberFormatException e) {
                                         sendMessage(userId, "❌ Invalid ID");
                                     }
+                                } else {
+                                    sendMessage(userId, "Use: /admin adduser [id]");
                                 }
                                 break;
                             case "removeuser":
@@ -5939,9 +6420,20 @@
                                     } catch (NumberFormatException e) {
                                         sendMessage(userId, "❌ Invalid ID");
                                     }
+                                } else {
+                                    sendMessage(userId, "Use: /admin removeuser [id]");
                                 }
                                 break;
                         }
+                    }
+                
+                    private boolean requireAuthorized(long userId) {
+                        if (!WhitelistManager.isUserAllowed(userId)) {
+                            AccessRequestManager.recordAccessRequest(userId, "unauthorized_command");
+                            sendMessage(userId, "❌ You are not authorized. Send /getid to admin.");
+                            return false;
+                        }
+                        return true;
                     }
                 
                     protected void sendMessage(long userId, String text) {
@@ -6121,8 +6613,8 @@
 
               [FILE] Product.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/model/Product.java
-                Размер: 7226 байт
-                Дата изменения: 2026-01-19T09:31:29.769232796Z
+                Размер: 7450 байт
+                Дата изменения: 2026-01-20T10:04:38.258874778Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.model;
@@ -6342,10 +6834,14 @@
                 
                     @JsonIgnore
                     public String getShortTitle() {
-                        if (title.length() <= 50) {
+                        if (title == null || title.isEmpty() || "No title".equals(title)) {
+                            return "Товар #" + id;
+                        }
+                
+                        if (title.length() <= 80) { // Уменьшаем лимит для более аккуратного отображения
                             return title;
                         }
-                        return title.substring(0, 47) + "...";
+                        return title.substring(0, 77) + "...";
                     }
                 
                     @JsonIgnore

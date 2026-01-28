@@ -17,10 +17,12 @@
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/model/Product.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/config/ParserSettings.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/service/SeleniumCookieFetcher.java
+/Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/UserSentProductsManager.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/telegram/TelegramNotificationService.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/telegram/TelegramBotService.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/parser/GoofishParser.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/model/UserSettings.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/WhitelistManager.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/Main.java
+/Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/AccessRequestManager.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/core/ThreadManager.java

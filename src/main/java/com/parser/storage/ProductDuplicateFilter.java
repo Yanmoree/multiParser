@@ -8,6 +8,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Фильтр для предотвращения отправки дубликатов товаров
+ *
+ * NOTE:
+ * В актуальном потоке отправки уведомлений используется `UserSentProductsManager`
+ * (персистентная история отправленных товаров).
+ * Этот класс оставлен для обратной совместимости и может использоваться только
+ * как in-memory кэш “увиденных” товаров (без гарантии персистентности).
  */
 public class ProductDuplicateFilter {
     private static final Logger logger = LoggerFactory.getLogger(ProductDuplicateFilter.class);

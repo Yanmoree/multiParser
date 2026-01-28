@@ -215,14 +215,14 @@ public class Product {
 
     @JsonIgnore
     public String getShortTitle() {
-        if (title == null || title.isEmpty() || title.equals("No title")) {
+        if (title == null || title.isEmpty() || "No title".equals(title)) {
             return "Товар #" + id;
         }
 
-        if (title.length() <= 100) { // Увеличиваем лимит для лучшего отображения
+        if (title.length() <= 80) { // Уменьшаем лимит для более аккуратного отображения
             return title;
         }
-        return title.substring(0, 97) + "...";
+        return title.substring(0, 77) + "...";
     }
 
     @JsonIgnore

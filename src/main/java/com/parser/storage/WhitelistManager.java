@@ -10,7 +10,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class WhitelistManager {
     private static final Logger logger = LoggerFactory.getLogger(WhitelistManager.class);
-    private static final String WHITELIST_FILE = "data/whitelist.txt";
+    /**
+     * ВАЖНО:
+     * FileStorage сам добавляет префикс storage.data.dir (по умолчанию ./data).
+     * Поэтому здесь НЕ должно быть "data/..." иначе получится ./data/data/...
+     *
+     * Для обратной совместимости поддерживаем старый путь.
+     */
+    private static final String WHITELIST_FILE = "whitelist.txt";
+    private static final String LEGACY_WHITELIST_FILE = "data/whitelist.txt";
     private static final Set<Long> whitelist = Collections.synchronizedSet(new HashSet<>());
     private static volatile boolean isInitialized = false;
 
@@ -28,7 +36,17 @@ public class WhitelistManager {
      */
     private static void loadWhitelist() {
         List<String> lines = FileStorage.readLines(WHITELIST_FILE);
-        logger.info("Loading whitelist. Found {} lines", lines.size());
+        boolean loadedFromLegacy = false;
+
+        // Если нового файла нет/пустой, но есть legacy — читаем legacy
+        if ((lines == null || lines.isEmpty()) && FileStorage.fileExists(LEGACY_WHITELIST_FILE)) {
+            lines = FileStorage.readLines(LEGACY_WHITELIST_FILE);
+            loadedFromLegacy = true;
+        }
+
+        logger.info("Loading whitelist from {}. Found {} lines",
+                loadedFromLegacy ? LEGACY_WHITELIST_FILE : WHITELIST_FILE,
+                lines != null ? lines.size() : 0);
 
         for (String line : lines) {
             try {
@@ -49,6 +67,12 @@ public class WhitelistManager {
         }
 
         logger.info("✅ Loaded {} users from whitelist", whitelist.size());
+
+        // Мягкая миграция: если загрузили из legacy и новый файл отсутствует — сохраняем в новый путь
+        if (loadedFromLegacy && !FileStorage.fileExists(WHITELIST_FILE) && !whitelist.isEmpty()) {
+            logger.info("Migrating whitelist from legacy path to {}", WHITELIST_FILE);
+            saveWhitelist();
+        }
     }
 
     /**

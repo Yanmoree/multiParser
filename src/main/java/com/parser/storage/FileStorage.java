@@ -41,6 +41,7 @@ public class FileStorage {
                 // Создание поддиректорий
                 createSubdirectory(dataDir, "user_settings");
                 createSubdirectory(dataDir, "user_products");
+                createSubdirectory(dataDir, "sent_products");
                 createSubdirectory(dataDir, "backups");
                 createSubdirectory(dataDir, "logs");
 
@@ -50,6 +51,12 @@ public class FileStorage {
             }
         } else {
             logger.debug("Директория данных уже существует: {}", dataDir);
+            // На случай апгрейда/старых установок
+            createSubdirectory(dataDir, "user_settings");
+            createSubdirectory(dataDir, "user_products");
+            createSubdirectory(dataDir, "sent_products");
+            createSubdirectory(dataDir, "backups");
+            createSubdirectory(dataDir, "logs");
         }
     }
 
@@ -127,16 +134,19 @@ public class FileStorage {
             ensureDataDir();
             File file = new File(getFilePath(filename));
 
-            logger.info("📝 Запись в файл: {} (абсолютный путь: {})",
-                    filename, file.getAbsolutePath());
-            logger.info("   Файл существует перед записью: {}", file.exists());
-            logger.info("   Родительская директория: {}", file.getParent());
-            logger.info("   Количество строк для записи: {}", lines.size());
+            // В проде эти логи слишком шумные — оставляем только в DEBUG.
+            if (logger.isDebugEnabled()) {
+                logger.debug("📝 Запись в файл: {} (абсолютный путь: {})",
+                        filename, file.getAbsolutePath());
+                logger.debug("   Файл существует перед записью: {}", file.exists());
+                logger.debug("   Родительская директория: {}", file.getParent());
+                logger.debug("   Количество строк для записи: {}", lines.size());
+            }
 
             // Проверяем родительскую директорию
             File parentDir = file.getParentFile();
             if (parentDir != null && !parentDir.exists()) {
-                logger.info("   Создание родительской директории: {}", parentDir.getAbsolutePath());
+                logger.debug("   Создание родительской директории: {}", parentDir.getAbsolutePath());
                 if (!parentDir.mkdirs()) {
                     logger.error("❌ Не удалось создать родительскую директорию");
                     throw new RuntimeException("Cannot create parent directory: " + parentDir.getAbsolutePath());
@@ -165,9 +175,11 @@ public class FileStorage {
 
                 writer.flush();
 
-                logger.info("✅ Успешно записано {} строк в {}", lines.size(), filename);
-                logger.info("   Файл существует после записи: {}", file.exists());
-                logger.info("   Размер файла после записи: {} байт", file.length());
+                if (logger.isDebugEnabled()) {
+                    logger.debug("✅ Успешно записано {} строк в {}", lines.size(), filename);
+                    logger.debug("   Файл существует после записи: {}", file.exists());
+                    logger.debug("   Размер файла после записи: {} байт", file.length());
+                }
 
             } catch (IOException e) {
                 logger.error("❌ Ошибка записи файла {}: {}", filename, e.getMessage(), e);

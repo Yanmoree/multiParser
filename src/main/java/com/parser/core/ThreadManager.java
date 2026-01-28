@@ -6,8 +6,8 @@ import com.parser.model.UserSettings;
 import com.parser.parser.ParserFactory;
 import com.parser.parser.SiteParser;
 import com.parser.service.CookieService;
-import com.parser.storage.ProductDuplicateFilter;
 import com.parser.storage.UserDataManager;
+import com.parser.storage.UserSentProductsManager;
 import com.parser.storage.WhitelistManager;
 import com.parser.telegram.TelegramNotificationService;
 import org.slf4j.Logger;
@@ -129,7 +129,8 @@ public class ThreadManager {
                                 sendProductNotifications(userId, products, query, session.getSettings());
                             }
 
-                            UserDataManager.saveUserProducts(userId, products);
+                            // Не перезаписываем историю каждый раз: добавляем новые товары к уже сохранённым
+                            UserDataManager.addUserProducts(userId, products);
                         }
 
                         Thread.sleep(Config.getInt("api.goofish.delay.between.requests", 2000));
@@ -199,39 +200,58 @@ public class ThreadManager {
             return;
         }
 
-        logger.info("Sending notifications: {} products for user {}", products.size(), userId);
+        logger.info("Отправка уведомлений: {} товаров для пользователя {}", products.size(), userId);
 
-        // 🔴 ПРОСТОЕ РЕШЕНИЕ: Сохраняем без сложной логики
-        try {
-            // Просто сохраняем товары (без проверки дубликатов для устранения рекурсии)
-            String json = new com.fasterxml.jackson.databind.ObjectMapper()
-                    .writeValueAsString(products);
+        // 🔴 ФИЛЬТРАЦИЯ ТОЛЬКО НОВЫХ ТОВАРОВ
+        Set<String> productIds = new HashSet<>();
+        Map<String, Product> productMap = new HashMap<>();
 
-            String filepath = Config.getStorageDataDir() + "/user_products/" + userId + ".json";
-            java.nio.file.Files.write(
-                    java.nio.file.Paths.get(filepath),
-                    json.getBytes(StandardCharsets.UTF_8)
-            );
-
-            logger.debug("✅ Товары сохранены для пользователя {}", userId);
-        } catch (Exception e) {
-            logger.error("Ошибка сохранения товаров: {}", e.getMessage());
+        for (Product p : products) {
+            productIds.add(p.getId());
+            productMap.put(p.getId(), p);
         }
 
-        // 🟢 Отправляем уведомления
-        String summary = String.format("🔍 Found %d products for '<b>%s</b>'\n\n",
-                products.size(), escapeHtml(query));
+        // Получаем только новые товары (не отправленные ранее)
+        Set<String> newProductIds = UserSentProductsManager.filterNewProducts(userId, productIds);
+
+        if (newProductIds.isEmpty()) {
+            logger.debug("Нет новых товаров для отправки пользователю {}", userId);
+            return;
+        }
+
+        // 🔴 СОБИРАЕМ НОВЫЕ ТОВАРЫ
+        List<Product> newProducts = new ArrayList<>();
+        for (String productId : newProductIds) {
+            Product p = productMap.get(productId);
+            if (p != null) {
+                newProducts.add(p);
+            }
+        }
+
+        logger.info("Будет отправлено {} новых товаров пользователю {}", newProducts.size(), userId);
+
+        // 🔴 СОХРАНЯЕМ ТОВАРЫ КАК ОТПРАВЛЕННЫЕ
+        UserSentProductsManager.markProductsAsSent(userId, newProductIds);
+
+        // 🟢 ОТПРАВЛЯЕМ УВЕДОМЛЕНИЯ
+        String summary = String.format("🔍 Найдено <b>%d новых товаров</b> по запросу: <i>%s</i>\n\n",
+                newProducts.size(), escapeHtml(query));
         TelegramNotificationService.sendHtmlMessage(userId, summary);
 
-        // Отправляем товары по одному
-        for (int i = 0; i < products.size(); i++) {
-            Product p = products.get(i);
+        // Отправляем новые товары по одному
+        for (int i = 0; i < newProducts.size(); i++) {
+            Product p = newProducts.get(i);
 
             try {
+                // Проверяем название товара
+                if (p.getTitle() == null || p.getTitle().isEmpty() || "No title".equals(p.getTitle())) {
+                    p.setTitle("Товар #" + p.getId() + " (" + query + ")");
+                }
+
                 if (p.hasCoverImage()) {
-                    sendProductWithPhoto(userId, p, i + 1, products.size());
+                    sendProductWithPhoto(userId, p, i + 1, newProducts.size());
                 } else {
-                    sendProductAsText(userId, p, i + 1, products.size());
+                    sendProductAsText(userId, p, i + 1, newProducts.size());
                 }
 
                 Thread.sleep(800);
@@ -239,9 +259,13 @@ public class ThreadManager {
                 Thread.currentThread().interrupt();
                 break;
             } catch (Exception e) {
-                logger.error("Error sending notification for product {}: {}", p.getId(), e.getMessage());
+                logger.error("Ошибка отправки уведомления для товара {}: {}", p.getId(), e.getMessage());
             }
         }
+
+        // 🔴 ОБНОВЛЯЕМ СТАТИСТИКУ
+        logger.info("✅ Отправлено {} новых товаров пользователю {}. {}",
+                newProducts.size(), userId, UserSentProductsManager.getStats(userId));
     }
 
     private void sendProductWithPhoto(long userId, Product p, int number, int total) {
@@ -292,10 +316,9 @@ public class ThreadManager {
         // Номер товара с эмодзи
         String numberEmoji = getNumberEmoji(number);
 
-        // Получаем полное название товара (не обрезанное)
+        // Получаем название товара
         String fullTitle = p.getTitle();
         if (fullTitle == null || fullTitle.isEmpty() || "No title".equals(fullTitle)) {
-            // Если название отсутствует, используем ID товара
             fullTitle = "Товар #" + p.getId();
         }
 
@@ -304,21 +327,16 @@ public class ThreadManager {
                 escapeHtml(p.getUrl()),
                 escapeHtml(fullTitle));
 
-        // Цена: юани и рубли
-        String priceRub = String.format("%.0f", p.getPriceRubles());
-        String price = String.format("💰 <b>%s ¥</b> | %s руб",
-                String.format("%.0f", p.getPrice()),
-                priceRub);
+        // 🔴 Цена: только в юанях (убираем рубли и локацию)
+        String price = String.format("💰 <b>%s ¥</b>",
+                String.format("%.0f", p.getPrice()));
 
-        // Локация
-        String location = String.format("📍 <i>%s</i>", escapeHtml(p.getLocation()));
-
-        // Возраст
+        // 🔴 ВОЗРАСТ ТОВАРА
         String age = String.format("⏳ %s", p.getAgeDisplay());
 
-        // Собираем итоговое сообщение
-        return String.format("%s %s\n\n%s\n%s\n%s",
-                numberEmoji, titleLink, price, location, age);
+        // 🔴 УБРАЛИ ЛОКАЦИЮ, Собираем итоговое сообщение
+        return String.format("%s %s\n\n%s\n%s",
+                numberEmoji, titleLink, price, age);
     }
 
     private String escapeHtml(String text) {
@@ -337,9 +355,6 @@ public class ThreadManager {
             session.setRunning(false);
             userSessions.remove(userId);
             logger.info("Parser stopped for user {}", userId);
-
-            // Очищаем кэш фильтра при остановке
-            ProductDuplicateFilter.clearUserCache(userId);
 
             return true;
         }

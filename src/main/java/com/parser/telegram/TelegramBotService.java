@@ -4,12 +4,18 @@ import com.parser.config.Config;
 import com.parser.core.ThreadManager;
 import com.parser.model.UserSettings;
 import com.parser.service.CookieService;
+import com.parser.storage.AccessRequestManager;
+import com.parser.storage.UserSentProductsManager;
 import com.parser.storage.WhitelistManager;
 import com.parser.storage.UserDataManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
+import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeChat;
+import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -31,6 +37,45 @@ public class TelegramBotService extends TelegramLongPollingBot {
         this.threadManager = threadManager;
         this.adminId = Config.getTelegramAdminId();
         logger.info("TelegramBotService initialized");
+    }
+
+    /**
+     * Настраивает меню команд (кнопка слева от поля ввода).
+     * Вызывать после старта/регистрации бота.
+     */
+    public void configureCommandMenu() {
+        try {
+            List<BotCommand> userCommands = List.of(
+                    new BotCommand("/start", "Запуск / проверка доступа"),
+                    new BotCommand("/help", "Справка"),
+                    new BotCommand("/getid", "Показать мой ID"),
+                    new BotCommand("/addquery", "Добавить запрос"),
+                    new BotCommand("/listqueries", "Список запросов"),
+                    new BotCommand("/removequery", "Удалить запрос"),
+                    new BotCommand("/clearqueries", "Очистить запросы"),
+                    new BotCommand("/settings", "Настройки"),
+                    new BotCommand("/start_parser", "Запустить парсер"),
+                    new BotCommand("/stop_parser", "Остановить парсер"),
+                    new BotCommand("/status", "Статус"),
+                    new BotCommand("/stats", "Статистика"),
+                    new BotCommand("/clearhistory", "Очистить историю отправленных")
+            );
+
+            execute(new SetMyCommands(userCommands, new BotCommandScopeDefault(), "ru"));
+            logger.info("✅ User command menu configured");
+
+            if (adminId != 0) {
+                List<BotCommand> adminCommands = new ArrayList<>(userCommands);
+                adminCommands.add(new BotCommand("/admin", "Админ-меню"));
+                adminCommands.add(new BotCommand("/cookies", "Cookies"));
+                adminCommands.add(new BotCommand("/help", "Справка (используй: /help admin)"));
+
+                execute(new SetMyCommands(adminCommands, new BotCommandScopeChat(String.valueOf(adminId)), "ru"));
+                logger.info("✅ Admin command menu configured for {}", adminId);
+            }
+        } catch (Exception e) {
+            logger.warn("Failed to configure command menu: {}", e.getMessage());
+        }
     }
 
     @Override
@@ -69,10 +114,12 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 handleStart(userId);
                 break;
             case "/help":
-                sendHelpMessage(userId);
+                handleHelpCommand(userId, args);
                 break;
             case "/status":
-                sendStatus(userId);
+                if (requireAuthorized(userId)) {
+                    sendStatus(userId);
+                }
                 break;
             case "/addquery":
                 handleAddQuery(userId, args);
@@ -84,16 +131,34 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 handleRemoveQuery(userId, args);
                 break;
             case "/settings":
-                sendSettingsMenu(userId);
+                handleSettingsCommand(userId, args);
+                break;
+            case "/clearqueries":
+                if (requireAuthorized(userId)) {
+                    UserDataManager.clearUserQueries(userId);
+                    sendMessage(userId, "✅ Запросы очищены. Добавить: /addquery");
+                }
+                break;
+            case "/clearhistory":
+                if (requireAuthorized(userId)) {
+                    UserSentProductsManager.clearUserHistory(userId);
+                    sendMessage(userId, "✅ История отправленных товаров очищена.");
+                }
                 break;
             case "/start_parser":
-                threadManager.startUserParser(userId);
+                if (requireAuthorized(userId)) {
+                    threadManager.startUserParser(userId);
+                }
                 break;
             case "/stop_parser":
-                threadManager.stopUserParser(userId);
+                if (requireAuthorized(userId)) {
+                    threadManager.stopUserParser(userId);
+                }
                 break;
             case "/stats":
-                sendStats(userId);
+                if (requireAuthorized(userId)) {
+                    sendStats(userId);
+                }
                 break;
             case "/cookies":
                 handleCookiesCommand(userId, args);
@@ -102,22 +167,27 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 handleAdminCommand(userId, args);
                 break;
             case "/getid":
-                sendMessage(userId, "🆔 Your ID: `" + userId + "`");
+                sendMessage(userId, "Ваш ID: " + userId);
                 break;
             default:
-                sendMessage(userId, "❓ Unknown command. Use /help");
+                sendMessage(userId, "Неизвестная команда. Используй /help");
         }
     }
 
     private void handleTextResponse(long userId, String text) {
         String state = userStates.get(userId);
         if (state == null) {
-            sendMessage(userId, "Use commands. /help - command list");
+            sendMessage(userId, "Используй команды. /help — список команд");
             return;
         }
 
         switch (state) {
             case "AWAITING_QUERY":
+                if (!requireAuthorized(userId)) {
+                    userStates.remove(userId);
+                    userData.remove(userId);
+                    return;
+                }
                 if (UserDataManager.addUserQuery(userId, text.trim())) {
                     sendMessage(userId, "✅ Query added: " + text);
                 } else {
@@ -145,30 +215,22 @@ public class TelegramBotService extends TelegramLongPollingBot {
     }
 
     private void handleStart(long userId) {
-        // 🔴 ДОБАВЛЯЕМ В WHITELIST
-        boolean isNew = WhitelistManager.addUser(userId);
-
-        String msg;
-        if (isNew) {
-            msg = "🎉 Welcome! Your ID: " + userId + "\n\n" +
-                    "Bot features:\n" +
-                    "• Add search queries with /addquery\n" +
-                    "• Start parser with /start_parser\n" +
-                    "• View results with /stats\n\n" +
-                    "Use /help for all commands";
-        } else {
-            msg = "👋 Welcome back!\n\nUse /help for commands";
+        // ❗️Пользователи попадают в whitelist ТОЛЬКО через админа (см. /admin adduser)
+        if (!WhitelistManager.isUserAllowed(userId)) {
+            AccessRequestManager.recordAccessRequest(userId, "/start");
+            String msg = "👋 Привет!\n\n" +
+                    "❌ У вас нет доступа к боту.\n" +
+                    "Отправьте администратору ваш ID: " + userId + "\n\n" +
+                    "Команда: /getid";
+            sendMessage(userId, msg);
+            return;
         }
 
-        sendMessage(userId, msg);
+        sendMessage(userId, "👋 Привет! Используй /help для списка команд.");
     }
 
     private void handleAddQuery(long userId, String query) {
-        // 🔴 ПРОВЕРКА WHITELIST
-        if (!WhitelistManager.isUserAllowed(userId)) {
-            sendMessage(userId, "❌ You are not authorized");
-            return;
-        }
+        if (!requireAuthorized(userId)) return;
 
         if (query.trim().isEmpty()) {
             userStates.put(userId, "AWAITING_QUERY");
@@ -184,19 +246,15 @@ public class TelegramBotService extends TelegramLongPollingBot {
     }
 
     private void handleListQueries(long userId) {
-        // 🔴 ПРОВЕРКА WHITELIST
-        if (!WhitelistManager.isUserAllowed(userId)) {
-            sendMessage(userId, "❌ You are not authorized");
-            return;
-        }
+        if (!requireAuthorized(userId)) return;
 
         List<String> queries = UserDataManager.getUserQueries(userId);
         if (queries.isEmpty()) {
-            sendMessage(userId, "📭 No queries. Use /addquery");
+            sendMessage(userId, "📭 Запросов нет. Добавь: /addquery");
             return;
         }
 
-        StringBuilder sb = new StringBuilder("📋 Your queries:\n\n");
+        StringBuilder sb = new StringBuilder("📋 Ваши запросы:\n\n");
         for (int i = 0; i < queries.size(); i++) {
             sb.append(String.format("%d. %s\n", i + 1, queries.get(i)));
         }
@@ -205,15 +263,11 @@ public class TelegramBotService extends TelegramLongPollingBot {
     }
 
     private void handleRemoveQuery(long userId, String arg) {
-        // 🔴 ПРОВЕРКА WHITELIST
-        if (!WhitelistManager.isUserAllowed(userId)) {
-            sendMessage(userId, "❌ You are not authorized");
-            return;
-        }
+        if (!requireAuthorized(userId)) return;
 
         try {
             if (arg.trim().isEmpty()) {
-                sendMessage(userId, "Use: /removequery [number]");
+                sendMessage(userId, "Использование: /removequery [номер]");
                 return;
             }
 
@@ -221,14 +275,14 @@ public class TelegramBotService extends TelegramLongPollingBot {
             List<String> queries = UserDataManager.getUserQueries(userId);
 
             if (idx < 0 || idx >= queries.size()) {
-                sendMessage(userId, "❌ Invalid number");
+                sendMessage(userId, "❌ Неверный номер");
                 return;
             }
 
             UserDataManager.removeUserQuery(userId, queries.get(idx));
-            sendMessage(userId, "✅ Query removed");
+            sendMessage(userId, "✅ Запрос удалён");
         } catch (NumberFormatException e) {
-            sendMessage(userId, "❌ Invalid format. Use: /removequery [number]");
+            sendMessage(userId, "❌ Неверный формат. Использование: /removequery [номер]");
         }
     }
 
@@ -266,31 +320,73 @@ public class TelegramBotService extends TelegramLongPollingBot {
         }
     }
 
-    private void sendHelpMessage(long userId) {
+    private void handleHelpCommand(long userId, String args) {
+        String a = args == null ? "" : args.trim().toLowerCase(Locale.ROOT);
+        if ("admin".equals(a)) {
+            if (userId != adminId) {
+                sendMessage(userId, "❌ Только для администратора");
+                return;
+            }
+            sendAdminHelpMessage(userId);
+            return;
+        }
+        sendUserHelpMessage(userId);
+    }
+
+    private void sendUserHelpMessage(long userId) {
         String help = """
-                📚 Commands:
-                
-                🎯 Queries:
-                /addquery [text] - add query
-                /listqueries - list queries
-                /removequery [number] - remove query
-                
-                ⚙️ Settings:
-                /settings - parser settings
-                /stats - statistics
-                
-                ▶️ Control:
-                /start_parser - start
-                /stop_parser - stop
-                /status - check status
-                
-                🍪 Admin:
-                /cookies - manage cookies
-                /admin - admin menu
-                
-                ℹ️ Info:
-                /getid - your ID
-                /help - this message
+                📚 Команды пользователя:
+
+                ℹ️ Доступ:
+                /start - приветствие/проверка доступа
+                /getid - показать ваш ID (чтобы отправить админу)
+
+                🎯 Запросы:
+                /addquery [текст] - добавить запрос
+                /listqueries - список запросов
+                /removequery [номер] - удалить запрос
+                /clearqueries - очистить все запросы
+
+                ⚙️ Настройки:
+                /settings - показать настройки
+                /settings check_interval <сек>
+                /settings max_age <мин>
+                /settings max_pages <число>
+                /settings rows_per_page <число>
+
+                ▶️ Парсер:
+                /start_parser - запустить
+                /stop_parser - остановить
+                /status - статус
+                /stats - статистика
+
+                🧹 История:
+                /clearhistory - очистить историю отправленных товаров
+
+                👑 Админ:
+                /help admin - команды админа
+                """;
+        sendMessage(userId, help);
+    }
+
+    private void sendAdminHelpMessage(long userId) {
+        String help = """
+                👑 Команды админа:
+
+                ✅ Доступ:
+                /admin users - список пользователей whitelist
+                /admin adduser <id> - добавить пользователя
+                /admin removeuser <id> - удалить пользователя
+                /admin pending - заявки на доступ
+
+                🍪 Cookies:
+                /cookies - меню
+                /cookies status - статус
+                /cookies refresh - обновить
+                /cookies dynamic - включить/выключить динамические
+
+                ℹ️ Справка:
+                /help - команды пользователя
                 """;
         sendMessage(userId, help);
     }
@@ -305,21 +401,67 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 • Rows/page: %d
                 • Currency: %s
                 
-                Edit with: /settings [param] [value]
+                Update with:
+                /settings check_interval <seconds>
+                /settings max_age <minutes>
+                /settings max_pages <number>
+                /settings rows_per_page <number>
                 """, s.getCheckInterval(), s.getMaxAgeMinutes(), s.getMaxPages(),
                 s.getRowsPerPage(), s.getPriceCurrency());
         sendMessage(userId, msg);
     }
 
-    private void sendStatus(long userId) {
-        if (!WhitelistManager.isUserAllowed(userId)) {
-            sendMessage(userId, "❌ You are not authorized");
+    private void handleSettingsCommand(long userId, String args) {
+        if (!requireAuthorized(userId)) {
             return;
         }
 
+        if (args == null || args.trim().isEmpty()) {
+            sendSettingsMenu(userId);
+            return;
+        }
+
+        String[] parts = args.trim().split("\\s+");
+        if (parts.length < 2) {
+            sendMessage(userId, "Использование: /settings <параметр> <значение>\nПример: /settings check_interval 300");
+            return;
+        }
+
+        String key = parts[0].toLowerCase(Locale.ROOT);
+        String value = parts[1];
+
+        UserSettings settings = UserDataManager.getUserSettings(userId);
+        try {
+            int intVal = Integer.parseInt(value.trim());
+            switch (key) {
+                case "check_interval":
+                    settings.setCheckInterval(intVal);
+                    break;
+                case "max_age":
+                    settings.setMaxAgeMinutes(intVal);
+                    break;
+                case "max_pages":
+                    settings.setMaxPages(intVal);
+                    break;
+                case "rows_per_page":
+                    settings.setRowsPerPage(intVal);
+                    break;
+                default:
+                    sendMessage(userId, "❌ Неизвестная настройка: " + key + "\nОткрой меню: /settings");
+                    return;
+            }
+
+            UserDataManager.saveUserSettings(userId, settings);
+            sendMessage(userId, "✅ Настройка сохранена.\n" + settings.getSummary());
+        } catch (NumberFormatException e) {
+            sendMessage(userId, "❌ Неверное число: " + value);
+        }
+    }
+
+    private void sendStatus(long userId) {
         Map<String, Object> status = threadManager.getUserStatus(userId);
         if (status == null) {
-            sendMessage(userId, "🔴 Parser is not running");
+            sendMessage(userId, "🔴 Парсер не запущен");
             return;
         }
 
@@ -362,7 +504,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
     private void handleCookiesCommand(long userId, String args) {
         if (userId != adminId) {
-            sendMessage(userId, "❌ Admin only");
+            sendMessage(userId, "❌ Только для администратора");
             return;
         }
 
@@ -387,18 +529,25 @@ public class TelegramBotService extends TelegramLongPollingBot {
             }
         } else if (args.equals("status")) {
             Map<String, Object> stats = CookieService.getCacheStats();
-            sendMessage(userId, "🍪 Dynamic: " + Config.isDynamicCookiesEnabled());
+            String msg = "🍪 Cookie status:\n\n" +
+                    "Dynamic: " + Config.isDynamicCookiesEnabled() + "\n" +
+                    "Cached domains: " + stats.getOrDefault("cachedDomains", "N/A") + "\n" +
+                    "Last refresh: " + stats.getOrDefault("lastRefreshTime", "N/A") + "\n" +
+                    "TTL (min): " + stats.getOrDefault("cacheTTLMinutes", "N/A") + "\n";
+            sendMessage(userId, msg);
         } else if (args.equals("dynamic")) {
             boolean current = Config.isDynamicCookiesEnabled();
             Config.setProperty("cookie.dynamic.enabled", String.valueOf(!current));
             Config.saveConfig();
             sendMessage(userId, "✅ Dynamic cookies: " + (!current ? "ON" : "OFF"));
+        } else {
+            sendMessage(userId, "Неизвестная команда cookies. Используй /cookies");
         }
     }
 
     private void handleAdminCommand(long userId, String args) {
         if (userId != adminId) {
-            sendMessage(userId, "❌ Admin only");
+            sendMessage(userId, "❌ Только для администратора");
             return;
         }
 
@@ -421,17 +570,36 @@ public class TelegramBotService extends TelegramLongPollingBot {
                 break;
             case "users":
                 List<Long> users = WhitelistManager.getAllUsers();
-                sendMessage(userId, "👥 Users: " + users.size() + "\n" + users);
+                Collections.sort(users);
+                StringBuilder sb = new StringBuilder("👥 Whitelist users: " + users.size() + "\n\n");
+                for (Long u : users) sb.append(u).append("\n");
+                sendMessage(userId, sb.toString());
+                break;
+            case "pending":
+                List<String> reqs = AccessRequestManager.getRequests();
+                if (reqs.isEmpty()) {
+                    sendMessage(userId, "📭 Заявок нет");
+                    break;
+                }
+                StringBuilder rsb = new StringBuilder("📨 Заявки на доступ:\n\n");
+                for (String line : reqs) {
+                    rsb.append(line).append("\n");
+                }
+                rsb.append("\nДобавить: /admin adduser <id>");
+                sendMessage(userId, rsb.toString());
                 break;
             case "adduser":
                 if (parts.length > 1) {
                     try {
                         long uid = Long.parseLong(parts[1]);
                         WhitelistManager.addUser(uid);
+                        AccessRequestManager.removeRequest(uid);
                         sendMessage(userId, "✅ User added");
                     } catch (NumberFormatException e) {
                         sendMessage(userId, "❌ Invalid ID");
                     }
+                } else {
+                    sendMessage(userId, "Use: /admin adduser [id]");
                 }
                 break;
             case "removeuser":
@@ -444,14 +612,26 @@ public class TelegramBotService extends TelegramLongPollingBot {
                     } catch (NumberFormatException e) {
                         sendMessage(userId, "❌ Invalid ID");
                     }
+                } else {
+                    sendMessage(userId, "Use: /admin removeuser [id]");
                 }
                 break;
         }
     }
 
+    private boolean requireAuthorized(long userId) {
+        if (!WhitelistManager.isUserAllowed(userId)) {
+            AccessRequestManager.recordAccessRequest(userId, "unauthorized_command");
+            sendMessage(userId, "❌ Нет доступа. Отправь /getid администратору.");
+            return false;
+        }
+        return true;
+    }
+
     protected void sendMessage(long userId, String text) {
         SendMessage msg = new SendMessage(String.valueOf(userId), text);
-        msg.enableMarkdown(true);
+        // ВАЖНО: не используем Markdown, чтобы команды вида /start_parser не ломали entities.
+        msg.disableWebPagePreview();
         try {
             execute(msg);
         } catch (TelegramApiException e) {

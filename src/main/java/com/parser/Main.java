@@ -95,6 +95,9 @@ public class Main {
         TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
         botsApi.registerBot(botService);
 
+        // Меню команд (кнопка слева от ввода в Telegram)
+        botService.configureCommandMenu();
+
         logger.info("✅ Telegram bot registered and running");
     }
 

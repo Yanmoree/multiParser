@@ -1,838 +1,1 @@
-package com.parser.parser;
-
-import com.parser.config.Config;
-import com.parser.model.Product;
-import com.parser.service.CookieService;
-import com.parser.util.HttpUtils;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-/**
- * Исправленный парсер для Goofish с правильным POST запросом и обработкой zstd
- */
-public class GoofishParser extends BaseParser {
-    private static final Logger logger = LoggerFactory.getLogger(GoofishParser.class);
-    private static final String SEARCH_ENDPOINT = "/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/";
-    private static final String APP_KEY = "34839810";
-    private static final Pattern PUBLISHED_AGO_ZH = Pattern.compile("(\\d+)\\s*(分钟|小?时|天)前发布");
-
-    private static final Random random = new Random();
-    private static long lastRequestTime = 0;
-
-    public GoofishParser() {
-        super("goofish", "https://h5api.m.goofish.com");
-    }
-
-    @Override
-    protected String buildSearchUrl(String query, int page, int rows) {
-        // Для POST запроса URL формируется без параметра data
-        return buildApiUrl(query, page, rows);
-    }
-
-    /**
-     * Формирование URL API
-     */
-    private String buildApiUrl(String query, int page, int rows) {
-        try {
-            long timestamp = System.currentTimeMillis();
-            String token = getTokenFromCookies();
-
-            if (token.isEmpty()) {
-                logger.error("❌ Token is empty! Check cookies");
-                return "";
-            }
-
-            // Формируем data параметр для подписи
-            String dataStr = buildSearchData(query, page, rows);
-            String sign = generateSignature(token, timestamp, dataStr);
-
-            // Строим URL с параметрами как в реальном запросе
-            Map<String, String> params = new LinkedHashMap<>();
-            params.put("jsv", "2.7.2");
-            params.put("appKey", APP_KEY);
-            params.put("t", String.valueOf(timestamp));
-            params.put("sign", sign);
-            params.put("v", "1.0");
-            params.put("type", "originaljson");
-            params.put("accountSite", "xianyu");
-            params.put("dataType", "json");
-            params.put("timeout", "20000");
-            params.put("api", "mtop.taobao.idlemtopsearch.pc.search");
-            params.put("sessionOption", "AutoLoginOnly");
-            params.put("spm_cnt", "a21ybx.search.0.0");
-            params.put("spm_pre", "a21ybx.search.searchInput.0");
-
-            return HttpUtils.buildUrlWithParams(baseUrl + SEARCH_ENDPOINT, params);
-
-        } catch (Exception e) {
-            logger.error("Error building URL: {}", e.getMessage());
-            return "";
-        }
-    }
-
-    /**
-     * Формирование данных для поиска
-     */
-    private String buildSearchData(String query, int page, int rows) {
-        JSONObject data = new JSONObject();
-        data.put("pageNumber", page);
-        data.put("keyword", query);
-        // Настройки запроса: показываем самые новые товары первыми
-        data.put("fromFilter", true);
-        data.put("rowsPerPage", rows);
-        data.put("sortValue", "desc");
-        data.put("sortField", "create");
-        data.put("customDistance", "");
-        data.put("gps", "");
-        JSONObject propValueStr = new JSONObject();
-        propValueStr.put("searchFilter", "");
-        data.put("propValueStr", propValueStr);
-        data.put("customGps", "");
-        data.put("searchReqFromPage", "pcSearch");
-        data.put("extraFilterValue", "{}");
-        data.put("userPositionJson", "{}");
-
-        return data.toString();
-    }
-
-    /**
-     * Переопределяем выполнение запроса для использования POST и обработки zstd
-     */
-    @Override
-    protected String executeSearchRequest(String url, String query, int page, int rows) throws Exception {
-        // Формируем тело запроса
-        String dataStr = buildSearchData(query, page, rows);
-        String formData = "data=" + java.net.URLEncoder.encode(dataStr, "UTF-8");
-
-        logger.info("📤 POST запрос к: {}", url);
-        logger.debug("📝 Тело запроса: {}", formData);
-
-        // Создаем POST запрос
-        HttpPost request = new HttpPost(url);
-
-        // Устанавливаем заголовки как в реальном запросе
-        request.setHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 YaBrowser/25.10.0.0 Safari/537.36");
-        request.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-        request.setHeader("Accept", "application/json");
-        request.setHeader("Accept-Encoding", "gzip, deflate, br, zstd");
-        request.setHeader("Accept-Language", "ru,en;q=0.9");
-        request.setHeader("Origin", "https://www.goofish.com");
-        request.setHeader("Referer", "https://www.goofish.com/");
-        request.setHeader("Sec-Fetch-Dest", "empty");
-        request.setHeader("Sec-Fetch-Mode", "cors");
-        request.setHeader("Sec-Fetch-Site", "same-site");
-        request.setHeader("sec-ch-ua", "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"YaBrowser\";v=\"25.10\", \"Yowser\";v=\"2.5\", \"YaBrowserCorp\";v=\"140\"");
-        request.setHeader("sec-ch-ua-mobile", "?0");
-        request.setHeader("sec-ch-ua-platform", "\"macOS\"");
-        request.setHeader("x-accept-terminal", "pc");
-
-        // Добавляем куки
-        String domain = "h5api.m.goofish.com";
-        String cookieHeader = CookieService.getCookieHeader(domain);
-        if (cookieHeader != null && !cookieHeader.isEmpty()) {
-            request.setHeader("Cookie", cookieHeader);
-            logger.debug("✅ Добавлены куки: {} символов", cookieHeader.length());
-        } else {
-            logger.warn("⚠️ Куки пустые!");
-        }
-
-        // Устанавливаем тело запроса
-        request.setEntity(new StringEntity(formData, StandardCharsets.UTF_8));
-
-        // Выполняем запрос
-        try (var response = HttpUtils.getHttpClientInstance().execute(request)) {
-            int statusCode = response.getStatusLine().getStatusCode();
-            String contentType = response.getFirstHeader("Content-Type") != null ?
-                    response.getFirstHeader("Content-Type").getValue() : "unknown";
-            String contentEncoding = response.getFirstHeader("Content-Encoding") != null ?
-                    response.getFirstHeader("Content-Encoding").getValue() : "unknown";
-
-            logger.info("📥 Ответ: статус={}, content-type={}, content-encoding={}",
-                    statusCode, contentType, contentEncoding);
-
-            // Получаем сырые байты ответа
-            byte[] responseBytes = EntityUtils.toByteArray(response.getEntity());
-            String responseBody;
-
-            // Обрабатываем сжатие
-            if ("zstd".equalsIgnoreCase(contentEncoding)) {
-                logger.info("🔄 Распаковываем zstd сжатие...");
-                responseBody = decompressZstd(responseBytes);
-            } else if ("gzip".equalsIgnoreCase(contentEncoding) || "deflate".equalsIgnoreCase(contentEncoding)) {
-                // HttpClient обычно автоматически обрабатывает gzip/deflate
-                responseBody = new String(responseBytes, StandardCharsets.UTF_8);
-            } else {
-                // Без сжатия
-                responseBody = new String(responseBytes, StandardCharsets.UTF_8);
-            }
-
-            // Логируем заголовки для отладки
-            org.apache.http.Header[] headers = response.getAllHeaders();
-            logger.debug("📋 Заголовки ответа:");
-            for (org.apache.http.Header header : headers) {
-                if (header.getName().equalsIgnoreCase("Set-Cookie") ||
-                        header.getName().equalsIgnoreCase("Content-Type") ||
-                        header.getName().equalsIgnoreCase("Content-Encoding") ||
-                        header.getName().equalsIgnoreCase("X-EagleEye-Id")) {
-                    logger.debug("   {}: {}", header.getName(), header.getValue());
-                }
-            }
-
-            logger.debug("📄 Тело ответа (первые 500 символов): {}",
-                    responseBody.length() > 500 ? responseBody.substring(0, 500) + "..." : responseBody);
-
-            if (statusCode == 200) {
-                // Проверяем, это JSON или что-то другое
-                if (responseBody.trim().startsWith("{") || responseBody.trim().startsWith("[")) {
-                    logger.info("✅ Получен JSON ответ, длина: {} символов", responseBody.length());
-                    return responseBody;
-                } else {
-                    logger.error("❌ Ответ не JSON. Первые 200 символов: {}",
-                            responseBody.length() > 200 ? responseBody.substring(0, 200) : responseBody);
-
-                    // Проверяем, не получили ли мы HTML страницу с ошибкой
-                    if (responseBody.contains("<html") || responseBody.contains("<!DOCTYPE")) {
-                        logger.error("⚠️ Получена HTML страница вместо JSON. Возможно, куки недействительны.");
-                    } else if (responseBody.contains("被挤爆啦") || responseBody.contains("FAIL_SYS_ILLEGAL_ACCESS")) {
-                        logger.error("⚠️ API вернуло ошибку: {}",
-                                responseBody.length() > 100 ? responseBody.substring(0, 100) : responseBody);
-                    }
-                    throw new Exception("Ответ не в формате JSON: " + contentType);
-                }
-            } else {
-                logger.error("❌ HTTP ошибка {}: {}", statusCode,
-                        responseBody.length() > 200 ? responseBody.substring(0, 200) + "..." : responseBody);
-                throw new Exception("HTTP error: " + statusCode);
-            }
-        } catch (Exception e) {
-            logger.error("❌ Ошибка выполнения запроса: {}", e.getMessage());
-            throw e;
-        }
-    }
-
-    /**
-     * Распаковка zstd сжатых данных
-     */
-    private String decompressZstd(byte[] compressedData) {
-        try {
-            logger.debug("📦 Размер сжатых данных: {} байт", compressedData.length);
-
-            // Используем zstd-jni для распаковки
-            byte[] decompressed = com.github.luben.zstd.Zstd.decompress(compressedData, 10 * 1024 * 1024); // Макс 10MB
-
-            String result = new String(decompressed, StandardCharsets.UTF_8);
-            logger.debug("✅ Zstd успешно распакован");
-            logger.debug("📄 Размер распакованных данных: {} символов", result.length());
-            return result;
-
-        } catch (Exception e) {
-            logger.error("❌ Ошибка распаковки zstd: {}", e.getMessage());
-
-            // Пробуем прочитать как обычную строку
-            try {
-                String fallback = new String(compressedData, StandardCharsets.UTF_8);
-                logger.warn("⚠️ Используем fallback чтение как UTF-8");
-                return fallback;
-            } catch (Exception e2) {
-                return "Ошибка при обработке ответа: " + e.getMessage();
-            }
-        }
-    }
-
-    // Остальные методы остаются без изменений
-    @Override
-    protected List<Product> parseResponse(String response, String query) {
-        List<Product> products = new ArrayList<>();
-
-        if (response == null || response.isEmpty()) {
-            logger.warn("Empty response");
-            return products;
-        }
-
-        try {
-            JSONObject json = new JSONObject(response);
-
-            // Проверка наличия ошибок
-            if (json.has("ret")) {
-                String ret = json.optString("ret", "");
-                if (ret.contains("被挤爆啦") || ret.contains("RGV587_ERROR") ||
-                        ret.contains("FAIL_SYS_ILLEGAL_ACCESS")) {
-                    logger.error("API error: {}", ret);
-                    return products;
-                }
-            }
-
-            // Получаем данные
-            JSONObject data = json.optJSONObject("data");
-            if (data == null) {
-                logger.warn("No data in response");
-                return products;
-            }
-
-            // Извлекаем список товаров
-            JSONArray resultList = data.optJSONArray("resultList");
-            if (resultList == null || resultList.length() == 0) {
-                logger.debug("No items found in response");
-                return products;
-            }
-
-            logger.info("Found {} items", resultList.length());
-
-            for (int i = 0; i < resultList.length(); i++) {
-                try {
-                    JSONObject item = resultList.getJSONObject(i);
-                    Product product = parseProductItem(item, query);
-                    if (product != null && isValidProduct(product)) {
-                        products.add(product);
-                    }
-                } catch (Exception e) {
-                    logger.debug("Error parsing item {}: {}", i, e.getMessage());
-                }
-            }
-
-            logger.info("Successfully parsed {} products", products.size());
-
-        } catch (Exception e) {
-            logger.error("Error parsing response: {}", e.getMessage());
-            logger.debug("Response content (first 500 chars): {}",
-                    response.length() > 500 ? response.substring(0, 500) + "..." : response);
-        }
-
-        return products;
-    }
-
-    private Product parseProductItem(JSONObject item, String query) {
-        try {
-            JSONObject data = item.optJSONObject("data");
-            if (data == null) return null;
-
-            JSONObject itemObj = data.optJSONObject("item");
-            if (itemObj == null) return null;
-
-            JSONObject mainObj = itemObj.optJSONObject("main");
-            if (mainObj == null) return null;
-
-            JSONObject itemData = data.optJSONObject("itemData");
-            JSONObject exContent = mainObj.optJSONObject("exContent");
-
-            // Извлечение ID товара
-            String itemId = null;
-            if (itemData != null) itemId = itemData.optString("itemId", "");
-            if ((itemId == null || itemId.isEmpty()) && exContent != null) {
-                itemId = exContent.optString("itemId", "");
-            }
-
-            if (itemId == null || itemId.isEmpty()) return null;
-
-            Product product = new Product();
-            product.setId(itemId);
-            product.setSite("goofish");
-            product.setQuery(query);
-
-            // 🔴 ИСПРАВЛЕНИЕ: ПАРСИНГ НАЗВАНИЯ
-            String title = "";
-
-            // Пробуем разные источники названия
-            if (itemData != null) {
-                title = itemData.optString("title", "");
-                if (title.isEmpty()) {
-                    title = itemData.optString("text", "");
-                }
-                if (title.isEmpty()) {
-                    title = itemData.optString("name", "");
-                }
-            }
-
-            if (title.isEmpty() && exContent != null) {
-                title = exContent.optString("title", "");
-                if (title.isEmpty()) {
-                    title = exContent.optString("text", "");
-                }
-                if (title.isEmpty()) {
-                    title = exContent.optString("name", "");
-                }
-            }
-
-            if (title.isEmpty() && mainObj != null) {
-                JSONObject clickParam = mainObj.optJSONObject("clickParam");
-                if (clickParam != null) {
-                    JSONObject args = clickParam.optJSONObject("args");
-                    if (args != null) {
-                        title = args.optString("subject", "");
-                    }
-                }
-            }
-
-            // Если название по-прежнему пустое, создаем более информативное
-            if (title.isEmpty()) {
-                title = "Товар #" + itemId + " (" + query + ")";
-            }
-
-            product.setTitle(title);
-
-            // Остальной код остается без изменений...
-            // Цена
-            double price = extractPrice(itemData, exContent);
-            product.setPrice(price);
-
-            // Возраст товара
-            long publishTime = extractPublishTime(mainObj, itemData, exContent);
-            int ageMinutes = calculateAge(publishTime);
-
-            // Если publishTime странный/пустой, пробуем вытащить возраст из меток (например "6小时前发布")
-            Integer ageFromTags = extractAgeMinutesFromTags(exContent, mainObj);
-            if (ageFromTags != null) {
-                // Если publishTime не дал адекватного возраста — используем метку
-                if (publishTime <= 0 || ageMinutes <= 0 || ageMinutes > 10080) {
-                    ageMinutes = ageFromTags;
-                } else {
-                    // Иногда publishTime бывает неверным: если метка сильно расходится, доверяем метке
-                    if (Math.abs(ageMinutes - ageFromTags) > 60) {
-                        ageMinutes = ageFromTags;
-                    }
-                }
-            }
-            product.setAgeMinutes(ageMinutes);
-
-            // Локация
-            String location = itemData != null ? itemData.optString("area", "") : "";
-            product.setLocation(location.isEmpty() ? "Не указано" : location);
-
-            // URL - убедимся, что он правильный
-            product.setUrl("https://www.goofish.com/item?id=" + itemId);
-
-            // Изображения
-            List<String> images = extractImages(mainObj, itemObj, data);
-            product.setImages(images);
-
-            logger.debug("Parsed: {} ({}¥, {}min, {} images)",
-                    product.getShortTitle(), price, ageMinutes, images.size());
-
-            return product;
-
-        } catch (Exception e) {
-            logger.error("Error parsing product item: {}", e.getMessage());
-            return null;
-        }
-    }
-
-    private double extractPrice(JSONObject itemData, JSONObject exContent) {
-        if (itemData != null) {
-            Object priceObj = itemData.opt("price");
-            if (priceObj != null) return parsePrice(priceObj);
-        }
-        if (exContent != null) {
-            Object priceObj = exContent.opt("price");
-            if (priceObj != null) return parsePrice(priceObj);
-        }
-        return 0.0;
-    }
-
-    private double parsePrice(Object priceObj) {
-        if (priceObj instanceof String) {
-            return extractPrice((String) priceObj);
-        }
-        if (priceObj instanceof Number) {
-            return ((Number) priceObj).doubleValue();
-        }
-        if (priceObj instanceof JSONArray) {
-            JSONArray arr = (JSONArray) priceObj;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < arr.length(); i++) {
-                JSONObject part = arr.optJSONObject(i);
-                if (part != null && "integer".equals(part.optString("type"))) {
-                    sb.append(part.optString("text"));
-                }
-            }
-            return extractPrice(sb.toString());
-        }
-        return 0.0;
-    }
-
-    public double extractPrice(String priceStr) {
-        if (priceStr == null || priceStr.isEmpty()) return 0.0;
-        try {
-            String clean = priceStr.replaceAll("[^\\d.,]", "").replace(',', '.');
-            return Double.parseDouble(clean);
-        } catch (NumberFormatException e) {
-            return 0.0;
-        }
-    }
-
-    private long extractPublishTime(JSONObject main, JSONObject itemData, JSONObject exContent) {
-        // Путь 1: args.publishTime
-        if (main != null) {
-            JSONObject clickParam = main.optJSONObject("clickParam");
-            if (clickParam != null) {
-                JSONObject args = clickParam.optJSONObject("args");
-                if (args != null && args.has("publishTime")) {
-                    Object time = args.opt("publishTime");
-                    if (time instanceof String) return Long.parseLong((String) time);
-                    if (time instanceof Number) return ((Number) time).longValue();
-                }
-            }
-        }
-
-        // Путь 2: itemData.publishTime
-        if (itemData != null && itemData.has("publishTime")) {
-            Object time = itemData.opt("publishTime");
-            if (time instanceof String) return Long.parseLong((String) time);
-            if (time instanceof Number) return ((Number) time).longValue();
-        }
-
-        return 0;
-    }
-
-    /**
-     * Пытается извлечь "возраст" из UI-меток в ответе (часто там есть строка вида "6小时前发布").
-     * Возвращает возраст в минутах или null, если не удалось.
-     */
-    private Integer extractAgeMinutesFromTags(JSONObject exContent, JSONObject mainObj) {
-        try {
-            // Путь 1: mainObj.clickParam.args.serviceUtParams (строка JSON с content)
-            if (mainObj != null) {
-                JSONObject clickParam = mainObj.optJSONObject("clickParam");
-                if (clickParam != null) {
-                    JSONObject args = clickParam.optJSONObject("args");
-                    if (args != null) {
-                        String serviceUtParams = args.optString("serviceUtParams", "");
-                        Integer parsed = parseAgeMinutesFromText(serviceUtParams);
-                        if (parsed != null) return parsed;
-                    }
-                }
-            }
-
-            // Путь 2: exContent.fishTags.r2.tagList[*].data.content
-            if (exContent != null) {
-                JSONObject fishTags = exContent.optJSONObject("fishTags");
-                if (fishTags != null) {
-                    JSONObject r2 = fishTags.optJSONObject("r2");
-                    if (r2 != null) {
-                        JSONArray tagList = r2.optJSONArray("tagList");
-                        if (tagList != null) {
-                            for (int i = 0; i < Math.min(5, tagList.length()); i++) {
-                                JSONObject tag = tagList.optJSONObject(i);
-                                if (tag == null) continue;
-                                JSONObject data = tag.optJSONObject("data");
-                                if (data == null) continue;
-                                String content = data.optString("content", "");
-                                Integer parsed = parseAgeMinutesFromText(content);
-                                if (parsed != null) return parsed;
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Exception ignored) {
-        }
-        return null;
-    }
-
-    private Integer parseAgeMinutesFromText(String text) {
-        if (text == null || text.isEmpty()) return null;
-        Matcher m = PUBLISHED_AGO_ZH.matcher(text);
-        if (!m.find()) return null;
-        int value;
-        try {
-            value = Integer.parseInt(m.group(1));
-        } catch (NumberFormatException e) {
-            return null;
-        }
-        String unit = m.group(2);
-        if (unit.contains("分钟")) return Math.max(1, value);
-        if (unit.contains("时")) return Math.max(1, value * 60);
-        if (unit.contains("天")) return Math.max(1, value * 24 * 60);
-        return null;
-    }
-
-    private int calculateAge(long publishTime) {
-        if (publishTime <= 0) return 0;
-
-        // Определяем формат времени (секунды или миллисекунды)
-        if (publishTime < 10000000000L) {
-            publishTime = publishTime * 1000;
-        }
-
-        long ageMs = System.currentTimeMillis() - publishTime;
-        int ageMinutes = (int) (ageMs / (1000 * 60));
-
-        return Math.max(1, Math.min(ageMinutes, 10080)); // 1 до 7 дней
-    }
-
-    private List<String> extractImages(JSONObject main, JSONObject itemObj, JSONObject data) {
-        List<String> images = new ArrayList<>();
-
-        // Путь 1: data.picUrl (главное фото)
-        if (data != null && data.has("picUrl")) {
-            String picUrl = data.optString("picUrl", "");
-            if (isValidImageUrl(picUrl)) {
-                images.add(picUrl);
-                logger.debug("✅ Найдено фото в data.picUrl");
-            }
-        }
-
-        // Путь 2: data.pics (массив фото)
-        if (data != null && data.has("pics")) {
-            JSONArray pics = data.optJSONArray("pics");
-            if (pics != null) {
-                for (int i = 0; i < Math.min(5, pics.length()); i++) {
-                    try {
-                        JSONObject pic = pics.optJSONObject(i);
-                        if (pic != null) {
-                            // Пробуем разные поля
-                            String url = pic.optString("picUrl", "");
-                            if (url.isEmpty()) {
-                                url = pic.optString("pic_url", "");
-                            }
-                            if (url.isEmpty()) {
-                                url = pic.optString("url", "");
-                            }
-
-                            if (isValidImageUrl(url) && !images.contains(url)) {
-                                images.add(url);
-                                logger.debug("✅ Найдено фото в data.pics[{}]", i);
-                            }
-                        }
-                    } catch (Exception e) {
-                        logger.debug("Error parsing pic at index {}: {}", i, e.getMessage());
-                    }
-                }
-            }
-        }
-
-        // Путь 3: itemObj.extra.picUrl (дополнительное фото)
-        if (itemObj != null) {
-            JSONObject extra = itemObj.optJSONObject("extra");
-            if (extra != null) {
-                String picUrl = extra.optString("picUrl", "");
-                if (picUrl.isEmpty()) {
-                    picUrl = extra.optString("pic_url", "");
-                }
-                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {
-                    images.add(picUrl);
-                    logger.debug("✅ Найдено фото в itemObj.extra.picUrl");
-                }
-            }
-        }
-
-        // Путь 4: main.exContent.picUrl (исходное фото)
-        if (main != null) {
-            JSONObject exContent = main.optJSONObject("exContent");
-            if (exContent != null) {
-                String picUrl = exContent.optString("picUrl", "");
-                if (picUrl.isEmpty()) {
-                    picUrl = exContent.optString("pic_url", "");
-                }
-                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {
-                    images.add(picUrl);
-                    logger.debug("✅ Найдено фото в main.exContent.picUrl");
-                }
-            }
-        }
-
-        // Путь 5: Прямые поля объекта (на случай если структура упрощена)
-        if (data != null) {
-            // Проверяем прямые поля в data
-            String directPic = data.optString("image", "");
-            if (directPic.isEmpty()) {
-                directPic = data.optString("img", "");
-            }
-            if (isValidImageUrl(directPic) && !images.contains(directPic)) {
-                images.add(directPic);
-                logger.debug("✅ Найдено фото в data.image");
-            }
-        }
-
-        if (images.isEmpty()) {
-            logger.debug("⚠️ Фотографии не найдены для товара");
-        } else {
-            logger.debug("📷 Найдено фотографий: {}", images.size());
-        }
-
-        return images;
-    }
-
-    private boolean isValidImageUrl(String url) {
-        if (url == null || url.isEmpty()) {
-            return false;
-        }
-
-        // Должно быть HTTPS или HTTP
-        if (!url.startsWith("http://") && !url.startsWith("https://")) {
-            return false;
-        }
-
-        // Проверяем расширение файла
-        String lowerUrl = url.toLowerCase();
-        String[] validExtensions = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".heic"};
-
-        boolean hasValidExtension = false;
-        for (String ext : validExtensions) {
-            if (lowerUrl.contains(ext)) {
-                hasValidExtension = true;
-                break;
-            }
-        }
-
-        // Если нет расширения - может быть OK (CDN с query parameters)
-        if (!hasValidExtension && (lowerUrl.contains("alicdn") || lowerUrl.contains("taobaocdn"))) {
-            return true;
-        }
-
-        return hasValidExtension;
-    }
-
-    private boolean isValidProduct(Product product) {
-        return product.getId() != null && !product.getId().isEmpty() &&
-                product.getTitle() != null && !product.getTitle().isEmpty() &&
-                product.getUrl() != null && !product.getUrl().isEmpty();
-    }
-
-    private String getTokenFromCookies() {
-        try {
-            String cookies = CookieService.getCookieHeader("h5api.m.goofish.com");
-            if (cookies == null || cookies.isEmpty()) return "";
-
-            String[] pairs = cookies.split("; ");
-            for (String pair : pairs) {
-                if (pair.startsWith("_m_h5_tk=")) {
-                    String mh5tk = pair.substring(9);
-                    if (mh5tk.contains("_")) {
-                        return mh5tk.split("_")[0];
-                    }
-                }
-            }
-        } catch (Exception e) {
-            logger.warn("Error getting token: {}", e.getMessage());
-        }
-        return "";
-    }
-
-    private String generateSignature(String token, long timestamp, String data) {
-        try {
-            String signString = token + "&" + timestamp + "&" + APP_KEY + "&" + data;
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] hash = md.digest(signString.getBytes(StandardCharsets.UTF_8));
-            StringBuilder hex = new StringBuilder();
-            for (byte b : hash) {
-                String h = Integer.toHexString(0xff & b);
-                if (h.length() == 1) hex.append('0');
-                hex.append(h);
-            }
-            return hex.toString();
-        } catch (Exception e) {
-            logger.error("Error generating signature: {}", e.getMessage());
-            return "";
-        }
-    }
-
-    /**
-     * Переопределяем метод search для использования POST запросов
-     */
-    @Override
-    public List<Product> search(String query, int maxPages, int rowsPerPage, int maxAgeMinutes) {
-        List<Product> allProducts = new ArrayList<>();
-
-        logger.info("Starting search: site={}, query='{}', pages={}, rows={}, maxAge={}min",
-                siteName, query, maxPages, rowsPerPage, maxAgeMinutes);
-
-        for (int page = 1; page <= maxPages; page++) {
-            if (Thread.currentThread().isInterrupted()) break;
-
-            try {
-                // Формируем URL для API
-                String url = buildSearchUrl(query, page, rowsPerPage);
-                if (url.isEmpty()) {
-                    logger.error("Failed to build URL for page {}", page);
-                    break;
-                }
-
-                // Выполняем POST запрос
-                String response = executeSearchRequest(url, query, page, rowsPerPage);
-                totalRequests++;
-
-                // Парсим ответ
-                List<Product> products = parseResponse(response, query);
-
-                if (products.isEmpty()) {
-                    logger.debug("No products on page {}", page);
-                    break;
-                }
-
-                // Фильтруем по возрасту
-                List<Product> filtered = new ArrayList<>();
-                for (Product p : products) {
-                    if (p.getAgeMinutes() <= maxAgeMinutes) {
-                        filtered.add(p);
-                    }
-                }
-
-                allProducts.addAll(filtered);
-                logger.info("Page {}: found {} products ({} after age filter)",
-                        page, products.size(), filtered.size());
-
-                // Диагностика: если возрастной фильтр режет слишком много, показываем пару примеров (INFO),
-                // чтобы было понятно, почему “на сайте сегодняшние, а у нас их мало”.
-                if (products.size() > 0 && filtered.size() < products.size()) {
-                    int removed = products.size() - filtered.size();
-                    if (filtered.isEmpty() || removed >= Math.max(5, products.size() / 2)) {
-                        StringBuilder dbg = new StringBuilder();
-                        dbg.append("Age filter removed ").append(removed)
-                                .append(" of ").append(products.size())
-                                .append(" (maxAgeMinutes=").append(maxAgeMinutes).append("). Examples: ");
-                        int shown = 0;
-                        for (Product p : products) {
-                            if (p.getAgeMinutes() > maxAgeMinutes) {
-                                dbg.append(p.getId()).append("(age=").append(p.getAgeMinutes()).append("m)");
-                                shown++;
-                                if (shown >= 5) break;
-                                dbg.append(", ");
-                            }
-                        }
-                        logger.info(dbg.toString());
-                    }
-                }
-
-                // Останавливаемся только если API реально вернуло меньше rowsPerPage.
-                // Иначе можем преждевременно остановиться из-за возрастного фильтра и не добрать товары.
-                if (products.size() < rowsPerPage) break;
-
-                // Задержка между запросами
-                int delay = getRequestDelay();
-                if (delay > 0 && page < maxPages) {
-                    Thread.sleep(delay);
-                }
-
-            } catch (Exception e) {
-                failedRequests++;
-                logger.error("Error on page {}: {}", page, e.getMessage());
-
-                if (shouldStopOnError(e)) break;
-
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException ie) {
-                    Thread.currentThread().interrupt();
-                    break;
-                }
-            }
-        }
-
-        logger.info("Search completed: found {} products in {} requests",
-                allProducts.size(), totalRequests);
-        return allProducts;
-    }
-}
+package com.parser.parser;import com.parser.config.Config;import com.parser.model.Product;import com.parser.service.CookieService;import com.parser.util.HttpUtils;import org.apache.http.client.methods.HttpPost;import org.apache.http.entity.StringEntity;import org.apache.http.util.EntityUtils;import org.json.JSONArray;import org.json.JSONObject;import org.slf4j.Logger;import org.slf4j.LoggerFactory;import java.io.ByteArrayInputStream;import java.io.ByteArrayOutputStream;import java.nio.charset.StandardCharsets;import java.security.MessageDigest;import java.util.*;import java.util.regex.Matcher;import java.util.regex.Pattern;/** * Исправленный парсер для Goofish с правильным POST запросом и обработкой zstd */public class GoofishParser extends BaseParser {    private static final Logger logger = LoggerFactory.getLogger(GoofishParser.class);    private static final String SEARCH_ENDPOINT = "/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/";    private static final String APP_KEY = "34839810";    private static final Pattern PUBLISHED_AGO_ZH = Pattern.compile("(\\d+)\\s*(分钟|小?时|天)前发布");    private static final Random random = new Random();    private static long lastRequestTime = 0;    public GoofishParser() {        super("goofish", "https://h5api.m.goofish.com");    }    @Override    protected String buildSearchUrl(String query, int page, int rows) {        // Для POST запроса URL формируется без параметра data        return buildApiUrl(query, page, rows);    }    /**     * Формирование URL API     */    private String buildApiUrl(String query, int page, int rows) {        try {            long timestamp = System.currentTimeMillis();            String token = getTokenFromCookies();            if (token.isEmpty()) {                logger.error("❌ Token is empty! Check cookies");                return "";            }            // Формируем data параметр для подписи            String dataStr = buildSearchData(query, page, rows);            String sign = generateSignature(token, timestamp, dataStr);            // Строим URL с параметрами как в реальном запросе            Map<String, String> params = new LinkedHashMap<>();            params.put("jsv", "2.7.2");            params.put("appKey", APP_KEY);            params.put("t", String.valueOf(timestamp));            params.put("sign", sign);            params.put("v", "1.0");            params.put("type", "originaljson");            params.put("accountSite", "xianyu");            params.put("dataType", "json");            params.put("timeout", "20000");            params.put("api", "mtop.taobao.idlemtopsearch.pc.search");            params.put("sessionOption", "AutoLoginOnly");            params.put("spm_cnt", "a21ybx.search.0.0");            params.put("spm_pre", "a21ybx.search.searchInput.0");            return HttpUtils.buildUrlWithParams(baseUrl + SEARCH_ENDPOINT, params);        } catch (Exception e) {            logger.error("Error building URL: {}", e.getMessage());            return "";        }    }    /**     * Формирование данных для поиска     */    private String buildSearchData(String query, int page, int rows) {        JSONObject data = new JSONObject();        data.put("pageNumber", page);        data.put("keyword", query);        // Настройки запроса: показываем самые новые товары первыми        data.put("fromFilter", true);        data.put("rowsPerPage", rows);        data.put("sortValue", "desc");        data.put("sortField", "create");        data.put("customDistance", "");        data.put("gps", "");        JSONObject propValueStr = new JSONObject();        propValueStr.put("searchFilter", "");        data.put("propValueStr", propValueStr);        data.put("customGps", "");        data.put("searchReqFromPage", "pcSearch");        data.put("extraFilterValue", "{}");        data.put("userPositionJson", "{}");        return data.toString();    }    /**     * Переопределяем выполнение запроса для использования POST и обработки zstd     */    @Override    protected String executeSearchRequest(String url, String query, int page, int rows) throws Exception {        // Формируем тело запроса        String dataStr = buildSearchData(query, page, rows);        String formData = "data=" + java.net.URLEncoder.encode(dataStr, "UTF-8");        logger.info("📤 POST запрос к: {}", url);        logger.debug("📝 Тело запроса: {}", formData);        // Создаем POST запрос        HttpPost request = new HttpPost(url);        // Устанавливаем заголовки как в реальном запросе        request.setHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 YaBrowser/25.10.0.0 Safari/537.36");        request.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");        request.setHeader("Accept", "application/json");        request.setHeader("Accept-Encoding", "gzip, deflate, br, zstd");        request.setHeader("Accept-Language", "ru,en;q=0.9");        request.setHeader("Origin", "https://www.goofish.com");        request.setHeader("Referer", "https://www.goofish.com/");        request.setHeader("Sec-Fetch-Dest", "empty");        request.setHeader("Sec-Fetch-Mode", "cors");        request.setHeader("Sec-Fetch-Site", "same-site");        request.setHeader("sec-ch-ua", "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"YaBrowser\";v=\"25.10\", \"Yowser\";v=\"2.5\", \"YaBrowserCorp\";v=\"140\"");        request.setHeader("sec-ch-ua-mobile", "?0");        request.setHeader("sec-ch-ua-platform", "\"macOS\"");        request.setHeader("x-accept-terminal", "pc");        // Добавляем куки        String domain = "h5api.m.goofish.com";        String cookieHeader = CookieService.getCookieHeader(domain);        if (cookieHeader != null && !cookieHeader.isEmpty()) {            request.setHeader("Cookie", cookieHeader);            logger.debug("✅ Добавлены куки: {} символов", cookieHeader.length());        } else {            logger.warn("⚠️ Куки пустые!");        }        // Устанавливаем тело запроса        request.setEntity(new StringEntity(formData, StandardCharsets.UTF_8));        // Выполняем запрос        try (var response = HttpUtils.getHttpClientInstance().execute(request)) {            int statusCode = response.getStatusLine().getStatusCode();            String contentType = response.getFirstHeader("Content-Type") != null ?                    response.getFirstHeader("Content-Type").getValue() : "unknown";            String contentEncoding = response.getFirstHeader("Content-Encoding") != null ?                    response.getFirstHeader("Content-Encoding").getValue() : "unknown";            logger.info("📥 Ответ: статус={}, content-type={}, content-encoding={}",                    statusCode, contentType, contentEncoding);            // Получаем сырые байты ответа            byte[] responseBytes = EntityUtils.toByteArray(response.getEntity());            String responseBody;            // Обрабатываем сжатие            if ("zstd".equalsIgnoreCase(contentEncoding)) {                logger.info("🔄 Распаковываем zstd сжатие...");                responseBody = decompressZstd(responseBytes);            } else if ("gzip".equalsIgnoreCase(contentEncoding) || "deflate".equalsIgnoreCase(contentEncoding)) {                // HttpClient обычно автоматически обрабатывает gzip/deflate                responseBody = new String(responseBytes, StandardCharsets.UTF_8);            } else {                // Без сжатия                responseBody = new String(responseBytes, StandardCharsets.UTF_8);            }            // Логируем заголовки для отладки            org.apache.http.Header[] headers = response.getAllHeaders();            logger.debug("📋 Заголовки ответа:");            for (org.apache.http.Header header : headers) {                if (header.getName().equalsIgnoreCase("Set-Cookie") ||                        header.getName().equalsIgnoreCase("Content-Type") ||                        header.getName().equalsIgnoreCase("Content-Encoding") ||                        header.getName().equalsIgnoreCase("X-EagleEye-Id")) {                    logger.debug("   {}: {}", header.getName(), header.getValue());                }            }            logger.debug("📄 Тело ответа (первые 500 символов): {}",                    responseBody.length() > 500 ? responseBody.substring(0, 500) + "..." : responseBody);            if (statusCode == 200) {                // Проверяем, это JSON или что-то другое                if (responseBody.trim().startsWith("{") || responseBody.trim().startsWith("[")) {                    logger.info("✅ Получен JSON ответ, длина: {} символов", responseBody.length());                    return responseBody;                } else {                    logger.error("❌ Ответ не JSON. Первые 200 символов: {}",                            responseBody.length() > 200 ? responseBody.substring(0, 200) : responseBody);                    // Проверяем, не получили ли мы HTML страницу с ошибкой                    if (responseBody.contains("<html") || responseBody.contains("<!DOCTYPE")) {                        logger.error("⚠️ Получена HTML страница вместо JSON. Возможно, куки недействительны.");                    } else if (responseBody.contains("被挤爆啦") || responseBody.contains("FAIL_SYS_ILLEGAL_ACCESS")) {                        logger.error("⚠️ API вернуло ошибку: {}",                                responseBody.length() > 100 ? responseBody.substring(0, 100) : responseBody);                    }                    throw new Exception("Ответ не в формате JSON: " + contentType);                }            } else {                logger.error("❌ HTTP ошибка {}: {}", statusCode,                        responseBody.length() > 200 ? responseBody.substring(0, 200) + "..." : responseBody);                throw new Exception("HTTP error: " + statusCode);            }        } catch (Exception e) {            logger.error("❌ Ошибка выполнения запроса: {}", e.getMessage());            throw e;        }    }    /**     * Распаковка zstd сжатых данных     */    private String decompressZstd(byte[] compressedData) {        try {            logger.debug("📦 Размер сжатых данных: {} байт", compressedData.length);            // Используем zstd-jni для распаковки            byte[] decompressed = com.github.luben.zstd.Zstd.decompress(compressedData, 10 * 1024 * 1024); // Макс 10MB            String result = new String(decompressed, StandardCharsets.UTF_8);            logger.debug("✅ Zstd успешно распакован");            logger.debug("📄 Размер распакованных данных: {} символов", result.length());            return result;        } catch (Exception e) {            logger.error("❌ Ошибка распаковки zstd: {}", e.getMessage());            // Пробуем прочитать как обычную строку            try {                String fallback = new String(compressedData, StandardCharsets.UTF_8);                logger.warn("⚠️ Используем fallback чтение как UTF-8");                return fallback;            } catch (Exception e2) {                return "Ошибка при обработке ответа: " + e.getMessage();            }        }    }    // Остальные методы остаются без изменений    @Override    protected List<Product> parseResponse(String response, String query) {        List<Product> products = new ArrayList<>();        if (response == null || response.isEmpty()) {            logger.warn("Empty response");            return products;        }        try {            JSONObject json = new JSONObject(response);            // Проверка наличия ошибок            if (json.has("ret")) {                String ret = json.optString("ret", "");                if (ret.contains("被挤爆啦") || ret.contains("RGV587_ERROR") ||                        ret.contains("FAIL_SYS_ILLEGAL_ACCESS")) {                    logger.error("API error: {}", ret);                    return products;                }            }            // Получаем данные            JSONObject data = json.optJSONObject("data");            if (data == null) {                logger.warn("No data in response");                return products;            }            // Извлекаем список товаров            JSONArray resultList = data.optJSONArray("resultList");            if (resultList == null || resultList.length() == 0) {                logger.debug("No items found in response");                return products;            }            logger.info("Found {} items", resultList.length());            for (int i = 0; i < resultList.length(); i++) {                try {                    JSONObject item = resultList.getJSONObject(i);                    Product product = parseProductItem(item, query);                    if (product != null && isValidProduct(product)) {                        products.add(product);                    }                } catch (Exception e) {                    logger.debug("Error parsing item {}: {}", i, e.getMessage());                }            }            logger.info("Successfully parsed {} products", products.size());        } catch (Exception e) {            logger.error("Error parsing response: {}", e.getMessage());            logger.debug("Response content (first 500 chars): {}",                    response.length() > 500 ? response.substring(0, 500) + "..." : response);        }        return products;    }    private Product parseProductItem(JSONObject item, String query) {        try {            JSONObject data = item.optJSONObject("data");            if (data == null) return null;            JSONObject itemObj = data.optJSONObject("item");            if (itemObj == null) return null;            JSONObject mainObj = itemObj.optJSONObject("main");            if (mainObj == null) return null;            JSONObject itemData = data.optJSONObject("itemData");            JSONObject exContent = mainObj.optJSONObject("exContent");            // Извлечение ID товара            String itemId = null;            if (itemData != null) itemId = itemData.optString("itemId", "");            if ((itemId == null || itemId.isEmpty()) && exContent != null) {                itemId = exContent.optString("itemId", "");            }            if (itemId == null || itemId.isEmpty()) return null;            Product product = new Product();            product.setId(itemId);            product.setSite("goofish");            product.setQuery(query);            // 🔴 ИСПРАВЛЕНИЕ: ПАРСИНГ НАЗВАНИЯ            String title = "";            // Пробуем разные источники названия            if (itemData != null) {                title = itemData.optString("title", "");                if (title.isEmpty()) {                    title = itemData.optString("text", "");                }                if (title.isEmpty()) {                    title = itemData.optString("name", "");                }            }            if (title.isEmpty() && exContent != null) {                title = exContent.optString("title", "");                if (title.isEmpty()) {                    title = exContent.optString("text", "");                }                if (title.isEmpty()) {                    title = exContent.optString("name", "");                }            }            if (title.isEmpty() && mainObj != null) {                JSONObject clickParam = mainObj.optJSONObject("clickParam");                if (clickParam != null) {                    JSONObject args = clickParam.optJSONObject("args");                    if (args != null) {                        title = args.optString("subject", "");                    }                }            }            // Если название по-прежнему пустое, создаем более информативное            if (title.isEmpty()) {                title = "Товар #" + itemId + " (" + query + ")";            }            product.setTitle(title);            // Остальной код остается без изменений...            // Цена            double price = extractPrice(itemData, exContent);            product.setPrice(price);            // Возраст товара            long publishTime = extractPublishTime(mainObj, itemData, exContent);            int ageMinutes = calculateAge(publishTime);            // Если publishTime странный/пустой, пробуем вытащить возраст из меток (например "6小时前发布")            Integer ageFromTags = extractAgeMinutesFromTags(exContent, mainObj);            if (ageFromTags != null) {                // Если publishTime не дал адекватного возраста — используем метку                if (publishTime <= 0 || ageMinutes <= 0 || ageMinutes > 10080) {                    ageMinutes = ageFromTags;                } else {                    // Иногда publishTime бывает неверным: если метка сильно расходится, доверяем метке                    if (Math.abs(ageMinutes - ageFromTags) > 60) {                        ageMinutes = ageFromTags;                    }                }            }            product.setAgeMinutes(ageMinutes);            // Локация            String location = itemData != null ? itemData.optString("area", "") : "";            product.setLocation(location.isEmpty() ? "Не указано" : location);            // URL - убедимся, что он правильный            product.setUrl("https://www.goofish.com/item?id=" + itemId);            // Изображения            List<String> images = extractImages(mainObj, itemObj, data);            product.setImages(images);            logger.debug("Parsed: {} ({}¥, {}min, {} images)",                    product.getShortTitle(), price, ageMinutes, images.size());            return product;        } catch (Exception e) {            logger.error("Error parsing product item: {}", e.getMessage());            return null;        }    }    private double extractPrice(JSONObject itemData, JSONObject exContent) {        if (itemData != null) {            Object priceObj = itemData.opt("price");            if (priceObj != null) return parsePrice(priceObj);        }        if (exContent != null) {            Object priceObj = exContent.opt("price");            if (priceObj != null) return parsePrice(priceObj);        }        return 0.0;    }    private double parsePrice(Object priceObj) {        if (priceObj instanceof String) {            return extractPrice((String) priceObj);        }        if (priceObj instanceof Number) {            return ((Number) priceObj).doubleValue();        }        if (priceObj instanceof JSONArray) {            JSONArray arr = (JSONArray) priceObj;            StringBuilder sb = new StringBuilder();            for (int i = 0; i < arr.length(); i++) {                JSONObject part = arr.optJSONObject(i);                if (part != null && "integer".equals(part.optString("type"))) {                    sb.append(part.optString("text"));                }            }            return extractPrice(sb.toString());        }        return 0.0;    }    public double extractPrice(String priceStr) {        if (priceStr == null || priceStr.isEmpty()) return 0.0;        try {            String clean = priceStr.replaceAll("[^\\d.,]", "").replace(',', '.');            return Double.parseDouble(clean);        } catch (NumberFormatException e) {            return 0.0;        }    }    private long extractPublishTime(JSONObject main, JSONObject itemData, JSONObject exContent) {        // Путь 1: args.publishTime        if (main != null) {            JSONObject clickParam = main.optJSONObject("clickParam");            if (clickParam != null) {                JSONObject args = clickParam.optJSONObject("args");                if (args != null && args.has("publishTime")) {                    Object time = args.opt("publishTime");                    if (time instanceof String) return Long.parseLong((String) time);                    if (time instanceof Number) return ((Number) time).longValue();                }            }        }        // Путь 2: itemData.publishTime        if (itemData != null && itemData.has("publishTime")) {            Object time = itemData.opt("publishTime");            if (time instanceof String) return Long.parseLong((String) time);            if (time instanceof Number) return ((Number) time).longValue();        }        return 0;    }    /**     * Пытается извлечь "возраст" из UI-меток в ответе (часто там есть строка вида "6小时前发布").     * Возвращает возраст в минутах или null, если не удалось.     */    private Integer extractAgeMinutesFromTags(JSONObject exContent, JSONObject mainObj) {        try {            // Путь 1: mainObj.clickParam.args.serviceUtParams (строка JSON с content)            if (mainObj != null) {                JSONObject clickParam = mainObj.optJSONObject("clickParam");                if (clickParam != null) {                    JSONObject args = clickParam.optJSONObject("args");                    if (args != null) {                        String serviceUtParams = args.optString("serviceUtParams", "");                        Integer parsed = parseAgeMinutesFromText(serviceUtParams);                        if (parsed != null) return parsed;                    }                }            }            // Путь 2: exContent.fishTags.r2.tagList[*].data.content            if (exContent != null) {                JSONObject fishTags = exContent.optJSONObject("fishTags");                if (fishTags != null) {                    JSONObject r2 = fishTags.optJSONObject("r2");                    if (r2 != null) {                        JSONArray tagList = r2.optJSONArray("tagList");                        if (tagList != null) {                            for (int i = 0; i < Math.min(5, tagList.length()); i++) {                                JSONObject tag = tagList.optJSONObject(i);                                if (tag == null) continue;                                JSONObject data = tag.optJSONObject("data");                                if (data == null) continue;                                String content = data.optString("content", "");                                Integer parsed = parseAgeMinutesFromText(content);                                if (parsed != null) return parsed;                            }                        }                    }                }            }        } catch (Exception ignored) {        }        return null;    }    private Integer parseAgeMinutesFromText(String text) {        if (text == null || text.isEmpty()) return null;        Matcher m = PUBLISHED_AGO_ZH.matcher(text);        if (!m.find()) return null;        int value;        try {            value = Integer.parseInt(m.group(1));        } catch (NumberFormatException e) {            return null;        }        String unit = m.group(2);        if (unit.contains("分钟")) return Math.max(1, value);        if (unit.contains("时")) return Math.max(1, value * 60);        if (unit.contains("天")) return Math.max(1, value * 24 * 60);        return null;    }    private int calculateAge(long publishTime) {        if (publishTime <= 0) return 0;        // Определяем формат времени (секунды или миллисекунды)        if (publishTime < 10000000000L) {            publishTime = publishTime * 1000;        }        long ageMs = System.currentTimeMillis() - publishTime;        int ageMinutes = (int) (ageMs / (1000 * 60));        return Math.max(1, Math.min(ageMinutes, 10080)); // 1 до 7 дней    }    private List<String> extractImages(JSONObject main, JSONObject itemObj, JSONObject data) {        List<String> images = new ArrayList<>();        // Путь 1: data.picUrl (главное фото)        if (data != null && data.has("picUrl")) {            String picUrl = data.optString("picUrl", "");            if (isValidImageUrl(picUrl)) {                images.add(picUrl);                logger.debug("✅ Найдено фото в data.picUrl");            }        }        // Путь 2: data.pics (массив фото)        if (data != null && data.has("pics")) {            JSONArray pics = data.optJSONArray("pics");            if (pics != null) {                for (int i = 0; i < Math.min(5, pics.length()); i++) {                    try {                        JSONObject pic = pics.optJSONObject(i);                        if (pic != null) {                            // Пробуем разные поля                            String url = pic.optString("picUrl", "");                            if (url.isEmpty()) {                                url = pic.optString("pic_url", "");                            }                            if (url.isEmpty()) {                                url = pic.optString("url", "");                            }                            if (isValidImageUrl(url) && !images.contains(url)) {                                images.add(url);                                logger.debug("✅ Найдено фото в data.pics[{}]", i);                            }                        }                    } catch (Exception e) {                        logger.debug("Error parsing pic at index {}: {}", i, e.getMessage());                    }                }            }        }        // Путь 3: itemObj.extra.picUrl (дополнительное фото)        if (itemObj != null) {            JSONObject extra = itemObj.optJSONObject("extra");            if (extra != null) {                String picUrl = extra.optString("picUrl", "");                if (picUrl.isEmpty()) {                    picUrl = extra.optString("pic_url", "");                }                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {                    images.add(picUrl);                    logger.debug("✅ Найдено фото в itemObj.extra.picUrl");                }            }        }        // Путь 4: main.exContent.picUrl (исходное фото)        if (main != null) {            JSONObject exContent = main.optJSONObject("exContent");            if (exContent != null) {                String picUrl = exContent.optString("picUrl", "");                if (picUrl.isEmpty()) {                    picUrl = exContent.optString("pic_url", "");                }                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {                    images.add(picUrl);                    logger.debug("✅ Найдено фото в main.exContent.picUrl");                }            }        }        // Путь 5: Прямые поля объекта (на случай если структура упрощена)        if (data != null) {            // Проверяем прямые поля в data            String directPic = data.optString("image", "");            if (directPic.isEmpty()) {                directPic = data.optString("img", "");            }            if (isValidImageUrl(directPic) && !images.contains(directPic)) {                images.add(directPic);                logger.debug("✅ Найдено фото в data.image");            }        }        if (images.isEmpty()) {            logger.debug("⚠️ Фотографии не найдены для товара");        } else {            logger.debug("📷 Найдено фотографий: {}", images.size());        }        return images;    }    private boolean isValidImageUrl(String url) {        if (url == null || url.isEmpty()) {            return false;        }        // Должно быть HTTPS или HTTP        if (!url.startsWith("http://") && !url.startsWith("https://")) {            return false;        }        // Проверяем расширение файла        String lowerUrl = url.toLowerCase();        String[] validExtensions = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".heic"};        boolean hasValidExtension = false;        for (String ext : validExtensions) {            if (lowerUrl.contains(ext)) {                hasValidExtension = true;                break;            }        }        // Если нет расширения - может быть OK (CDN с query parameters)        if (!hasValidExtension && (lowerUrl.contains("alicdn") || lowerUrl.contains("taobaocdn"))) {            return true;        }        return hasValidExtension;    }    private boolean isValidProduct(Product product) {        return product.getId() != null && !product.getId().isEmpty() &&                product.getTitle() != null && !product.getTitle().isEmpty() &&                product.getUrl() != null && !product.getUrl().isEmpty();    }    private String getTokenFromCookies() {        try {            String cookies = CookieService.getCookieHeader("h5api.m.goofish.com");            if (cookies == null || cookies.isEmpty()) return "";            String[] pairs = cookies.split("; ");            for (String pair : pairs) {                if (pair.startsWith("_m_h5_tk=")) {                    String mh5tk = pair.substring(9);                    if (mh5tk.contains("_")) {                        return mh5tk.split("_")[0];                    }                }            }        } catch (Exception e) {            logger.warn("Error getting token: {}", e.getMessage());        }        return "";    }    private String generateSignature(String token, long timestamp, String data) {        try {            String signString = token + "&" + timestamp + "&" + APP_KEY + "&" + data;            MessageDigest md = MessageDigest.getInstance("MD5");            byte[] hash = md.digest(signString.getBytes(StandardCharsets.UTF_8));            StringBuilder hex = new StringBuilder();            for (byte b : hash) {                String h = Integer.toHexString(0xff & b);                if (h.length() == 1) hex.append('0');                hex.append(h);            }            return hex.toString();        } catch (Exception e) {            logger.error("Error generating signature: {}", e.getMessage());            return "";        }    }    /**     * Переопределяем метод search для использования POST запросов     */    @Override    public List<Product> search(String query, int maxPages, int rowsPerPage, int maxAgeMinutes) {        List<Product> allProducts = new ArrayList<>();        logger.info("Starting search: site={}, query='{}', pages={}, rows={}, maxAge={}min",                siteName, query, maxPages, rowsPerPage, maxAgeMinutes);        for (int page = 1; page <= maxPages; page++) {            if (Thread.currentThread().isInterrupted()) break;            try {                // Формируем URL для API                String url = buildSearchUrl(query, page, rowsPerPage);                if (url.isEmpty()) {                    logger.error("Failed to build URL for page {}", page);                    break;                }                // Выполняем POST запрос                String response = executeSearchRequest(url, query, page, rowsPerPage);                totalRequests++;                // Парсим ответ                List<Product> products = parseResponse(response, query);                if (products.isEmpty()) {                    logger.debug("No products on page {}", page);                    break;                }                // Фильтруем по возрасту                List<Product> filtered = new ArrayList<>();                for (Product p : products) {                    if (p.getAgeMinutes() <= maxAgeMinutes) {                        filtered.add(p);                    }                }                allProducts.addAll(filtered);                logger.info("Page {}: found {} products ({} after age filter)",                        page, products.size(), filtered.size());                // Диагностика: если возрастной фильтр режет слишком много, показываем пару примеров (INFO),                // чтобы было понятно, почему “на сайте сегодняшние, а у нас их мало”.                if (products.size() > 0 && filtered.size() < products.size()) {                    int removed = products.size() - filtered.size();                    if (filtered.isEmpty() || removed >= Math.max(5, products.size() / 2)) {                        StringBuilder dbg = new StringBuilder();                        dbg.append("Age filter removed ").append(removed)                                .append(" of ").append(products.size())                                .append(" (maxAgeMinutes=").append(maxAgeMinutes).append("). Examples: ");                        int shown = 0;                        for (Product p : products) {                            if (p.getAgeMinutes() > maxAgeMinutes) {                                dbg.append(p.getId()).append("(age=").append(p.getAgeMinutes()).append("m)");                                shown++;                                if (shown >= 5) break;                                dbg.append(", ");                            }                        }                        logger.info(dbg.toString());                    }                }                // Останавливаемся только если API реально вернуло меньше rowsPerPage.                // Иначе можем преждевременно остановиться из-за возрастного фильтра и не добрать товары.                if (products.size() < rowsPerPage) break;                // Задержка между запросами                int delay = getRequestDelay();                if (delay > 0 && page < maxPages) {                    Thread.sleep(delay);                }            } catch (Exception e) {                failedRequests++;                logger.error("Error on page {}: {}", page, e.getMessage());                if (shouldStopOnError(e)) break;                try {                    Thread.sleep(3000);                } catch (InterruptedException ie) {                    Thread.currentThread().interrupt();                    break;                }            }        }        logger.info("Search completed: found {} products in {} requests",                allProducts.size(), totalRequests);        return allProducts;    }}

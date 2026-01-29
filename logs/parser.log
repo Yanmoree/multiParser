@@ -2553,3 +2553,786 @@ Session ID: 6e362676e12aa2d30f874b1b92251771
 2026-01-28 23:04:59.955 [Thread-7] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
 2026-01-28 23:04:59.958 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
 2026-01-28 23:04:59.958 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete
+2026-01-29 00:02:55.649 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 00:02:55.649 [main] INFO  com.parser.Main - Product Parser with Real-Time Cookies
+2026-01-29 00:02:55.649 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 00:02:55.650 [main] INFO  com.parser.config.Config - Loaded configuration from resources
+2026-01-29 00:02:55.650 [main] INFO  com.parser.Main - ✅ Configuration:
+2026-01-29 00:02:55.650 [main] INFO  com.parser.Main -    Token: 8538627254...
+2026-01-29 00:02:55.650 [main] INFO  com.parser.Main -    Username: @multiparse_bot
+2026-01-29 00:02:55.650 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-29 00:02:55.651 [main] INFO  com.parser.Main - ✅ Data directory ready
+2026-01-29 00:02:55.651 [main] INFO  com.parser.Main - 🍪 Инициализация системы cookies...
+2026-01-29 00:02:55.651 [main] INFO  com.parser.service.CookieService - 🍪 Инициализация CookieService...
+2026-01-29 00:02:55.653 [main] INFO  com.parser.service.CookieService - ✅ Автообновление настроено: каждые 60 минут
+2026-01-29 00:02:55.653 [main] INFO  com.parser.service.CookieService - 🔄 Предварительная загрузка cookies...
+2026-01-29 00:02:55.653 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-29 00:02:55.654 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-29 00:02:55.655 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-29 00:02:55.870 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-29 00:02:55.871 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-29 00:02:58.214 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-29 00:02:58.219 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-29 00:03:01.600 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-29 00:03:10.661 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-29 00:03:15.995 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-29 00:03:16.044 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-29 00:03:16.044 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 1
+2026-01-29 00:03:16.044 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 1
+2026-01-29 00:03:16.044 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-29 00:03:16.044 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : gIHmMCibjz_Cp47yKNyXNJn9d_A-c-w_wVBTWRUwazz5kZB...
+2026-01-29 00:03:16.142 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-29 00:03:16.142 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: _m_h5_tk
+2026-01-29 00:03:16.142 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: _tb_token_
+2026-01-29 00:03:16.142 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: cna
+2026-01-29 00:03:16.142 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: cookie2
+2026-01-29 00:03:16.142 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: t
+2026-01-29 00:03:16.142 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ❌ ОШИБКА (найдено 0/5 ключевых)
+2026-01-29 00:03:16.142 [main] WARN  com.parser.service.CookieService - ⚠️ Валидация свежих cookies не пройдена, используем кэшированные
+2026-01-29 00:03:16.142 [main] INFO  com.parser.service.CookieService - ✅ CookieService инициализирован
+2026-01-29 00:03:16.142 [main] INFO  com.parser.Main - 🧪 Тестирование cookies...
+2026-01-29 00:03:16.143 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-29 00:03:16.143 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-29 00:03:16.163 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-29 00:03:16.164 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-29 00:03:16.903 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-29 00:03:16.906 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-29 00:03:19.535 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-29 00:03:28.577 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-29 00:03:33.875 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-29 00:03:33.896 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-29 00:03:33.896 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 1
+2026-01-29 00:03:33.896 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 1
+2026-01-29 00:03:33.896 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-29 00:03:33.896 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : gbJrMMXpS9Yf5K0MbhXEQB8STI6Rp9usTp_CxHxhVabuF8a...
+2026-01-29 00:03:33.993 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-29 00:03:33.993 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: _m_h5_tk
+2026-01-29 00:03:33.993 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: _tb_token_
+2026-01-29 00:03:33.993 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: cna
+2026-01-29 00:03:33.993 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: cookie2
+2026-01-29 00:03:33.993 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Отсутствует ключевой cookie: t
+2026-01-29 00:03:33.993 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ❌ ОШИБКА (найдено 0/5 ключевых)
+2026-01-29 00:03:33.993 [main] WARN  com.parser.service.CookieService - ⚠️ Валидация свежих cookies не пройдена, используем кэшированные
+2026-01-29 00:03:33.994 [main] INFO  com.parser.service.CookieService - ✅ Cookies доступны, длина: 655 символов
+2026-01-29 00:03:33.994 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-29 00:03:33.994 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-29 00:03:34.015 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-29 00:03:34.015 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-29 00:03:34.408 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-29 00:03:34.412 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-29 00:03:42.202 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-29 00:03:51.259 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-29 00:03:56.757 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : b1eb0eeb9a2a81fb6136e62d6c11dde9_1769641423060
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 08a74622b3111f005cc1bf2c4811c6c7
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_     : true
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : f5eeed693e1e
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : rmcBIkDkHVACAW2sN2IjUZ6d
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1baacf0fcac20f34628bdac0728301f4
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect: 1
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : e14be10e801bf90fd21b0694284813e3
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : gq4jUIXU7RUP685ABK5yd6W16_0_l_7UHCGTt5L26q3Y6VN...
+2026-01-29 00:03:56.955 [main] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s              : 1
+2026-01-29 00:03:57.056 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-29 00:03:57.056 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-29 00:03:57.056 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: b1eb0eeb9a2a81fb6...
+2026-01-29 00:03:57.056 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1769641423060
+2026-01-29 00:03:57.056 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 5/5 ключевых)
+2026-01-29 00:03:57.088 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-01-29 00:03:57.088 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-29 00:03:57.089 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService - ✅ Получены свежие cookies, 10 элементов
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService - 📊 Ключевые cookies:
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService -    _m_h5_tk: b1eb0eeb9a2a81fb6136e62d6c1...
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService -    _tb_token_: f5eeed693e1e
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService -    cna: rmcBIkDkHVACAW2sN2IjUZ6d
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService -    cookie2: 1baacf0fcac20f34628bdac0728...
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService -    t: e14be10e801bf90fd21b0694284...
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService - 📊 Анализ _m_h5_tk:
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService -    Токен: b1eb0eeb9a2a81fb6...
+2026-01-29 00:03:57.089 [main] INFO  com.parser.service.CookieService -    Время: 1769641423060
+2026-01-29 00:03:57.089 [main] INFO  com.parser.Main - ✅ Cookies работают корректно
+2026-01-29 00:03:57.092 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized: core=5, max=20
+2026-01-29 00:03:57.092 [main] INFO  com.parser.Main - ✅ ThreadManager initialized
+2026-01-29 00:03:57.092 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-01-29 00:03:57.222 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-29 00:03:57.222 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-29 00:03:57.922 [main] INFO  c.parser.telegram.TelegramBotService - ✅ User command menu configured
+2026-01-29 00:03:58.024 [main] INFO  c.parser.telegram.TelegramBotService - ✅ Admin command menu configured for 1080595280
+2026-01-29 00:03:58.024 [main] INFO  com.parser.Main - ✅ Telegram bot registered and running
+2026-01-29 00:03:58.024 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 00:03:58.024 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-01-29 00:03:58.025 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-29 00:03:58.025 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: true
+2026-01-29 00:03:58.028 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from whitelist.txt. Found 7 lines
+2026-01-29 00:03:58.028 [main] INFO  com.parser.storage.WhitelistManager - ✅ Loaded 4 users from whitelist
+2026-01-29 00:03:58.028 [main] INFO  com.parser.Main - 📋 Users: 4
+2026-01-29 00:03:58.029 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 00:03:58.030 [main] INFO  com.parser.Main - ⏳ Application is running...
+2026-01-29 00:03:58.294 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 1080595280
+2026-01-29 00:03:58.299 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280: 1 queries
+2026-01-29 00:03:58.299 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-29 00:03:58.300 [pool-2-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for: goofish
+2026-01-29 00:03:58.301 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=30, rows=30, maxAge=1440min
+2026-01-29 00:03:58.304 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634238301&sign=bbed1b2176df1bedb708fb2c1905b43a&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:00.354 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:00.897 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:01.700 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 343086 символов
+2026-01-29 00:04:01.712 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:01.716 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:01.716 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 30 products (15 after age filter)
+2026-01-29 00:04:01.716 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 15 of 30 (maxAgeMinutes=1440). Examples: 1018333264685(age=1545m), 1016643298346(age=1725m), 1018281008215(age=1729m), 1015988827752(age=1741m), 1016637286686(age=1742m)
+2026-01-29 00:04:03.724 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634243721&sign=64f32e9c1daeee31d13c9f5ccfa4fc13&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:04.666 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:04.717 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:04.722 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 299134 символов
+2026-01-29 00:04:04.737 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:04.738 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:04.738 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 2: found 30 products (0 after age filter)
+2026-01-29 00:04:04.738 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1016507682039(age=2217m), 1016497738520(age=2244m), 1015843763749(age=2258m), 1016418170579(age=2488m), 1017282953876(age=2498m)
+2026-01-29 00:04:06.745 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634246743&sign=6d26cb345416e230295d8e2f0f58cf85&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:07.402 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:07.461 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:07.465 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 282963 символов
+2026-01-29 00:04:07.471 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:07.473 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:07.473 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 3: found 30 products (0 after age filter)
+2026-01-29 00:04:07.473 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1017337196405(age=6066m), 1017334752971(age=6082m), 1015050991247(age=6099m), 1017332360841(age=6100m), 1017326440480(age=6123m)
+2026-01-29 00:04:09.480 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634249478&sign=c626446595df3495e47bd8a521258edf&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:10.336 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:10.342 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:10.346 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 305781 символов
+2026-01-29 00:04:10.353 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:10.357 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:10.357 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 4: found 30 products (0 after age filter)
+2026-01-29 00:04:10.357 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1014421403199(age=9075m), 1016645872540(age=9213m), 1015015818080(age=9219m), 1015862085154(age=9278m), 1014182067354(age=9762m)
+2026-01-29 00:04:12.363 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634252362&sign=de81c2d8096e27c8ea6f3b282580dc20&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:14.309 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:14.453 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:14.457 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 284813 символов
+2026-01-29 00:04:14.465 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:14.469 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:14.469 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 5: found 30 products (0 after age filter)
+2026-01-29 00:04:14.469 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1015688620360(age=10080m), 1013421459178(age=10080m), 1013418319834(age=10080m), 1015669128269(age=10080m), 1015668884052(age=10080m)
+2026-01-29 00:04:16.476 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634256474&sign=89e7c17c12458004539063e271de5c29&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:17.155 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:17.328 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:17.333 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 283723 символов
+2026-01-29 00:04:17.344 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:17.346 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:17.346 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 6: found 30 products (0 after age filter)
+2026-01-29 00:04:17.346 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1014186209654(age=10080m), 1014878724727(age=10080m), 1014114981210(age=10080m), 1014815248578(age=10080m), 1014799872255(age=10080m)
+2026-01-29 00:04:19.352 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634259351&sign=0dffb0657162a9ba33417c693ad862f9&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:20.035 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:20.178 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:20.184 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 225682 символов
+2026-01-29 00:04:20.206 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:20.207 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:20.207 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 7: found 30 products (0 after age filter)
+2026-01-29 00:04:20.207 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1013666680088(age=10080m), 1012750853107(age=10080m), 1012704953699(age=10080m), 1012685809111(age=10080m), 1012591329129(age=10080m)
+2026-01-29 00:04:22.214 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634262212&sign=5834d3717f394087730debad92891b9b&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:24.175 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:24.178 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:24.181 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 222689 символов
+2026-01-29 00:04:24.187 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:24.190 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:24.190 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 8: found 30 products (0 after age filter)
+2026-01-29 00:04:24.190 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1012216680488(age=10080m), 1012035976958(age=10080m), 1009787491742(age=10080m), 1012005420460(age=10080m), 1009746159663(age=10080m)
+2026-01-29 00:04:26.196 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634266195&sign=d5dfbc8e79979049dc243f4b49cb02df&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:27.604 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:27.606 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:27.612 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 219467 символов
+2026-01-29 00:04:27.618 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:27.621 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:27.621 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 9: found 30 products (0 after age filter)
+2026-01-29 00:04:27.621 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1010267520628(age=10080m), 1008033871591(age=10080m), 1009491485969(age=10080m), 1009492065256(age=10080m), 1007906435875(age=10080m)
+2026-01-29 00:04:29.628 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634269626&sign=4cbc14131de2d18a2e7ff09332540ad5&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:30.369 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:30.371 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:30.374 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 239747 символов
+2026-01-29 00:04:30.384 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:30.386 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:30.386 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 10: found 30 products (0 after age filter)
+2026-01-29 00:04:30.386 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1007773302843(age=10080m), 1009117832622(age=10080m), 1008978596253(age=10080m), 1008764172582(age=10080m), 1006563539791(age=10080m)
+2026-01-29 00:04:32.393 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634272391&sign=2ae8b969a43da1bb4f4fb52e3ae7f774&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:34.917 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:34.964 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:34.966 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 235463 символов
+2026-01-29 00:04:34.969 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:34.969 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:34.969 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 11: found 30 products (0 after age filter)
+2026-01-29 00:04:34.969 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1006195070872(age=10080m), 1007005397223(age=10080m), 1005541427578(age=10080m), 1007706784374(age=10080m), 1006139898351(age=10080m)
+2026-01-29 00:04:36.976 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634276974&sign=7338bf814ca09d864c9c8d1a103d83bf&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:37.666 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:37.692 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:37.695 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 221321 символов
+2026-01-29 00:04:37.699 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:37.700 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:37.700 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 12: found 30 products (0 after age filter)
+2026-01-29 00:04:37.700 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1003719563407(age=10080m), 1005869688782(age=10080m), 1003669595497(age=10080m), 1005034905325(age=10080m), 1003508755731(age=10080m)
+2026-01-29 00:04:38.633 [Thread-15] INFO  com.parser.Main - 🛑 Получен сигнал завершения...
+2026-01-29 00:04:38.634 [Thread-15] INFO  com.parser.Main - 🛑 Shutting down...
+2026-01-29 00:04:38.634 [Thread-15] INFO  com.parser.core.ThreadManager - Shutting down ThreadManager...
+2026-01-29 00:04:38.635 [Thread-15] INFO  com.parser.core.ThreadManager - Parser stopped for user 1080595280
+2026-01-29 00:04:39.706 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634279705&sign=a4f7eb7f5c60446c7e43a7ad03eb2c24&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:40.366 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:40.416 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:40.418 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 231271 символов
+2026-01-29 00:04:40.425 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:40.427 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:40.428 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 13: found 30 products (0 after age filter)
+2026-01-29 00:04:40.428 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1002094067801(age=10080m), 1002697814281(age=10080m), 1002693118958(age=10080m), 1002613770143(age=10080m), 1002541986561(age=10080m)
+2026-01-29 00:04:42.442 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634282428&sign=fdfa6b5bedb5f4f391c2b52f44f806f6&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:43.126 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:43.161 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:43.216 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 249671 символов
+2026-01-29 00:04:43.243 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:43.245 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:43.245 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 14: found 30 products (0 after age filter)
+2026-01-29 00:04:43.245 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1001206491141(age=10080m), 1002523473768(age=10080m), 1002523577559(age=10080m), 1003026440169(age=10080m), 1000870455556(age=10080m)
+2026-01-29 00:04:45.268 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634285248&sign=b9c9ebeb69a00abba5d04bf9413af00e&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:45.950 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:46.062 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:46.064 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 226981 символов
+2026-01-29 00:04:46.068 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:46.068 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:46.068 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 15: found 30 products (0 after age filter)
+2026-01-29 00:04:46.069 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1001935736629(age=10080m), 1001205317105(age=10080m), 1001192729796(age=10080m), 1001191241105(age=10080m), 1001903408802(age=10080m)
+2026-01-29 00:04:48.080 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634288073&sign=2827d6fe08e267a3dc2c75e20c4b9cbc&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:48.789 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:48.836 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:48.844 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 271487 символов
+2026-01-29 00:04:48.848 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:48.849 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:48.849 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 16: found 30 products (0 after age filter)
+2026-01-29 00:04:48.849 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1000979964158(age=10080m), 1000966648785(age=10080m), 1000222893663(age=10080m), 998954294781(age=10080m), 999700501590(age=10080m)
+2026-01-29 00:04:50.859 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634290854&sign=31628bd5e447c24e56cd57fc4af5cffd&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:51.619 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:51.629 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:51.642 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 236236 символов
+2026-01-29 00:04:51.652 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:51.653 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:51.653 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 17: found 30 products (0 after age filter)
+2026-01-29 00:04:51.653 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 997895398667(age=10080m), 997864874799(age=10080m), 998600749886(age=10080m), 997766830844(age=10080m), 998455785345(age=10080m)
+2026-01-29 00:04:53.665 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634293659&sign=15e17306105b84aff0cb5987d81c2b22&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:54.348 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:54.391 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:54.409 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 226775 символов
+2026-01-29 00:04:54.413 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:54.414 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:54.414 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 18: found 30 products (0 after age filter)
+2026-01-29 00:04:54.414 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 997512869322(age=10080m), 996728518087(age=10080m), 996092611413(age=10080m), 998143620613(age=10080m), 997418757147(age=10080m)
+2026-01-29 00:04:56.429 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634296420&sign=22206996d59e4c84dbf03406e7b62909&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:04:57.872 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:04:57.876 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:04:57.885 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 240214 символов
+2026-01-29 00:04:57.893 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:04:57.894 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:04:57.894 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 19: found 30 products (0 after age filter)
+2026-01-29 00:04:57.894 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 994607143688(age=10080m), 994418283055(age=10080m), 995013162975(age=10080m), 994997114712(age=10080m), 996253816679(age=10080m)
+2026-01-29 00:04:59.908 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634299900&sign=1644008deab7ed2f13b442d55364ca04&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:05:01.656 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:05:01.663 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:05:01.694 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 233273 символов
+2026-01-29 00:05:01.709 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:05:01.710 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:05:01.710 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 20: found 30 products (0 after age filter)
+2026-01-29 00:05:01.710 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 992537775572(age=10080m), 993125030740(age=10080m), 993826905758(age=10080m), 992429579858(age=10080m), 992414611495(age=10080m)
+2026-01-29 00:05:03.719 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634303713&sign=ef651bd609837c5fbd83bd39da41ea19&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:05:04.392 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:05:04.455 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:05:04.460 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 223530 символов
+2026-01-29 00:05:04.466 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:05:04.468 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:05:04.468 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 21: found 30 products (0 after age filter)
+2026-01-29 00:05:04.468 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 992727405717(age=10080m), 992674225760(age=10080m), 992658925004(age=10080m), 991307243430(age=10080m), 991839974430(age=10080m)
+2026-01-29 00:05:06.471 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769634306469&sign=6c83ddef6f2c6badb0c724d145e595d5&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 00:05:07.224 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 00:05:07.225 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 00:05:07.231 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 226800 символов
+2026-01-29 00:05:07.239 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 00:05:07.240 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 00:05:07.240 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 22: found 30 products (0 after age filter)
+2026-01-29 00:05:07.240 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 991895016179(age=10080m), 991889544794(age=10080m), 990395238298(age=10080m), 991841796727(age=10080m), 990374490721(age=10080m)
+2026-01-29 00:05:08.644 [Thread-15] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
+2026-01-29 00:05:08.648 [pool-2-thread-1] ERROR com.parser.parser.GoofishParser - Error on page 22: sleep interrupted
+2026-01-29 00:05:08.654 [Thread-15] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
+2026-01-29 00:05:08.657 [Thread-15] INFO  com.parser.Main - ✅ Shutdown complete
+2026-01-29 13:44:42.583 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 13:44:42.583 [main] INFO  com.parser.Main - Product Parser with Real-Time Cookies
+2026-01-29 13:44:42.583 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 13:44:42.584 [main] INFO  com.parser.config.Config - Loaded configuration from resources
+2026-01-29 13:44:42.584 [main] INFO  com.parser.Main - ✅ Configuration:
+2026-01-29 13:44:42.584 [main] INFO  com.parser.Main -    Token: 8538627254...
+2026-01-29 13:44:42.584 [main] INFO  com.parser.Main -    Username: @multiparse_bot
+2026-01-29 13:44:42.584 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-29 13:44:42.585 [main] INFO  com.parser.Main - ✅ Data directory ready
+2026-01-29 13:44:42.585 [main] INFO  com.parser.Main - 🍪 Инициализация системы cookies...
+2026-01-29 13:44:42.585 [main] INFO  com.parser.service.CookieService - 🍪 Инициализация CookieService...
+2026-01-29 13:44:42.587 [main] INFO  com.parser.service.CookieService - ✅ Автообновление настроено: каждые 60 минут
+2026-01-29 13:44:42.587 [main] INFO  com.parser.service.CookieService - 🔄 Предварительная загрузка cookies...
+2026-01-29 13:44:42.587 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-29 13:44:42.588 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-29 13:44:42.589 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-29 13:44:48.441 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-29 13:44:48.444 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-29 13:44:50.889 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-29 13:44:50.892 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-29 13:44:54.394 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-29 13:45:03.905 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-29 13:45:09.436 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 636b67167d3f726b063c3dc1d755ed05_1769692134894
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 961fd7915977c65347abd0e8650dfff6
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_     : true
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : e9da851d18935
+2026-01-29 13:45:09.471 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : KigCIn3gBi8CAT6FPjqhyAOC
+2026-01-29 13:45:09.472 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 10e068d20137729d8e777955d29e7af0
+2026-01-29 13:45:09.472 [main] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect: 1
+2026-01-29 13:45:09.472 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : e663356b7aa5f8239c62dc45f3ddab10
+2026-01-29 13:45:09.472 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : gFhZf1NxqSmCcCKoz4V2aVSTBtNTaS-7sjZboq005lqgGdE...
+2026-01-29 13:45:09.472 [main] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s              : 1
+2026-01-29 13:45:09.593 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-29 13:45:09.593 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-29 13:45:09.593 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 636b67167d3f726b0...
+2026-01-29 13:45:09.593 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1769692134894
+2026-01-29 13:45:09.593 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 5/5 ключевых)
+2026-01-29 13:45:09.594 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-01-29 13:45:09.594 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-29 13:45:09.594 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-01-29 13:45:09.594 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService - ✅ Получены свежие cookies, 10 элементов
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService - ✅ CookieService инициализирован
+2026-01-29 13:45:09.595 [main] INFO  com.parser.Main - 🧪 Тестирование cookies...
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService - ✅ Cookies доступны, длина: 656 символов
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService - 📊 Ключевые cookies:
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService -    _m_h5_tk: 636b67167d3f726b063c3dc1d75...
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService -    _tb_token_: e9da851d18935
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService -    cna: KigCIn3gBi8CAT6FPjqhyAOC
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService -    cookie2: 10e068d20137729d8e777955d29...
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService -    t: e663356b7aa5f8239c62dc45f3d...
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService - 📊 Анализ _m_h5_tk:
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService -    Токен: 636b67167d3f726b0...
+2026-01-29 13:45:09.595 [main] INFO  com.parser.service.CookieService -    Время: 1769692134894
+2026-01-29 13:45:09.595 [main] INFO  com.parser.Main - ✅ Cookies работают корректно
+2026-01-29 13:45:09.597 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized: core=5, max=20
+2026-01-29 13:45:09.597 [main] INFO  com.parser.Main - ✅ ThreadManager initialized
+2026-01-29 13:45:09.597 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-01-29 13:45:09.699 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-29 13:45:09.699 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-29 13:45:11.080 [main] INFO  c.parser.telegram.TelegramBotService - ✅ User command menu configured
+2026-01-29 13:45:11.321 [main] INFO  c.parser.telegram.TelegramBotService - ✅ Admin command menu configured for 1080595280
+2026-01-29 13:45:11.321 [main] INFO  com.parser.Main - ✅ Telegram bot registered and running
+2026-01-29 13:45:11.321 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 13:45:11.321 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-01-29 13:45:11.321 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-29 13:45:11.322 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: true
+2026-01-29 13:45:11.323 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from whitelist.txt. Found 7 lines
+2026-01-29 13:45:11.323 [main] INFO  com.parser.storage.WhitelistManager - ✅ Loaded 4 users from whitelist
+2026-01-29 13:45:11.324 [main] INFO  com.parser.Main - 📋 Users: 4
+2026-01-29 13:45:11.324 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 13:45:11.324 [main] INFO  com.parser.Main - ⏳ Application is running...
+2026-01-29 13:45:11.454 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 1080595280
+2026-01-29 13:45:11.460 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280: 1 queries
+2026-01-29 13:45:11.460 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-29 13:45:11.461 [pool-2-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for: goofish
+2026-01-29 13:45:11.463 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=30, rows=30, maxAge=1440min
+2026-01-29 13:45:11.467 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683511463&sign=805ddee45af61793f84890e8eb4d9616&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:45:13.255 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:45:13.473 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:45:13.848 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 384235 символов
+2026-01-29 13:45:13.872 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:45:13.875 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:45:13.875 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 30 products (30 after age filter)
+2026-01-29 13:45:15.884 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683515880&sign=9bf7d09d603f7223c1be067c0d2028da&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:00.909 [pool-2-thread-1] ERROR com.parser.parser.GoofishParser - ❌ Ошибка выполнения запроса: Read timed out
+2026-01-29 13:46:00.915 [pool-2-thread-1] ERROR com.parser.parser.GoofishParser - Error on page 2: Read timed out
+2026-01-29 13:46:03.926 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683563920&sign=8db8ac9b02ec398cd293448ea962b8ae&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:05.052 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:05.260 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:05.266 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 308382 символов
+2026-01-29 13:46:05.278 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:05.281 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:05.281 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 3: found 30 products (0 after age filter)
+2026-01-29 13:46:05.281 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1016594482743(age=2722m), 1016590490777(age=2742m), 1015888987976(age=2956m), 1017387945782(age=3005m), 1015862707056(age=3028m)
+2026-01-29 13:46:07.287 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683567286&sign=31e0199f58a5f889a0feb8b37b0746ae&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:07.682 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:07.730 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:07.733 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 292170 символов
+2026-01-29 13:46:07.736 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:07.737 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:07.737 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 4: found 30 products (0 after age filter)
+2026-01-29 13:46:07.737 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1016672377122(age=6022m), 1016656001068(age=6131m), 1015132255925(age=6217m), 1016637949329(age=6249m), 1016617377366(age=6425m)
+2026-01-29 13:46:09.743 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683569742&sign=a109e986a5e3e04a63c7281398f7e9e0&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:10.208 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:10.229 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:10.253 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 339238 символов
+2026-01-29 13:46:10.257 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:10.258 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:10.258 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 5: found 30 products (0 after age filter)
+2026-01-29 13:46:10.258 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1014654015235(age=8783m), 1016151461125(age=8826m), 1016875380689(age=8984m), 1015073126331(age=9881m), 1014421403199(age=9897m)
+2026-01-29 13:46:12.264 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683572263&sign=e8823359496b7355d890e29971c9d3b3&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:12.780 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:12.783 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:12.787 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 378022 символов
+2026-01-29 13:46:12.796 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:12.798 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:12.798 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 6: found 30 products (0 after age filter)
+2026-01-29 13:46:12.798 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1013591299709(age=10080m), 1015832972047(age=10080m), 1013516619446(age=10080m), 1013433299264(age=10080m), 1015688620360(age=10080m)
+2026-01-29 13:46:14.804 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683574803&sign=1ce29cf88dae8d37f9ce4a993b1efb44&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:15.287 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:15.327 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:15.336 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 333251 символов
+2026-01-29 13:46:15.352 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:15.354 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:15.354 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 7: found 30 products (0 after age filter)
+2026-01-29 13:46:15.354 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1014230625777(age=10080m), 1014216965481(age=10080m), 1012705135347(age=10080m), 1014961604232(age=10080m), 1014186209654(age=10080m)
+2026-01-29 13:46:17.360 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683577359&sign=0ae637350e63b96c8e916f1d5137c52c&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:17.750 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:17.767 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:17.770 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 226454 символов
+2026-01-29 13:46:17.774 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:17.774 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:17.774 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 8: found 30 products (0 after age filter)
+2026-01-29 13:46:17.774 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1011489051634(age=10080m), 1012942389388(age=10080m), 1013666680088(age=10080m), 1012750853107(age=10080m), 1012704953699(age=10080m)
+2026-01-29 13:46:19.782 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683579779&sign=48f40a8d5522e7efb8a53a7308bd01bc&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:20.233 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:20.238 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:20.239 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 222107 символов
+2026-01-29 13:46:20.243 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:20.244 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:20.244 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 9: found 30 products (0 after age filter)
+2026-01-29 13:46:20.244 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1012472632964(age=10080m), 1011640557136(age=10080m), 1012216680488(age=10080m), 1012035976958(age=10080m), 1009787491742(age=10080m)
+2026-01-29 13:46:21.923 [Thread-7] INFO  com.parser.Main - 🛑 Получен сигнал завершения...
+2026-01-29 13:46:21.924 [Thread-7] INFO  com.parser.Main - 🛑 Shutting down...
+2026-01-29 13:46:21.924 [Thread-7] INFO  com.parser.core.ThreadManager - Shutting down ThreadManager...
+2026-01-29 13:46:21.924 [Thread-7] INFO  com.parser.core.ThreadManager - Parser stopped for user 1080595280
+2026-01-29 13:46:22.250 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683582249&sign=713d0b37e7c6e4b4e973830739915a0e&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:22.681 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:22.683 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:22.684 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 220981 символов
+2026-01-29 13:46:22.688 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:22.690 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:22.690 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 10: found 30 products (0 after age filter)
+2026-01-29 13:46:22.690 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1010267520628(age=10080m), 1008033871591(age=10080m), 1009491485969(age=10080m), 1009492065256(age=10080m), 1007906435875(age=10080m)
+2026-01-29 13:46:24.696 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683584695&sign=58ef364350d5af858c8ffb885aeab12e&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:25.122 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:25.150 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:25.152 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 238043 символов
+2026-01-29 13:46:25.156 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:25.157 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:25.157 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 11: found 30 products (0 after age filter)
+2026-01-29 13:46:25.157 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1007773302843(age=10080m), 1009117832622(age=10080m), 1008978596253(age=10080m), 1008764172582(age=10080m), 1006563539791(age=10080m)
+2026-01-29 13:46:26.458 [multiparse_bot Telegram Connection] INFO  o.t.t.u.DefaultBotSession - Read timed out
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:277)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:302)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:354)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:798)
+	at java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:974)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:964)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1068)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188)
+2026-01-29 13:46:27.160 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683587160&sign=1464f45fe75171beb34063d9da975011&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:27.749 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:27.751 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:27.754 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 232963 символов
+2026-01-29 13:46:27.760 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:27.762 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:27.762 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 12: found 30 products (0 after age filter)
+2026-01-29 13:46:27.762 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1005541427578(age=10080m), 1007706784374(age=10080m), 1006139898351(age=10080m), 1005501407274(age=10080m), 1007600980091(age=10080m)
+2026-01-29 13:46:29.765 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683589764&sign=fdad260ab4e5e3c15108e267baf36710&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:30.238 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:30.243 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:30.248 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 221800 символов
+2026-01-29 13:46:30.251 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:30.252 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:30.252 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 13: found 30 products (0 after age filter)
+2026-01-29 13:46:30.252 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1004900297950(age=10080m), 1003999226425(age=10080m), 1003365991903(age=10080m), 1005512512283(age=10080m), 1003342991031(age=10080m)
+2026-01-29 13:46:32.258 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683592257&sign=b544daa2de3ce503c635225c68da873f&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:32.687 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:32.690 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:32.692 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 223485 символов
+2026-01-29 13:46:32.697 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:32.698 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:32.698 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 14: found 30 products (0 after age filter)
+2026-01-29 13:46:32.698 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1002418274290(age=10080m), 1003221217945(age=10080m), 1003210477809(age=10080m), 1002279850218(age=10080m), 1002277098880(age=10080m)
+2026-01-29 13:46:34.704 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683594703&sign=8986d0f5e2212f5fcc4d40bef5f5febc&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:35.199 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:35.212 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:35.223 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 300883 символов
+2026-01-29 13:46:35.228 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:35.228 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:35.228 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 15: found 30 products (0 after age filter)
+2026-01-29 13:46:35.228 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1002995844602(age=10080m), 1001413950598(age=10080m), 1000803691374(age=10080m), 1002942576673(age=10080m), 1000797167932(age=10080m)
+2026-01-29 13:46:37.234 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683597233&sign=012e6bc2d126c50082a06afaf17afcb5&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:37.670 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:37.685 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:37.695 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 269138 символов
+2026-01-29 13:46:37.700 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:37.701 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:37.701 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 16: found 30 products (0 after age filter)
+2026-01-29 13:46:37.702 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 1001733212907(age=10080m), 1000954661191(age=10080m), 1000923497302(age=10080m), 1001613472574(age=10080m), 1000882133844(age=10080m)
+2026-01-29 13:46:39.708 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683599707&sign=53027d9d538e1faad52d4918b00cd655&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:40.621 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:40.639 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:40.645 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 234826 символов
+2026-01-29 13:46:40.653 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:40.654 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:40.654 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 17: found 30 products (0 after age filter)
+2026-01-29 13:46:40.654 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 998625230998(age=10080m), 998565186562(age=10080m), 998554802009(age=10080m), 997935699460(age=10080m), 997840767466(age=10080m)
+2026-01-29 13:46:42.659 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683602658&sign=e5cbab08548f72256eb0e2a8f382f285&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:43.121 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:43.136 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:43.143 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 263821 символов
+2026-01-29 13:46:43.146 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:43.147 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:43.147 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 18: found 30 products (0 after age filter)
+2026-01-29 13:46:43.147 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 996794979417(age=10080m), 996794795411(age=10080m), 998875440691(age=10080m), 998051781673(age=10080m), 997990381093(age=10080m)
+2026-01-29 13:46:45.153 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683605152&sign=f743939946f0c46a06f0c91a3e85fd05&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:45.648 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:45.651 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:45.661 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 262420 символов
+2026-01-29 13:46:45.670 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:45.671 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:45.671 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 19: found 30 products (0 after age filter)
+2026-01-29 13:46:45.671 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 995756479414(age=10080m), 997104377408(age=10080m), 997085573586(age=10080m), 997085353720(age=10080m), 995663995488(age=10080m)
+2026-01-29 13:46:47.677 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683607676&sign=eb8b8b58e4b811ec8dc738da91f7639d&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:48.153 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:48.170 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:48.177 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 240969 символов
+2026-01-29 13:46:48.183 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:48.184 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:48.184 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 20: found 30 products (0 after age filter)
+2026-01-29 13:46:48.184 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 994120767151(age=10080m), 994607734721(age=10080m), 993961335814(age=10080m), 995988072423(age=10080m), 995987716868(age=10080m)
+2026-01-29 13:46:50.201 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683610189&sign=c2788330506909c3a64ac3d794242d69&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:46:50.596 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:46:50.621 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:46:50.630 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 226973 символов
+2026-01-29 13:46:50.635 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 30 items
+2026-01-29 13:46:50.635 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 30 products
+2026-01-29 13:46:50.636 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 21: found 30 products (0 after age filter)
+2026-01-29 13:46:50.636 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 30 of 30 (maxAgeMinutes=1440). Examples: 993895660498(age=10080m), 993886684895(age=10080m), 991772339510(age=10080m), 992333250657(age=10080m), 991743663877(age=10080m)
+2026-01-29 13:46:51.926 [Thread-7] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
+2026-01-29 13:46:51.925 [pool-2-thread-1] ERROR com.parser.parser.GoofishParser - Error on page 21: sleep interrupted
+2026-01-29 13:46:51.926 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
+2026-01-29 13:46:51.926 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete
+2026-01-29 13:51:18.902 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 13:51:18.902 [main] INFO  com.parser.Main - Product Parser with Real-Time Cookies
+2026-01-29 13:51:18.902 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 13:51:18.903 [main] INFO  com.parser.config.Config - Loaded configuration from resources
+2026-01-29 13:51:18.903 [main] INFO  com.parser.Main - ✅ Configuration:
+2026-01-29 13:51:18.903 [main] INFO  com.parser.Main -    Token: 8538627254...
+2026-01-29 13:51:18.904 [main] INFO  com.parser.Main -    Username: @multiparse_bot
+2026-01-29 13:51:18.904 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-01-29 13:51:18.904 [main] INFO  com.parser.Main - ✅ Data directory ready
+2026-01-29 13:51:18.904 [main] INFO  com.parser.Main - 🍪 Инициализация системы cookies...
+2026-01-29 13:51:18.905 [main] INFO  com.parser.service.CookieService - 🍪 Инициализация CookieService...
+2026-01-29 13:51:18.907 [main] INFO  com.parser.service.CookieService - ✅ Автообновление настроено: каждые 60 минут
+2026-01-29 13:51:18.907 [main] INFO  com.parser.service.CookieService - 🔄 Предварительная загрузка cookies...
+2026-01-29 13:51:18.907 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-01-29 13:51:18.908 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-01-29 13:51:18.909 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-29 13:51:19.133 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-29 13:51:19.135 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-29 13:51:21.175 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-29 13:51:21.178 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-29 13:51:32.210 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-29 13:51:41.283 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-29 13:51:46.588 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-29 13:51:46.635 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-29 13:51:46.635 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-29 13:51:46.635 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-01-29 13:51:46.635 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 1013eceddf47120d076ab882810f7290_1769692531694
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 95c10cdc103cf25af52455bc692f6400
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_     : true
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : ee7b678d9e577
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : tCkCIvFW80YCAbA7Dzz5EKEr
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 18c715548c06ba004d5f6d1b3e30c6e5
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect: 1
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                   : 3c2d44b49619ba8da123030272b20326
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : gn0rQL4KIyDfSbvi_f4e7b-Rpva8SyJ6Y2wQtXc3N82lPa6...
+2026-01-29 13:51:46.636 [main] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s              : 1
+2026-01-29 13:51:46.750 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-29 13:51:46.751 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-29 13:51:46.751 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 1013eceddf47120d0...
+2026-01-29 13:51:46.751 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1769692531694
+2026-01-29 13:51:46.751 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 5/5 ключевых)
+2026-01-29 13:51:46.754 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-01-29 13:51:46.754 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-29 13:51:46.754 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService - ✅ Получены свежие cookies, 10 элементов
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService - ✅ CookieService инициализирован
+2026-01-29 13:51:46.755 [main] INFO  com.parser.Main - 🧪 Тестирование cookies...
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService - ✅ Cookies доступны, длина: 640 символов
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService - 📊 Ключевые cookies:
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService -    _m_h5_tk: 1013eceddf47120d076ab882810...
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService -    _tb_token_: ee7b678d9e577
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService -    cna: tCkCIvFW80YCAbA7Dzz5EKEr
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService -    cookie2: 18c715548c06ba004d5f6d1b3e3...
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService -    t: 3c2d44b49619ba8da123030272b...
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService - 📊 Анализ _m_h5_tk:
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService -    Токен: 1013eceddf47120d0...
+2026-01-29 13:51:46.755 [main] INFO  com.parser.service.CookieService -    Время: 1769692531694
+2026-01-29 13:51:46.755 [main] INFO  com.parser.Main - ✅ Cookies работают корректно
+2026-01-29 13:51:46.757 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized: core=5, max=20
+2026-01-29 13:51:46.757 [main] INFO  com.parser.Main - ✅ ThreadManager initialized
+2026-01-29 13:51:46.757 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-01-29 13:51:46.843 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-01-29 13:51:46.843 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-01-29 13:51:47.394 [main] INFO  c.parser.telegram.TelegramBotService - ✅ User command menu configured
+2026-01-29 13:51:47.482 [main] INFO  c.parser.telegram.TelegramBotService - ✅ Admin command menu configured for 1080595280
+2026-01-29 13:51:47.483 [main] INFO  com.parser.Main - ✅ Telegram bot registered and running
+2026-01-29 13:51:47.483 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 13:51:47.483 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-01-29 13:51:47.483 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-01-29 13:51:47.483 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: true
+2026-01-29 13:51:47.485 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from whitelist.txt. Found 7 lines
+2026-01-29 13:51:47.485 [main] INFO  com.parser.storage.WhitelistManager - ✅ Loaded 4 users from whitelist
+2026-01-29 13:51:47.485 [main] INFO  com.parser.Main - 📋 Users: 4
+2026-01-29 13:51:47.485 [main] INFO  com.parser.Main - ============================================================
+2026-01-29 13:51:47.485 [main] INFO  com.parser.Main - ⏳ Application is running...
+2026-01-29 13:53:13.240 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 1080595280
+2026-01-29 13:53:13.250 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280: 1 queries
+2026-01-29 13:53:13.250 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-01-29 13:53:13.256 [pool-2-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for: goofish
+2026-01-29 13:53:13.261 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=3, rows=500, maxAge=1440min
+2026-01-29 13:53:13.270 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683993261&sign=2267e7f2673da773df221eb0d4a88806&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:53:15.432 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:53:16.123 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:53:16.673 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3344148 символов
+2026-01-29 13:53:16.767 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-29 13:53:16.789 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-29 13:53:16.789 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (50 after age filter)
+2026-01-29 13:53:16.789 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 450 of 500 (maxAgeMinutes=1440). Examples: 1016364507930(age=1456m), 1016360919618(age=1468m), 1018635788355(age=1515m), 1016342879897(age=1523m), 1018570320364(age=1655m)
+2026-01-29 13:53:18.802 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769683998794&sign=17fe9e9a031881ffadbcbe012f015025&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:53:20.085 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:53:20.152 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:53:20.163 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3638778 символов
+2026-01-29 13:53:20.214 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-29 13:53:20.220 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-29 13:53:20.220 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 2: found 500 products (0 after age filter)
+2026-01-29 13:53:20.220 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 500 of 500 (maxAgeMinutes=1440). Examples: 997330671822(age=10080m), 997329723670(age=10080m), 997895398667(age=10080m), 997864874799(age=10080m), 998600749886(age=10080m)
+2026-01-29 13:53:22.226 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769684002225&sign=a416926e75268798a9ae283907f65425&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:53:23.518 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:53:23.626 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:53:23.635 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3618694 символов
+2026-01-29 13:53:23.672 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-29 13:53:23.677 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-29 13:53:23.677 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Page 3: found 500 products (0 after age filter)
+2026-01-29 13:53:23.677 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 500 of 500 (maxAgeMinutes=1440). Examples: 967126074608(age=10080m), 966950738273(age=10080m), 966388731768(age=10080m), 966330871886(age=10080m), 968130164024(age=10080m)
+2026-01-29 13:53:23.677 [pool-2-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 50 products in 3 requests
+2026-01-29 13:53:23.677 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Отправка уведомлений: 50 товаров для пользователя 1080595280
+2026-01-29 13:53:23.677 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - Будет отправлено 50 товаров пользователю 1080595280 (notifyNewOnly=false, totalFetched=50)
+2026-01-29 13:54:50.592 [pool-2-thread-1] INFO  c.p.storage.UserSentProductsManager - ✅ Директория для отправленных товаров готова
+2026-01-29 13:54:50.596 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - ✅ Отправлено 50 товаров пользователю 1080595280 (notifyNewOnly=false). Отправлено товаров: 0
+2026-01-29 13:54:52.221 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 6937423668
+2026-01-29 13:54:52.226 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 6937423668: 1 queries
+2026-01-29 13:54:52.227 [pool-2-thread-2] INFO  com.parser.core.ThreadManager - Parser loop started for user 6937423668
+2026-01-29 13:54:52.228 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='stone island', pages=3, rows=500, maxAge=1440min
+2026-01-29 13:54:52.234 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769684092228&sign=794e3aa6fba4fb0521b7dce965d780c8&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:54:52.633 [pool-2-thread-1] INFO  com.parser.core.ThreadManager - 🔄 Обновление cookies после цикла (user=1080595280)
+2026-01-29 13:54:52.635 [pool-2-thread-1] INFO  com.parser.service.CookieService - 🔄 Принудительное обновление cookies для: www.goofish.com
+2026-01-29 13:54:52.635 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-01-29 13:54:52.674 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-01-29 13:54:52.674 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless
+2026-01-29 13:54:54.715 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен
+2026-01-29 13:54:54.718 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-01-29 13:54:55.898 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser stopped for user 6937423668
+2026-01-29 13:54:56.080 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание загрузки страницы...
+2026-01-29 13:54:56.446 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:54:57.577 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:54:57.600 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 4270606 символов
+2026-01-29 13:54:57.646 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-29 13:54:57.650 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-29 13:54:57.650 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (500 after age filter)
+2026-01-29 13:54:59.657 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769684099655&sign=5b07e053ad64242a0c7714843a4b39ae&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:55:01.075 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:55:01.200 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:55:01.220 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3342453 символов
+2026-01-29 13:55:01.251 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-29 13:55:01.255 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-29 13:55:01.255 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Page 2: found 500 products (18 after age filter)
+2026-01-29 13:55:01.255 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Age filter removed 482 of 500 (maxAgeMinutes=1440). Examples: 1017016762255(age=1443m), 1017887073218(age=1448m), 1017886497831(age=1449m), 1017013966854(age=1453m), 1017883573488(age=1460m)
+2026-01-29 13:55:03.261 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1769684103260&sign=b8f828b6308035df680e6d6ae570a2d4&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-01-29 13:55:04.564 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-01-29 13:55:04.712 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-01-29 13:55:04.736 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3374619 символов
+2026-01-29 13:55:04.769 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-01-29 13:55:04.776 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-01-29 13:55:04.776 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Page 3: found 500 products (0 after age filter)
+2026-01-29 13:55:04.776 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Age filter removed 500 of 500 (maxAgeMinutes=1440). Examples: 1018144772633(age=3050m), 1015858115245(age=3052m), 1016504638234(age=3057m), 1018140728913(age=3062m), 1017371353310(age=3064m)
+2026-01-29 13:55:04.777 [pool-2-thread-2] INFO  com.parser.parser.GoofishParser - Search completed: found 518 products in 6 requests
+2026-01-29 13:55:04.777 [pool-2-thread-2] INFO  com.parser.core.ThreadManager - Отправка уведомлений: 518 товаров для пользователя 6937423668
+2026-01-29 13:55:04.779 [pool-2-thread-2] INFO  com.parser.core.ThreadManager - Будет отправлено 518 товаров пользователю 6937423668 (notifyNewOnly=true, totalFetched=518)
+2026-01-29 13:55:04.782 [pool-2-thread-2] INFO  c.p.storage.UserSentProductsManager - ✅ 518 товаров отмечены как отправленные пользователю 6937423668
+2026-01-29 13:55:05.130 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0
+2026-01-29 13:55:10.103 [multiparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser stopped for user 1080595280
+2026-01-29 13:55:10.417 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies...
+2026-01-29 13:55:10.435 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты:
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk            : 152e8c06734f7f4bcb8232f90ff1d593_1769693456566
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc        : 4179077a386771eb52d38a6218f3ba2c
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_     : true
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_          : f35fe9b131131
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    cna                 : gioCIl3r+kECAbA7DzzLoaFC
+2026-01-29 13:55:10.436 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    cookie2             : 1df4a374414d87861df343aa156b13c0
+2026-01-29 13:55:10.437 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect: 1
+2026-01-29 13:55:10.437 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    t                   : c7ef3864a4ab376feb4d7f6272343ee6
+2026-01-29 13:55:10.437 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    tfstk               : gB2iQqZsm2TSVIYFEEk1OA2vk01p5AMj9rpxkx3VT2uBWFp...
+2026-01-29 13:55:10.437 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s              : 1
+2026-01-29 13:55:10.538 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-01-29 13:55:10.538 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-01-29 13:55:10.538 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 152e8c06734f7f4bc...
+2026-01-29 13:55:10.538 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1769693456566
+2026-01-29 13:55:10.538 [pool-2-thread-1] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 5/5 ключевых)
+2026-01-29 13:55:10.539 [pool-2-thread-1] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-01-29 13:55:10.539 [pool-2-thread-1] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-01-29 13:55:10.539 [pool-2-thread-1] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-01-29 13:55:10.539 [pool-2-thread-1] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-01-29 13:55:10.539 [pool-2-thread-1] INFO  com.parser.service.CookieService - ✅ Cookies успешно обновлены, 10 элементов
+2026-01-29 13:55:50.388 [multiparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ Whitelist saved: 3 users
+2026-01-29 13:55:50.389 [multiparse_bot Telegram Executor] INFO  com.parser.storage.WhitelistManager - ✅ User 6937423668 removed from whitelist
+2026-01-29 13:55:59.746 [multiparse_bot Telegram Executor] WARN  com.parser.storage.WhitelistManager - Unauthorized access attempt from user 6937423668
+2026-01-29 13:55:59.759 [multiparse_bot Telegram Executor] INFO  c.p.storage.AccessRequestManager - Access request recorded for user 6937423668
+2026-01-29 13:56:05.793 [multiparse_bot Telegram Executor] WARN  com.parser.storage.WhitelistManager - Unauthorized access attempt from user 6937423668
+2026-01-29 13:56:11.781 [Thread-7] INFO  com.parser.Main - 🛑 Получен сигнал завершения...
+2026-01-29 13:56:11.782 [Thread-7] INFO  com.parser.Main - 🛑 Shutting down...
+2026-01-29 13:56:11.782 [Thread-7] INFO  com.parser.core.ThreadManager - Shutting down ThreadManager...
+2026-01-29 13:56:41.789 [Thread-7] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
+2026-01-29 13:56:41.789 [pool-2-thread-2] INFO  com.parser.core.ThreadManager - ✅ Отправлено 518 товаров пользователю 6937423668 (notifyNewOnly=true). Отправлено товаров: 518
+2026-01-29 13:56:41.792 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
+2026-01-29 13:56:41.793 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete

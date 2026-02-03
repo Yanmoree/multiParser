@@ -2,6 +2,7 @@ package com.parser;
 
 import com.parser.config.Config;
 import com.parser.core.ThreadManager;
+import com.parser.service.AutoCleanupService;
 import com.parser.service.CookieService;
 import com.parser.storage.FileStorage;
 import com.parser.storage.WhitelistManager;
@@ -37,7 +38,7 @@ public class Main {
             }
 
             logger.info("✅ Configuration:");
-            logger.info("   Token: {}...", botToken.substring(0, 10));
+            logger.info("   Token: {}...", botToken.substring(0, Math.min(10, botToken.length())));
             logger.info("   Username: @{}", botUsername);
             logger.info("   Admin ID: {}", Config.getTelegramAdminId());
 
@@ -45,17 +46,35 @@ public class Main {
             FileStorage.ensureDataDir();
             logger.info("✅ Data directory ready");
 
-            // Инициализация системы cookies
+            // Запуск сервиса автоочистки
+            AutoCleanupService.start();
+            logger.info("✅ Auto cleanup service started");
+
+            // 🔴 ВАЖНО: Инициализация и проверка cookies перед запуском парсера
             logger.info("🍪 Инициализация системы cookies...");
             CookieService.initialize();
 
-            // Тестирование cookies
-            logger.info("🧪 Тестирование cookies...");
+            // 🔴 ПРОВЕРКА COOKIES: Не запускаем парсер без валидных cookies
+            logger.info("🧪 Проверка cookies перед запуском...");
             if (!CookieService.testCookies()) {
-                logger.warn("⚠️ Предупреждение: cookies могут быть недействительны");
-            } else {
-                logger.info("✅ Cookies работают корректно");
+                logger.error("❌ КРИТИЧЕСКАЯ ОШИБКА: Cookies недействительны!");
+                logger.error("   Пожалуйста, обновите cookies через /cookies refresh");
+
+                // Отправляем уведомление админу
+                if (Config.getTelegramAdminId() != 0) {
+                    TelegramNotificationService.setBotInstance(new TelegramBotService(botToken, null));
+                    TelegramNotificationService.sendAdminNotification(
+                            "⚠️ Парсер не запущен: cookies недействительны!\n" +
+                                    "Используйте /cookies refresh для обновления."
+                    );
+                }
+
+                // Ждем несколько секунд перед выходом
+                Thread.sleep(5000);
+                System.exit(1);
             }
+
+            logger.info("✅ Cookies работают корректно");
 
             // Инициализация менеджера потоков
             threadManager = new ThreadManager();
@@ -143,6 +162,9 @@ public class Main {
         if (threadManager != null) {
             threadManager.shutdown();
         }
+
+        // Останавливаем сервис автоочистки
+        AutoCleanupService.shutdown();
 
         // Останавливаем CookieService
         CookieService.shutdown();

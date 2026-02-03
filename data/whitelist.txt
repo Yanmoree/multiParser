@@ -1,6 +1,6 @@
 # Whitelist - authorized users
 # Format: one user ID per line
-# Created: Thu Jan 29 13:55:50 MSK 2026
+# Created: Mon Feb 02 22:30:59 MSK 2026
 
 1080595280
 1652510924

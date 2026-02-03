@@ -2,6 +2,8 @@
 <configuration>
     <property name="LOG_DIR" value="./logs" />
     <property name="LOG_FILE" value="parser" />
+    <property name="MAX_LOG_DAYS" value="7" />
+    <property name="MAX_LOG_SIZE" value="50MB" />
 
     <!-- Консольный аппендер -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -10,14 +12,24 @@
         </encoder>
     </appender>
 
-    <!-- Файловый аппендер -->
+    <!-- Файловый аппендер с автоочисткой -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DIR}/${LOG_FILE}.log</file>
+
+        <!-- Политика ротации по времени -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>30</maxHistory>
-            <totalSizeCap>1GB</totalSizeCap>
+            <!-- Храним логи только 7 дней -->
+            <maxHistory>${MAX_LOG_DAYS}</maxHistory>
+            <!-- Очищаем старые логи автоматически -->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
         </rollingPolicy>
+
+        <!-- Политика ротации по размеру -->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>${MAX_LOG_SIZE}</maxFileSize>
+        </triggeringPolicy>
+
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -26,6 +38,7 @@
     <!-- Логирование Selenium -->
     <logger name="org.openqa.selenium" level="WARN" />
     <logger name="io.github.bonigarcia" level="WARN" />
+    <logger name="org.apache.http" level="WARN" />
 
     <!-- Корневой логгер -->
     <root level="INFO">

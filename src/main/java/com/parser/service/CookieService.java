@@ -245,48 +245,88 @@ public class CookieService {
      * Тестирование cookies
      */
     public static boolean testCookies() {
-        try {
-            String cookieHeader = getCookieHeader(PRIMARY_DOMAIN);
+        int maxRetries = 3;
 
-            if (cookieHeader == null || cookieHeader.isEmpty()) {
-                logger.error("❌ Cookies пусты");
-                return false;
-            }
+        for (int attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                logger.info("🧪 Тестирование cookies (попытка {}/{})...", attempt, maxRetries);
 
-            logger.info("✅ Cookies доступны, длина: {} символов", cookieHeader.length());
+                String cookieHeader = getCookieHeader(PRIMARY_DOMAIN);
 
-            Map<String, String> cookies = getFreshCookies(PRIMARY_DOMAIN);
-            logger.info("📊 Ключевые cookies:");
+                if (cookieHeader == null || cookieHeader.isEmpty()) {
+                    logger.error("❌ Cookies пусты");
 
-            // Проверяем ключевые cookies
-            String[] keyNames = {"_m_h5_tk", "_tb_token_", "cna", "cookie2", "t"};
-            for (String key : keyNames) {
-                if (cookies.containsKey(key)) {
-                    String value = cookies.get(key);
-                    logger.info("   {}: {}", key,
-                            value.length() > 30 ? value.substring(0, 27) + "..." : value);
-                } else {
-                    logger.warn("   ❌ Отсутствует: {}", key);
+                    if (attempt < maxRetries) {
+                        logger.info("🔄 Попытка обновления cookies...");
+                        refreshCookies(PRIMARY_DOMAIN);
+                        Thread.sleep(5000);
+                        continue;
+                    }
+                    return false;
+                }
+
+                logger.info("✅ Cookies доступны, длина: {} символов", cookieHeader.length());
+
+                Map<String, String> cookies = getFreshCookies(PRIMARY_DOMAIN);
+                logger.info("📊 Ключевые cookies:");
+
+                // Проверяем ключевые cookies
+                String[] keyNames = {"_m_h5_tk", "_tb_token_", "cna", "cookie2", "t"};
+                int validCount = 0;
+
+                for (String key : keyNames) {
+                    if (cookies.containsKey(key)) {
+                        String value = cookies.get(key);
+                        logger.info("   ✅ {}: {}", key,
+                                value.length() > 30 ? value.substring(0, 27) + "..." : value);
+                        validCount++;
+                    } else {
+                        logger.warn("   ❌ Отсутствует: {}", key);
+                    }
+                }
+
+                // Проверяем _m_h5_tk
+                if (cookies.containsKey("_m_h5_tk")) {
+                    String mh5tk = cookies.get("_m_h5_tk");
+                    if (mh5tk.contains("_")) {
+                        String[] parts = mh5tk.split("_", 2);
+                        logger.info("📊 Анализ _m_h5_tk:");
+                        logger.info("   Токен: {}",
+                                parts[0].length() > 20 ? parts[0].substring(0, 17) + "..." : parts[0]);
+                        logger.info("   Время: {}", parts[1]);
+                    }
+                }
+
+                // 🔴 МЕНЬШЕ СТРОГАЯ ПРОВЕРКА: достаточно 3 из 5 ключевых cookies
+                boolean isValid = validCount >= 3;
+                logger.info("📊 Итог тестирования: {} (найдено {}/{} ключевых cookies)",
+                        isValid ? "✅ УСПЕХ" : "❌ ОШИБКА", validCount, keyNames.length);
+
+                if (isValid) {
+                    return true;
+                }
+
+                if (attempt < maxRetries) {
+                    logger.info("🔄 Попытка получения новых cookies...");
+                    refreshCookies(PRIMARY_DOMAIN);
+                    Thread.sleep(5000);
+                }
+
+            } catch (Exception e) {
+                logger.error("❌ Ошибка тестирования cookies (попытка {}): {}", attempt, e.getMessage());
+
+                if (attempt < maxRetries) {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                        break;
+                    }
                 }
             }
-
-            // Проверяем _m_h5_tk
-            if (cookies.containsKey("_m_h5_tk")) {
-                String mh5tk = cookies.get("_m_h5_tk");
-                if (mh5tk.contains("_")) {
-                    String[] parts = mh5tk.split("_", 2);
-                    logger.info("📊 Анализ _m_h5_tk:");
-                    logger.info("   Токен: {}",
-                            parts[0].length() > 20 ? parts[0].substring(0, 17) + "..." : parts[0]);
-                    logger.info("   Время: {}", parts[1]);
-                }
-            }
-
-            return true;
-        } catch (Exception e) {
-            logger.error("❌ Ошибка тестирования cookies: {}", e.getMessage());
-            return false;
         }
+
+        return false;
     }
 
     /**

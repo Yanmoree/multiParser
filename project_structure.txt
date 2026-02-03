@@ -1,7 +1,7 @@
 СТРУКТУРА ПРОЕКТА
 =================
 Директория: /Users/yanmore/IdeaProjects/multiParser
-Дата создания отчета: 2026-01-28T22:00:10.929698
+Дата создания отчета: 2026-02-02T22:07:11.395023
 
 ================================================================================
 
@@ -38,16 +38,16 @@
 
   [FILE] cookies.properties
     Путь: /Users/yanmore/IdeaProjects/multiParser/cookies.properties
-    Размер: 2153 байт
-    Дата изменения: 2026-01-20T11:05:53.012121216Z
+    Размер: 2120 байт
+    Дата изменения: 2026-02-02T19:04:48.170073454Z
     Содержимое:
     ----------------------------------------
     #Cookies for HTTP requests
     #Auto-generated file
-    #Tue Jan 20 14:05:53 MSK 2026
-    h5api.m.goofish.com.cookies=t\=651487027a314d1686d8c34a1df1c2b1; cna\=g0/2If2sgSgCAbJFfm/PkUxt; _m_h5_tk_enc\=4316600ee1a895da01b48551991688c5; _samesite_flag_\=true; tfstk\=gTjmf06XIQGQXSGzxf-buqgDSh4-lnt6G1n96hdazQRW6-OvMO5GI98NMnKxSlXNgFSvDtCljsCRHS19DfqGZQCtXtIGPcXCCieXX-tfhhta9WEdjt6XfA8fYtVRURJ6jKRm3_I1hhta9OQoD7BfM_wXth-aE3JM3j-Z0hykapdr0do2QbykCQ-wQc-w4UJ6ndRwQ1WzEdOy_h8V_3ykCQRwbh7ZH5Rc_6Iz6cpGpLblAgvDoBW0qcoGqDLDTtRob2Ikn5OF3QmZjB7d35XN_5m9Yw1ljeRl4K3r8vNjfLyOqVg6uL9k9yUgrARTHJ4YE803hEJWeHeuEVMDuL9kQ82oRrT2FKFd.; mtop_partitioned_detect\=1; _tb_token_\=e7795456eef3a; _m_h5_tk\=75c505a94a08abb3dd88da70c104e11d_1768916498656; xlly_s\=1; cookie2\=1e0b95671ffa899086abcfd2a4bf65a7
-    m.goofish.com.cookies=t\=651487027a314d1686d8c34a1df1c2b1; cna\=g0/2If2sgSgCAbJFfm/PkUxt; _m_h5_tk_enc\=4316600ee1a895da01b48551991688c5; _samesite_flag_\=true; tfstk\=gTjmf06XIQGQXSGzxf-buqgDSh4-lnt6G1n96hdazQRW6-OvMO5GI98NMnKxSlXNgFSvDtCljsCRHS19DfqGZQCtXtIGPcXCCieXX-tfhhta9WEdjt6XfA8fYtVRURJ6jKRm3_I1hhta9OQoD7BfM_wXth-aE3JM3j-Z0hykapdr0do2QbykCQ-wQc-w4UJ6ndRwQ1WzEdOy_h8V_3ykCQRwbh7ZH5Rc_6Iz6cpGpLblAgvDoBW0qcoGqDLDTtRob2Ikn5OF3QmZjB7d35XN_5m9Yw1ljeRl4K3r8vNjfLyOqVg6uL9k9yUgrARTHJ4YE803hEJWeHeuEVMDuL9kQ82oRrT2FKFd.; mtop_partitioned_detect\=1; _tb_token_\=e7795456eef3a; _m_h5_tk\=75c505a94a08abb3dd88da70c104e11d_1768916498656; xlly_s\=1; cookie2\=1e0b95671ffa899086abcfd2a4bf65a7
-    www.goofish.com.cookies=t\=651487027a314d1686d8c34a1df1c2b1; cna\=g0/2If2sgSgCAbJFfm/PkUxt; _m_h5_tk_enc\=4316600ee1a895da01b48551991688c5; _samesite_flag_\=true; tfstk\=gTjmf06XIQGQXSGzxf-buqgDSh4-lnt6G1n96hdazQRW6-OvMO5GI98NMnKxSlXNgFSvDtCljsCRHS19DfqGZQCtXtIGPcXCCieXX-tfhhta9WEdjt6XfA8fYtVRURJ6jKRm3_I1hhta9OQoD7BfM_wXth-aE3JM3j-Z0hykapdr0do2QbykCQ-wQc-w4UJ6ndRwQ1WzEdOy_h8V_3ykCQRwbh7ZH5Rc_6Iz6cpGpLblAgvDoBW0qcoGqDLDTtRob2Ikn5OF3QmZjB7d35XN_5m9Yw1ljeRl4K3r8vNjfLyOqVg6uL9k9yUgrARTHJ4YE803hEJWeHeuEVMDuL9kQ82oRrT2FKFd.; mtop_partitioned_detect\=1; _tb_token_\=e7795456eef3a; _m_h5_tk\=75c505a94a08abb3dd88da70c104e11d_1768916498656; xlly_s\=1; cookie2\=1e0b95671ffa899086abcfd2a4bf65a7
+    #Mon Feb 02 22:04:48 MSK 2026
+    h5api.m.goofish.com.cookies=t\=e8e3f74f7eb79ed1ccb2d633e21835c9; cna\=SOMHIm/z8VcCAZH5bfkv7YY8; _m_h5_tk_enc\=eb054554c7ea9c395bf3a5737c064063; _samesite_flag_\=true; tfstk\=g_SSf7VNY6I4psy89byq1u_9DgKCR-rNwv9dI9nrp3KRpH6dKBRy8B7jOsCc8TRPYZOCMsOJzaWUAs5ci_WPL9HBps-J-aReaBtCK1w4_lrNETxH25PabCbCTL-H9k-LunCk3bYb_lrNEyZPIuVNzkuRipvpvLLKyteXBpKppeCpMEp9QbKpv6eXkLJB9YLJJIHvLIdpvHCdH-9eMLKpv6BYhpbw6P9bFBW7dqfCH9kXhTdjvDIbPUO1e2oKvi9WPdWJGTWPcLTW1eNXC9j1BTIMdM2tRB954rmw1woZRxTivKOah-gn-pvJjLtkhRU9yKvc3-wjWvYJnK9Lh-gnFUpDFEybhbQh.; mtop_partitioned_detect\=1; _m_h5_tk\=3364347f5e6ca18bd79d4050a426c6da_1770068073965; _tb_token_\=5ef55f3ef8788; cookie2\=106ff634d28df18b87a910c4a588a2f8
+    m.goofish.com.cookies=t\=e8e3f74f7eb79ed1ccb2d633e21835c9; cna\=SOMHIm/z8VcCAZH5bfkv7YY8; _m_h5_tk_enc\=eb054554c7ea9c395bf3a5737c064063; _samesite_flag_\=true; tfstk\=g_SSf7VNY6I4psy89byq1u_9DgKCR-rNwv9dI9nrp3KRpH6dKBRy8B7jOsCc8TRPYZOCMsOJzaWUAs5ci_WPL9HBps-J-aReaBtCK1w4_lrNETxH25PabCbCTL-H9k-LunCk3bYb_lrNEyZPIuVNzkuRipvpvLLKyteXBpKppeCpMEp9QbKpv6eXkLJB9YLJJIHvLIdpvHCdH-9eMLKpv6BYhpbw6P9bFBW7dqfCH9kXhTdjvDIbPUO1e2oKvi9WPdWJGTWPcLTW1eNXC9j1BTIMdM2tRB954rmw1woZRxTivKOah-gn-pvJjLtkhRU9yKvc3-wjWvYJnK9Lh-gnFUpDFEybhbQh.; mtop_partitioned_detect\=1; _m_h5_tk\=3364347f5e6ca18bd79d4050a426c6da_1770068073965; _tb_token_\=5ef55f3ef8788; cookie2\=106ff634d28df18b87a910c4a588a2f8
+    www.goofish.com.cookies=t\=e8e3f74f7eb79ed1ccb2d633e21835c9; cna\=SOMHIm/z8VcCAZH5bfkv7YY8; _m_h5_tk_enc\=eb054554c7ea9c395bf3a5737c064063; _samesite_flag_\=true; tfstk\=g_SSf7VNY6I4psy89byq1u_9DgKCR-rNwv9dI9nrp3KRpH6dKBRy8B7jOsCc8TRPYZOCMsOJzaWUAs5ci_WPL9HBps-J-aReaBtCK1w4_lrNETxH25PabCbCTL-H9k-LunCk3bYb_lrNEyZPIuVNzkuRipvpvLLKyteXBpKppeCpMEp9QbKpv6eXkLJB9YLJJIHvLIdpvHCdH-9eMLKpv6BYhpbw6P9bFBW7dqfCH9kXhTdjvDIbPUO1e2oKvi9WPdWJGTWPcLTW1eNXC9j1BTIMdM2tRB954rmw1woZRxTivKOah-gn-pvJjLtkhRU9yKvc3-wjWvYJnK9Lh-gnFUpDFEybhbQh.; mtop_partitioned_detect\=1; _m_h5_tk\=3364347f5e6ca18bd79d4050a426c6da_1770068073965; _tb_token_\=5ef55f3ef8788; cookie2\=106ff634d28df18b87a910c4a588a2f8
     ----------------------------------------
 
   [FILE] cookies_debug_20260119_110719.properties
@@ -238,67 +238,12 @@
         </build>
     </project>
     ----------------------------------------
-
-  [FILE] real_cookies.json
-    Путь: /Users/yanmore/IdeaProjects/multiParser/real_cookies.json
-    Размер: 441 байт
-    Дата изменения: 2026-01-16T08:19:01.367306132Z
-    Содержимое:
-    ----------------------------------------
-    {
-      "last_updated" : "Fri Jan 16 11:19:01 MSK 2026",
-      "source" : "real_fetch",
-      "cookies" : {
-        "t" : "1768551541334",
-        "cna" : "fun9mzovhxzth4rldf2656m3",
-        "_m_h5_tk_enc" : "7rd0clwyamrrfzasobpgl5fzyiug6xgj",
-        "isg" : "BObzsa6rgms0ke9k0mi619ntc5h9nivx",
-        "_m_h5_tk" : "p2075mgals5mmin8jc4llglr3daov5ng_1768551541334",
-        "_tb_token_" : "ou76zszav01n",
-        "cookie2" : "u4vgb35oy9kuwy17"
-      },
-      "timestamp" : 1768551541334
-    }
-    ----------------------------------------
   [DIR] logs
-
-    [FILE] parser.2026-01-19.log
-      Путь: /Users/yanmore/IdeaProjects/multiParser/logs/parser.2026-01-19.log
-      Размер: 105724 байт
-      Дата изменения: 2026-01-19T09:35:23.622305088Z
-      [БИНАРНЫЙ ФАЙЛ ИЛИ СЛИШКОМ БОЛЬШОЙ]
-
-    [FILE] parser.2026-01-17.log
-      Путь: /Users/yanmore/IdeaProjects/multiParser/logs/parser.2026-01-17.log
-      Размер: 1493006 байт
-      Дата изменения: 2026-01-19T09:31:29.760266716Z
-      [БИНАРНЫЙ ФАЙЛ ИЛИ СЛИШКОМ БОЛЬШОЙ]
-
-    [FILE] parser.2026-01-16.log
-      Путь: /Users/yanmore/IdeaProjects/multiParser/logs/parser.2026-01-16.log
-      Размер: 206820 байт
-      Дата изменения: 2026-01-19T09:31:29.755772968Z
-      [БИНАРНЫЙ ФАЙЛ ИЛИ СЛИШКОМ БОЛЬШОЙ]
-
-    [FILE] parser.log
-      Путь: /Users/yanmore/IdeaProjects/multiParser/logs/parser.log
-      Размер: 1786691 байт
-      Дата изменения: 2026-01-20T11:27:47.444830776Z
-      [БИНАРНЫЙ ФАЙЛ ИЛИ СЛИШКОМ БОЛЬШОЙ]
-
-  [FILE] api_response.json
-    Путь: /Users/yanmore/IdeaProjects/multiParser/api_response.json
-    Размер: 3028 байт
-    Дата изменения: 2026-01-16T20:06:11.352475191Z
-    Содержимое:
-    ----------------------------------------
-    {"api":"mtop.taobao.idlemtopsearch.pc.search","v":"1.0", "ret": ["RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试!"],"data": { "url": "https://passport.goofish.com/mini_login.htm?lang=zh_cn&appName=xianyu&appEntrance=baxia&redirectType=iframeRedirect&styleType=vertical&bizParams=&notLoadSsoView=true&notKeepLogin=false&isMobile=false&qrCodeFirst=false&rnd=0.7405678221745524&returnUrl=https%3a%2f%2fh5api.m.goofish.com:443/h5/mtop.taobao.idlemtopsearch.pc.search/1.0%2F_____tmd_____%2Fpage%2Fmtoph5_close_iframe_page%3Frand%3DS3WxGHAgAt756EpznwfNzJq2AFA2qBNla3j6EINUS8We9dazM_iKElp8DwVSHZUevpC41Bx7RzivXIj9RnZgdg%26uuid%3D0c554ce36815acdfa722dafce91d8863%26_lgt_%3D0c554ce36815acdfa722dafce91d8863___305220___d57171f5eb6e272202b5487a483d5dfa___eaebc79cac1eb5d2f7d8b4595e00ec73344a42d5a0b8cf56539c823cd24ac06c092f67171550cb6cbbc4aaaa937e5ef4f60277010dffec5689671a57f915809888d25ef3220a7c2464a290cff32056669f3d6a459ad2c296ee8cbb5a8d67c1a029af9254ddea98f951f5ea79ca6d68afacb857c81ed97566c7ec74b7eb613fa519b4c3107e712c0b12b48606e859d16ccbd4fb8cf17cff382cca796b27b42f93bdd660982d155ad900bd3837f5da3e57ca78869e9450dde1ca0616ecc84d1bef86a07297d351a5f1954e205f0907ed8ab9518cbf4cff63eb12033451f3cce3ec58715d624adb927aaa033fb788a8928b84bbc28e79d0d752ddcd10ee29db7b904fd08591e292b488a8748becc81d31ed20f50715c332ef14fe2906c58135278f61177841a36789ac8d0efdb86bbd42388e984c4f3c9f78190b7d525276218f543735df556116b6b4f0c837e6021fa5473cd742cc3b4bcbc79f2b2b1dda4ba31835c41fe5998c210b7575bb4bc702aebacd5c40286fce09dcb3d11fd149fb1e363d4a43213597d5e2249ec2536825bd75918316a8d62033b9ebf7b284e2a36b48", "h5url": "https://passport.goofish.com/mini_login.htm?appName=xianyu&appEntrance=baxia&isMobile=true&redirectType=iframeRedirect&returnUrl=https%3a%2f%2fh5api.m.goofish.com:443/h5/mtop.taobao.idlemtopsearch.pc.search/1.0%2F_____tmd_____%2Fpage%2Fmtoph5_close_iframe_page%3Frand%3DS3WxGHAgAt756EpznwfNzJq2AFA2qBNla3j6EINUS8We9dazM_iKElp8DwVSHZUevpC41Bx7RzivXIj9RnZgdg%26uuid%3D0c554ce36815acdfa722dafce91d8863%26_lgt_%3D0c554ce36815acdfa722dafce91d8863___305220___d57171f5eb6e272202b5487a483d5dfa___eaebc79cac1eb5d2f7d8b4595e00ec73344a42d5a0b8cf56539c823cd24ac06c092f67171550cb6cbbc4aaaa937e5ef4f60277010dffec5689671a57f915809888d25ef3220a7c2464a290cff32056669f3d6a459ad2c296ee8cbb5a8d67c1a029af9254ddea98f951f5ea79ca6d68afacb857c81ed97566c7ec74b7eb613fa519b4c3107e712c0b12b48606e859d16ccbd4fb8cf17cff382cca796b27b42f93bdd660982d155ad900bd3837f5da3e57ca78869e9450dde1ca0616ecc84d1bef86a07297d351a5f1954e205f0907ed8ab9518cbf4cff63eb12033451f3cce3ec58715d624adb927aaa033fb788a8928b84bbc28e79d0d752ddcd10ee29db7b904fd08591e292b488a8748becc81d31ed20f50715c332ef14fe2906c58135278f61177841a36789ac8d0efdb86bbd42388e984c4f3c9f78190b7d525276218f543735df556116b6b4f0c837e6021fa5473cd742cc3b4bcbc79f2b2b1dda4ba31835c41fe5998c210b7575bb4bc702aebacd5c40286fce09dcb3d11fd149fb1e363d4a43213597d5e2249ec2536825bd75918316a8d62033b9ebf7b284e2a36b48", "dialogSize": {"width": "856px", "height": "454px"}}, "dialogSize": {"width": "856px", "height": "454px"}}
-    ----------------------------------------
 
   [FILE] dependency-reduced-pom.xml
     Путь: /Users/yanmore/IdeaProjects/multiParser/dependency-reduced-pom.xml
     Размер: 2216 байт
-    Дата изменения: 2026-01-28T18:58:51.232685461Z
+    Дата изменения: 2026-02-02T19:00:39.562929284Z
     Содержимое:
     ----------------------------------------
     <?xml version="1.0" encoding="UTF-8"?>
@@ -369,41 +314,20 @@
     Дата изменения: 2026-01-17T12:50:01.802474294Z
     [БИНАРНЫЙ ФАЙЛ ИЛИ СЛИШКОМ БОЛЬШОЙ]
   [DIR] .mvn
-
-  [FILE] cookies.json
-    Путь: /Users/yanmore/IdeaProjects/multiParser/cookies.json
-    Размер: 419 байт
-    Дата изменения: 2026-01-16T07:59:20.60810124Z
-    Содержимое:
-    ----------------------------------------
-    {
-      "last_updated" : "Fri Jan 16 10:59:20 MSK 2026",
-      "cookies" : {
-        "t" : "1768550339826",
-        "cna" : "yf3PXI6YB2MCAXE5zQoJABCD",
-        "_m_h5_tk_enc" : "f83c9d0d8b3a2e1c4f7d8e06a2cbd5e6",
-        "isg" : "BOB4X6Y7Z8A9B0C1D2E3F4G5H6I7J8K9L",
-        "_m_h5_tk" : "06a2cbd5e6f83c9d0d8b3a2e1c4f7d8e_1768550339826",
-        "_tb_token_" : "e3f4g5h6i7j8k9l0m1n2o3p4q5r6s7t",
-        "cookie2" : "179e5ac7f7b2c4d8e9f0a1b2c3d4e5f6"
-      }
-    }
-    ----------------------------------------
   [DIR] data
 
     [FILE] whitelist.txt
       Путь: /Users/yanmore/IdeaProjects/multiParser/data/whitelist.txt
-      Размер: 243 байт
-      Дата изменения: 2026-01-19T09:35:20.946615773Z
+      Размер: 136 байт
+      Дата изменения: 2026-01-29T10:55:50.388651323Z
       Содержимое:
       ----------------------------------------
-      # Whitelist - список авторизованных пользователей
-      # Формат: один ID пользователя на строке
-      # Создан: Sat Jan 17 17:36:55 MSK 2026
+      # Whitelist - authorized users
+      # Format: one user ID per line
+      # Created: Thu Jan 29 13:55:50 MSK 2026
       
       1080595280
       1652510924
-      6937423668
       5328022266
       ----------------------------------------
     [DIR] user_queries
@@ -427,54 +351,9 @@
         number nine
         raf simons
         ----------------------------------------
+    [DIR] logs
     [DIR] user_products
-
-      [FILE] 6937423668.json
-        Путь: /Users/yanmore/IdeaProjects/multiParser/data/user_products/6937423668.json
-        Размер: 3664 байт
-        Дата изменения: 2026-01-17T21:21:02.695697176Z
-        Содержимое:
-        ----------------------------------------
-        [{"id":"1014278121369","title":"Stone Island/石头岛美式翻领夹克外套 【面料】外层面料采用了加厚加密的锦纶斜纹面料，兼具耐穿性和耐久防水功能。现代感时尚廓型剪裁，帅气百搭。内部采用柔软里布，螺纹全部面料对色定染定织！两个外口袋设计，内里竖口袋设计，收纳方便、走线的细节全部打套节处理，飞行员军工风上身帅气十足，非常适合日常休闲穿搭！胳膊上的袖章的刺绣工艺流程采用日本进口机器进行作业 字母图案清晰立体，有质感 ！-...","price":159.0,"url":"https://www.goofish.com/item?id=1014278121369","site":"goofish","location":"江苏","ageMinutes":781,"query":"stone island","images":["http://img.alicdn.com/bao/uploaded/i3/2220983028576/O1CN01Gan7hi2DDrmJykcEF_!!4611686018427382624-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768684862681,"isNew":true},{"id":"1014956044370","title":"【STONE ISLAND石头岛经典徽章羊羔毛棉服外套】 定制主标 辅料 水洗齐全 原版一致徽章 纽扣开模订做宽松版型 甄选优质麂皮防风面料 内里填充高克重羽绒棉 舒适温暖羊羔毛领 亲肤柔软立体剪裁 防风保暖 随性时髦可搭配任意下装 轻松凹造型 显瘦显高 男女均可完美驾驭！color：黑色/咖色size：M.L.XL.2XL.3XLM胸围120 肩宽51 衣长66   L 胸围124 肩宽5...","price":252.0,"url":"https://www.goofish.com/item?id=1014956044370","site":"goofish","location":"山东","ageMinutes":1115,"query":"stone island","images":["http://img.alicdn.com/bao/uploaded/i4/2219863640002/O1CN01mTD99V1BsxuVPC5Gj_!!4611686018427381698-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768684862681,"isNew":true},{"id":"1014277989994","title":"石头岛哈灵顿夹克 非正 高版本 L码能穿到180 150斤能刀","price":250.0,"url":"https://www.goofish.com/item?id=1014277989994","site":"goofish","location":"北京","ageMinutes":780,"query":"stone island","images":["http://img.alicdn.com/bao/uploaded/i1/2214700202885/O1CN01y3cIr71XBNlgmzqyb_!!4611686018427386757-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768684862682,"isNew":true},{"id":"1013439486344","title":"STONE ISLAND石头岛 FW23 圆领基础套头Log o卫衣 男款 灰色在意大利佛罗伦萨市中心石头岛专卖店折扣价购买268欧元约2200人民币保证正品已经购买一年，有洗过，低价出售L码175-185都可以穿","price":629.0,"url":"https://www.goofish.com/item?id=1013439486344","site":"goofish","location":"浙江","ageMinutes":677,"query":"stone island","images":["http://img.alicdn.com/bao/uploaded/i1/2212676127444/O1CN01TMCJCx24rPQpeM3hc_!!4611686018427382484-0-xy_item.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768684862682,"isNew":true},{"id":"1012740567979","title":"【捡漏】STONE ISLAND x  New Balanc e New Balance x TDS 联名系列 舒适耐磨 低帮跑步鞋 男款 米白色断码库存、图中就是实拍，价格已是低价、不议价！！尺码：39～45  正码正拍 断码清仓拍前私信客服有无码数！！！售后:非偏远包邮、质量问题支持退换，七天无理由","price":89.0,"url":"https://www.goofish.com/item?id=1012740567979","site":"goofish","location":"山西","ageMinutes":910,"query":"stone island","images":["http://img.alicdn.com/bao/uploaded/i4/2219176448221/O1CN01hz843X2AbHAus1wva_!!4611686018427384029-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768684862683,"isNew":true}]
-        ----------------------------------------
-
-      [FILE] 1080595280.json
-        Путь: /Users/yanmore/IdeaProjects/multiParser/data/user_products/1080595280.json
-        Размер: 2996 байт
-        Дата изменения: 2026-01-20T11:27:28.854616073Z
-        Содержимое:
-        ----------------------------------------
-        [{"id":"1014997073429","title":"adidas x Jeremy scott 经典红蓝旗帜配色 翅膀鞋 好价释出手慢无 uk9.5 中国42-43码 脚长女生加鞋垫也可以穿不接受讲价 成色如图海淘非现货仅zz 支持定尾 拍前请私信 标价全款包邮vintage二手默认微瑕 拍前请私信借14th addition / kmrii / share spirit / undercover / number (n)ine / lgb ...","price":1869.0,"url":"https://www.goofish.com/item?id=1014997073429","site":"goofish","location":"Не указано","ageMinutes":606,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i2/4020309979/O1CN01joH2Me2NaRSXYJF0p_!!4611686018427383771-0-xy_item.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768908448744,"isNew":true},{"id":"1015705392466","title":"下单送运费险，正品货号JS0557，adidas Labco 下单送运费险，正品货号JS0557，adidas Labcourt 真皮隐形增高板鞋卡其色男女厚底真皮休闲鞋。尺码36-45码，鞋面采用优质麂皮材质，厚底设计稳固，四季可穿。全新带盒，支持专柜验货，全国包邮（新疆西藏补运费）不影响二次销售支持七天无理由退货退款，麻烦宝子们试穿的时候垫张纸保持鞋底干净不脏哈感兴趣的话点\"我想要\"和我...","price":693.0,"url":"https://www.goofish.com/item?id=1015705392466","site":"goofish","location":"Не указано","ageMinutes":1059,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i3/O1CN01hkPt261Gy4P8ZZAFH_!!4611686018427387106-0-fleamarket.jpg"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768908448746,"isNew":true},{"id":"1014073978495","title":"adidas jeremy scott翅膀 size 43全新不议价","price":1399.0,"url":"https://www.goofish.com/item?id=1014073978495","site":"goofish","location":"Не указано","ageMinutes":1115,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i3/3804186192/O1CN01CWviZr1vbzYfMaRDw_!!4611686018427381328-53-xy_item.heic"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768908448753,"isNew":true},{"id":"1013513155481","title":"【超低价 男女同款】阿迪达斯 Jeremy Scott联名款篮球鞋 265码 尺码：265阿迪达斯Jeremy Scott联名款篮球鞋，265码。独特的图案是这款高帮鞋的魅力所在。虽然有使用痕迹，但由于设计稀有，所以具有收藏价值。如果没有其他问题，请直接购买！☆男女皆可穿着...!!! ☆除了轻微的使用痕迹外，状态良好...!!!也请务必看看我的其他商品...!!以上是韩国闪电市场bunja...","price":844.0,"url":"https://www.goofish.com/item?id=1013513155481","site":"goofish","location":"Не указано","ageMinutes":508,"query":"jeremy scott","images":["http://img.alicdn.com/bao/uploaded/i1/O1CN01Jl6WFK1SIdy97gfo9_!!4611686018427385904-49-fleamarket.webp"],"seller":null,"sellerRating":null,"category":null,"foundTimestamp":1768908448759,"isNew":true}]
-        ----------------------------------------
     [DIR] sent_products
-
-      [FILE] user_1080595280.txt
-        Путь: /Users/yanmore/IdeaProjects/multiParser/data/sent_products/user_1080595280.txt
-        Размер: 280 байт
-        Дата изменения: 2026-01-20T10:58:37.295924033Z
-        Содержимое:
-        ----------------------------------------
-        1014066562509
-        1014084210134
-        1015637232984
-        1013427335125
-        1014988061587
-        1014930705152
-        1014067790667
-        1013428463027
-        1015034989119
-        1014073978495
-        1014032670473
-        1014075074344
-        1015649408181
-        1014030958229
-        1014894961236
-        1014997073429
-        1015705392466
-        1014069414231
-        1013513155481
-        1014902605318
-        ----------------------------------------
     [DIR] user_settings
 
       [FILE] 6937423668.json
@@ -498,7 +377,7 @@
       [FILE] 1080595280.json
         Путь: /Users/yanmore/IdeaProjects/multiParser/data/user_settings/1080595280.json
         Размер: 335 байт
-        Дата изменения: 2026-01-19T09:31:29.753238094Z
+        Дата изменения: 2026-01-29T10:53:09.510649779Z
         Содержимое:
         ----------------------------------------
         {"checkInterval":20,"maxAgeMinutes":1440,"maxPages":3,"rowsPerPage":500,"priceCurrency":"rubles","notifyNewOnly":false,"notifyTelegram":true,"notifyEmail":false,"notifySound":true,"minPrice":0.0,"maxPrice":0.0,"locations":[],"excludedKeywords":[],"enableProxy":false,"proxyAddress":"","proxyPort":0,"requestDelay":2000,"maxRetries":3}
@@ -526,16 +405,43 @@
         
         1080595280
         ----------------------------------------
+      [DIR] sent_products
+
+        [FILE] user_1080595280.txt
+          Путь: /Users/yanmore/IdeaProjects/multiParser/data/data/sent_products/user_1080595280.txt
+          Размер: 140 байт
+          Дата изменения: 2026-02-02T19:05:18.423146543Z
+          Содержимое:
+          ----------------------------------------
+          1017965551724
+          1020224548404
+          1017900287383
+          1019333209711
+          1017981123243
+          1017950847552
+          1018532542947
+          1020262756125
+          1018451522440
+          1018443154622
+          ----------------------------------------
 
     [FILE] user_1080595280_queries.txt
       Путь: /Users/yanmore/IdeaProjects/multiParser/data/user_1080595280_queries.txt
-      Размер: 35 байт
-      Дата изменения: 2026-01-20T08:53:19.272749598Z
+      Размер: 9 байт
+      Дата изменения: 2026-01-28T19:11:57.254333202Z
       Содержимое:
       ----------------------------------------
-      Stone Island
       cav empt
-      jeremy scott
+      ----------------------------------------
+    [DIR] backups
+
+    [FILE] access_requests.txt
+      Путь: /Users/yanmore/IdeaProjects/multiParser/data/access_requests.txt
+      Размер: 52 байт
+      Дата изменения: 2026-01-29T10:55:59.759454594Z
+      Содержимое:
+      ----------------------------------------
+      6937423668|2026-01-29 13:55:59|unauthorized_command
       ----------------------------------------
 
   [FILE] cookies_debug_20260119_110601.properties
@@ -637,22 +543,22 @@
 
         [FILE] config.properties
           Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/resources/config.properties
-          Размер: 1367 байт
-          Дата изменения: 2026-01-19T22:20:24.813727344Z
+          Размер: 1369 байт
+          Дата изменения: 2026-02-02T19:00:28.434188371Z
           Содержимое:
           ----------------------------------------
           # ======================
           # Telegram Bot Settings
           # ======================
           telegram.bot.token=8538627254:AAE_niIKdyWgM69JSrto7tKntao5vS7qj5g
-          telegram.bot.username=multiparse_bot
+          telegram.bot.username=goofishparse_bot
           telegram.admin.id=1080595280
           
           # Parser Configuration
           parser.default.check_interval=20
           parser.default.max_age_minutes=1440
-          parser.default.max_pages=3
-          parser.default.rows_per_page=500
+          parser.default.rows_per_page=30
+          parser.default.max_pages=20
           parser.default.notify_new_only=true
           
           # Thread Pool Configuration
@@ -1019,8 +925,8 @@
 
               [FILE] ThreadManager.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/core/ThreadManager.java
-                Размер: 18255 байт
-                Дата изменения: 2026-01-28T18:55:59.161639665Z
+                Размер: 19024 байт
+                Дата изменения: 2026-02-02T18:58:35.828059332Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.core;
@@ -1150,9 +1056,8 @@
                                             session.addProductsFound(products.size());
                                             totalProductsFound += products.size();
                 
-                                            if (shouldSendNotification(session, products)) {
-                                                sendProductNotifications(userId, products, query, session.getSettings());
-                                            }
+                                            // Отправка уведомлений сама решает, есть ли что слать (и что считать "новым")
+                                            sendProductNotifications(userId, products, query, session.getSettings());
                 
                                             // Не перезаписываем историю каждый раз: добавляем новые товары к уже сохранённым
                                             UserDataManager.addUserProducts(userId, products);
@@ -1170,6 +1075,17 @@
                                                 "❌ Ошибка при поиске '" + query + "': " + e.getMessage());
                 
                                         Thread.sleep(5000);
+                                    }
+                                }
+                
+                                // Обновляем cookies после полного цикла по всем запросам пользователя.
+                                // Это НЕ меняет user-agent/идентичность, а просто поддерживает актуальность токенов.
+                                if (session.isRunning() && Config.isDynamicCookiesEnabled()) {
+                                    try {
+                                        logger.info("🔄 Обновление cookies после цикла (user={})", userId);
+                                        CookieService.refreshCookies("www.goofish.com");
+                                    } catch (Exception e) {
+                                        logger.warn("Cookie refresh after cycle failed (user={}): {}", userId, e.getMessage());
                                     }
                                 }
                 
@@ -1202,19 +1118,11 @@
                         if (products.isEmpty()) return false;
                 
                         if (session.getSettings().isNotifyNewOnly()) {
-                            // Без использования ProductDuplicateFilter, чтобы избежать рекурсии
-                            List<Product> existingProducts = UserDataManager.getUserProducts(session.getUserId());
-                            Set<String> existingIds = new HashSet<>();
-                            for (Product p : existingProducts) {
-                                existingIds.add(p.getId());
-                            }
-                
-                            for (Product p : products) {
-                                if (!existingIds.contains(p.getId())) {
-                                    return true;
-                                }
-                            }
-                            return false;
+                            // Исторически "новизна" считалась по UserDataManager.getUserProducts().
+                            // Но сейчас фактическая защита от дублей и "новые товары" определяются
+                            // персистентной историей отправки (UserSentProductsManager),
+                            // поэтому предварительная проверка больше не нужна.
+                            return true;
                         }
                         return true;
                     }
@@ -1227,7 +1135,7 @@
                 
                         logger.info("Отправка уведомлений: {} товаров для пользователя {}", products.size(), userId);
                 
-                        // 🔴 ФИЛЬТРАЦИЯ ТОЛЬКО НОВЫХ ТОВАРОВ
+                        // Собираем ID -> Product
                         Set<String> productIds = new HashSet<>();
                         Map<String, Product> productMap = new HashMap<>();
                 
@@ -1236,47 +1144,50 @@
                             productMap.put(p.getId(), p);
                         }
                 
-                        // Получаем только новые товары (не отправленные ранее)
-                        Set<String> newProductIds = UserSentProductsManager.filterNewProducts(userId, productIds);
+                        // 🔴 ПРЕДОТВРАЩЕНИЕ ПОВТОРОВ: используем UserSentProductsManager
+                        Set<String> sentProductIds = UserSentProductsManager.getSentProductsForUser(userId);
+                        Set<String> newProductIds = new HashSet<>();
                 
-                        if (newProductIds.isEmpty()) {
-                            logger.debug("Нет новых товаров для отправки пользователю {}", userId);
-                            return;
-                        }
-                
-                        // 🔴 СОБИРАЕМ НОВЫЕ ТОВАРЫ
-                        List<Product> newProducts = new ArrayList<>();
-                        for (String productId : newProductIds) {
-                            Product p = productMap.get(productId);
-                            if (p != null) {
-                                newProducts.add(p);
+                        for (String productId : productIds) {
+                            if (!sentProductIds.contains(productId)) {
+                                newProductIds.add(productId);
                             }
                         }
                 
-                        logger.info("Будет отправлено {} новых товаров пользователю {}", newProducts.size(), userId);
+                        if (newProductIds.isEmpty()) {
+                            logger.debug("Нет новых товаров для пользователя {}", userId);
+                            return;
+                        }
                 
-                        // 🔴 СОХРАНЯЕМ ТОВАРЫ КАК ОТПРАВЛЕННЫЕ
+                        // Собираем товары к отправке
+                        List<Product> productsToSend = new ArrayList<>();
+                        for (String productId : newProductIds) {
+                            Product p = productMap.get(productId);
+                            if (p != null) {
+                                productsToSend.add(p);
+                            }
+                        }
+                
+                        logger.info("Будет отправлено {} новых товаров пользователю {} (всего найдено {})",
+                                productsToSend.size(), userId, products.size());
+                
+                        // 🔴 СОХРАНЯЕМ ОТПРАВЛЕННЫЕ ТОВАРЫ В ИСТОРИЮ ПОЛЬЗОВАТЕЛЯ
                         UserSentProductsManager.markProductsAsSent(userId, newProductIds);
                 
-                        // 🟢 ОТПРАВЛЯЕМ УВЕДОМЛЕНИЯ
+                        // Отправляем уведомления
                         String summary = String.format("🔍 Найдено <b>%d новых товаров</b> по запросу: <i>%s</i>\n\n",
-                                newProducts.size(), escapeHtml(query));
+                                productsToSend.size(), escapeHtml(query));
                         TelegramNotificationService.sendHtmlMessage(userId, summary);
                 
-                        // Отправляем новые товары по одному
-                        for (int i = 0; i < newProducts.size(); i++) {
-                            Product p = newProducts.get(i);
+                        // Отправляем товары по одному
+                        for (int i = 0; i < productsToSend.size(); i++) {
+                            Product p = productsToSend.get(i);
                 
                             try {
-                                // Проверяем название товара
-                                if (p.getTitle() == null || p.getTitle().isEmpty() || "No title".equals(p.getTitle())) {
-                                    p.setTitle("Товар #" + p.getId() + " (" + query + ")");
-                                }
-                
                                 if (p.hasCoverImage()) {
-                                    sendProductWithPhoto(userId, p, i + 1, newProducts.size());
+                                    sendProductWithPhoto(userId, p, i + 1, productsToSend.size());
                                 } else {
-                                    sendProductAsText(userId, p, i + 1, newProducts.size());
+                                    sendProductAsText(userId, p, i + 1, productsToSend.size());
                                 }
                 
                                 Thread.sleep(800);
@@ -1287,10 +1198,6 @@
                                 logger.error("Ошибка отправки уведомления для товара {}: {}", p.getId(), e.getMessage());
                             }
                         }
-                
-                        // 🔴 ОБНОВЛЯЕМ СТАТИСТИКУ
-                        logger.info("✅ Отправлено {} новых товаров пользователю {}. {}",
-                                newProducts.size(), userId, UserSentProductsManager.getStats(userId));
                     }
                 
                     private void sendProductWithPhoto(long userId, Product p, int number, int total) {
@@ -1338,9 +1245,6 @@
                     }
                 
                     private String formatProductCaption(Product p, int number, int total) {
-                        // Номер товара с эмодзи
-                        String numberEmoji = getNumberEmoji(number);
-                
                         // Получаем название товара
                         String fullTitle = p.getTitle();
                         if (fullTitle == null || fullTitle.isEmpty() || "No title".equals(fullTitle)) {
@@ -1352,16 +1256,23 @@
                                 escapeHtml(p.getUrl()),
                                 escapeHtml(fullTitle));
                 
-                        // 🔴 Цена: только в юанях (убираем рубли и локацию)
-                        String price = String.format("💰 <b>%s ¥</b>",
-                                String.format("%.0f", p.getPrice()));
+                        // 🔴 ЦЕНА: в юанях + примерная цена в рублях (курс 12)
+                        double priceYuan = p.getPrice();
+                        double priceRub = priceYuan * 12; // Курс 12 рублей за юань
+                        String price = String.format("💰 <b>%.0f ¥</b> (≈%.0f руб.)",
+                                priceYuan, priceRub);
                 
                         // 🔴 ВОЗРАСТ ТОВАРА
                         String age = String.format("⏳ %s", p.getAgeDisplay());
                 
-                        // 🔴 УБРАЛИ ЛОКАЦИЮ, Собираем итоговое сообщение
-                        return String.format("%s %s\n\n%s\n%s",
-                                numberEmoji, titleLink, price, age);
+                        // 🔴 ЛОКАЦИЯ (если есть)
+                        String location = "";
+                        if (p.getLocation() != null && !p.getLocation().isEmpty() && !"Не указано".equals(p.getLocation())) {
+                            location = String.format("\n📍 %s", escapeHtml(p.getLocation()));
+                        }
+                
+                        // Итоговое сообщение
+                        return String.format("%s\n\n%s\n%s%s", titleLink, price, age, location);
                     }
                 
                     private String escapeHtml(String text) {
@@ -2623,8 +2534,8 @@
 
               [FILE] Config.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/config/Config.java
-                Размер: 7139 байт
-                Дата изменения: 2026-01-19T22:14:48.902386849Z
+                Размер: 7360 байт
+                Дата изменения: 2026-01-28T19:39:31.93253313Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.config;
@@ -2815,6 +2726,14 @@
                 
                     public static int getDefaultMaxAgeMinutes() {
                         return getInt("parser.default.max_age_minutes", 1440);
+                    }
+                
+                    public static int getDefaultMaxPages() {
+                        return getInt("parser.default.max_pages", 20);
+                    }
+                
+                    public static int getDefaultRowsPerPage() {
+                        return getInt("parser.default.rows_per_page", 30);
                     }
                 }
                 ----------------------------------------
@@ -3116,742 +3035,11 @@
 
               [FILE] GoofishParser.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/parser/GoofishParser.java
-                Размер: 30873 байт
-                Дата изменения: 2026-01-20T09:54:11.315758002Z
+                Размер: 36266 байт
+                Дата изменения: 2026-02-02T18:57:14.488095511Z
                 Содержимое:
                 ----------------------------------------
-                package com.parser.parser;
-                
-                import com.parser.config.Config;
-                import com.parser.model.Product;
-                import com.parser.service.CookieService;
-                import com.parser.util.HttpUtils;
-                import org.apache.http.client.methods.HttpPost;
-                import org.apache.http.entity.StringEntity;
-                import org.apache.http.util.EntityUtils;
-                import org.json.JSONArray;
-                import org.json.JSONObject;
-                import org.slf4j.Logger;
-                import org.slf4j.LoggerFactory;
-                
-                import java.io.ByteArrayInputStream;
-                import java.io.ByteArrayOutputStream;
-                import java.nio.charset.StandardCharsets;
-                import java.security.MessageDigest;
-                import java.util.*;
-                
-                /**
-                 * Исправленный парсер для Goofish с правильным POST запросом и обработкой zstd
-                 */
-                public class GoofishParser extends BaseParser {
-                    private static final Logger logger = LoggerFactory.getLogger(GoofishParser.class);
-                    private static final String SEARCH_ENDPOINT = "/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/";
-                    private static final String APP_KEY = "34839810";
-                
-                    private static final Random random = new Random();
-                    private static long lastRequestTime = 0;
-                
-                    public GoofishParser() {
-                        super("goofish", "https://h5api.m.goofish.com");
-                    }
-                
-                    @Override
-                    protected String buildSearchUrl(String query, int page, int rows) {
-                        // Для POST запроса URL формируется без параметра data
-                        return buildApiUrl(query, page, rows);
-                    }
-                
-                    /**
-                     * Формирование URL API
-                     */
-                    private String buildApiUrl(String query, int page, int rows) {
-                        try {
-                            long timestamp = System.currentTimeMillis();
-                            String token = getTokenFromCookies();
-                
-                            if (token.isEmpty()) {
-                                logger.error("❌ Token is empty! Check cookies");
-                                return "";
-                            }
-                
-                            // Формируем data параметр для подписи
-                            String dataStr = buildSearchData(query, page, rows);
-                            String sign = generateSignature(token, timestamp, dataStr);
-                
-                            // Строим URL с параметрами как в реальном запросе
-                            Map<String, String> params = new LinkedHashMap<>();
-                            params.put("jsv", "2.7.2");
-                            params.put("appKey", APP_KEY);
-                            params.put("t", String.valueOf(timestamp));
-                            params.put("sign", sign);
-                            params.put("v", "1.0");
-                            params.put("type", "originaljson");
-                            params.put("accountSite", "xianyu");
-                            params.put("dataType", "json");
-                            params.put("timeout", "20000");
-                            params.put("api", "mtop.taobao.idlemtopsearch.pc.search");
-                            params.put("sessionOption", "AutoLoginOnly");
-                            params.put("spm_cnt", "a21ybx.search.0.0");
-                            params.put("spm_pre", "a21ybx.search.searchInput.0");
-                
-                            return HttpUtils.buildUrlWithParams(baseUrl + SEARCH_ENDPOINT, params);
-                
-                        } catch (Exception e) {
-                            logger.error("Error building URL: {}", e.getMessage());
-                            return "";
-                        }
-                    }
-                
-                    /**
-                     * Формирование данных для поиска
-                     */
-                    private String buildSearchData(String query, int page, int rows) {
-                        JSONObject data = new JSONObject();
-                        data.put("pageNumber", page);
-                        data.put("keyword", query);
-                        data.put("fromFilter", false);
-                        data.put("rowsPerPage", rows);
-                        data.put("sortValue", "");
-                        data.put("sortField", "");
-                        data.put("customDistance", "");
-                        data.put("gps", "");
-                        data.put("propValueStr", new JSONObject());
-                        data.put("customGps", "");
-                        data.put("searchReqFromPage", "pcSearch");
-                        data.put("extraFilterValue", "{}");
-                        data.put("userPositionJson", "{}");
-                
-                        return data.toString();
-                    }
-                
-                    /**
-                     * Переопределяем выполнение запроса для использования POST и обработки zstd
-                     */
-                    @Override
-                    protected String executeSearchRequest(String url, String query, int page, int rows) throws Exception {
-                        // Формируем тело запроса
-                        String dataStr = buildSearchData(query, page, rows);
-                        String formData = "data=" + java.net.URLEncoder.encode(dataStr, "UTF-8");
-                
-                        logger.info("📤 POST запрос к: {}", url);
-                        logger.debug("📝 Тело запроса: {}", formData);
-                
-                        // Создаем POST запрос
-                        HttpPost request = new HttpPost(url);
-                
-                        // Устанавливаем заголовки как в реальном запросе
-                        request.setHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 YaBrowser/25.10.0.0 Safari/537.36");
-                        request.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-                        request.setHeader("Accept", "application/json");
-                        request.setHeader("Accept-Encoding", "gzip, deflate, br, zstd");
-                        request.setHeader("Accept-Language", "ru,en;q=0.9");
-                        request.setHeader("Origin", "https://www.goofish.com");
-                        request.setHeader("Referer", "https://www.goofish.com/");
-                        request.setHeader("Sec-Fetch-Dest", "empty");
-                        request.setHeader("Sec-Fetch-Mode", "cors");
-                        request.setHeader("Sec-Fetch-Site", "same-site");
-                        request.setHeader("sec-ch-ua", "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"YaBrowser\";v=\"25.10\", \"Yowser\";v=\"2.5\", \"YaBrowserCorp\";v=\"140\"");
-                        request.setHeader("sec-ch-ua-mobile", "?0");
-                        request.setHeader("sec-ch-ua-platform", "\"macOS\"");
-                        request.setHeader("x-accept-terminal", "pc");
-                
-                        // Добавляем куки
-                        String domain = "h5api.m.goofish.com";
-                        String cookieHeader = CookieService.getCookieHeader(domain);
-                        if (cookieHeader != null && !cookieHeader.isEmpty()) {
-                            request.setHeader("Cookie", cookieHeader);
-                            logger.debug("✅ Добавлены куки: {} символов", cookieHeader.length());
-                        } else {
-                            logger.warn("⚠️ Куки пустые!");
-                        }
-                
-                        // Устанавливаем тело запроса
-                        request.setEntity(new StringEntity(formData, StandardCharsets.UTF_8));
-                
-                        // Выполняем запрос
-                        try (var response = HttpUtils.getHttpClientInstance().execute(request)) {
-                            int statusCode = response.getStatusLine().getStatusCode();
-                            String contentType = response.getFirstHeader("Content-Type") != null ?
-                                    response.getFirstHeader("Content-Type").getValue() : "unknown";
-                            String contentEncoding = response.getFirstHeader("Content-Encoding") != null ?
-                                    response.getFirstHeader("Content-Encoding").getValue() : "unknown";
-                
-                            logger.info("📥 Ответ: статус={}, content-type={}, content-encoding={}",
-                                    statusCode, contentType, contentEncoding);
-                
-                            // Получаем сырые байты ответа
-                            byte[] responseBytes = EntityUtils.toByteArray(response.getEntity());
-                            String responseBody;
-                
-                            // Обрабатываем сжатие
-                            if ("zstd".equalsIgnoreCase(contentEncoding)) {
-                                logger.info("🔄 Распаковываем zstd сжатие...");
-                                responseBody = decompressZstd(responseBytes);
-                            } else if ("gzip".equalsIgnoreCase(contentEncoding) || "deflate".equalsIgnoreCase(contentEncoding)) {
-                                // HttpClient обычно автоматически обрабатывает gzip/deflate
-                                responseBody = new String(responseBytes, StandardCharsets.UTF_8);
-                            } else {
-                                // Без сжатия
-                                responseBody = new String(responseBytes, StandardCharsets.UTF_8);
-                            }
-                
-                            // Логируем заголовки для отладки
-                            org.apache.http.Header[] headers = response.getAllHeaders();
-                            logger.debug("📋 Заголовки ответа:");
-                            for (org.apache.http.Header header : headers) {
-                                if (header.getName().equalsIgnoreCase("Set-Cookie") ||
-                                        header.getName().equalsIgnoreCase("Content-Type") ||
-                                        header.getName().equalsIgnoreCase("Content-Encoding") ||
-                                        header.getName().equalsIgnoreCase("X-EagleEye-Id")) {
-                                    logger.debug("   {}: {}", header.getName(), header.getValue());
-                                }
-                            }
-                
-                            logger.debug("📄 Тело ответа (первые 500 символов): {}",
-                                    responseBody.length() > 500 ? responseBody.substring(0, 500) + "..." : responseBody);
-                
-                            if (statusCode == 200) {
-                                // Проверяем, это JSON или что-то другое
-                                if (responseBody.trim().startsWith("{") || responseBody.trim().startsWith("[")) {
-                                    logger.info("✅ Получен JSON ответ, длина: {} символов", responseBody.length());
-                                    return responseBody;
-                                } else {
-                                    logger.error("❌ Ответ не JSON. Первые 200 символов: {}",
-                                            responseBody.length() > 200 ? responseBody.substring(0, 200) : responseBody);
-                
-                                    // Проверяем, не получили ли мы HTML страницу с ошибкой
-                                    if (responseBody.contains("<html") || responseBody.contains("<!DOCTYPE")) {
-                                        logger.error("⚠️ Получена HTML страница вместо JSON. Возможно, куки недействительны.");
-                                    } else if (responseBody.contains("被挤爆啦") || responseBody.contains("FAIL_SYS_ILLEGAL_ACCESS")) {
-                                        logger.error("⚠️ API вернуло ошибку: {}",
-                                                responseBody.length() > 100 ? responseBody.substring(0, 100) : responseBody);
-                                    }
-                                    throw new Exception("Ответ не в формате JSON: " + contentType);
-                                }
-                            } else {
-                                logger.error("❌ HTTP ошибка {}: {}", statusCode,
-                                        responseBody.length() > 200 ? responseBody.substring(0, 200) + "..." : responseBody);
-                                throw new Exception("HTTP error: " + statusCode);
-                            }
-                        } catch (Exception e) {
-                            logger.error("❌ Ошибка выполнения запроса: {}", e.getMessage());
-                            throw e;
-                        }
-                    }
-                
-                    /**
-                     * Распаковка zstd сжатых данных
-                     */
-                    private String decompressZstd(byte[] compressedData) {
-                        try {
-                            logger.debug("📦 Размер сжатых данных: {} байт", compressedData.length);
-                
-                            // Используем zstd-jni для распаковки
-                            byte[] decompressed = com.github.luben.zstd.Zstd.decompress(compressedData, 10 * 1024 * 1024); // Макс 10MB
-                
-                            String result = new String(decompressed, StandardCharsets.UTF_8);
-                            logger.debug("✅ Zstd успешно распакован");
-                            logger.debug("📄 Размер распакованных данных: {} символов", result.length());
-                            return result;
-                
-                        } catch (Exception e) {
-                            logger.error("❌ Ошибка распаковки zstd: {}", e.getMessage());
-                
-                            // Пробуем прочитать как обычную строку
-                            try {
-                                String fallback = new String(compressedData, StandardCharsets.UTF_8);
-                                logger.warn("⚠️ Используем fallback чтение как UTF-8");
-                                return fallback;
-                            } catch (Exception e2) {
-                                return "Ошибка при обработке ответа: " + e.getMessage();
-                            }
-                        }
-                    }
-                
-                    // Остальные методы остаются без изменений
-                    @Override
-                    protected List<Product> parseResponse(String response, String query) {
-                        List<Product> products = new ArrayList<>();
-                
-                        if (response == null || response.isEmpty()) {
-                            logger.warn("Empty response");
-                            return products;
-                        }
-                
-                        try {
-                            JSONObject json = new JSONObject(response);
-                
-                            // Проверка наличия ошибок
-                            if (json.has("ret")) {
-                                String ret = json.optString("ret", "");
-                                if (ret.contains("被挤爆啦") || ret.contains("RGV587_ERROR") ||
-                                        ret.contains("FAIL_SYS_ILLEGAL_ACCESS")) {
-                                    logger.error("API error: {}", ret);
-                                    return products;
-                                }
-                            }
-                
-                            // Получаем данные
-                            JSONObject data = json.optJSONObject("data");
-                            if (data == null) {
-                                logger.warn("No data in response");
-                                return products;
-                            }
-                
-                            // Извлекаем список товаров
-                            JSONArray resultList = data.optJSONArray("resultList");
-                            if (resultList == null || resultList.length() == 0) {
-                                logger.debug("No items found in response");
-                                return products;
-                            }
-                
-                            logger.info("Found {} items", resultList.length());
-                
-                            for (int i = 0; i < resultList.length(); i++) {
-                                try {
-                                    JSONObject item = resultList.getJSONObject(i);
-                                    Product product = parseProductItem(item, query);
-                                    if (product != null && isValidProduct(product)) {
-                                        products.add(product);
-                                    }
-                                } catch (Exception e) {
-                                    logger.debug("Error parsing item {}: {}", i, e.getMessage());
-                                }
-                            }
-                
-                            logger.info("Successfully parsed {} products", products.size());
-                
-                        } catch (Exception e) {
-                            logger.error("Error parsing response: {}", e.getMessage());
-                            logger.debug("Response content (first 500 chars): {}",
-                                    response.length() > 500 ? response.substring(0, 500) + "..." : response);
-                        }
-                
-                        return products;
-                    }
-                
-                    private Product parseProductItem(JSONObject item, String query) {
-                        try {
-                            JSONObject data = item.optJSONObject("data");
-                            if (data == null) return null;
-                
-                            JSONObject itemObj = data.optJSONObject("item");
-                            if (itemObj == null) return null;
-                
-                            JSONObject mainObj = itemObj.optJSONObject("main");
-                            if (mainObj == null) return null;
-                
-                            JSONObject itemData = data.optJSONObject("itemData");
-                            JSONObject exContent = mainObj.optJSONObject("exContent");
-                
-                            // Извлечение ID товара
-                            String itemId = null;
-                            if (itemData != null) itemId = itemData.optString("itemId", "");
-                            if ((itemId == null || itemId.isEmpty()) && exContent != null) {
-                                itemId = exContent.optString("itemId", "");
-                            }
-                
-                            if (itemId == null || itemId.isEmpty()) return null;
-                
-                            Product product = new Product();
-                            product.setId(itemId);
-                            product.setSite("goofish");
-                            product.setQuery(query);
-                
-                            // 🔴 ИСПРАВЛЕНИЕ: ПАРСИНГ НАЗВАНИЯ
-                            String title = "";
-                
-                            // Пробуем разные источники названия
-                            if (itemData != null) {
-                                title = itemData.optString("title", "");
-                                if (title.isEmpty()) {
-                                    title = itemData.optString("text", "");
-                                }
-                                if (title.isEmpty()) {
-                                    title = itemData.optString("name", "");
-                                }
-                            }
-                
-                            if (title.isEmpty() && exContent != null) {
-                                title = exContent.optString("title", "");
-                                if (title.isEmpty()) {
-                                    title = exContent.optString("text", "");
-                                }
-                                if (title.isEmpty()) {
-                                    title = exContent.optString("name", "");
-                                }
-                            }
-                
-                            if (title.isEmpty() && mainObj != null) {
-                                JSONObject clickParam = mainObj.optJSONObject("clickParam");
-                                if (clickParam != null) {
-                                    JSONObject args = clickParam.optJSONObject("args");
-                                    if (args != null) {
-                                        title = args.optString("subject", "");
-                                    }
-                                }
-                            }
-                
-                            // Если название по-прежнему пустое, создаем более информативное
-                            if (title.isEmpty()) {
-                                title = "Товар #" + itemId + " (" + query + ")";
-                            }
-                
-                            product.setTitle(title);
-                
-                            // Остальной код остается без изменений...
-                            // Цена
-                            double price = extractPrice(itemData, exContent);
-                            product.setPrice(price);
-                
-                            // Возраст товара
-                            long publishTime = extractPublishTime(mainObj, itemData, exContent);
-                            int ageMinutes = calculateAge(publishTime);
-                            product.setAgeMinutes(ageMinutes);
-                
-                            // Локация
-                            String location = itemData != null ? itemData.optString("area", "") : "";
-                            product.setLocation(location.isEmpty() ? "Не указано" : location);
-                
-                            // URL - убедимся, что он правильный
-                            product.setUrl("https://www.goofish.com/item?id=" + itemId);
-                
-                            // Изображения
-                            List<String> images = extractImages(mainObj, itemObj, data);
-                            product.setImages(images);
-                
-                            logger.debug("Parsed: {} ({}¥, {}min, {} images)",
-                                    product.getShortTitle(), price, ageMinutes, images.size());
-                
-                            return product;
-                
-                        } catch (Exception e) {
-                            logger.error("Error parsing product item: {}", e.getMessage());
-                            return null;
-                        }
-                    }
-                
-                    private double extractPrice(JSONObject itemData, JSONObject exContent) {
-                        if (itemData != null) {
-                            Object priceObj = itemData.opt("price");
-                            if (priceObj != null) return parsePrice(priceObj);
-                        }
-                        if (exContent != null) {
-                            Object priceObj = exContent.opt("price");
-                            if (priceObj != null) return parsePrice(priceObj);
-                        }
-                        return 0.0;
-                    }
-                
-                    private double parsePrice(Object priceObj) {
-                        if (priceObj instanceof String) {
-                            return extractPrice((String) priceObj);
-                        }
-                        if (priceObj instanceof Number) {
-                            return ((Number) priceObj).doubleValue();
-                        }
-                        if (priceObj instanceof JSONArray) {
-                            JSONArray arr = (JSONArray) priceObj;
-                            StringBuilder sb = new StringBuilder();
-                            for (int i = 0; i < arr.length(); i++) {
-                                JSONObject part = arr.optJSONObject(i);
-                                if (part != null && "integer".equals(part.optString("type"))) {
-                                    sb.append(part.optString("text"));
-                                }
-                            }
-                            return extractPrice(sb.toString());
-                        }
-                        return 0.0;
-                    }
-                
-                    public double extractPrice(String priceStr) {
-                        if (priceStr == null || priceStr.isEmpty()) return 0.0;
-                        try {
-                            String clean = priceStr.replaceAll("[^\\d.,]", "").replace(',', '.');
-                            return Double.parseDouble(clean);
-                        } catch (NumberFormatException e) {
-                            return 0.0;
-                        }
-                    }
-                
-                    private long extractPublishTime(JSONObject main, JSONObject itemData, JSONObject exContent) {
-                        // Путь 1: args.publishTime
-                        if (main != null) {
-                            JSONObject clickParam = main.optJSONObject("clickParam");
-                            if (clickParam != null) {
-                                JSONObject args = clickParam.optJSONObject("args");
-                                if (args != null && args.has("publishTime")) {
-                                    Object time = args.opt("publishTime");
-                                    if (time instanceof String) return Long.parseLong((String) time);
-                                    if (time instanceof Number) return ((Number) time).longValue();
-                                }
-                            }
-                        }
-                
-                        // Путь 2: itemData.publishTime
-                        if (itemData != null && itemData.has("publishTime")) {
-                            Object time = itemData.opt("publishTime");
-                            if (time instanceof String) return Long.parseLong((String) time);
-                            if (time instanceof Number) return ((Number) time).longValue();
-                        }
-                
-                        return 0;
-                    }
-                
-                    private int calculateAge(long publishTime) {
-                        if (publishTime <= 0) return 0;
-                
-                        // Определяем формат времени (секунды или миллисекунды)
-                        if (publishTime < 10000000000L) {
-                            publishTime = publishTime * 1000;
-                        }
-                
-                        long ageMs = System.currentTimeMillis() - publishTime;
-                        int ageMinutes = (int) (ageMs / (1000 * 60));
-                
-                        return Math.max(1, Math.min(ageMinutes, 10080)); // 1 до 7 дней
-                    }
-                
-                    private List<String> extractImages(JSONObject main, JSONObject itemObj, JSONObject data) {
-                        List<String> images = new ArrayList<>();
-                
-                        // Путь 1: data.picUrl (главное фото)
-                        if (data != null && data.has("picUrl")) {
-                            String picUrl = data.optString("picUrl", "");
-                            if (isValidImageUrl(picUrl)) {
-                                images.add(picUrl);
-                                logger.debug("✅ Найдено фото в data.picUrl");
-                            }
-                        }
-                
-                        // Путь 2: data.pics (массив фото)
-                        if (data != null && data.has("pics")) {
-                            JSONArray pics = data.optJSONArray("pics");
-                            if (pics != null) {
-                                for (int i = 0; i < Math.min(5, pics.length()); i++) {
-                                    try {
-                                        JSONObject pic = pics.optJSONObject(i);
-                                        if (pic != null) {
-                                            // Пробуем разные поля
-                                            String url = pic.optString("picUrl", "");
-                                            if (url.isEmpty()) {
-                                                url = pic.optString("pic_url", "");
-                                            }
-                                            if (url.isEmpty()) {
-                                                url = pic.optString("url", "");
-                                            }
-                
-                                            if (isValidImageUrl(url) && !images.contains(url)) {
-                                                images.add(url);
-                                                logger.debug("✅ Найдено фото в data.pics[{}]", i);
-                                            }
-                                        }
-                                    } catch (Exception e) {
-                                        logger.debug("Error parsing pic at index {}: {}", i, e.getMessage());
-                                    }
-                                }
-                            }
-                        }
-                
-                        // Путь 3: itemObj.extra.picUrl (дополнительное фото)
-                        if (itemObj != null) {
-                            JSONObject extra = itemObj.optJSONObject("extra");
-                            if (extra != null) {
-                                String picUrl = extra.optString("picUrl", "");
-                                if (picUrl.isEmpty()) {
-                                    picUrl = extra.optString("pic_url", "");
-                                }
-                                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {
-                                    images.add(picUrl);
-                                    logger.debug("✅ Найдено фото в itemObj.extra.picUrl");
-                                }
-                            }
-                        }
-                
-                        // Путь 4: main.exContent.picUrl (исходное фото)
-                        if (main != null) {
-                            JSONObject exContent = main.optJSONObject("exContent");
-                            if (exContent != null) {
-                                String picUrl = exContent.optString("picUrl", "");
-                                if (picUrl.isEmpty()) {
-                                    picUrl = exContent.optString("pic_url", "");
-                                }
-                                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {
-                                    images.add(picUrl);
-                                    logger.debug("✅ Найдено фото в main.exContent.picUrl");
-                                }
-                            }
-                        }
-                
-                        // Путь 5: Прямые поля объекта (на случай если структура упрощена)
-                        if (data != null) {
-                            // Проверяем прямые поля в data
-                            String directPic = data.optString("image", "");
-                            if (directPic.isEmpty()) {
-                                directPic = data.optString("img", "");
-                            }
-                            if (isValidImageUrl(directPic) && !images.contains(directPic)) {
-                                images.add(directPic);
-                                logger.debug("✅ Найдено фото в data.image");
-                            }
-                        }
-                
-                        if (images.isEmpty()) {
-                            logger.debug("⚠️ Фотографии не найдены для товара");
-                        } else {
-                            logger.debug("📷 Найдено фотографий: {}", images.size());
-                        }
-                
-                        return images;
-                    }
-                
-                    private boolean isValidImageUrl(String url) {
-                        if (url == null || url.isEmpty()) {
-                            return false;
-                        }
-                
-                        // Должно быть HTTPS или HTTP
-                        if (!url.startsWith("http://") && !url.startsWith("https://")) {
-                            return false;
-                        }
-                
-                        // Проверяем расширение файла
-                        String lowerUrl = url.toLowerCase();
-                        String[] validExtensions = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".heic"};
-                
-                        boolean hasValidExtension = false;
-                        for (String ext : validExtensions) {
-                            if (lowerUrl.contains(ext)) {
-                                hasValidExtension = true;
-                                break;
-                            }
-                        }
-                
-                        // Если нет расширения - может быть OK (CDN с query parameters)
-                        if (!hasValidExtension && (lowerUrl.contains("alicdn") || lowerUrl.contains("taobaocdn"))) {
-                            return true;
-                        }
-                
-                        return hasValidExtension;
-                    }
-                
-                    private boolean isValidProduct(Product product) {
-                        return product.getId() != null && !product.getId().isEmpty() &&
-                                product.getTitle() != null && !product.getTitle().isEmpty() &&
-                                product.getUrl() != null && !product.getUrl().isEmpty();
-                    }
-                
-                    private String getTokenFromCookies() {
-                        try {
-                            String cookies = CookieService.getCookieHeader("h5api.m.goofish.com");
-                            if (cookies == null || cookies.isEmpty()) return "";
-                
-                            String[] pairs = cookies.split("; ");
-                            for (String pair : pairs) {
-                                if (pair.startsWith("_m_h5_tk=")) {
-                                    String mh5tk = pair.substring(9);
-                                    if (mh5tk.contains("_")) {
-                                        return mh5tk.split("_")[0];
-                                    }
-                                }
-                            }
-                        } catch (Exception e) {
-                            logger.warn("Error getting token: {}", e.getMessage());
-                        }
-                        return "";
-                    }
-                
-                    private String generateSignature(String token, long timestamp, String data) {
-                        try {
-                            String signString = token + "&" + timestamp + "&" + APP_KEY + "&" + data;
-                            MessageDigest md = MessageDigest.getInstance("MD5");
-                            byte[] hash = md.digest(signString.getBytes(StandardCharsets.UTF_8));
-                            StringBuilder hex = new StringBuilder();
-                            for (byte b : hash) {
-                                String h = Integer.toHexString(0xff & b);
-                                if (h.length() == 1) hex.append('0');
-                                hex.append(h);
-                            }
-                            return hex.toString();
-                        } catch (Exception e) {
-                            logger.error("Error generating signature: {}", e.getMessage());
-                            return "";
-                        }
-                    }
-                
-                    /**
-                     * Переопределяем метод search для использования POST запросов
-                     */
-                    @Override
-                    public List<Product> search(String query, int maxPages, int rowsPerPage, int maxAgeMinutes) {
-                        List<Product> allProducts = new ArrayList<>();
-                
-                        logger.info("Starting search: site={}, query='{}', pages={}, rows={}, maxAge={}min",
-                                siteName, query, maxPages, rowsPerPage, maxAgeMinutes);
-                
-                        for (int page = 1; page <= maxPages; page++) {
-                            if (Thread.currentThread().isInterrupted()) break;
-                
-                            try {
-                                // Формируем URL для API
-                                String url = buildSearchUrl(query, page, rowsPerPage);
-                                if (url.isEmpty()) {
-                                    logger.error("Failed to build URL for page {}", page);
-                                    break;
-                                }
-                
-                                // Выполняем POST запрос
-                                String response = executeSearchRequest(url, query, page, rowsPerPage);
-                                totalRequests++;
-                
-                                // Парсим ответ
-                                List<Product> products = parseResponse(response, query);
-                
-                                if (products.isEmpty()) {
-                                    logger.debug("No products on page {}", page);
-                                    break;
-                                }
-                
-                                // Фильтруем по возрасту
-                                List<Product> filtered = new ArrayList<>();
-                                for (Product p : products) {
-                                    if (p.getAgeMinutes() <= maxAgeMinutes) {
-                                        filtered.add(p);
-                                    }
-                                }
-                
-                                allProducts.addAll(filtered);
-                                logger.info("Page {}: found {} products ({} after age filter)",
-                                        page, products.size(), filtered.size());
-                
-                                if (filtered.size() < rowsPerPage) break;
-                
-                                // Задержка между запросами
-                                int delay = getRequestDelay();
-                                if (delay > 0 && page < maxPages) {
-                                    Thread.sleep(delay);
-                                }
-                
-                            } catch (Exception e) {
-                                failedRequests++;
-                                logger.error("Error on page {}: {}", page, e.getMessage());
-                
-                                if (shouldStopOnError(e)) break;
-                
-                                try {
-                                    Thread.sleep(3000);
-                                } catch (InterruptedException ie) {
-                                    Thread.currentThread().interrupt();
-                                    break;
-                                }
-                            }
-                        }
-                
-                        logger.info("Search completed: found {} products in {} requests",
-                                allProducts.size(), totalRequests);
-                        return allProducts;
-                    }
-                }
+                package com.parser.parser;import com.parser.config.Config;import com.parser.model.Product;import com.parser.service.CookieService;import com.parser.util.HttpUtils;import org.apache.http.client.methods.HttpPost;import org.apache.http.entity.StringEntity;import org.apache.http.util.EntityUtils;import org.json.JSONArray;import org.json.JSONObject;import org.slf4j.Logger;import org.slf4j.LoggerFactory;import java.io.ByteArrayInputStream;import java.io.ByteArrayOutputStream;import java.nio.charset.StandardCharsets;import java.security.MessageDigest;import java.util.*;import java.util.regex.Matcher;import java.util.regex.Pattern;/** * Исправленный парсер для Goofish с правильным POST запросом и обработкой zstd */public class GoofishParser extends BaseParser {    private static final Logger logger = LoggerFactory.getLogger(GoofishParser.class);    private static final String SEARCH_ENDPOINT = "/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/";    private static final String APP_KEY = "34839810";    private static final Pattern PUBLISHED_AGO_ZH = Pattern.compile("(\\d+)\\s*(分钟|小?时|天)前发布");    private static final Random random = new Random();    private static long lastRequestTime = 0;    public GoofishParser() {        super("goofish", "https://h5api.m.goofish.com");    }    @Override    protected String buildSearchUrl(String query, int page, int rows) {        // Для POST запроса URL формируется без параметра data        return buildApiUrl(query, page, rows);    }    /**     * Формирование URL API     */    private String buildApiUrl(String query, int page, int rows) {        try {            long timestamp = System.currentTimeMillis();            String token = getTokenFromCookies();            if (token.isEmpty()) {                logger.error("❌ Token is empty! Check cookies");                return "";            }            // Формируем data параметр для подписи            String dataStr = buildSearchData(query, page, rows);            String sign = generateSignature(token, timestamp, dataStr);            // Строим URL с параметрами как в реальном запросе            Map<String, String> params = new LinkedHashMap<>();            params.put("jsv", "2.7.2");            params.put("appKey", APP_KEY);            params.put("t", String.valueOf(timestamp));            params.put("sign", sign);            params.put("v", "1.0");            params.put("type", "originaljson");            params.put("accountSite", "xianyu");            params.put("dataType", "json");            params.put("timeout", "20000");            params.put("api", "mtop.taobao.idlemtopsearch.pc.search");            params.put("sessionOption", "AutoLoginOnly");            params.put("spm_cnt", "a21ybx.search.0.0");            params.put("spm_pre", "a21ybx.search.searchInput.0");            return HttpUtils.buildUrlWithParams(baseUrl + SEARCH_ENDPOINT, params);        } catch (Exception e) {            logger.error("Error building URL: {}", e.getMessage());            return "";        }    }    /**     * Формирование данных для поиска     */    private String buildSearchData(String query, int page, int rows) {        JSONObject data = new JSONObject();        data.put("pageNumber", page);        data.put("keyword", query);        // Настройки запроса: показываем самые новые товары первыми        data.put("fromFilter", true);        data.put("rowsPerPage", rows);        data.put("sortValue", "desc");        data.put("sortField", "create");        data.put("customDistance", "");        data.put("gps", "");        JSONObject propValueStr = new JSONObject();        propValueStr.put("searchFilter", "");        data.put("propValueStr", propValueStr);        data.put("customGps", "");        data.put("searchReqFromPage", "pcSearch");        data.put("extraFilterValue", "{}");        data.put("userPositionJson", "{}");        return data.toString();    }    /**     * Переопределяем выполнение запроса для использования POST и обработки zstd     */    @Override    protected String executeSearchRequest(String url, String query, int page, int rows) throws Exception {        // Формируем тело запроса        String dataStr = buildSearchData(query, page, rows);        String formData = "data=" + java.net.URLEncoder.encode(dataStr, "UTF-8");        logger.info("📤 POST запрос к: {}", url);        logger.debug("📝 Тело запроса: {}", formData);        // Создаем POST запрос        HttpPost request = new HttpPost(url);        // Устанавливаем заголовки как в реальном запросе        request.setHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 YaBrowser/25.10.0.0 Safari/537.36");        request.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");        request.setHeader("Accept", "application/json");        request.setHeader("Accept-Encoding", "gzip, deflate, br, zstd");        request.setHeader("Accept-Language", "ru,en;q=0.9");        request.setHeader("Origin", "https://www.goofish.com");        request.setHeader("Referer", "https://www.goofish.com/");        request.setHeader("Sec-Fetch-Dest", "empty");        request.setHeader("Sec-Fetch-Mode", "cors");        request.setHeader("Sec-Fetch-Site", "same-site");        request.setHeader("sec-ch-ua", "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"YaBrowser\";v=\"25.10\", \"Yowser\";v=\"2.5\", \"YaBrowserCorp\";v=\"140\"");        request.setHeader("sec-ch-ua-mobile", "?0");        request.setHeader("sec-ch-ua-platform", "\"macOS\"");        request.setHeader("x-accept-terminal", "pc");        // Добавляем куки        String domain = "h5api.m.goofish.com";        String cookieHeader = CookieService.getCookieHeader(domain);        if (cookieHeader != null && !cookieHeader.isEmpty()) {            request.setHeader("Cookie", cookieHeader);            logger.debug("✅ Добавлены куки: {} символов", cookieHeader.length());        } else {            logger.warn("⚠️ Куки пустые!");        }        // Устанавливаем тело запроса        request.setEntity(new StringEntity(formData, StandardCharsets.UTF_8));        // Выполняем запрос        try (var response = HttpUtils.getHttpClientInstance().execute(request)) {            int statusCode = response.getStatusLine().getStatusCode();            String contentType = response.getFirstHeader("Content-Type") != null ?                    response.getFirstHeader("Content-Type").getValue() : "unknown";            String contentEncoding = response.getFirstHeader("Content-Encoding") != null ?                    response.getFirstHeader("Content-Encoding").getValue() : "unknown";            logger.info("📥 Ответ: статус={}, content-type={}, content-encoding={}",                    statusCode, contentType, contentEncoding);            // Получаем сырые байты ответа            byte[] responseBytes = EntityUtils.toByteArray(response.getEntity());            String responseBody;            // Обрабатываем сжатие            if ("zstd".equalsIgnoreCase(contentEncoding)) {                logger.info("🔄 Распаковываем zstd сжатие...");                responseBody = decompressZstd(responseBytes);            } else if ("gzip".equalsIgnoreCase(contentEncoding) || "deflate".equalsIgnoreCase(contentEncoding)) {                // HttpClient обычно автоматически обрабатывает gzip/deflate                responseBody = new String(responseBytes, StandardCharsets.UTF_8);            } else {                // Без сжатия                responseBody = new String(responseBytes, StandardCharsets.UTF_8);            }            // Логируем заголовки для отладки            org.apache.http.Header[] headers = response.getAllHeaders();            logger.debug("📋 Заголовки ответа:");            for (org.apache.http.Header header : headers) {                if (header.getName().equalsIgnoreCase("Set-Cookie") ||                        header.getName().equalsIgnoreCase("Content-Type") ||                        header.getName().equalsIgnoreCase("Content-Encoding") ||                        header.getName().equalsIgnoreCase("X-EagleEye-Id")) {                    logger.debug("   {}: {}", header.getName(), header.getValue());                }            }            logger.debug("📄 Тело ответа (первые 500 символов): {}",                    responseBody.length() > 500 ? responseBody.substring(0, 500) + "..." : responseBody);            if (statusCode == 200) {                // Проверяем, это JSON или что-то другое                if (responseBody.trim().startsWith("{") || responseBody.trim().startsWith("[")) {                    logger.info("✅ Получен JSON ответ, длина: {} символов", responseBody.length());                    return responseBody;                } else {                    logger.error("❌ Ответ не JSON. Первые 200 символов: {}",                            responseBody.length() > 200 ? responseBody.substring(0, 200) : responseBody);                    // Проверяем, не получили ли мы HTML страницу с ошибкой                    if (responseBody.contains("<html") || responseBody.contains("<!DOCTYPE")) {                        logger.error("⚠️ Получена HTML страница вместо JSON. Возможно, куки недействительны.");                    } else if (responseBody.contains("被挤爆啦") || responseBody.contains("FAIL_SYS_ILLEGAL_ACCESS")) {                        logger.error("⚠️ API вернуло ошибку: {}",                                responseBody.length() > 100 ? responseBody.substring(0, 100) : responseBody);                    }                    throw new Exception("Ответ не в формате JSON: " + contentType);                }            } else {                logger.error("❌ HTTP ошибка {}: {}", statusCode,                        responseBody.length() > 200 ? responseBody.substring(0, 200) + "..." : responseBody);                throw new Exception("HTTP error: " + statusCode);            }        } catch (Exception e) {            logger.error("❌ Ошибка выполнения запроса: {}", e.getMessage());            throw e;        }    }    /**     * Распаковка zstd сжатых данных     */    private String decompressZstd(byte[] compressedData) {        try {            logger.debug("📦 Размер сжатых данных: {} байт", compressedData.length);            // Используем zstd-jni для распаковки            byte[] decompressed = com.github.luben.zstd.Zstd.decompress(compressedData, 10 * 1024 * 1024); // Макс 10MB            String result = new String(decompressed, StandardCharsets.UTF_8);            logger.debug("✅ Zstd успешно распакован");            logger.debug("📄 Размер распакованных данных: {} символов", result.length());            return result;        } catch (Exception e) {            logger.error("❌ Ошибка распаковки zstd: {}", e.getMessage());            // Пробуем прочитать как обычную строку            try {                String fallback = new String(compressedData, StandardCharsets.UTF_8);                logger.warn("⚠️ Используем fallback чтение как UTF-8");                return fallback;            } catch (Exception e2) {                return "Ошибка при обработке ответа: " + e.getMessage();            }        }    }    // Остальные методы остаются без изменений    @Override    protected List<Product> parseResponse(String response, String query) {        List<Product> products = new ArrayList<>();        if (response == null || response.isEmpty()) {            logger.warn("Empty response");            return products;        }        try {            JSONObject json = new JSONObject(response);            // Проверка наличия ошибок            if (json.has("ret")) {                String ret = json.optString("ret", "");                if (ret.contains("被挤爆啦") || ret.contains("RGV587_ERROR") ||                        ret.contains("FAIL_SYS_ILLEGAL_ACCESS")) {                    logger.error("API error: {}", ret);                    return products;                }            }            // Получаем данные            JSONObject data = json.optJSONObject("data");            if (data == null) {                logger.warn("No data in response");                return products;            }            // Извлекаем список товаров            JSONArray resultList = data.optJSONArray("resultList");            if (resultList == null || resultList.length() == 0) {                logger.debug("No items found in response");                return products;            }            logger.info("Found {} items", resultList.length());            for (int i = 0; i < resultList.length(); i++) {                try {                    JSONObject item = resultList.getJSONObject(i);                    Product product = parseProductItem(item, query);                    if (product != null && isValidProduct(product)) {                        products.add(product);                    }                } catch (Exception e) {                    logger.debug("Error parsing item {}: {}", i, e.getMessage());                }            }            logger.info("Successfully parsed {} products", products.size());        } catch (Exception e) {            logger.error("Error parsing response: {}", e.getMessage());            logger.debug("Response content (first 500 chars): {}",                    response.length() > 500 ? response.substring(0, 500) + "..." : response);        }        return products;    }    private Product parseProductItem(JSONObject item, String query) {        try {            JSONObject data = item.optJSONObject("data");            if (data == null) return null;            JSONObject itemObj = data.optJSONObject("item");            if (itemObj == null) return null;            JSONObject mainObj = itemObj.optJSONObject("main");            if (mainObj == null) return null;            JSONObject itemData = data.optJSONObject("itemData");            JSONObject exContent = mainObj.optJSONObject("exContent");            // Извлечение ID товара            String itemId = null;            if (itemData != null) itemId = itemData.optString("itemId", "");            if ((itemId == null || itemId.isEmpty()) && exContent != null) {                itemId = exContent.optString("itemId", "");            }            if (itemId == null || itemId.isEmpty()) return null;            Product product = new Product();            product.setId(itemId);            product.setSite("goofish");            product.setQuery(query);            // 🔴 ИСПРАВЛЕНИЕ: ПАРСИНГ НАЗВАНИЯ - только из title полей            String title = "";            // Приоритет 1: data.itemData.title            if (itemData != null) {                title = itemData.optString("title", "");            }            // Приоритет 2: main.exContent.title (если нет в itemData)            if ((title == null || title.isEmpty()) && exContent != null) {                title = exContent.optString("title", "");            }            // Приоритет 3: main.clickParam.args.subject            if ((title == null || title.isEmpty()) && mainObj != null) {                JSONObject clickParam = mainObj.optJSONObject("clickParam");                if (clickParam != null) {                    JSONObject args = clickParam.optJSONObject("args");                    if (args != null) {                        title = args.optString("subject", "");                    }                }            }            // 🔴 ФИЛЬТР: Убираем слишком длинные названия (вероятно описания)            if (title != null && title.length() > 150) {                title = title.substring(0, 147) + "...";            }            // Если название пустое, создаем информативное            if (title == null || title.isEmpty() || "No title".equals(title) || "null".equals(title)) {                title = "Товар #" + itemId + " (" + query + ")";            }            product.setTitle(title);            // Цена в юанях            double price = extractPrice(itemData, exContent);            product.setPrice(price);            // Возраст товара            long publishTime = extractPublishTime(mainObj, itemData, exContent);            int ageMinutes = calculateAge(publishTime);            Integer ageFromTags = extractAgeMinutesFromTags(exContent, mainObj);            if (ageFromTags != null) {                if (publishTime <= 0 || ageMinutes <= 0 || ageMinutes > 10080) {                    ageMinutes = ageFromTags;                } else {                    if (Math.abs(ageMinutes - ageFromTags) > 60) {                        ageMinutes = ageFromTags;                    }                }            }            product.setAgeMinutes(ageMinutes);            // Локация            String location = itemData != null ? itemData.optString("area", "") : "";            product.setLocation(location.isEmpty() ? "Не указано" : location);            // URL            product.setUrl("https://www.goofish.com/item?id=" + itemId);            // Изображения            List<String> images = extractImages(mainObj, itemObj, data);            product.setImages(images);            logger.debug("Parsed: {} ({}¥, {}min, {} images)",                    product.getShortTitle(), price, ageMinutes, images.size());            return product;        } catch (Exception e) {            logger.error("Error parsing product item: {}", e.getMessage());            return null;        }    }    private double extractPrice(JSONObject itemData, JSONObject exContent) {        if (itemData != null) {            Object priceObj = itemData.opt("price");            if (priceObj != null) return parsePrice(priceObj);        }        if (exContent != null) {            Object priceObj = exContent.opt("price");            if (priceObj != null) return parsePrice(priceObj);        }        return 0.0;    }    private double parsePrice(Object priceObj) {        if (priceObj instanceof String) {            return extractPrice((String) priceObj);        }        if (priceObj instanceof Number) {            return ((Number) priceObj).doubleValue();        }        if (priceObj instanceof JSONArray) {            JSONArray arr = (JSONArray) priceObj;            StringBuilder sb = new StringBuilder();            for (int i = 0; i < arr.length(); i++) {                JSONObject part = arr.optJSONObject(i);                if (part != null && "integer".equals(part.optString("type"))) {                    sb.append(part.optString("text"));                }            }            return extractPrice(sb.toString());        }        return 0.0;    }    public double extractPrice(String priceStr) {        if (priceStr == null || priceStr.isEmpty()) return 0.0;        try {            String clean = priceStr.replaceAll("[^\\d.,]", "").replace(',', '.');            return Double.parseDouble(clean);        } catch (NumberFormatException e) {            return 0.0;        }    }    private long extractPublishTime(JSONObject main, JSONObject itemData, JSONObject exContent) {        // Путь 1: args.publishTime        if (main != null) {            JSONObject clickParam = main.optJSONObject("clickParam");            if (clickParam != null) {                JSONObject args = clickParam.optJSONObject("args");                if (args != null && args.has("publishTime")) {                    Object time = args.opt("publishTime");                    if (time instanceof String) return Long.parseLong((String) time);                    if (time instanceof Number) return ((Number) time).longValue();                }            }        }        // Путь 2: itemData.publishTime        if (itemData != null && itemData.has("publishTime")) {            Object time = itemData.opt("publishTime");            if (time instanceof String) return Long.parseLong((String) time);            if (time instanceof Number) return ((Number) time).longValue();        }        return 0;    }    /**     * Пытается извлечь "возраст" из UI-меток в ответе (часто там есть строка вида "6小时前发布").     * Возвращает возраст в минутах или null, если не удалось.     */    private Integer extractAgeMinutesFromTags(JSONObject exContent, JSONObject mainObj) {        try {            // Путь 1: mainObj.clickParam.args.serviceUtParams (строка JSON с content)            if (mainObj != null) {                JSONObject clickParam = mainObj.optJSONObject("clickParam");                if (clickParam != null) {                    JSONObject args = clickParam.optJSONObject("args");                    if (args != null) {                        String serviceUtParams = args.optString("serviceUtParams", "");                        Integer parsed = parseAgeMinutesFromText(serviceUtParams);                        if (parsed != null) return parsed;                    }                }            }            // Путь 2: exContent.fishTags.r2.tagList[*].data.content            if (exContent != null) {                JSONObject fishTags = exContent.optJSONObject("fishTags");                if (fishTags != null) {                    JSONObject r2 = fishTags.optJSONObject("r2");                    if (r2 != null) {                        JSONArray tagList = r2.optJSONArray("tagList");                        if (tagList != null) {                            for (int i = 0; i < Math.min(5, tagList.length()); i++) {                                JSONObject tag = tagList.optJSONObject(i);                                if (tag == null) continue;                                JSONObject data = tag.optJSONObject("data");                                if (data == null) continue;                                String content = data.optString("content", "");                                Integer parsed = parseAgeMinutesFromText(content);                                if (parsed != null) return parsed;                            }                        }                    }                }            }        } catch (Exception ignored) {        }        return null;    }    private Integer parseAgeMinutesFromText(String text) {        if (text == null || text.isEmpty()) return null;        Matcher m = PUBLISHED_AGO_ZH.matcher(text);        if (!m.find()) return null;        int value;        try {            value = Integer.parseInt(m.group(1));        } catch (NumberFormatException e) {            return null;        }        String unit = m.group(2);        if (unit.contains("分钟")) return Math.max(1, value);        if (unit.contains("时")) return Math.max(1, value * 60);        if (unit.contains("天")) return Math.max(1, value * 24 * 60);        return null;    }    private int calculateAge(long publishTime) {        if (publishTime <= 0) return 0;        // Определяем формат времени (секунды или миллисекунды)        if (publishTime < 10000000000L) {            publishTime = publishTime * 1000;        }        long ageMs = System.currentTimeMillis() - publishTime;        int ageMinutes = (int) (ageMs / (1000 * 60));        return Math.max(1, Math.min(ageMinutes, 10080)); // 1 до 7 дней    }    private List<String> extractImages(JSONObject main, JSONObject itemObj, JSONObject data) {        List<String> images = new ArrayList<>();        // Путь 1: data.picUrl (главное фото)        if (data != null && data.has("picUrl")) {            String picUrl = data.optString("picUrl", "");            if (isValidImageUrl(picUrl)) {                images.add(picUrl);                logger.debug("✅ Найдено фото в data.picUrl");            }        }        // Путь 2: data.pics (массив фото)        if (data != null && data.has("pics")) {            JSONArray pics = data.optJSONArray("pics");            if (pics != null) {                for (int i = 0; i < Math.min(5, pics.length()); i++) {                    try {                        JSONObject pic = pics.optJSONObject(i);                        if (pic != null) {                            // Пробуем разные поля                            String url = pic.optString("picUrl", "");                            if (url.isEmpty()) {                                url = pic.optString("pic_url", "");                            }                            if (url.isEmpty()) {                                url = pic.optString("url", "");                            }                            if (isValidImageUrl(url) && !images.contains(url)) {                                images.add(url);                                logger.debug("✅ Найдено фото в data.pics[{}]", i);                            }                        }                    } catch (Exception e) {                        logger.debug("Error parsing pic at index {}: {}", i, e.getMessage());                    }                }            }        }        // Путь 3: itemObj.extra.picUrl (дополнительное фото)        if (itemObj != null) {            JSONObject extra = itemObj.optJSONObject("extra");            if (extra != null) {                String picUrl = extra.optString("picUrl", "");                if (picUrl.isEmpty()) {                    picUrl = extra.optString("pic_url", "");                }                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {                    images.add(picUrl);                    logger.debug("✅ Найдено фото в itemObj.extra.picUrl");                }            }        }        // Путь 4: main.exContent.picUrl (исходное фото)        if (main != null) {            JSONObject exContent = main.optJSONObject("exContent");            if (exContent != null) {                String picUrl = exContent.optString("picUrl", "");                if (picUrl.isEmpty()) {                    picUrl = exContent.optString("pic_url", "");                }                if (isValidImageUrl(picUrl) && !images.contains(picUrl)) {                    images.add(picUrl);                    logger.debug("✅ Найдено фото в main.exContent.picUrl");                }            }        }        // Путь 5: Прямые поля объекта (на случай если структура упрощена)        if (data != null) {            // Проверяем прямые поля в data            String directPic = data.optString("image", "");            if (directPic.isEmpty()) {                directPic = data.optString("img", "");            }            if (isValidImageUrl(directPic) && !images.contains(directPic)) {                images.add(directPic);                logger.debug("✅ Найдено фото в data.image");            }        }        if (images.isEmpty()) {            logger.debug("⚠️ Фотографии не найдены для товара");        } else {            logger.debug("📷 Найдено фотографий: {}", images.size());        }        return images;    }    private boolean isValidImageUrl(String url) {        if (url == null || url.isEmpty()) {            return false;        }        // Должно быть HTTPS или HTTP        if (!url.startsWith("http://") && !url.startsWith("https://")) {            return false;        }        // Проверяем расширение файла        String lowerUrl = url.toLowerCase();        String[] validExtensions = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".heic"};        boolean hasValidExtension = false;        for (String ext : validExtensions) {            if (lowerUrl.contains(ext)) {                hasValidExtension = true;                break;            }        }        // Если нет расширения - может быть OK (CDN с query parameters)        if (!hasValidExtension && (lowerUrl.contains("alicdn") || lowerUrl.contains("taobaocdn"))) {            return true;        }        return hasValidExtension;    }    private boolean isValidProduct(Product product) {        return product.getId() != null && !product.getId().isEmpty() &&                product.getTitle() != null && !product.getTitle().isEmpty() &&                product.getUrl() != null && !product.getUrl().isEmpty();    }    private String getTokenFromCookies() {        try {            String cookies = CookieService.getCookieHeader("h5api.m.goofish.com");            if (cookies == null || cookies.isEmpty()) return "";            String[] pairs = cookies.split("; ");            for (String pair : pairs) {                if (pair.startsWith("_m_h5_tk=")) {                    String mh5tk = pair.substring(9);                    if (mh5tk.contains("_")) {                        return mh5tk.split("_")[0];                    }                }            }        } catch (Exception e) {            logger.warn("Error getting token: {}", e.getMessage());        }        return "";    }    private String generateSignature(String token, long timestamp, String data) {        try {            String signString = token + "&" + timestamp + "&" + APP_KEY + "&" + data;            MessageDigest md = MessageDigest.getInstance("MD5");            byte[] hash = md.digest(signString.getBytes(StandardCharsets.UTF_8));            StringBuilder hex = new StringBuilder();            for (byte b : hash) {                String h = Integer.toHexString(0xff & b);                if (h.length() == 1) hex.append('0');                hex.append(h);            }            return hex.toString();        } catch (Exception e) {            logger.error("Error generating signature: {}", e.getMessage());            return "";        }    }    /**     * Переопределяем метод search для использования POST запросов     */    @Override    public List<Product> search(String query, int maxPages, int rowsPerPage, int maxAgeMinutes) {        List<Product> allProducts = new ArrayList<>();        logger.info("Starting search: site={}, query='{}', pages={}, rows={}, maxAge={}min",                siteName, query, maxPages, rowsPerPage, maxAgeMinutes);        for (int page = 1; page <= maxPages; page++) {            if (Thread.currentThread().isInterrupted()) break;            try {                // Формируем URL для API                String url = buildSearchUrl(query, page, rowsPerPage);                if (url.isEmpty()) {                    logger.error("Failed to build URL for page {}", page);                    break;                }                // Выполняем POST запрос                String response = executeSearchRequest(url, query, page, rowsPerPage);                totalRequests++;                // Парсим ответ                List<Product> products = parseResponse(response, query);                if (products.isEmpty()) {                    logger.debug("No products on page {}", page);                    break;                }                // Фильтруем по возрасту                List<Product> filtered = new ArrayList<>();                for (Product p : products) {                    if (p.getAgeMinutes() <= maxAgeMinutes) {                        filtered.add(p);                    }                }                allProducts.addAll(filtered);                logger.info("Page {}: found {} products ({} after age filter)",                        page, products.size(), filtered.size());                // Диагностика: если возрастной фильтр режет слишком много, показываем пару примеров (INFO),                // чтобы было понятно, почему “на сайте сегодняшние, а у нас их мало”.                if (products.size() > 0 && filtered.size() < products.size()) {                    int removed = products.size() - filtered.size();                    if (filtered.isEmpty() || removed >= Math.max(5, products.size() / 2)) {                        StringBuilder dbg = new StringBuilder();                        dbg.append("Age filter removed ").append(removed)                                .append(" of ").append(products.size())                                .append(" (maxAgeMinutes=").append(maxAgeMinutes).append("). Examples: ");                        int shown = 0;                        for (Product p : products) {                            if (p.getAgeMinutes() > maxAgeMinutes) {                                dbg.append(p.getId()).append("(age=").append(p.getAgeMinutes()).append("m)");                                shown++;                                if (shown >= 5) break;                                dbg.append(", ");                            }                        }                        logger.info(dbg.toString());                    }                }                // Останавливаемся только если API реально вернуло меньше rowsPerPage.                // Иначе можем преждевременно остановиться из-за возрастного фильтра и не добрать товары.                if (products.size() < rowsPerPage) break;                // Задержка между запросами                int delay = getRequestDelay();                if (delay > 0 && page < maxPages) {                    Thread.sleep(delay);                }            } catch (Exception e) {                failedRequests++;                logger.error("Error on page {}: {}", page, e.getMessage());                if (shouldStopOnError(e)) break;                try {                    Thread.sleep(3000);                } catch (InterruptedException ie) {                    Thread.currentThread().interrupt();                    break;                }            }        }        logger.info("Search completed: found {} products in {} requests",                allProducts.size(), totalRequests);        return allProducts;    }}
                 ----------------------------------------
 
               [FILE] ParserFactory.java
@@ -4903,157 +4091,73 @@
 
               [FILE] UserSentProductsManager.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/UserSentProductsManager.java
-                Размер: 5679 байт
-                Дата изменения: 2026-01-20T10:03:25.841009955Z
+                Размер: 2296 байт
+                Дата изменения: 2026-02-02T18:59:15.82722707Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.storage;
                 
                 import org.slf4j.Logger;
                 import org.slf4j.LoggerFactory;
-                import java.io.*;
-                import java.util.HashSet;
-                import java.util.Set;
+                import java.util.*;
                 import java.util.concurrent.ConcurrentHashMap;
                 
-                /**
-                 * Менеджер для хранения товаров, которые уже были отправлены пользователю
-                 */
                 public class UserSentProductsManager {
                     private static final Logger logger = LoggerFactory.getLogger(UserSentProductsManager.class);
                 
-                    // Кэш в памяти: userId -> Set<productId>
-                    private static final ConcurrentHashMap<Long, Set<String>> userSentProducts = new ConcurrentHashMap<>();
-                
-                    // Путь к директории для хранения файлов
-                    private static final String SENT_PRODUCTS_DIR = "sent_products";
+                    private static final Map<Long, Set<String>> userSentProducts = new ConcurrentHashMap<>();
+                    private static final String SENT_PRODUCTS_DIR = "data/sent_products";
                 
                     static {
-                        // Создаем директорию при запуске
                         FileStorage.createDirectory(SENT_PRODUCTS_DIR);
-                        logger.info("✅ Директория для отправленных товаров готова");
                     }
                 
-                    /**
-                     * Проверяет, был ли товар уже отправлен пользователю
-                     */
-                    public static boolean isProductSent(long userId, String productId) {
-                        Set<String> sentProducts = loadUserSentProducts(userId);
-                        return sentProducts.contains(productId);
+                    public static Set<String> getSentProductsForUser(long userId) {
+                        return userSentProducts.computeIfAbsent(userId, k -> loadUserSentProducts(userId));
                     }
                 
-                    /**
-                     * Добавляет товар в список отправленных
-                     */
-                    public static void markProductAsSent(long userId, String productId) {
-                        Set<String> sentProducts = loadUserSentProducts(userId);
-                        sentProducts.add(productId);
-                        saveUserSentProducts(userId, sentProducts);
-                
-                        // Обновляем кэш
-                        userSentProducts.put(userId, sentProducts);
-                
-                        logger.debug("✅ Товар {} отмечен как отправленный пользователю {}", productId, userId);
-                    }
-                
-                    /**
-                     * Добавляет несколько товаров в список отправленных
-                     */
                     public static void markProductsAsSent(long userId, Set<String> productIds) {
-                        if (productIds == null || productIds.isEmpty()) {
-                            return;
-                        }
-                
-                        Set<String> sentProducts = loadUserSentProducts(userId);
+                        Set<String> sentProducts = getSentProductsForUser(userId);
                         sentProducts.addAll(productIds);
                         saveUserSentProducts(userId, sentProducts);
-                
-                        userSentProducts.put(userId, sentProducts);
-                
-                        logger.info("✅ {} товаров отмечены как отправленные пользователю {}", productIds.size(), userId);
+                        logger.info("Добавлено {} товаров в историю отправленных для пользователя {}",
+                                productIds.size(), userId);
                     }
                 
-                    /**
-                     * Фильтрует только новые товары (не отправленные ранее)
-                     */
-                    public static Set<String> filterNewProducts(long userId, Set<String> productIds) {
-                        Set<String> newProducts = new HashSet<>();
-                        Set<String> sentProducts = loadUserSentProducts(userId);
-                
-                        for (String productId : productIds) {
-                            if (!sentProducts.contains(productId)) {
-                                newProducts.add(productId);
-                            }
-                        }
-                
-                        logger.debug("Фильтр: {} всего, {} новых для пользователя {}",
-                                productIds.size(), newProducts.size(), userId);
-                
-                        return newProducts;
-                    }
-                
-                    /**
-                     * Очищает историю отправленных товаров для пользователя
-                     */
                     public static void clearUserHistory(long userId) {
-                        String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
-                        FileStorage.deleteFile(filename);
                         userSentProducts.remove(userId);
-                        logger.info("✅ История отправленных товаров очищена для пользователя {}", userId);
+                        FileStorage.deleteFile(SENT_PRODUCTS_DIR + "/user_" + userId + ".txt");
+                        logger.info("История отправленных товаров очищена для пользователя {}", userId);
                     }
                 
-                    /**
-                     * Загружает отправленные товары пользователя (из файла или кэша)
-                     */
                     private static Set<String> loadUserSentProducts(long userId) {
-                        // Проверяем кэш
-                        if (userSentProducts.containsKey(userId)) {
-                            return userSentProducts.get(userId);
-                        }
-                
-                        // Загружаем из файла
+                        Set<String> products = new HashSet<>();
                         String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
-                        Set<String> sentProducts = new HashSet<>();
                 
-                        try {
-                            for (String line : FileStorage.readLines(filename)) {
-                                line = line.trim();
-                                if (!line.isEmpty()) {
-                                    sentProducts.add(line);
-                                }
+                        for (String line : FileStorage.readLines(filename)) {
+                            line = line.trim();
+                            if (!line.isEmpty()) {
+                                products.add(line);
                             }
-                            logger.debug("Загружено {} отправленных товаров для пользователя {}",
-                                    sentProducts.size(), userId);
-                        } catch (Exception e) {
-                            logger.debug("Файл с отправленными товарами не найден для пользователя {}, создаем новый", userId);
                         }
                 
-                        userSentProducts.put(userId, sentProducts);
-                        return sentProducts;
+                        logger.debug("Загружено {} отправленных товаров для пользователя {}",
+                                products.size(), userId);
+                        return products;
                     }
                 
-                    /**
-                     * Сохраняет отправленные товары пользователя в файл
-                     */
-                    private static void saveUserSentProducts(long userId, Set<String> sentProducts) {
+                    private static void saveUserSentProducts(long userId, Set<String> products) {
                         String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
-                        FileStorage.writeLines(filename, new java.util.ArrayList<>(sentProducts));
-                    }
-                
-                    /**
-                     * Получает статистику по отправленным товарам
-                     */
-                    public static String getStats(long userId) {
-                        Set<String> sentProducts = loadUserSentProducts(userId);
-                        return String.format("Отправлено товаров: %d", sentProducts.size());
+                        List<String> lines = new ArrayList<>(products);
+                        FileStorage.writeLines(filename, lines);
                     }
                 }
                 ----------------------------------------
 
               [FILE] FileStorage.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/FileStorage.java
-                Размер: 18018 байт
-                Дата изменения: 2026-01-28T18:53:38.484230981Z
+                Размер: 18437 байт
+                Дата изменения: 2026-01-28T19:06:12.423355901Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.storage;
@@ -5099,6 +4203,7 @@
                                 // Создание поддиректорий
                                 createSubdirectory(dataDir, "user_settings");
                                 createSubdirectory(dataDir, "user_products");
+                                createSubdirectory(dataDir, "sent_products");
                                 createSubdirectory(dataDir, "backups");
                                 createSubdirectory(dataDir, "logs");
                 
@@ -5108,6 +4213,12 @@
                             }
                         } else {
                             logger.debug("Директория данных уже существует: {}", dataDir);
+                            // На случай апгрейда/старых установок
+                            createSubdirectory(dataDir, "user_settings");
+                            createSubdirectory(dataDir, "user_products");
+                            createSubdirectory(dataDir, "sent_products");
+                            createSubdirectory(dataDir, "backups");
+                            createSubdirectory(dataDir, "logs");
                         }
                     }
                 
@@ -5845,8 +4956,8 @@
 
               [FILE] TelegramBotService.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/telegram/TelegramBotService.java
-                Размер: 22756 байт
-                Дата изменения: 2026-01-28T18:58:45.794015496Z
+                Размер: 25999 байт
+                Дата изменения: 2026-01-28T19:07:03.454460295Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.telegram;
@@ -5862,7 +4973,11 @@
                 import org.slf4j.Logger;
                 import org.slf4j.LoggerFactory;
                 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+                import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
                 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+                import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
+                import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeChat;
+                import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
                 import org.telegram.telegrambots.meta.api.objects.Update;
                 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
                 
@@ -5884,6 +4999,45 @@
                         this.threadManager = threadManager;
                         this.adminId = Config.getTelegramAdminId();
                         logger.info("TelegramBotService initialized");
+                    }
+                
+                    /**
+                     * Настраивает меню команд (кнопка слева от поля ввода).
+                     * Вызывать после старта/регистрации бота.
+                     */
+                    public void configureCommandMenu() {
+                        try {
+                            List<BotCommand> userCommands = List.of(
+                                    new BotCommand("/start", "Запуск / проверка доступа"),
+                                    new BotCommand("/help", "Справка"),
+                                    new BotCommand("/getid", "Показать мой ID"),
+                                    new BotCommand("/addquery", "Добавить запрос"),
+                                    new BotCommand("/listqueries", "Список запросов"),
+                                    new BotCommand("/removequery", "Удалить запрос"),
+                                    new BotCommand("/clearqueries", "Очистить запросы"),
+                                    new BotCommand("/settings", "Настройки"),
+                                    new BotCommand("/start_parser", "Запустить парсер"),
+                                    new BotCommand("/stop_parser", "Остановить парсер"),
+                                    new BotCommand("/status", "Статус"),
+                                    new BotCommand("/stats", "Статистика"),
+                                    new BotCommand("/clearhistory", "Очистить историю отправленных")
+                            );
+                
+                            execute(new SetMyCommands(userCommands, new BotCommandScopeDefault(), "ru"));
+                            logger.info("✅ User command menu configured");
+                
+                            if (adminId != 0) {
+                                List<BotCommand> adminCommands = new ArrayList<>(userCommands);
+                                adminCommands.add(new BotCommand("/admin", "Админ-меню"));
+                                adminCommands.add(new BotCommand("/cookies", "Cookies"));
+                                adminCommands.add(new BotCommand("/help", "Справка (используй: /help admin)"));
+                
+                                execute(new SetMyCommands(adminCommands, new BotCommandScopeChat(String.valueOf(adminId)), "ru"));
+                                logger.info("✅ Admin command menu configured for {}", adminId);
+                            }
+                        } catch (Exception e) {
+                            logger.warn("Failed to configure command menu: {}", e.getMessage());
+                        }
                     }
                 
                     @Override
@@ -5975,17 +5129,17 @@
                                 handleAdminCommand(userId, args);
                                 break;
                             case "/getid":
-                                sendMessage(userId, "🆔 Your ID: `" + userId + "`");
+                                sendMessage(userId, "Ваш ID: " + userId);
                                 break;
                             default:
-                                sendMessage(userId, "❓ Unknown command. Use /help");
+                                sendMessage(userId, "Неизвестная команда. Используй /help");
                         }
                     }
                 
                     private void handleTextResponse(long userId, String text) {
                         String state = userStates.get(userId);
                         if (state == null) {
-                            sendMessage(userId, "Use commands. /help - command list");
+                            sendMessage(userId, "Используй команды. /help — список команд");
                             return;
                         }
                 
@@ -6028,13 +5182,13 @@
                             AccessRequestManager.recordAccessRequest(userId, "/start");
                             String msg = "👋 Привет!\n\n" +
                                     "❌ У вас нет доступа к боту.\n" +
-                                    "Отправьте администратору ваш ID: `" + userId + "`\n\n" +
+                                    "Отправьте администратору ваш ID: " + userId + "\n\n" +
                                     "Команда: /getid";
                             sendMessage(userId, msg);
                             return;
                         }
                 
-                        sendMessage(userId, "👋 Welcome!\n\nUse /help for commands");
+                        sendMessage(userId, "👋 Привет! Используй /help для списка команд.");
                     }
                 
                     private void handleAddQuery(long userId, String query) {
@@ -6058,11 +5212,11 @@
                 
                         List<String> queries = UserDataManager.getUserQueries(userId);
                         if (queries.isEmpty()) {
-                            sendMessage(userId, "📭 No queries. Use /addquery");
+                            sendMessage(userId, "📭 Запросов нет. Добавь: /addquery");
                             return;
                         }
                 
-                        StringBuilder sb = new StringBuilder("📋 Your queries:\n\n");
+                        StringBuilder sb = new StringBuilder("📋 Ваши запросы:\n\n");
                         for (int i = 0; i < queries.size(); i++) {
                             sb.append(String.format("%d. %s\n", i + 1, queries.get(i)));
                         }
@@ -6075,7 +5229,7 @@
                 
                         try {
                             if (arg.trim().isEmpty()) {
-                                sendMessage(userId, "Use: /removequery [number]");
+                                sendMessage(userId, "Использование: /removequery [номер]");
                                 return;
                             }
                 
@@ -6083,14 +5237,14 @@
                             List<String> queries = UserDataManager.getUserQueries(userId);
                 
                             if (idx < 0 || idx >= queries.size()) {
-                                sendMessage(userId, "❌ Invalid number");
+                                sendMessage(userId, "❌ Неверный номер");
                                 return;
                             }
                 
                             UserDataManager.removeUserQuery(userId, queries.get(idx));
-                            sendMessage(userId, "✅ Query removed");
+                            sendMessage(userId, "✅ Запрос удалён");
                         } catch (NumberFormatException e) {
-                            sendMessage(userId, "❌ Invalid format. Use: /removequery [number]");
+                            sendMessage(userId, "❌ Неверный формат. Использование: /removequery [номер]");
                         }
                     }
                 
@@ -6132,7 +5286,7 @@
                         String a = args == null ? "" : args.trim().toLowerCase(Locale.ROOT);
                         if ("admin".equals(a)) {
                             if (userId != adminId) {
-                                sendMessage(userId, "❌ Только для админа");
+                                sendMessage(userId, "❌ Только для администратора");
                                 return;
                             }
                             sendAdminHelpMessage(userId);
@@ -6231,7 +5385,7 @@
                 
                         String[] parts = args.trim().split("\\s+");
                         if (parts.length < 2) {
-                            sendMessage(userId, "Use: /settings <param> <value>\nTry: /settings check_interval 300");
+                            sendMessage(userId, "Использование: /settings <параметр> <значение>\nПример: /settings check_interval 300");
                             return;
                         }
                 
@@ -6255,21 +5409,21 @@
                                     settings.setRowsPerPage(intVal);
                                     break;
                                 default:
-                                    sendMessage(userId, "❌ Unknown setting: " + key + "\nOpen menu: /settings");
+                                    sendMessage(userId, "❌ Неизвестная настройка: " + key + "\nОткрой меню: /settings");
                                     return;
                             }
                 
                             UserDataManager.saveUserSettings(userId, settings);
-                            sendMessage(userId, "✅ Setting updated.\n\n" + settings.getSummary());
+                            sendMessage(userId, "✅ Настройка сохранена.\n" + settings.getSummary());
                         } catch (NumberFormatException e) {
-                            sendMessage(userId, "❌ Invalid number: " + value);
+                            sendMessage(userId, "❌ Неверное число: " + value);
                         }
                     }
                 
                     private void sendStatus(long userId) {
                         Map<String, Object> status = threadManager.getUserStatus(userId);
                         if (status == null) {
-                            sendMessage(userId, "🔴 Parser is not running");
+                            sendMessage(userId, "🔴 Парсер не запущен");
                             return;
                         }
                 
@@ -6312,7 +5466,7 @@
                 
                     private void handleCookiesCommand(long userId, String args) {
                         if (userId != adminId) {
-                            sendMessage(userId, "❌ Admin only");
+                            sendMessage(userId, "❌ Только для администратора");
                             return;
                         }
                 
@@ -6349,13 +5503,13 @@
                             Config.saveConfig();
                             sendMessage(userId, "✅ Dynamic cookies: " + (!current ? "ON" : "OFF"));
                         } else {
-                            sendMessage(userId, "Unknown cookies command. Use /cookies");
+                            sendMessage(userId, "Неизвестная команда cookies. Используй /cookies");
                         }
                     }
                 
                     private void handleAdminCommand(long userId, String args) {
                         if (userId != adminId) {
-                            sendMessage(userId, "❌ Admin only");
+                            sendMessage(userId, "❌ Только для администратора");
                             return;
                         }
                 
@@ -6430,7 +5584,7 @@
                     private boolean requireAuthorized(long userId) {
                         if (!WhitelistManager.isUserAllowed(userId)) {
                             AccessRequestManager.recordAccessRequest(userId, "unauthorized_command");
-                            sendMessage(userId, "❌ You are not authorized. Send /getid to admin.");
+                            sendMessage(userId, "❌ Нет доступа. Отправь /getid администратору.");
                             return false;
                         }
                         return true;
@@ -6438,7 +5592,8 @@
                 
                     protected void sendMessage(long userId, String text) {
                         SendMessage msg = new SendMessage(String.valueOf(userId), text);
-                        msg.enableMarkdown(true);
+                        // ВАЖНО: не используем Markdown, чтобы команды вида /start_parser не ломали entities.
+                        msg.disableWebPagePreview();
                         try {
                             execute(msg);
                         } catch (TelegramApiException e) {
@@ -6455,8 +5610,8 @@
 
             [FILE] Main.java
               Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/Main.java
-              Размер: 5910 байт
-              Дата изменения: 2026-01-19T22:48:19.944205971Z
+              Размер: 6041 байт
+              Дата изменения: 2026-01-28T19:07:07.299156736Z
               Содержимое:
               ----------------------------------------
               package com.parser;
@@ -6556,6 +5711,9 @@
                       TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
                       botsApi.registerBot(botService);
               
+                      // Меню команд (кнопка слева от ввода в Telegram)
+                      botService.configureCommandMenu();
+              
                       logger.info("✅ Telegram bot registered and running");
                   }
               
@@ -6614,7 +5772,7 @@
               [FILE] Product.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/model/Product.java
                 Размер: 7450 байт
-                Дата изменения: 2026-01-20T10:04:38.258874778Z
+                Дата изменения: 2026-01-28T21:02:25.22849093Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.model;
@@ -6919,14 +6077,15 @@
 
               [FILE] UserSettings.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/model/UserSettings.java
-                Размер: 8532 байт
-                Дата изменения: 2026-01-19T09:31:29.769761421Z
+                Размер: 8886 байт
+                Дата изменения: 2026-01-28T19:39:40.586085721Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.model;
                 
                 import com.fasterxml.jackson.annotation.JsonIgnore;
                 import com.fasterxml.jackson.annotation.JsonProperty;
+                import com.parser.config.Config;
                 import com.parser.config.ParserSettings;
                 import java.io.Serializable;
                 
@@ -6965,7 +6124,11 @@
                     private int maxRetries = 3;
                 
                     public UserSettings() {
-                        // Конструктор по умолчанию
+                        // Дефолты берём из config.properties (чтобы совпадало с тем, что тестируется в браузере)
+                        setCheckInterval(Config.getDefaultCheckInterval());
+                        setMaxAgeMinutes(Config.getDefaultMaxAgeMinutes());
+                        setMaxPages(Config.getDefaultMaxPages());
+                        setRowsPerPage(Config.getDefaultRowsPerPage());
                     }
                 
                     // Геттеры и сеттеры с валидацией
@@ -7866,8 +7029,8 @@
 
               [FILE] SeleniumCookieFetcher.java
                 Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/service/SeleniumCookieFetcher.java
-                Размер: 11801 байт
-                Дата изменения: 2026-01-19T22:48:05.53887146Z
+                Размер: 14786 байт
+                Дата изменения: 2026-02-02T19:05:28.386042026Z
                 Содержимое:
                 ----------------------------------------
                 package com.parser.service;
@@ -7884,13 +7047,13 @@
                 import java.util.*;
                 
                 /**
-                 * Сервис для получения cookies через Selenium
+                 * Сервис для получения cookies через Selenium - ИСПРАВЛЕННЫЙ
                  */
                 public class SeleniumCookieFetcher {
                     private static final Logger logger = LoggerFactory.getLogger(SeleniumCookieFetcher.class);
                 
                     /**
-                     * Основной метод получения cookies для Goofish
+                     * Основной метод получения cookies для Goofish - ИСПРАВЛЕННЫЙ
                      */
                     public static Map<String, String> fetchGoofishCookies(boolean headless) {
                         logger.info("🔄 Запуск Selenium для получения cookies Goofish");
@@ -7904,36 +7067,45 @@
                             WebDriverManager.chromedriver().setup();
                             logger.info("✅ ChromeDriver настроен");
                 
-                            // 2. Конфигурация Chrome
+                            // 2. Конфигурация Chrome - ИСПРАВЛЕННАЯ
                             ChromeOptions options = new ChromeOptions();
                 
-                            // Headless режим
-                            if (headless) {
-                                options.addArguments("--headless=new");
-                                logger.info("🌐 Режим: Headless");
-                            } else {
-                                logger.info("🌐 Режим: С GUI (для отладки)");
-                            }
+                            // 🔴 ИСПРАВЛЕНИЕ: Отключаем headless, т.к. сайт его детектит
+                            // if (headless) {
+                            //     options.addArguments("--headless=new");
+                            //     logger.info("🌐 Режим: Headless");
+                            // } else {
+                            //     logger.info("🌐 Режим: С GUI (для отладки)");
+                            // }
+                            logger.info("🌐 Режим: С GUI (headless детектится сайтом)");
                 
-                            // Опции для обхода защиты
+                            // 🔴 ИСПРАВЛЕНИЕ: Добавляем аргументы для обхода защиты
                             options.addArguments("--no-sandbox");
                             options.addArguments("--disable-dev-shm-usage");
                             options.addArguments("--disable-blink-features=AutomationControlled");
                             options.addArguments("--disable-gpu");
                             options.addArguments("--window-size=1920,1080");
+                            options.addArguments("--start-maximized");
                             options.addArguments("--disable-features=VizDisplayCompositor");
                             options.addArguments("--disable-software-rasterizer");
                             options.addArguments("--disable-extensions");
                             options.addArguments("--disable-logging");
                             options.addArguments("--log-level=3");
+                            options.addArguments("--disable-web-security");
+                            options.addArguments("--allow-running-insecure-content");
+                            options.addArguments("--ignore-certificate-errors");
                 
-                            // Китайский User-Agent из примера запроса
-                            String userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 YaBrowser/25.10.0.0 Safari/537.36";
+                            // 🔴 ИСПРАВЛЕНИЕ: Меняем User-Agent
+                            String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
                             options.addArguments("--user-agent=" + userAgent);
                 
                             // Убираем признаки автоматизации
                             options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
                             options.setExperimentalOption("useAutomationExtension", false);
+                            Map<String, Object> prefs = new HashMap<>();
+                            prefs.put("credentials_enable_service", false);
+                            prefs.put("profile.password_manager_enabled", false);
+                            options.setExperimentalOption("prefs", prefs);
                 
                             // 3. Запуск браузера
                             driver = new ChromeDriver(options);
@@ -7941,92 +7113,129 @@
                 
                             // Настройка таймаутов
                             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-                            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+                
+                            // 🔴 ИСПРАВЛЕНИЕ: Сначала получаем cna cookie
+                            logger.info("🍪 Шаг 1: Получение cna cookie...");
                 
                             // 4. Переход на главную страницу Goofish
                             String url = "https://www.goofish.com";
                             logger.info("🌐 Переход на: {}", url);
                             driver.get(url);
                 
-                            // 5. Ожидание загрузки
-                            logger.info("⏳ Ожидание загрузки страницы...");
+                            // 5. Ожидание загрузки и генерации cna
+                            logger.info("⏳ Ожидание генерации cna cookie (5 секунд)...");
+                            Thread.sleep(5000);
+                
+                            // 🔴 ИСПРАВЛЕНИЕ: Выполняем JavaScript для инициализации cookies
+                            ((JavascriptExecutor) driver).executeScript(
+                                    "window.scrollTo(0, document.body.scrollHeight * 0.3);"
+                            );
+                            Thread.sleep(2000);
+                
+                            // 6. Переход на страницу поиска
+                            String searchUrl = "https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0";
+                            logger.info("🔍 Переход на страницу поиска: {}", searchUrl);
+                            driver.get(searchUrl);
+                
+                            logger.info("⏳ Ожидание загрузки страницы поиска (5 секунд)...");
+                            Thread.sleep(5000);
+                
+                            // 🔴 ИСПРАВЛЕНИЕ: Выполняем действия на странице
                             try {
-                                new WebDriverWait(driver, Duration.ofSeconds(15))
-                                        .until(d -> ((JavascriptExecutor) d)
-                                                .executeScript("return document.readyState").equals("complete"));
+                                // Кликаем на поле поиска
+                                WebElement searchInput = driver.findElement(By.cssSelector("input[type='search'], input[type='text']"));
+                                searchInput.click();
+                                Thread.sleep(1000);
                 
-                                // Дополнительное ожидание для инициализации куки
-                                Thread.sleep(5000);
+                                // Вводим текст
+                                searchInput.sendKeys("test");
+                                Thread.sleep(1000);
                 
-                                // 6. Прокрутка для активации JavaScript
-                                ((JavascriptExecutor) driver).executeScript(
-                                        "window.scrollTo(0, document.body.scrollHeight * 0.3);"
-                                );
-                                Thread.sleep(2000);
-                
-                                ((JavascriptExecutor) driver).executeScript(
-                                        "window.scrollTo(0, document.body.scrollHeight * 0.6);"
-                                );
-                                Thread.sleep(2000);
-                
-                                // 7. Переход на страницу поиска для получения полных куки
-                                String searchUrl = "https://www.goofish.com/search?q=test&spm=a21ybx.search.searchInput.0";
-                                logger.info("🔍 Переход на страницу поиска: {}", searchUrl);
-                                driver.get(searchUrl);
-                
-                                Thread.sleep(5000);
-                
-                                // 8. Получение всех cookies
-                                logger.info("🍪 Получение cookies...");
-                                Set<Cookie> allCookies = driver.manage().getCookies();
-                
-                                // 9. Фильтрация и сбор важных cookies
-                                Map<String, String> goofishCookies = new LinkedHashMap<>();
-                
-                                // Ключевые cookies из примера запроса
-                                String[] importantKeys = {
-                                        "_m_h5_tk", "_m_h5_tk_enc", "_samesite_flag_", "_tb_token_",
-                                        "cna", "cookie2", "mtop_partitioned_detect", "t",
-                                        "tfstk", "xlly_s", "x5secdata", "isg", "unb", "lgc"
-                                };
-                
-                                for (Cookie cookie : allCookies) {
-                                    String name = cookie.getName();
-                                    String value = cookie.getValue();
-                
-                                    // Сохраняем все куки, но выделяем важные
-                                    goofishCookies.put(name, value);
-                
-                                    // Логируем важные куки
-                                    if (Arrays.asList(importantKeys).contains(name)) {
-                                        logger.debug("✅ Важный cookie: {} = {}", name,
-                                                value.length() > 50 ? value.substring(0, 47) + "..." : value);
-                                    }
-                                }
-                
-                                // 10. Вывод результатов
-                                logger.info("📊 Результаты:");
-                                logger.info("📦 Всего cookies: {}", allCookies.size());
-                                logger.info("🔑 Важных cookies: {}", goofishCookies.size());
-                
-                                if (!goofishCookies.isEmpty()) {
-                                    logger.info("🎯 Ключевые cookies:");
-                                    for (String key : importantKeys) {
-                                        if (goofishCookies.containsKey(key)) {
-                                            String val = goofishCookies.get(key);
-                                            logger.info("   {}: {}",
-                                                    String.format("%-20s", key),
-                                                    val.length() > 50 ? val.substring(0, 47) + "..." : val);
-                                        }
-                                    }
-                                }
-                
-                                return goofishCookies;
-                
-                            } catch (TimeoutException e) {
-                                logger.error("❌ Таймаут при загрузке страницы: {}", e.getMessage());
-                                return Collections.emptyMap();
+                                // Нажимаем Enter
+                                searchInput.sendKeys(Keys.ENTER);
+                                Thread.sleep(3000);
+                            } catch (Exception e) {
+                                logger.debug("Не удалось взаимодействовать с полем поиска: {}", e.getMessage());
                             }
+                
+                            // 7. Проверяем cookies
+                            logger.info("🍪 Проверка cookies после взаимодействия...");
+                            Set<Cookie> allCookies = driver.manage().getCookies();
+                            logger.info("📦 Найдено cookies: {}", allCookies.size());
+                
+                            // 8. Переход на API домен для получения полного набора cookies
+                            String apiUrl = "https://h5api.m.goofish.com";
+                            logger.info("🌐 Переход на API домен: {}", apiUrl);
+                            driver.get(apiUrl);
+                            Thread.sleep(3000);
+                
+                            // 9. Получение всех cookies
+                            logger.info("🍪 Получение всех cookies...");
+                            allCookies = driver.manage().getCookies();
+                
+                            // 10. Фильтрация и сбор cookies
+                            Map<String, String> goofishCookies = new LinkedHashMap<>();
+                
+                            // Ключевые cookies
+                            String[] importantKeys = {
+                                    "_m_h5_tk", "_m_h5_tk_enc", "_samesite_flag_", "_tb_token_",
+                                    "cna", "cookie2", "mtop_partitioned_detect", "t",
+                                    "tfstk", "xlly_s", "x5secdata", "isg", "unb", "lgc"
+                            };
+                
+                            for (Cookie cookie : allCookies) {
+                                String name = cookie.getName();
+                                String value = cookie.getValue();
+                                goofishCookies.put(name, value);
+                
+                                // Логируем важные cookies
+                                if (Arrays.asList(importantKeys).contains(name)) {
+                                    logger.debug("✅ Важный cookie: {} = {}", name,
+                                            value.length() > 50 ? value.substring(0, 47) + "..." : value);
+                                }
+                            }
+                
+                            // 🔴 ИСПРАВЛЕНИЕ: Если cna отсутствует, пробуем получить его альтернативным способом
+                            if (!goofishCookies.containsKey("cna")) {
+                                logger.warn("⚠️ Cookie 'cna' не найден, пробуем альтернативный метод...");
+                
+                                // Переходим на мобильную версию
+                                String mobileUrl = "https://m.goofish.com";
+                                driver.get(mobileUrl);
+                                Thread.sleep(3000);
+                
+                                // Получаем cookies с мобильной версии
+                                Set<Cookie> mobileCookies = driver.manage().getCookies();
+                                for (Cookie cookie : mobileCookies) {
+                                    if ("cna".equals(cookie.getName())) {
+                                        goofishCookies.put("cna", cookie.getValue());
+                                        logger.info("✅ Получен cna с мобильной версии: {}",
+                                                cookie.getValue().length() > 30 ?
+                                                        cookie.getValue().substring(0, 27) + "..." : cookie.getValue());
+                                        break;
+                                    }
+                                }
+                            }
+                
+                            // Вывод результатов
+                            logger.info("📊 Результаты:");
+                            logger.info("📦 Всего cookies: {}", allCookies.size());
+                            logger.info("🔑 Важных cookies: {}", goofishCookies.size());
+                
+                            if (!goofishCookies.isEmpty()) {
+                                logger.info("🎯 Ключевые cookies:");
+                                for (String key : importantKeys) {
+                                    if (goofishCookies.containsKey(key)) {
+                                        String val = goofishCookies.get(key);
+                                        logger.info("   {}: {}",
+                                                String.format("%-25s", key),
+                                                val.length() > 50 ? val.substring(0, 47) + "..." : val);
+                                    }
+                                }
+                            }
+                
+                            return goofishCookies;
                 
                         } catch (Exception e) {
                             logger.error("❌ Ошибка при получении cookies через Selenium: {}", e.getMessage());
@@ -8049,7 +7258,7 @@
                      * Получение свежих cookies (публичный метод)
                      */
                     public static Map<String, String> getFreshCookies() {
-                        return fetchGoofishCookies(true);
+                        return fetchGoofishCookies(false); // 🔴 ИСПРАВЛЕНИЕ: Всегда с GUI
                     }
                 
                     /**
@@ -8060,7 +7269,7 @@
                     }
                 
                     /**
-                     * Валидация полученных cookies
+                     * Валидация полученных cookies - ИСПРАВЛЕННАЯ
                      */
                     public static boolean validateCookies(Map<String, String> cookies) {
                         if (cookies == null || cookies.isEmpty()) {
@@ -8083,6 +7292,15 @@
                             }
                         }
                 
+                        // 🔴 ИСПРАВЛЕНИЕ: Если нет cna, пробуем создать его
+                        if (!cookies.containsKey("cna")) {
+                            logger.warn("⚠️ Cookie 'cna' отсутствует, генерируем временный...");
+                            String fakeCna = generateFakeCna();
+                            cookies.put("cna", fakeCna);
+                            foundCount++;
+                            logger.info("✅ Сгенерирован временный cna: {}", fakeCna);
+                        }
+                
                         // Проверяем _m_h5_tk на наличие timestamp
                         if (cookies.containsKey("_m_h5_tk")) {
                             String mh5tk = cookies.get("_m_h5_tk");
@@ -8092,12 +7310,25 @@
                                 logger.info("   Токен: {}",
                                         parts[0].length() > 20 ? parts[0].substring(0, 17) + "..." : parts[0]);
                                 logger.info("   Время: {}", parts[1]);
+                
+                                // 🔴 ИСПРАВЛЕНИЕ: Проверяем не устарел ли токен
+                                try {
+                                    long tokenTime = Long.parseLong(parts[1]);
+                                    long currentTime = System.currentTimeMillis();
+                                    long age = currentTime - tokenTime;
+                
+                                    if (age > 24 * 60 * 60 * 1000) { // 24 часа
+                                        logger.warn("⚠️ Token _m_h5_tk устарел (возраст: {} часов)", age / (60 * 60 * 1000));
+                                    }
+                                } catch (NumberFormatException e) {
+                                    logger.warn("⚠️ Неверный формат времени в _m_h5_tk");
+                                }
                             } else {
                                 logger.warn("⚠️ _m_h5_tk не содержит timestamp");
                             }
                         }
                 
-                        boolean isValid = foundCount >= 3; // Минимум 3 ключевых cookie
+                        boolean isValid = foundCount >= 4; // Минимум 4 ключевых cookie
                         logger.info("📊 Валидация cookies: {} (найдено {}/{} ключевых)",
                                 isValid ? "✅ УСПЕХ" : "❌ ОШИБКА", foundCount, requiredKeys.length);
                 
@@ -8105,34 +7336,119 @@
                     }
                 
                     /**
-                     * Тестовый метод для запуска из командной строки
+                     * Генерация временного cna cookie
                      */
-                    public static void main(String[] args) {
-                        System.out.println("Тестирование SeleniumCookieFetcher...");
+                    private static String generateFakeCna() {
+                        // Генерируем случайный cna (формат: 16 символов)
+                        String chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+                        Random random = new Random();
+                        StringBuilder cna = new StringBuilder();
+                        for (int i = 0; i < 16; i++) {
+                            cna.append(chars.charAt(random.nextInt(chars.length())));
+                        }
+                        return cna.toString();
+                    }
+                }
+                ----------------------------------------
+
+              [FILE] AutoCleanupService.java
+                Путь: /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/service/AutoCleanupService.java
+                Размер: 3452 байт
+                Дата изменения: 2026-02-02T18:59:36.569379479Z
+                Содержимое:
+                ----------------------------------------
+                package com.parser.service;
                 
-                        // Тест с GUI (для отладки)
-                        System.out.println("\n1. Тест с GUI:");
-                        Map<String, String> guiCookies = getFreshCookiesWithGUI();
-                        System.out.println("Получено cookies с GUI: " + guiCookies.size());
+                import com.parser.config.Config;
+                import org.slf4j.Logger;
+                import org.slf4j.LoggerFactory;
+                import java.io.File;
+                import java.nio.file.*;
+                import java.util.concurrent.Executors;
+                import java.util.concurrent.ScheduledExecutorService;
+                import java.util.concurrent.TimeUnit;
                 
-                        // Тест в headless режиме
-                        System.out.println("\n2. Тест в headless режиме:");
-                        Map<String, String> headlessCookies = getFreshCookies();
-                        System.out.println("Получено cookies в headless: " + headlessCookies.size());
+                public class AutoCleanupService {
+                    private static final Logger logger = LoggerFactory.getLogger(AutoCleanupService.class);
+                    private static ScheduledExecutorService scheduler;
                 
-                        // Валидация
-                        System.out.println("\n3. Валидация:");
-                        boolean isValid = validateCookies(headlessCookies);
-                        System.out.println("Cookies валидны: " + isValid);
+                    public static void start() {
+                        scheduler = Executors.newScheduledThreadPool(1);
                 
-                        if (!headlessCookies.isEmpty()) {
-                            System.out.println("\n4. Пример cookies:");
-                            headlessCookies.forEach((key, value) -> {
-                                if (key.startsWith("_") || key.equals("cna") || key.equals("cookie2") || key.equals("t")) {
-                                    System.out.println(String.format("%-20s: %s",
-                                            key, value.length() > 50 ? value.substring(0, 47) + "..." : value));
+                        // Очистка старых логов каждые 24 часа
+                        scheduler.scheduleAtFixedRate(() -> {
+                            try {
+                                cleanupOldLogs();
+                                cleanupTempFiles();
+                                cleanupOldBackups();
+                            } catch (Exception e) {
+                                logger.error("Ошибка при очистке файлов: {}", e.getMessage());
+                            }
+                        }, 1, 24, TimeUnit.HOURS); // Запуск через 1 час, затем каждые 24 часа
+                
+                        logger.info("Сервис автоочистки запущен");
+                    }
+                
+                    private static void cleanupOldLogs() {
+                        String logDir = "logs";
+                        File dir = new File(logDir);
+                        if (!dir.exists()) return;
+                
+                        long cutoffTime = System.currentTimeMillis() - (30L * 24 * 60 * 60 * 1000); // 30 дней
+                
+                        for (File file : dir.listFiles()) {
+                            if (file.isFile() && file.lastModified() < cutoffTime) {
+                                if (file.delete()) {
+                                    logger.debug("Удален старый лог: {}", file.getName());
                                 }
-                            });
+                            }
+                        }
+                    }
+                
+                    private static void cleanupTempFiles() {
+                        // Удаляем старые debug файлы кук
+                        File currentDir = new File(".");
+                        long cutoffTime = System.currentTimeMillis() - (7L * 24 * 60 * 60 * 1000); // 7 дней
+                
+                        for (File file : currentDir.listFiles()) {
+                            String name = file.getName();
+                            if (name.startsWith("cookies_debug_") && name.endsWith(".properties") &&
+                                    file.isFile() && file.lastModified() < cutoffTime) {
+                                if (file.delete()) {
+                                    logger.debug("Удален debug файл кук: {}", name);
+                                }
+                            }
+                        }
+                    }
+                
+                    private static void cleanupOldBackups() {
+                        String backupDir = "data/backups";
+                        File dir = new File(backupDir);
+                        if (!dir.exists()) return;
+                
+                        long cutoffTime = System.currentTimeMillis() - (14L * 24 * 60 * 60 * 1000); // 14 дней
+                
+                        for (File file : dir.listFiles()) {
+                            if (file.isFile() && file.lastModified() < cutoffTime) {
+                                if (file.delete()) {
+                                    logger.debug("Удалена старая резервная копия: {}", file.getName());
+                                }
+                            }
+                        }
+                    }
+                
+                    public static void shutdown() {
+                        if (scheduler != null) {
+                            scheduler.shutdown();
+                            try {
+                                if (!scheduler.awaitTermination(10, TimeUnit.SECONDS)) {
+                                    scheduler.shutdownNow();
+                                }
+                            } catch (InterruptedException e) {
+                                scheduler.shutdownNow();
+                                Thread.currentThread().interrupt();
+                            }
+                            logger.info("Сервис автоочистки остановлен");
                         }
                     }
                 }

@@ -1,0 +1,1 @@
+{"checkInterval":20,"maxAgeMinutes":1440,"maxPages":20,"rowsPerPage":30,"priceCurrency":"rubles","notifyNewOnly":true,"notifyTelegram":true,"notifyEmail":false,"notifySound":true,"minPrice":0.0,"maxPrice":0.0,"locations":[],"excludedKeywords":[],"enableProxy":false,"proxyAddress":"","proxyPort":0,"requestDelay":2000,"maxRetries":3}

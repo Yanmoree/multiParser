@@ -2,6 +2,7 @@
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/ProductDuplicateFilter.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/util/HttpUtils.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/storage/UserDataManager.java
+/Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/service/AutoCleanupService.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/test/ApiTester.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/config/Config.java
 /Users/yanmore/IdeaProjects/multiParser/src/main/java/com/parser/core/UserSession.java

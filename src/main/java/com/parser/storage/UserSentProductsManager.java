@@ -2,140 +2,56 @@ package com.parser.storage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.io.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Менеджер для хранения товаров, которые уже были отправлены пользователю
- */
 public class UserSentProductsManager {
     private static final Logger logger = LoggerFactory.getLogger(UserSentProductsManager.class);
 
-    // Кэш в памяти: userId -> Set<productId>
-    private static final ConcurrentHashMap<Long, Set<String>> userSentProducts = new ConcurrentHashMap<>();
-
-    // Путь к директории для хранения файлов
-    private static final String SENT_PRODUCTS_DIR = "sent_products";
+    private static final Map<Long, Set<String>> userSentProducts = new ConcurrentHashMap<>();
+    private static final String SENT_PRODUCTS_DIR = "data/sent_products";
 
     static {
-        // Создаем директорию при запуске
         FileStorage.createDirectory(SENT_PRODUCTS_DIR);
-        logger.info("✅ Директория для отправленных товаров готова");
     }
 
-    /**
-     * Проверяет, был ли товар уже отправлен пользователю
-     */
-    public static boolean isProductSent(long userId, String productId) {
-        Set<String> sentProducts = loadUserSentProducts(userId);
-        return sentProducts.contains(productId);
+    public static Set<String> getSentProductsForUser(long userId) {
+        return userSentProducts.computeIfAbsent(userId, k -> loadUserSentProducts(userId));
     }
 
-    /**
-     * Добавляет товар в список отправленных
-     */
-    public static void markProductAsSent(long userId, String productId) {
-        Set<String> sentProducts = loadUserSentProducts(userId);
-        sentProducts.add(productId);
-        saveUserSentProducts(userId, sentProducts);
-
-        // Обновляем кэш
-        userSentProducts.put(userId, sentProducts);
-
-        logger.debug("✅ Товар {} отмечен как отправленный пользователю {}", productId, userId);
-    }
-
-    /**
-     * Добавляет несколько товаров в список отправленных
-     */
     public static void markProductsAsSent(long userId, Set<String> productIds) {
-        if (productIds == null || productIds.isEmpty()) {
-            return;
-        }
-
-        Set<String> sentProducts = loadUserSentProducts(userId);
+        Set<String> sentProducts = getSentProductsForUser(userId);
         sentProducts.addAll(productIds);
         saveUserSentProducts(userId, sentProducts);
-
-        userSentProducts.put(userId, sentProducts);
-
-        logger.info("✅ {} товаров отмечены как отправленные пользователю {}", productIds.size(), userId);
+        logger.info("Добавлено {} товаров в историю отправленных для пользователя {}",
+                productIds.size(), userId);
     }
 
-    /**
-     * Фильтрует только новые товары (не отправленные ранее)
-     */
-    public static Set<String> filterNewProducts(long userId, Set<String> productIds) {
-        Set<String> newProducts = new HashSet<>();
-        Set<String> sentProducts = loadUserSentProducts(userId);
-
-        for (String productId : productIds) {
-            if (!sentProducts.contains(productId)) {
-                newProducts.add(productId);
-            }
-        }
-
-        logger.debug("Фильтр: {} всего, {} новых для пользователя {}",
-                productIds.size(), newProducts.size(), userId);
-
-        return newProducts;
-    }
-
-    /**
-     * Очищает историю отправленных товаров для пользователя
-     */
     public static void clearUserHistory(long userId) {
-        String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
-        FileStorage.deleteFile(filename);
         userSentProducts.remove(userId);
-        logger.info("✅ История отправленных товаров очищена для пользователя {}", userId);
+        FileStorage.deleteFile(SENT_PRODUCTS_DIR + "/user_" + userId + ".txt");
+        logger.info("История отправленных товаров очищена для пользователя {}", userId);
     }
 
-    /**
-     * Загружает отправленные товары пользователя (из файла или кэша)
-     */
     private static Set<String> loadUserSentProducts(long userId) {
-        // Проверяем кэш
-        if (userSentProducts.containsKey(userId)) {
-            return userSentProducts.get(userId);
-        }
-
-        // Загружаем из файла
+        Set<String> products = new HashSet<>();
         String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
-        Set<String> sentProducts = new HashSet<>();
 
-        try {
-            for (String line : FileStorage.readLines(filename)) {
-                line = line.trim();
-                if (!line.isEmpty()) {
-                    sentProducts.add(line);
-                }
+        for (String line : FileStorage.readLines(filename)) {
+            line = line.trim();
+            if (!line.isEmpty()) {
+                products.add(line);
             }
-            logger.debug("Загружено {} отправленных товаров для пользователя {}",
-                    sentProducts.size(), userId);
-        } catch (Exception e) {
-            logger.debug("Файл с отправленными товарами не найден для пользователя {}, создаем новый", userId);
         }
 
-        userSentProducts.put(userId, sentProducts);
-        return sentProducts;
+        logger.debug("Загружено {} отправленных товаров для пользователя {}",
+                products.size(), userId);
+        return products;
     }
 
-    /**
-     * Сохраняет отправленные товары пользователя в файл
-     */
-    private static void saveUserSentProducts(long userId, Set<String> sentProducts) {
+    private static void saveUserSentProducts(long userId, Set<String> products) {
         String filename = SENT_PRODUCTS_DIR + "/user_" + userId + ".txt";
-        FileStorage.writeLines(filename, new java.util.ArrayList<>(sentProducts));
-    }
-
-    /**
-     * Получает статистику по отправленным товарам
-     */
-    public static String getStats(long userId) {
-        Set<String> sentProducts = loadUserSentProducts(userId);
-        return String.format("Отправлено товаров: %d", sentProducts.size());
+        List<String> lines = new ArrayList<>(products);
+        FileStorage.writeLines(filename, lines);
     }
 }

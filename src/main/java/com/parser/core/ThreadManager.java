@@ -13,7 +13,6 @@ import com.parser.telegram.TelegramNotificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -45,8 +44,8 @@ public class ThreadManager {
         // Логирование статистики каждые 10 минут
         scheduler.scheduleAtFixedRate(this::logStatistics, 10, 10, TimeUnit.MINUTES);
 
-        // Автообновление кук каждые 2 часа
-        if (Config.getCookieAutoUpdate()) {
+        // 🔴 ПРОВЕРКА COOKIES ПЕРЕД АВТООБНОВЛЕНИЕМ
+        if (Config.getCookieAutoUpdate() && CookieService.hasValidCookies()) {
             int interval = Config.getCookieUpdateInterval();
             scheduler.scheduleAtFixedRate(() -> {
                 try {
@@ -58,6 +57,8 @@ public class ThreadManager {
                     logger.error("Cookie auto-update failed: {}", e.getMessage());
                 }
             }, interval, interval, TimeUnit.MINUTES);
+        } else {
+            logger.warn("⚠️ Cookie auto-update disabled: cookies not valid");
         }
 
         logger.info("ThreadManager initialized: core={}, max={}", coreSize, maxSize);
@@ -70,6 +71,15 @@ public class ThreadManager {
         if (!WhitelistManager.isUserAllowed(userId)) {
             logger.warn("User {} not in whitelist", userId);
             TelegramNotificationService.sendMessage(userId, "❌ You are not authorized to use this bot");
+            return false;
+        }
+
+        // 🔴 ПРОВЕРКА COOKIES ПЕРЕД ЗАПУСКОМ
+        if (!CookieService.hasValidCookies()) {
+            logger.error("Cannot start parser for user {}: cookies not valid", userId);
+            TelegramNotificationService.sendMessage(userId,
+                    "❌ Parser cannot start: cookies not valid!\n" +
+                            "Please wait for administrator to refresh cookies.");
             return false;
         }
 
@@ -107,6 +117,23 @@ public class ThreadManager {
             SiteParser parser = ParserFactory.createParser("goofish");
 
             while (session.isRunning() && !Thread.currentThread().isInterrupted()) {
+                // 🔴 ПРОВЕРКА COOKIES ПЕРЕД КАЖДОЙ ИТЕРАЦИЕЙ
+                if (!CookieService.hasValidCookies()) {
+                    logger.warn("Cookies invalid for user {}, pausing parser", userId);
+                    TelegramNotificationService.sendMessage(userId,
+                            "⚠️ Parser paused: cookies need refresh\n" +
+                                    "Waiting for administrator action...");
+
+                    // Ждем восстановления cookies
+                    while (!CookieService.hasValidCookies() && session.isRunning()) {
+                        Thread.sleep(60000); // Проверяем каждую минуту
+                    }
+
+                    if (session.isRunning()) {
+                        TelegramNotificationService.sendMessage(userId, "✅ Cookies restored, resuming parser");
+                    }
+                }
+
                 for (String query : session.getQueries()) {
                     if (!session.isRunning()) break;
 
@@ -125,10 +152,8 @@ public class ThreadManager {
                             session.addProductsFound(products.size());
                             totalProductsFound += products.size();
 
-                            // Отправка уведомлений сама решает, есть ли что слать (и что считать "новым")
                             sendProductNotifications(userId, products, query, session.getSettings());
 
-                            // Не перезаписываем историю каждый раз: добавляем новые товары к уже сохранённым
                             UserDataManager.addUserProducts(userId, products);
                         }
 
@@ -139,7 +164,6 @@ public class ThreadManager {
                         session.incrementErrors();
                         session.setLastError("Search error: " + e.getMessage());
 
-                        // Отправляем уведомление об ошибке пользователю
                         TelegramNotificationService.sendMessage(userId,
                                 "❌ Ошибка при поиске '" + query + "': " + e.getMessage());
 
@@ -147,9 +171,8 @@ public class ThreadManager {
                     }
                 }
 
-                // Обновляем cookies после полного цикла по всем запросам пользователя.
-                // Это НЕ меняет user-agent/идентичность, а просто поддерживает актуальность токенов.
-                if (session.isRunning() && Config.isDynamicCookiesEnabled()) {
+                // Обновляем cookies после полного цикла
+                if (session.isRunning() && Config.isDynamicCookiesEnabled() && CookieService.hasValidCookies()) {
                     try {
                         logger.info("🔄 Обновление cookies после цикла (user={})", userId);
                         CookieService.refreshCookies("www.goofish.com");
@@ -182,21 +205,6 @@ public class ThreadManager {
         }
     }
 
-    // Остальные методы остаются без изменений...
-    private boolean shouldSendNotification(UserSession session, List<Product> products) {
-        if (products.isEmpty()) return false;
-
-        if (session.getSettings().isNotifyNewOnly()) {
-            // Исторически "новизна" считалась по UserDataManager.getUserProducts().
-            // Но сейчас фактическая защита от дублей и "новые товары" определяются
-            // персистентной историей отправки (UserSentProductsManager),
-            // поэтому предварительная проверка больше не нужна.
-            return true;
-        }
-        return true;
-    }
-
-
     private void sendProductNotifications(long userId, List<Product> products, String query, UserSettings settings) {
         if (products == null || products.isEmpty()) {
             return;
@@ -204,7 +212,6 @@ public class ThreadManager {
 
         logger.info("Отправка уведомлений: {} товаров для пользователя {}", products.size(), userId);
 
-        // Собираем ID -> Product для дальнейшей выборки/отправки
         Set<String> productIds = new HashSet<>();
         Map<String, Product> productMap = new HashMap<>();
 
@@ -213,54 +220,41 @@ public class ThreadManager {
             productMap.put(p.getId(), p);
         }
 
-        // Режим уведомлений:
-        // - notifyNewOnly=true  -> отправляем только то, что ещё не отправляли (по UserSentProductsManager)
-        // - notifyNewOnly=false -> отправляем все найденные (в рамках текущего цикла/фильтров парсера)
-        final boolean onlyNew = settings != null && settings.isNotifyNewOnly();
-        Set<String> idsToSend = onlyNew
-                ? UserSentProductsManager.filterNewProducts(userId, productIds)
-                : new HashSet<>(productIds);
+        Set<String> sentProductIds = UserSentProductsManager.getSentProductsForUser(userId);
+        Set<String> newProductIds = new HashSet<>();
 
-        if (idsToSend.isEmpty()) {
-            logger.debug("Нет товаров для отправки пользователю {} (notifyNewOnly={})", userId, onlyNew);
+        for (String productId : productIds) {
+            if (!sentProductIds.contains(productId)) {
+                newProductIds.add(productId);
+            }
+        }
+
+        if (newProductIds.isEmpty()) {
+            logger.debug("Нет новых товаров для пользователя {}", userId);
             return;
         }
 
-        // Собираем товары к отправке
         List<Product> productsToSend = new ArrayList<>();
-        for (String productId : idsToSend) {
+        for (String productId : newProductIds) {
             Product p = productMap.get(productId);
             if (p != null) {
                 productsToSend.add(p);
             }
         }
 
-        logger.info("Будет отправлено {} товаров пользователю {} (notifyNewOnly={}, totalFetched={})",
-                productsToSend.size(), userId, onlyNew, products.size());
+        logger.info("Будет отправлено {} новых товаров пользователю {} (всего найдено {})",
+                productsToSend.size(), userId, products.size());
 
-        // Отмечаем как отправленные ТОЛЬКО когда включен режим "только новое".
-        // Иначе пользователь явно просит видеть весь список и не “съедать” его историей.
-        if (onlyNew) {
-            UserSentProductsManager.markProductsAsSent(userId, idsToSend);
-        }
+        UserSentProductsManager.markProductsAsSent(userId, newProductIds);
 
-        // 🟢 ОТПРАВЛЯЕМ УВЕДОМЛЕНИЯ
-        String summary = String.format("🔍 Найдено <b>%d %s</b> по запросу: <i>%s</i>\n\n",
-                productsToSend.size(),
-                onlyNew ? "новых товаров" : "товаров",
-                escapeHtml(query));
+        String summary = String.format("🔍 Найдено <b>%d новых товаров</b> по запросу: <i>%s</i>\n\n",
+                productsToSend.size(), escapeHtml(query));
         TelegramNotificationService.sendHtmlMessage(userId, summary);
 
-        // Отправляем товары по одному
         for (int i = 0; i < productsToSend.size(); i++) {
             Product p = productsToSend.get(i);
 
             try {
-                // Проверяем название товара
-                if (p.getTitle() == null || p.getTitle().isEmpty() || "No title".equals(p.getTitle())) {
-                    p.setTitle("Товар #" + p.getId() + " (" + query + ")");
-                }
-
                 if (p.hasCoverImage()) {
                     sendProductWithPhoto(userId, p, i + 1, productsToSend.size());
                 } else {
@@ -275,22 +269,15 @@ public class ThreadManager {
                 logger.error("Ошибка отправки уведомления для товара {}: {}", p.getId(), e.getMessage());
             }
         }
-
-        // 🔴 ОБНОВЛЯЕМ СТАТИСТИКУ
-        logger.info("✅ Отправлено {} товаров пользователю {} (notifyNewOnly={}). {}",
-                productsToSend.size(), userId, onlyNew, UserSentProductsManager.getStats(userId));
     }
 
     private void sendProductWithPhoto(long userId, Product p, int number, int total) {
         try {
-            // Создаем подпись под фото
             String caption = formatProductCaption(p, number, total);
 
-            // Отправляем фото с подписью
             boolean sent = TelegramNotificationService.sendPhotoWithHtmlCaption(userId,
                     p.getCoverImageUrl(), caption);
 
-            // Если не удалось отправить фото, отправляем текст
             if (!sent) {
                 sendProductAsText(userId, p, number, total);
             }
@@ -310,42 +297,29 @@ public class ThreadManager {
         }
     }
 
-
-    private String formatProductMessage(Product p, UserSettings settings) {
-        return String.format("🛍️ <a href=\"%s\">%s</a>\n💰 %s\n📍 %s\n⏳ %s",
-                p.getUrl(), escapeHtml(p.getTitle()), p.getPriceDisplay(),
-                escapeHtml(p.getLocation()), p.getAgeDisplay());
-    }
-
-    private String getNumberEmoji(int number) {
-        String[] emojis = {"1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"};
-        if (number > 0 && number <= emojis.length) {
-            return emojis[number - 1];
-        }
-        return number + ".";
-    }
-
     private String formatProductCaption(Product p, int number, int total) {
-        // Получаем название товара
         String fullTitle = p.getTitle();
         if (fullTitle == null || fullTitle.isEmpty() || "No title".equals(fullTitle)) {
             fullTitle = "Товар #" + p.getId();
         }
 
-        // Название как гиперссылка с полным текстом
         String titleLink = String.format("<a href=\"%s\"><b>%s</b></a>",
                 escapeHtml(p.getUrl()),
                 escapeHtml(fullTitle));
 
-        // 🔴 Цена: только в юанях (убираем рубли и локацию)
-        String price = String.format("💰 <b>%s ¥</b>",
-                String.format("%.0f", p.getPrice()));
+        double priceYuan = p.getPrice();
+        double priceRub = priceYuan * 12;
+        String price = String.format("💰 <b>%.0f ¥</b> (≈%.0f руб.)",
+                priceYuan, priceRub);
 
-        // 🔴 ВОЗРАСТ ТОВАРА
         String age = String.format("⏳ %s", p.getAgeDisplay());
 
-        // Итоговое сообщение (без порядкового номера)
-        return String.format("%s\n\n%s\n%s", titleLink, price, age);
+        String location = "";
+        if (p.getLocation() != null && !p.getLocation().isEmpty() && !"Не указано".equals(p.getLocation())) {
+            location = String.format("\n📍 %s", escapeHtml(p.getLocation()));
+        }
+
+        return String.format("%s\n\n%s\n%s%s", titleLink, price, age, location);
     }
 
     private String escapeHtml(String text) {
@@ -355,7 +329,7 @@ public class ThreadManager {
                 .replace(">", "&gt;")
                 .replace("\"", "&quot;")
                 .replace("'", "&#39;")
-                .replace("\n", "<br/>"); // Добавляем переносы строк
+                .replace("\n", "<br/>");
     }
 
     public boolean stopUserParser(long userId) {
@@ -364,7 +338,6 @@ public class ThreadManager {
             session.setRunning(false);
             userSessions.remove(userId);
             logger.info("Parser stopped for user {}", userId);
-
             return true;
         }
         return false;
@@ -404,13 +377,15 @@ public class ThreadManager {
         stats.put("activeThreads", threadPool.getActiveCount());
         stats.put("poolSize", threadPool.getPoolSize());
         stats.put("dynamicCookiesEnabled", Config.isDynamicCookiesEnabled());
+        stats.put("cookiesValid", CookieService.hasValidCookies());
         return stats;
     }
 
     private void logStatistics() {
-        logger.info("Stats: users={}, products={}, requests={}, threads={}/{}",
+        logger.info("Stats: users={}, products={}, requests={}, threads={}/{}, cookiesValid={}",
                 userSessions.size(), totalProductsFound, totalRequestsMade,
-                threadPool.getActiveCount(), threadPool.getPoolSize());
+                threadPool.getActiveCount(), threadPool.getPoolSize(),
+                CookieService.hasValidCookies());
     }
 
     public List<Long> getActiveUsers() {

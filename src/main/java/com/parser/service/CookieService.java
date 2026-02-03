@@ -26,6 +26,10 @@ public class CookieService {
     private static long lastRefreshTime = 0;
     private static final long REFRESH_INTERVAL = 120 * 60 * 1000; // 2 часа
 
+    // Счетчик последовательных ошибок
+    private static int consecutiveFailures = 0;
+    private static final int MAX_CONSECUTIVE_FAILURES = 5;
+
     private static ScheduledExecutorService scheduler;
 
     // Основные домены для Goofish
@@ -43,6 +47,9 @@ public class CookieService {
 
         logger.info("🍪 Инициализация CookieService...");
 
+        // Проверяем наличие Chrome на сервере
+        checkChromeAvailability();
+
         // Создаем планировщик для автообновления
         scheduler = Executors.newScheduledThreadPool(1);
 
@@ -52,12 +59,22 @@ public class CookieService {
             scheduler.scheduleAtFixedRate(() -> {
                 try {
                     logger.info("🔄 Автообновление cookies...");
+
+                    // Если слишком много ошибок подряд, пропускаем обновление
+                    if (consecutiveFailures >= MAX_CONSECUTIVE_FAILURES) {
+                        logger.warn("⚠️ Пропускаем обновление: {} последовательных ошибок", consecutiveFailures);
+                        return;
+                    }
+
                     if (refreshCookies(PRIMARY_DOMAIN)) {
+                        consecutiveFailures = 0; // Сбрасываем счетчик ошибок
                         logger.info("✅ Cookies успешно обновлены");
                     } else {
-                        logger.warn("⚠️ Автообновление cookies не удалось");
+                        consecutiveFailures++;
+                        logger.warn("⚠️ Автообновление cookies не удалось (ошибка #{})", consecutiveFailures);
                     }
                 } catch (Exception e) {
+                    consecutiveFailures++;
                     logger.error("❌ Ошибка при автообновлении cookies: {}", e.getMessage());
                 }
             }, interval, interval, TimeUnit.MINUTES);
@@ -74,6 +91,38 @@ public class CookieService {
         }
 
         logger.info("✅ CookieService инициализирован");
+    }
+
+    /**
+     * Проверка доступности Chrome на сервере
+     */
+    private static void checkChromeAvailability() {
+        try {
+            Process process = Runtime.getRuntime().exec("which google-chrome-stable");
+            int exitCode = process.waitFor();
+
+            if (exitCode == 0) {
+                logger.info("✅ Chrome найден на сервере");
+            } else {
+                logger.warn("⚠️ Chrome не найден на сервере. Будет использоваться только файловый кэш.");
+            }
+        } catch (Exception e) {
+            logger.warn("⚠️ Не удалось проверить наличие Chrome: {}", e.getMessage());
+        }
+
+        // Также проверяем chromedriver
+        try {
+            Process process = Runtime.getRuntime().exec("which chromedriver");
+            int exitCode = process.waitFor();
+
+            if (exitCode == 0) {
+                logger.info("✅ Chromedriver найден на сервере");
+            } else {
+                logger.warn("⚠️ Chromedriver не найден на сервере.");
+            }
+        } catch (Exception e) {
+            logger.warn("⚠️ Не удалось проверить наличие chromedriver: {}", e.getMessage());
+        }
     }
 
     /**
@@ -122,11 +171,17 @@ public class CookieService {
 
                 lastRefreshTime = System.currentTimeMillis();
 
+                // Сбрасываем счетчик ошибок при успехе
+                consecutiveFailures = 0;
+
                 logger.info("✅ Получены свежие cookies, {} элементов", freshCookies.size());
                 return freshCookies;
             } else {
                 logger.warn("⚠️ Валидация свежих cookies не пройдена, используем кэшированные");
                 if (!configCookies.isEmpty()) {
+                    // Сохраняем в кэш для будущего использования
+                    cookieCache.put(domain, new HashMap<>(configCookies));
+                    cacheTimestamp.put(domain, System.currentTimeMillis());
                     return configCookies;
                 }
             }
@@ -134,6 +189,9 @@ public class CookieService {
             logger.error("❌ Ошибка получения свежих cookies: {}", e.getMessage());
             if (!configCookies.isEmpty()) {
                 logger.info("🍪 Используем cookies из конфига");
+                // Сохраняем в кэш для будущего использования
+                cookieCache.put(domain, new HashMap<>(configCookies));
+                cacheTimestamp.put(domain, System.currentTimeMillis());
                 return configCookies;
             }
         }
@@ -164,6 +222,9 @@ public class CookieService {
                 cacheTimestamp.put(M_DOMAIN, System.currentTimeMillis());
 
                 lastRefreshTime = System.currentTimeMillis();
+
+                // Сбрасываем счетчик ошибок при успехе
+                consecutiveFailures = 0;
 
                 logger.info("✅ Cookies успешно обновлены, {} элементов", freshCookies.size());
                 return true;
@@ -216,6 +277,7 @@ public class CookieService {
         cookieCache.clear();
         cacheTimestamp.clear();
         lastRefreshTime = 0;
+        consecutiveFailures = 0;
         logger.info("🧹 Кэш cookies очищен");
     }
 
@@ -229,6 +291,8 @@ public class CookieService {
         stats.put("cacheTTLMinutes", CACHE_TTL / 60000);
         stats.put("cachedDomains", cookieCache.size());
         stats.put("dynamicCookiesEnabled", Config.isDynamicCookiesEnabled());
+        stats.put("consecutiveFailures", consecutiveFailures);
+        stats.put("maxConsecutiveFailures", MAX_CONSECUTIVE_FAILURES);
 
         List<String> cachedDomains = new ArrayList<>();
         for (Map.Entry<String, Long> entry : cacheTimestamp.entrySet()) {

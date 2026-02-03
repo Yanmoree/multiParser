@@ -14,13 +14,13 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Сервис для получения cookies через Selenium - ИСПРАВЛЕННЫЙ ДЛЯ HEADLESS
+ * Сервис для получения cookies через Selenium - ИСПРАВЛЕННЫЙ ДЛЯ СЕРВЕРА
  */
 public class SeleniumCookieFetcher {
     private static final Logger logger = LoggerFactory.getLogger(SeleniumCookieFetcher.class);
 
     /**
-     * Основной метод получения cookies для Goofish - ИСПРАВЛЕННЫЙ ДЛЯ HEADLESS
+     * Основной метод получения cookies для Goofish - ИСПРАВЛЕННЫЙ ДЛЯ СЕРВЕРА
      */
     public static Map<String, String> fetchGoofishCookies(boolean headless) {
         logger.info("🔄 Запуск Selenium для получения cookies Goofish");
@@ -34,46 +34,40 @@ public class SeleniumCookieFetcher {
             WebDriverManager.chromedriver().setup();
             logger.info("✅ ChromeDriver настроен");
 
-            // 2. Конфигурация Chrome - ОПТИМИЗИРОВАННАЯ ДЛЯ HEADLESS
+            // 2. Конфигурация Chrome - ОПТИМИЗИРОВАННАЯ ДЛЯ СЕРВЕРА
             ChromeOptions options = new ChromeOptions();
 
-            // 🔴 ОСНОВНОЕ ИСПРАВЛЕНИЕ: Настройки для обхода детекции headless
+            // 🔴 ОСНОВНОЕ ИСПРАВЛЕНИЕ: Используем старый headless режим для стабильности
             if (headless) {
-                // Современный headless режим с обходом детекции
-                options.addArguments("--headless=new"); // Новый headless режим Chrome
+                // Старый headless режим для совместимости
+                options.addArguments("--headless");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--window-size=1920,1080");
-                options.addArguments("--start-maximized");
-                logger.info("🌐 Режим: Headless (оптимизированный)");
+                options.addArguments("--remote-debugging-port=9222");
+                logger.info("🌐 Режим: Headless (серверный)");
             } else {
                 logger.info("🌐 Режим: С GUI");
             }
 
-            // 🔴 КЛЮЧЕВЫЕ АРГУМЕНТЫ ДЛЯ ОБХОДА ДЕТЕКЦИИ
+            // 🔴 ОСНОВНЫЕ АРГУМЕНТЫ ДЛЯ СЕРВЕРА
             options.addArguments("--disable-blink-features=AutomationControlled");
             options.addArguments("--disable-features=VizDisplayCompositor");
-            options.addArguments("--disable-software-rasterizer");
+
+            // 🔴 УМЕНЬШЕННЫЙ НАБОР АРГУМЕНТОВ ДЛЯ СТАБИЛЬНОСТИ
             options.addArguments("--disable-extensions");
             options.addArguments("--disable-logging");
             options.addArguments("--log-level=3");
             options.addArguments("--disable-web-security");
             options.addArguments("--allow-running-insecure-content");
             options.addArguments("--ignore-certificate-errors");
-            options.addArguments("--disable-popup-blocking");
-            options.addArguments("--disable-notifications");
-            options.addArguments("--disable-save-password-bubble");
-            options.addArguments("--disable-translate");
-            options.addArguments("--disable-background-timer-throttling");
-            options.addArguments("--disable-renderer-backgrounding");
-            options.addArguments("--disable-backgrounding-occluded-windows");
 
             // 🔴 USER-AGENT ДЛЯ ОБХОДА ДЕТЕКЦИИ
-            String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+            String userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
             options.addArguments("--user-agent=" + userAgent);
 
-            // 🔴 ЭКСПЕРИМЕНТАЛЬНЫЕ ОПЦИИ ДЛЯ ОБХОДА ДЕТЕКЦИИ
+            // 🔴 ЭКСПЕРИМЕНТАЛЬНЫЕ ОПЦИИ
             options.setExperimentalOption("excludeSwitches", Arrays.asList(
                     "enable-automation",
                     "enable-logging"
@@ -83,30 +77,18 @@ public class SeleniumCookieFetcher {
             Map<String, Object> prefs = new HashMap<>();
             prefs.put("credentials_enable_service", false);
             prefs.put("profile.password_manager_enabled", false);
-            prefs.put("profile.default_content_setting_values.notifications", 2); // Блокировать уведомления
-            prefs.put("profile.default_content_setting_values.popups", 2); // Блокировать popups
             options.setExperimentalOption("prefs", prefs);
 
-            // 3. Запуск браузера с увеличенными таймаутами
+            // 3. Запуск браузера
             driver = new ChromeDriver(options);
 
-            // 🔴 УВЕЛИЧИВАЕМ ТАЙМАУТЫ ДЛЯ МЕДЛЕННЫХ СЕТЕЙ
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60)); // 60 секунд вместо 30
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); // 30 секунд вместо 15
-            driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
+            // Установка таймаутов
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
-            logger.info("✅ Браузер запущен с увеличенными таймаутами");
+            logger.info("✅ Браузер запущен");
 
-            // 🔴 4. ПЕРВОНАЧАЛЬНЫЙ ПЕРЕХОД НА GOOGLE (для инициализации cookies)
-            try {
-                logger.info("🌐 Первоначальный переход на Google для инициализации...");
-                driver.get("https://www.google.com");
-                Thread.sleep(2000);
-            } catch (Exception e) {
-                logger.warn("⚠️ Не удалось загрузить Google: {}", e.getMessage());
-            }
-
-            // 🔴 5. ПЕРЕХОД НА GOOFISH С РЕТРАЯМИ ПРИ ТАЙМАУТЕ
+            // 4. ПЕРЕХОД НА GOOFISH
             String url = "https://www.goofish.com";
             logger.info("🌐 Переход на: {}", url);
 
@@ -117,7 +99,7 @@ public class SeleniumCookieFetcher {
                 try {
                     driver.get(url);
 
-                    // 🔴 ЖДЕМ ЗАГРУЗКИ СТРАНИЦЫ С ПОМОЩЬЮ JAVASCRIPT
+                    // Ждем загрузки страницы
                     new WebDriverWait(driver, Duration.ofSeconds(30)).until(
                             webDriver -> ((JavascriptExecutor) webDriver)
                                     .executeScript("return document.readyState").equals("complete")
@@ -131,13 +113,7 @@ public class SeleniumCookieFetcher {
                     logger.warn("⚠️ Таймаут при загрузке страницы (попытка {}), пробуем снова...", retry);
 
                     if (retry < maxRetries) {
-                        Thread.sleep(3000);
-
-                        // Пробуем альтернативный URL
-                        if (retry == 2) {
-                            url = "https://m.goofish.com";
-                            logger.info("🔄 Пробуем мобильную версию: {}", url);
-                        }
+                        Thread.sleep(5000);
                     }
                 }
             }
@@ -146,107 +122,42 @@ public class SeleniumCookieFetcher {
                 throw new TimeoutException("Не удалось загрузить страницу после " + maxRetries + " попыток");
             }
 
-            // 🔴 6. ДОБАВЛЯЕМ ДОПОЛНИТЕЛЬНУЮ ЗАДЕРЖКУ И ВЗАИМОДЕЙСТВИЕ
+            // 5. ОЖИДАНИЕ И ВЗАИМОДЕЙСТВИЕ
             logger.info("⏳ Ожидание генерации cookies (10 секунд)...");
             Thread.sleep(10000);
 
-            // 🔴 7. ВЫПОЛНЯЕМ JAVASCRIPT ДЛЯ ИНИЦИАЛИЗАЦИИ СТРАНИЦЫ
+            // Простая прокрутка для инициализации
             try {
                 JavascriptExecutor js = (JavascriptExecutor) driver;
-
-                // Прокручиваем страницу для инициализации
                 js.executeScript("window.scrollTo(0, document.body.scrollHeight * 0.3);");
                 Thread.sleep(2000);
-                js.executeScript("window.scrollTo(0, document.body.scrollHeight * 0.6);");
-                Thread.sleep(2000);
-
-                // Кликаем на body для активации
-                WebElement body = driver.findElement(By.tagName("body"));
-                body.click();
-                Thread.sleep(1000);
-
             } catch (Exception e) {
-                logger.debug("Не удалось взаимодействовать со страницей: {}", e.getMessage());
+                logger.debug("Не удалось прокрутить страницу: {}", e.getMessage());
             }
 
-            // 🔴 8. ПОЛУЧАЕМ COOKIES С ГЛАВНОЙ СТРАНИЦЫ
-            logger.info("🍪 Получение cookies с главной страницы...");
+            // 6. ПОЛУЧАЕМ COOKIES
+            logger.info("🍪 Получение cookies...");
             Set<Cookie> allCookies = driver.manage().getCookies();
-            logger.info("📦 Найдено cookies на главной: {}", allCookies.size());
 
-            // 🔴 9. ПЕРЕХОД НА СТРАНИЦУ ПОИСКА ДЛЯ ДОПОЛНИТЕЛЬНЫХ COOKIES
-            String searchUrl = "https://www.goofish.com/search?q=test";
-            logger.info("🔍 Переход на страницу поиска: {}", searchUrl);
-
-            try {
-                driver.get(searchUrl);
-                Thread.sleep(5000);
-
-                // Ждем загрузки
-                new WebDriverWait(driver, Duration.ofSeconds(30)).until(
-                        webDriver -> ((JavascriptExecutor) webDriver)
-                                .executeScript("return document.readyState").equals("complete")
-                );
-
-            } catch (Exception e) {
-                logger.warn("⚠️ Не удалось загрузить страницу поиска: {}", e.getMessage());
-            }
-
-            // 🔴 10. ПОЛУЧАЕМ ВСЕ COOKIES
-            logger.info("🍪 Получение всех cookies после взаимодействия...");
-            allCookies = driver.manage().getCookies();
-
-            // 🔴 11. СОБИРАЕМ И ФИЛЬТРУЕМ COOKIES
+            // 7. СОБИРАЕМ И ФИЛЬТРУЕМ COOKIES
             Map<String, String> goofishCookies = new LinkedHashMap<>();
 
             // Ключевые cookies для Goofish
             String[] importantKeys = {
                     "_m_h5_tk", "_m_h5_tk_enc", "_samesite_flag_", "_tb_token_",
                     "cna", "cookie2", "mtop_partitioned_detect", "t",
-                    "tfstk", "xlly_s", "x5secdata", "isg", "unb", "lgc"
+                    "tfstk", "xlly_s", "isg"
             };
 
             for (Cookie cookie : allCookies) {
                 String name = cookie.getName();
                 String value = cookie.getValue();
                 goofishCookies.put(name, value);
-
-                // Логируем важные cookies
-                if (Arrays.asList(importantKeys).contains(name)) {
-                    logger.debug("✅ Важный cookie: {} = {}", name,
-                            value.length() > 50 ? value.substring(0, 47) + "..." : value);
-                }
-            }
-
-            // 🔴 12. ДОПОЛНИТЕЛЬНАЯ ПРОВЕРКА ДЛЯ CNA
-            if (!goofishCookies.containsKey("cna")) {
-                logger.warn("⚠️ Cookie 'cna' не найден, пробуем альтернативный метод...");
-
-                try {
-                    // Пробуем получить cna через JavaScript
-                    JavascriptExecutor js = (JavascriptExecutor) driver;
-                    Object cnaValue = js.executeScript(
-                            "return document.cookie.split('; ').find(c => c.startsWith('cna='));"
-                    );
-
-                    if (cnaValue != null) {
-                        String cnaStr = cnaValue.toString();
-                        if (cnaStr.startsWith("cna=")) {
-                            String cna = cnaStr.substring(4);
-                            goofishCookies.put("cna", cna);
-                            logger.info("✅ Получен cna через JavaScript: {}",
-                                    cna.length() > 30 ? cna.substring(0, 27) + "..." : cna);
-                        }
-                    }
-                } catch (Exception e) {
-                    logger.warn("⚠️ Не удалось получить cna через JavaScript: {}", e.getMessage());
-                }
             }
 
             // Вывод результатов
             logger.info("📊 Результаты получения cookies:");
             logger.info("📦 Всего cookies: {}", allCookies.size());
-            logger.info("🔑 Важных cookies: {}", goofishCookies.size());
 
             if (!goofishCookies.isEmpty()) {
                 logger.info("🎯 Ключевые cookies:");
@@ -265,8 +176,8 @@ public class SeleniumCookieFetcher {
         } catch (Exception e) {
             logger.error("❌ Ошибка при получении cookies через Selenium: {}", e.getMessage());
 
-            // 🔴 ВОЗВРАЩАЕМ КЭШИРОВАННЫЕ COOKIES ПРИ ОШИБКЕ
-            logger.info("🔄 Возвращаем кэшированные cookies...");
+            // 🔴 УЛУЧШЕННАЯ ОБРАБОТКА ОШИБОК ДЛЯ СЕРВЕРА
+            logger.info("🔄 Возвращаем кэшированные cookies из файла...");
             return getCachedCookies();
 
         } finally {
@@ -283,10 +194,10 @@ public class SeleniumCookieFetcher {
     }
 
     /**
-     * Получение свежих cookies (публичный метод) с использованием headless
+     * Получение свежих cookies (публичный метод)
      */
     public static Map<String, String> getFreshCookies() {
-        return fetchGoofishCookies(true); // 🔴 ИСПОЛЬЗУЕМ HEADLESS ДЛЯ ПРОДАКШЕНА
+        return fetchGoofishCookies(true);
     }
 
     /**
@@ -297,16 +208,22 @@ public class SeleniumCookieFetcher {
     }
 
     /**
-     * Возвращает кэшированные cookies при ошибке
+     * Возвращает кэшированные cookies
      */
     private static Map<String, String> getCachedCookies() {
         try {
-            // Пробуем прочитать cookies из файла
             java.util.Properties props = new java.util.Properties();
             try (java.io.FileInputStream fis = new java.io.FileInputStream("cookies.properties")) {
                 props.load(fis);
 
                 String cookieStr = props.getProperty("www.goofish.com.cookies", "");
+                if (cookieStr.isEmpty()) {
+                    cookieStr = props.getProperty("h5api.m.goofish.com.cookies", "");
+                }
+                if (cookieStr.isEmpty()) {
+                    cookieStr = props.getProperty("m.goofish.com.cookies", "");
+                }
+
                 if (!cookieStr.isEmpty()) {
                     Map<String, String> cookies = new HashMap<>();
                     String[] pairs = cookieStr.split("; ");
@@ -331,7 +248,7 @@ public class SeleniumCookieFetcher {
     }
 
     /**
-     * Валидация полученных cookies - ОПТИМИЗИРОВАННАЯ
+     * Валидация полученных cookies
      */
     public static boolean validateCookies(Map<String, String> cookies) {
         if (cookies == null || cookies.isEmpty()) {

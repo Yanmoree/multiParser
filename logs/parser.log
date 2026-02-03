@@ -13875,3 +13875,145 @@ Session ID: 3927433c3f99f497c3086d2a728ebd18
 2026-02-03 10:11:12.990 [Thread-7] INFO  c.parser.service.AutoCleanupService - Сервис автоочистки остановлен
 2026-02-03 10:11:12.990 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
 2026-02-03 10:11:12.990 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete
+2026-02-03 10:45:57.512 [main] INFO  com.parser.Main - ============================================================
+2026-02-03 10:45:57.513 [main] INFO  com.parser.Main - Product Parser with Real-Time Cookies
+2026-02-03 10:45:57.513 [main] INFO  com.parser.Main - ============================================================
+2026-02-03 10:45:57.514 [main] INFO  com.parser.config.Config - Loaded configuration from resources
+2026-02-03 10:45:57.514 [main] INFO  com.parser.Main - ✅ Configuration:
+2026-02-03 10:45:57.514 [main] INFO  com.parser.Main -    Token: 8404858867...
+2026-02-03 10:45:57.514 [main] INFO  com.parser.Main -    Username: @goofishparse_bot
+2026-02-03 10:45:57.514 [main] INFO  com.parser.Main -    Admin ID: 1080595280
+2026-02-03 10:45:57.515 [main] INFO  com.parser.Main - ✅ Data directory ready
+2026-02-03 10:45:57.516 [main] INFO  c.parser.service.AutoCleanupService - Сервис автоочистки запущен
+2026-02-03 10:45:57.516 [main] INFO  com.parser.Main - ✅ Auto cleanup service started
+2026-02-03 10:45:57.516 [main] INFO  com.parser.Main - 🍪 Инициализация системы cookies...
+2026-02-03 10:45:57.516 [main] INFO  com.parser.service.CookieService - 🍪 Инициализация CookieService...
+2026-02-03 10:45:57.517 [main] INFO  com.parser.service.CookieService - ✅ Автообновление настроено: каждые 60 минут
+2026-02-03 10:45:57.517 [main] INFO  com.parser.service.CookieService - 🔄 Предварительная загрузка cookies...
+2026-02-03 10:45:57.517 [main] INFO  com.parser.service.CookieService - 🔄 Получение свежих cookies для www.goofish.com
+2026-02-03 10:45:57.517 [main] INFO  com.parser.config.CookieConfig - Loaded cookies from external file: cookies.properties
+2026-02-03 10:45:57.518 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔄 Запуск Selenium для получения cookies Goofish
+2026-02-03 10:45:57.735 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ ChromeDriver настроен
+2026-02-03 10:45:57.737 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Режим: Headless (оптимизированный)
+2026-02-03 10:45:59.996 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер запущен с увеличенными таймаутами
+2026-02-03 10:45:59.997 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Первоначальный переход на Google для инициализации...
+2026-02-03 10:46:04.921 [main] INFO  c.p.service.SeleniumCookieFetcher - 🌐 Переход на: https://www.goofish.com
+2026-02-03 10:47:04.999 [main] WARN  c.p.service.SeleniumCookieFetcher - ⚠️ Таймаут при загрузке страницы (попытка 1), пробуем снова...
+2026-02-03 10:47:10.590 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Страница успешно загружена (попытка 2)
+2026-02-03 10:47:10.591 [main] INFO  c.p.service.SeleniumCookieFetcher - ⏳ Ожидание генерации cookies (10 секунд)...
+2026-02-03 10:47:25.881 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение cookies с главной страницы...
+2026-02-03 10:47:25.911 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Найдено cookies на главной: 8
+2026-02-03 10:47:25.911 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔍 Переход на страницу поиска: https://www.goofish.com/search?q=test
+2026-02-03 10:47:32.302 [main] INFO  c.p.service.SeleniumCookieFetcher - 🍪 Получение всех cookies после взаимодействия...
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Результаты получения cookies:
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher - 📦 Всего cookies: 10
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher - 🔑 Важных cookies: 10
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher - 🎯 Ключевые cookies:
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk                 : 753dfd5f0130289345219fd7af284be2_1770115209589
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    _m_h5_tk_enc             : 29070a0996475242dc8a2964c39c1759
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    _samesite_flag_          : true
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    _tb_token_               : a4e34651a135
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    cna                      : BJYIIlibxg4CAbA7Aqlv+h/Y
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    cookie2                  : 19b2fc98042dc25f831ba8841bccf23e
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    mtop_partitioned_detect  : 1
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    t                        : 99ab8258d2319d751803cd49ba4e02e5
+2026-02-03 10:47:32.317 [main] INFO  c.p.service.SeleniumCookieFetcher -    tfstk                    : g3Ctf8Nu0y3O89PQ2f23opQaijz3rJbavG7SinxihMIduih...
+2026-02-03 10:47:32.318 [main] INFO  c.p.service.SeleniumCookieFetcher -    xlly_s                   : 1
+2026-02-03 10:47:32.500 [main] INFO  c.p.service.SeleniumCookieFetcher - ✅ Браузер закрыт
+2026-02-03 10:47:32.501 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Анализ _m_h5_tk:
+2026-02-03 10:47:32.501 [main] INFO  c.p.service.SeleniumCookieFetcher -    Токен: 753dfd5f013028934...
+2026-02-03 10:47:32.501 [main] INFO  c.p.service.SeleniumCookieFetcher -    Время: 1770115209589
+2026-02-03 10:47:32.501 [main] INFO  c.p.service.SeleniumCookieFetcher - 📊 Валидация cookies: ✅ УСПЕХ (найдено 3/3 ключевых)
+2026-02-03 10:47:32.507 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: www.goofish.com
+2026-02-03 10:47:32.507 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: h5api.m.goofish.com
+2026-02-03 10:47:32.507 [main] INFO  com.parser.config.CookieConfig - Cookies updated for domain: m.goofish.com
+2026-02-03 10:47:32.507 [main] INFO  com.parser.service.CookieService - 💾 Cookies сохранены в: cookies.properties
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService - ✅ Получены свежие cookies, 10 элементов
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService - ✅ CookieService инициализирован
+2026-02-03 10:47:32.508 [main] INFO  com.parser.Main - 🧪 Проверка cookies перед запуском...
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService - 🧪 Тестирование cookies (попытка 1/3)...
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService - ✅ Cookies доступны, длина: 655 символов
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService - 📊 Ключевые cookies:
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService -    ✅ _m_h5_tk: 753dfd5f0130289345219fd7af2...
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService -    ✅ _tb_token_: a4e34651a135
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService -    ✅ cna: BJYIIlibxg4CAbA7Aqlv+h/Y
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService -    ✅ cookie2: 19b2fc98042dc25f831ba8841bc...
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService -    ✅ t: 99ab8258d2319d751803cd49ba4...
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService - 📊 Анализ _m_h5_tk:
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService -    Токен: 753dfd5f013028934...
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService -    Время: 1770115209589
+2026-02-03 10:47:32.508 [main] INFO  com.parser.service.CookieService - 📊 Итог тестирования: ✅ УСПЕХ (найдено 5/5 ключевых cookies)
+2026-02-03 10:47:32.508 [main] INFO  com.parser.Main - ✅ Cookies работают корректно
+2026-02-03 10:47:32.510 [main] INFO  com.parser.core.ThreadManager - ThreadManager initialized: core=5, max=20
+2026-02-03 10:47:32.510 [main] INFO  com.parser.Main - ✅ ThreadManager initialized
+2026-02-03 10:47:32.510 [main] INFO  com.parser.Main - 🤖 Initializing Telegram bot...
+2026-02-03 10:47:32.618 [main] INFO  c.parser.telegram.TelegramBotService - TelegramBotService initialized
+2026-02-03 10:47:32.619 [main] INFO  c.p.t.TelegramNotificationService - TelegramNotificationService initialized with bot instance
+2026-02-03 10:47:33.152 [main] INFO  c.parser.telegram.TelegramBotService - ✅ User command menu configured
+2026-02-03 10:47:33.244 [main] INFO  c.parser.telegram.TelegramBotService - ✅ Admin command menu configured for 1080595280
+2026-02-03 10:47:33.244 [main] INFO  com.parser.Main - ✅ Telegram bot registered and running
+2026-02-03 10:47:33.244 [main] INFO  com.parser.Main - ============================================================
+2026-02-03 10:47:33.244 [main] INFO  com.parser.Main - ✅ Application started successfully!
+2026-02-03 10:47:33.244 [main] INFO  com.parser.Main - 👑 Admin ID: 1080595280
+2026-02-03 10:47:33.244 [main] INFO  com.parser.Main - 🍪 Dynamic cookies: true
+2026-02-03 10:47:33.246 [main] INFO  com.parser.storage.WhitelistManager - Loading whitelist from whitelist.txt. Found 6 lines
+2026-02-03 10:47:33.246 [main] INFO  com.parser.storage.WhitelistManager - ✅ Loaded 3 users from whitelist
+2026-02-03 10:47:33.246 [main] INFO  com.parser.Main - 📋 Users: 3
+2026-02-03 10:47:33.246 [main] INFO  com.parser.Main - ============================================================
+2026-02-03 10:47:33.246 [main] INFO  com.parser.Main - ⏳ Application is running...
+2026-02-03 10:47:33.379 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Starting parser for user 1080595280
+2026-02-03 10:47:33.386 [pool-4-thread-1] INFO  com.parser.core.ThreadManager - Parser loop started for user 1080595280
+2026-02-03 10:47:33.386 [goofishparse_bot Telegram Executor] INFO  com.parser.core.ThreadManager - Parser started for user 1080595280: 2 queries
+2026-02-03 10:47:33.389 [pool-4-thread-1] INFO  com.parser.parser.ParserFactory - Registered parser for: goofish
+2026-02-03 10:47:33.391 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='cav empt', pages=3, rows=500, maxAge=1440min
+2026-02-03 10:47:33.394 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1770104853391&sign=ee1a51b2b23324d2f961ba618cdc3557&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-02-03 10:47:35.794 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-02-03 10:47:36.632 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-02-03 10:47:37.280 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3249031 символов
+2026-02-03 10:47:37.355 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-02-03 10:47:37.373 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-02-03 10:47:37.373 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (12 after age filter)
+2026-02-03 10:47:37.373 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 488 of 500 (maxAgeMinutes=1440). Examples: 1020262756125(age=1449m), 1020224548404(age=1545m), 1018532542947(age=1695m), 1018510822699(age=1773m), 1019333209711(age=2144m)
+2026-02-03 10:47:39.378 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1770104859376&sign=6fd2835bd86cbc234eb5d0e182bcea26&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-02-03 10:47:40.828 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=unknown
+2026-02-03 10:47:40.833 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3357 символов
+2026-02-03 10:47:40.835 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 12 products in 2 requests
+2026-02-03 10:47:40.835 [pool-4-thread-1] INFO  com.parser.core.ThreadManager - Отправка уведомлений: 12 товаров для пользователя 1080595280
+2026-02-03 10:47:40.841 [pool-4-thread-1] INFO  com.parser.core.ThreadManager - Будет отправлено 6 новых товаров пользователю 1080595280 (всего найдено 12)
+2026-02-03 10:47:40.856 [pool-4-thread-1] INFO  c.p.storage.UserSentProductsManager - Добавлено 6 товаров в историю отправленных для пользователя 1080595280
+2026-02-03 10:47:56.423 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Starting search: site=goofish, query='stone island', pages=3, rows=500, maxAge=1440min
+2026-02-03 10:47:56.430 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1770104876425&sign=0b4574cab26b29780daa6007eabbd053&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-02-03 10:47:57.883 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-02-03 10:47:58.191 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-02-03 10:47:58.222 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3829175 символов
+2026-02-03 10:47:58.278 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-02-03 10:47:58.282 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-02-03 10:47:58.282 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Page 1: found 500 products (500 after age filter)
+2026-02-03 10:48:00.290 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1770104880287&sign=53e59fdd44720c8367648f94b5cb57ba&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-02-03 10:48:01.722 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-02-03 10:48:01.813 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-02-03 10:48:01.826 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3351311 символов
+2026-02-03 10:48:01.855 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-02-03 10:48:01.857 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-02-03 10:48:01.858 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Page 2: found 500 products (24 after age filter)
+2026-02-03 10:48:01.858 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 476 of 500 (maxAgeMinutes=1440). Examples: 1018612138131(age=1448m), 1017960443039(age=1453m), 1020260852471(age=1455m), 1019489741824(age=1458m), 1018608886477(age=1458m)
+2026-02-03 10:48:03.865 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📤 POST запрос к: https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/?jsv=2.7.2&appKey=34839810&t=1770104883863&sign=aa590920236a998c320c06f59ab402c5&v=1.0&type=originaljson&accountSite=xianyu&dataType=json&timeout=20000&api=mtop.taobao.idlemtopsearch.pc.search&sessionOption=AutoLoginOnly&spm_cnt=a21ybx.search.0.0&spm_pre=a21ybx.search.searchInput.0
+2026-02-03 10:48:05.589 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 📥 Ответ: статус=200, content-type=application/json;charset=UTF-8, content-encoding=zstd
+2026-02-03 10:48:05.599 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - 🔄 Распаковываем zstd сжатие...
+2026-02-03 10:48:05.615 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - ✅ Получен JSON ответ, длина: 3726409 символов
+2026-02-03 10:48:05.650 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Found 500 items
+2026-02-03 10:48:05.652 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Successfully parsed 500 products
+2026-02-03 10:48:05.653 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Page 3: found 500 products (0 after age filter)
+2026-02-03 10:48:05.653 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Age filter removed 500 of 500 (maxAgeMinutes=1440). Examples: 1018338918638(age=2733m), 1019222309840(age=2734m), 1019990340798(age=2735m), 1018338666208(age=2735m), 1019989992790(age=2736m)
+2026-02-03 10:48:05.653 [pool-4-thread-1] INFO  com.parser.parser.GoofishParser - Search completed: found 524 products in 5 requests
+2026-02-03 10:48:05.653 [pool-4-thread-1] INFO  com.parser.core.ThreadManager - Отправка уведомлений: 524 товаров для пользователя 1080595280
+2026-02-03 10:48:05.653 [pool-4-thread-1] INFO  com.parser.core.ThreadManager - Будет отправлено 110 новых товаров пользователю 1080595280 (всего найдено 524)
+2026-02-03 10:48:05.657 [pool-4-thread-1] INFO  c.p.storage.UserSentProductsManager - Добавлено 110 товаров в историю отправленных для пользователя 1080595280
+2026-02-03 10:48:55.036 [Thread-7] INFO  com.parser.Main - 🛑 Получен сигнал завершения...
+2026-02-03 10:48:55.036 [Thread-7] INFO  com.parser.Main - 🛑 Shutting down...
+2026-02-03 10:48:55.037 [Thread-7] INFO  com.parser.core.ThreadManager - Shutting down ThreadManager...
+2026-02-03 10:48:55.037 [Thread-7] INFO  com.parser.core.ThreadManager - Parser stopped for user 1080595280
+2026-02-03 10:49:25.043 [Thread-7] INFO  com.parser.core.ThreadManager - ThreadManager shutdown complete
+2026-02-03 10:49:25.046 [Thread-7] INFO  c.parser.service.AutoCleanupService - Сервис автоочистки остановлен
+2026-02-03 10:49:25.046 [Thread-7] INFO  com.parser.service.CookieService - 🛑 CookieService остановлен
+2026-02-03 10:49:25.046 [Thread-7] INFO  com.parser.Main - ✅ Shutdown complete

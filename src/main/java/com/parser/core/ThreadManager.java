@@ -10,18 +10,11 @@ import com.parser.storage.UserDataManager;
 import com.parser.storage.UserSentProductsManager;
 import com.parser.storage.WhitelistManager;
 import com.parser.telegram.TelegramNotificationService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.concurrent.*;
 
-/**
- * Управление потоками парсеров пользователей
- */
 public class ThreadManager {
-    private static final Logger logger = LoggerFactory.getLogger(ThreadManager.class);
-
     private final Map<Long, UserSession> userSessions = new ConcurrentHashMap<>();
     private final ThreadPoolExecutor threadPool;
     private final ScheduledExecutorService scheduler;
@@ -29,6 +22,15 @@ public class ThreadManager {
     private int totalProductsFound = 0;
     private int totalRequestsMade = 0;
     private final Date startTime = new Date();
+
+    // Список User-Agent для ротации
+    private static final String[] USER_AGENTS = {
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Mobile/15E148 Safari/604.1"
+    };
 
     public ThreadManager() {
         int coreSize = Config.getThreadPoolCoreSize();
@@ -40,46 +42,11 @@ public class ThreadManager {
                 workQueue, new ThreadPoolExecutor.CallerRunsPolicy());
 
         scheduler = Executors.newScheduledThreadPool(1);
-
-        // Логирование статистики каждые 10 минут
-        scheduler.scheduleAtFixedRate(this::logStatistics, 10, 10, TimeUnit.MINUTES);
-
-        // 🔴 ПРОВЕРКА COOKIES ПЕРЕД АВТООБНОВЛЕНИЕМ
-        if (Config.getCookieAutoUpdate() && CookieService.hasValidCookies()) {
-            int interval = Config.getCookieUpdateInterval();
-            scheduler.scheduleAtFixedRate(() -> {
-                try {
-                    if (Config.isDynamicCookiesEnabled()) {
-                        logger.info("Auto-updating cookies...");
-                        CookieService.refreshCookies("www.goofish.com");
-                    }
-                } catch (Exception e) {
-                    logger.error("Cookie auto-update failed: {}", e.getMessage());
-                }
-            }, interval, interval, TimeUnit.MINUTES);
-        } else {
-            logger.warn("⚠️ Cookie auto-update disabled: cookies not valid");
-        }
-
-        logger.info("ThreadManager initialized: core={}, max={}", coreSize, maxSize);
     }
 
     public boolean startUserParser(long userId) {
-        logger.info("Starting parser for user {}", userId);
-
-        // 🔴 ПРОВЕРКА WHITELIST
         if (!WhitelistManager.isUserAllowed(userId)) {
-            logger.warn("User {} not in whitelist", userId);
             TelegramNotificationService.sendMessage(userId, "❌ You are not authorized to use this bot");
-            return false;
-        }
-
-        // 🔴 ПРОВЕРКА COOKIES ПЕРЕД ЗАПУСКОМ
-        if (!CookieService.hasValidCookies()) {
-            logger.error("Cannot start parser for user {}: cookies not valid", userId);
-            TelegramNotificationService.sendMessage(userId,
-                    "❌ Parser cannot start: cookies not valid!\n" +
-                            "Please wait for administrator to refresh cookies.");
             return false;
         }
 
@@ -100,7 +67,6 @@ public class ThreadManager {
 
         threadPool.submit(() -> runUserParser(session));
 
-        logger.info("Parser started for user {}: {} queries", userId, queries.size());
         TelegramNotificationService.sendMessage(userId,
                 "✅ Parser started!\nQueries: " + queries.size() + "\nCheck interval: " + settings.getCheckInterval() + " sec");
 
@@ -111,29 +77,10 @@ public class ThreadManager {
         long userId = session.getUserId();
         session.setRunning(true);
 
-        logger.info("Parser loop started for user {}", userId);
-
         try {
             SiteParser parser = ParserFactory.createParser("goofish");
 
             while (session.isRunning() && !Thread.currentThread().isInterrupted()) {
-                // 🔴 ПРОВЕРКА COOKIES ПЕРЕД КАЖДОЙ ИТЕРАЦИЕЙ
-                if (!CookieService.hasValidCookies()) {
-                    logger.warn("Cookies invalid for user {}, pausing parser", userId);
-                    TelegramNotificationService.sendMessage(userId,
-                            "⚠️ Parser paused: cookies need refresh\n" +
-                                    "Waiting for administrator action...");
-
-                    // Ждем восстановления cookies
-                    while (!CookieService.hasValidCookies() && session.isRunning()) {
-                        Thread.sleep(60000); // Проверяем каждую минуту
-                    }
-
-                    if (session.isRunning()) {
-                        TelegramNotificationService.sendMessage(userId, "✅ Cookies restored, resuming parser");
-                    }
-                }
-
                 for (String query : session.getQueries()) {
                     if (!session.isRunning()) break;
 
@@ -151,33 +98,16 @@ public class ThreadManager {
                         if (!products.isEmpty()) {
                             session.addProductsFound(products.size());
                             totalProductsFound += products.size();
-
                             sendProductNotifications(userId, products, query, session.getSettings());
-
                             UserDataManager.addUserProducts(userId, products);
                         }
 
                         Thread.sleep(Config.getInt("api.goofish.delay.between.requests", 2000));
 
                     } catch (Exception e) {
-                        logger.error("Error searching '{}' for user {}: {}", query, userId, e.getMessage());
                         session.incrementErrors();
                         session.setLastError("Search error: " + e.getMessage());
-
-                        TelegramNotificationService.sendMessage(userId,
-                                "❌ Ошибка при поиске '" + query + "': " + e.getMessage());
-
                         Thread.sleep(5000);
-                    }
-                }
-
-                // Обновляем cookies после полного цикла
-                if (session.isRunning() && Config.isDynamicCookiesEnabled() && CookieService.hasValidCookies()) {
-                    try {
-                        logger.info("🔄 Обновление cookies после цикла (user={})", userId);
-                        CookieService.refreshCookies("www.goofish.com");
-                    } catch (Exception e) {
-                        logger.warn("Cookie refresh after cycle failed (user={}): {}", userId, e.getMessage());
                     }
                 }
 
@@ -191,9 +121,7 @@ public class ThreadManager {
 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            logger.info("Parser thread interrupted for user {}", userId);
         } catch (Exception e) {
-            logger.error("Parser error for user {}: {}", userId, e.getMessage(), e);
             TelegramNotificationService.sendMessage(userId,
                     "❌ Критическая ошибка парсера: " + e.getMessage());
         } finally {
@@ -209,8 +137,6 @@ public class ThreadManager {
         if (products == null || products.isEmpty()) {
             return;
         }
-
-        logger.info("Отправка уведомлений: {} товаров для пользователя {}", products.size(), userId);
 
         Set<String> productIds = new HashSet<>();
         Map<String, Product> productMap = new HashMap<>();
@@ -230,7 +156,6 @@ public class ThreadManager {
         }
 
         if (newProductIds.isEmpty()) {
-            logger.debug("Нет новых товаров для пользователя {}", userId);
             return;
         }
 
@@ -241,9 +166,6 @@ public class ThreadManager {
                 productsToSend.add(p);
             }
         }
-
-        logger.info("Будет отправлено {} новых товаров пользователю {} (всего найдено {})",
-                productsToSend.size(), userId, products.size());
 
         UserSentProductsManager.markProductsAsSent(userId, newProductIds);
 
@@ -266,7 +188,7 @@ public class ThreadManager {
                 Thread.currentThread().interrupt();
                 break;
             } catch (Exception e) {
-                logger.error("Ошибка отправки уведомления для товара {}: {}", p.getId(), e.getMessage());
+                // Не логируем ошибки отправки
             }
         }
     }
@@ -274,16 +196,12 @@ public class ThreadManager {
     private void sendProductWithPhoto(long userId, Product p, int number, int total) {
         try {
             String caption = formatProductCaption(p, number, total);
-
             boolean sent = TelegramNotificationService.sendPhotoWithHtmlCaption(userId,
                     p.getCoverImageUrl(), caption);
-
             if (!sent) {
                 sendProductAsText(userId, p, number, total);
             }
         } catch (Exception e) {
-            logger.warn("Failed to send photo for product {}, sending as text: {}",
-                    p.getId(), e.getMessage());
             sendProductAsText(userId, p, number, total);
         }
     }
@@ -293,7 +211,7 @@ public class ThreadManager {
             String message = formatProductCaption(p, number, total);
             TelegramNotificationService.sendHtmlMessage(userId, message);
         } catch (Exception e) {
-            logger.error("Failed to send product text for {}: {}", p.getId(), e.getMessage());
+            // Не логируем ошибки
         }
     }
 
@@ -337,7 +255,6 @@ public class ThreadManager {
         if (session != null) {
             session.setRunning(false);
             userSessions.remove(userId);
-            logger.info("Parser stopped for user {}", userId);
             return true;
         }
         return false;
@@ -347,7 +264,6 @@ public class ThreadManager {
         UserSession session = userSessions.get(userId);
         if (session != null && session.isRunning()) {
             session.setPaused(true);
-            logger.info("Parser paused for user {}", userId);
             return true;
         }
         return false;
@@ -357,7 +273,6 @@ public class ThreadManager {
         UserSession session = userSessions.get(userId);
         if (session != null && session.isPaused()) {
             session.setPaused(false);
-            logger.info("Parser resumed for user {}", userId);
             return true;
         }
         return false;
@@ -376,16 +291,7 @@ public class ThreadManager {
         stats.put("uptime", System.currentTimeMillis() - startTime.getTime());
         stats.put("activeThreads", threadPool.getActiveCount());
         stats.put("poolSize", threadPool.getPoolSize());
-        stats.put("dynamicCookiesEnabled", Config.isDynamicCookiesEnabled());
-        stats.put("cookiesValid", CookieService.hasValidCookies());
         return stats;
-    }
-
-    private void logStatistics() {
-        logger.info("Stats: users={}, products={}, requests={}, threads={}/{}, cookiesValid={}",
-                userSessions.size(), totalProductsFound, totalRequestsMade,
-                threadPool.getActiveCount(), threadPool.getPoolSize(),
-                CookieService.hasValidCookies());
     }
 
     public List<Long> getActiveUsers() {
@@ -398,8 +304,6 @@ public class ThreadManager {
     }
 
     public void shutdown() {
-        logger.info("Shutting down ThreadManager...");
-
         for (long userId : new ArrayList<>(userSessions.keySet())) {
             stopUserParser(userId);
         }
@@ -414,7 +318,6 @@ public class ThreadManager {
             if (!scheduler.awaitTermination(10, TimeUnit.SECONDS)) {
                 scheduler.shutdownNow();
             }
-            logger.info("ThreadManager shutdown complete");
         } catch (InterruptedException e) {
             threadPool.shutdownNow();
             scheduler.shutdownNow();
